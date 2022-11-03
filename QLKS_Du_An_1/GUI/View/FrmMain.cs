@@ -33,6 +33,8 @@ namespace GUI.View
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        #region SettingMain
+
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -41,6 +43,13 @@ namespace GUI.View
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color7 = Color.FromArgb(0, 255, 0);
+            public static Color color8 = Color.FromArgb(0, 255, 255);
+            public static Color color9 = Color.FromArgb(255, 255, 0);
+            public static Color color10 = Color.FromArgb(255, 69, 0);
+            public static Color color11 = Color.FromArgb(139, 0, 139);
+            public static Color color12 = Color.FromArgb(255, 228, 225);
+
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -101,7 +110,7 @@ namespace GUI.View
             lblTitleChildForm.Text = childForm.Text;
         }
 
-     
+
 
         private void ibtn_DanhSachPhong_Click(object sender, EventArgs e)
         {
@@ -135,49 +144,49 @@ namespace GUI.View
 
         private void ibtn_QLPhong_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color6);
             OpenChildForm(new FrmQLPhong());
         }
 
         private void ibtn_QLLoaiDichVu_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new FrmQLLoaiDichVu());
         }
 
         private void ibtn_QLDichVu_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color8);
             OpenChildForm(new FrmQLDichVu());
         }
 
         private void ibtn_QLTienNghi_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateButton(sender, RGBColors.color9);
             OpenChildForm(new FrmQLTienNghi());
         }
 
         private void ibtn_QLCTTienNghi_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color10);
             OpenChildForm(new FrmQLCTTienNghi());
         }
 
         private void ibtn_QLNhanVien_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color11);
             OpenChildForm(new FrmQLNhanVien());
         }
 
         private void ibtn_QLTaiKhoan_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color12);
             OpenChildForm(new FrmQLTaiKhoan());
         }
 
         private void ibtn_ThongKe_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new FrmThongKe());
         }
 
@@ -201,5 +210,9 @@ namespace GUI.View
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        #endregion
+
+
     }
 }

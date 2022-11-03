@@ -45,12 +45,12 @@
             this.pn_AccImg = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_TitleBar = new System.Windows.Forms.Panel();
+            this.btn_Minimize = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Label();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btn_Minimize = new System.Windows.Forms.Label();
             this.pn_MenuBar.SuspendLayout();
             this.pn_AccImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -400,6 +400,20 @@
             this.pn_TitleBar.TabIndex = 1;
             this.pn_TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pn_TitleBar_MouseDown);
             // 
+            // btn_Minimize
+            // 
+            this.btn_Minimize.AutoSize = true;
+            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Minimize.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btn_Minimize.Location = new System.Drawing.Point(956, 0);
+            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Minimize.Name = "btn_Minimize";
+            this.btn_Minimize.Size = new System.Drawing.Size(21, 19);
+            this.btn_Minimize.TabIndex = 3;
+            this.btn_Minimize.Text = "__";
+            this.btn_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_Minimize.Click += new System.EventHandler(this.btn_Minimize_Click);
+            // 
             // btn_Exit
             // 
             this.btn_Exit.AutoSize = true;
@@ -456,20 +470,6 @@
             this.panelDesktop.Size = new System.Drawing.Size(1014, 677);
             this.panelDesktop.TabIndex = 3;
             // 
-            // btn_Minimize
-            // 
-            this.btn_Minimize.AutoSize = true;
-            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Minimize.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btn_Minimize.Location = new System.Drawing.Point(956, 0);
-            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.Size = new System.Drawing.Size(21, 19);
-            this.btn_Minimize.TabIndex = 3;
-            this.btn_Minimize.Text = "__";
-            this.btn_Minimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_Minimize.Click += new System.EventHandler(this.btn_Minimize_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -481,7 +481,7 @@
             this.Controls.Add(this.pn_MenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
             this.pn_MenuBar.ResumeLayout(false);
             this.pn_AccImg.ResumeLayout(false);
