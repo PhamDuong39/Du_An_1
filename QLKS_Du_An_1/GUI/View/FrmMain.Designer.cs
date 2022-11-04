@@ -92,7 +92,7 @@
             this.ibtn_ThongKe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_ThongKe.IconSize = 24;
             this.ibtn_ThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_ThongKe.Location = new System.Drawing.Point(0, 639);
+            this.ibtn_ThongKe.Location = new System.Drawing.Point(0, 661);
             this.ibtn_ThongKe.Name = "ibtn_ThongKe";
             this.ibtn_ThongKe.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_ThongKe.Size = new System.Drawing.Size(220, 45);
@@ -114,7 +114,7 @@
             this.ibtn_QLTaiKhoan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLTaiKhoan.IconSize = 24;
             this.ibtn_QLTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLTaiKhoan.Location = new System.Drawing.Point(0, 594);
+            this.ibtn_QLTaiKhoan.Location = new System.Drawing.Point(0, 616);
             this.ibtn_QLTaiKhoan.Name = "ibtn_QLTaiKhoan";
             this.ibtn_QLTaiKhoan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLTaiKhoan.Size = new System.Drawing.Size(220, 45);
@@ -136,7 +136,7 @@
             this.ibtn_QLNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLNhanVien.IconSize = 24;
             this.ibtn_QLNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLNhanVien.Location = new System.Drawing.Point(0, 549);
+            this.ibtn_QLNhanVien.Location = new System.Drawing.Point(0, 571);
             this.ibtn_QLNhanVien.Name = "ibtn_QLNhanVien";
             this.ibtn_QLNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLNhanVien.Size = new System.Drawing.Size(220, 45);
@@ -158,7 +158,7 @@
             this.ibtn_QLCTTienNghi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLCTTienNghi.IconSize = 24;
             this.ibtn_QLCTTienNghi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLCTTienNghi.Location = new System.Drawing.Point(0, 504);
+            this.ibtn_QLCTTienNghi.Location = new System.Drawing.Point(0, 526);
             this.ibtn_QLCTTienNghi.Name = "ibtn_QLCTTienNghi";
             this.ibtn_QLCTTienNghi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLCTTienNghi.Size = new System.Drawing.Size(220, 45);
@@ -180,7 +180,7 @@
             this.ibtn_QLTienNghi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLTienNghi.IconSize = 24;
             this.ibtn_QLTienNghi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLTienNghi.Location = new System.Drawing.Point(0, 459);
+            this.ibtn_QLTienNghi.Location = new System.Drawing.Point(0, 481);
             this.ibtn_QLTienNghi.Name = "ibtn_QLTienNghi";
             this.ibtn_QLTienNghi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLTienNghi.Size = new System.Drawing.Size(220, 45);
@@ -202,7 +202,7 @@
             this.ibtn_QLDichVu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLDichVu.IconSize = 24;
             this.ibtn_QLDichVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLDichVu.Location = new System.Drawing.Point(0, 414);
+            this.ibtn_QLDichVu.Location = new System.Drawing.Point(0, 436);
             this.ibtn_QLDichVu.Name = "ibtn_QLDichVu";
             this.ibtn_QLDichVu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLDichVu.Size = new System.Drawing.Size(220, 45);
@@ -224,7 +224,7 @@
             this.ibtn_QLLoaiDichVu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLLoaiDichVu.IconSize = 24;
             this.ibtn_QLLoaiDichVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLLoaiDichVu.Location = new System.Drawing.Point(0, 369);
+            this.ibtn_QLLoaiDichVu.Location = new System.Drawing.Point(0, 391);
             this.ibtn_QLLoaiDichVu.Name = "ibtn_QLLoaiDichVu";
             this.ibtn_QLLoaiDichVu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLLoaiDichVu.Size = new System.Drawing.Size(220, 45);
@@ -246,7 +246,7 @@
             this.ibtn_QLPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLPhong.IconSize = 24;
             this.ibtn_QLPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLPhong.Location = new System.Drawing.Point(0, 324);
+            this.ibtn_QLPhong.Location = new System.Drawing.Point(0, 346);
             this.ibtn_QLPhong.Name = "ibtn_QLPhong";
             this.ibtn_QLPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLPhong.Size = new System.Drawing.Size(220, 45);
@@ -268,7 +268,7 @@
             this.ibtn_QLLoaiPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLLoaiPhong.IconSize = 24;
             this.ibtn_QLLoaiPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLLoaiPhong.Location = new System.Drawing.Point(0, 279);
+            this.ibtn_QLLoaiPhong.Location = new System.Drawing.Point(0, 301);
             this.ibtn_QLLoaiPhong.Name = "ibtn_QLLoaiPhong";
             this.ibtn_QLLoaiPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLLoaiPhong.Size = new System.Drawing.Size(220, 45);
@@ -290,7 +290,7 @@
             this.ibtn_QLKhachHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_QLKhachHang.IconSize = 24;
             this.ibtn_QLKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_QLKhachHang.Location = new System.Drawing.Point(0, 234);
+            this.ibtn_QLKhachHang.Location = new System.Drawing.Point(0, 256);
             this.ibtn_QLKhachHang.Name = "ibtn_QLKhachHang";
             this.ibtn_QLKhachHang.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_QLKhachHang.Size = new System.Drawing.Size(220, 45);
@@ -312,7 +312,7 @@
             this.ibtn_HoaDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_HoaDon.IconSize = 24;
             this.ibtn_HoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_HoaDon.Location = new System.Drawing.Point(0, 189);
+            this.ibtn_HoaDon.Location = new System.Drawing.Point(0, 211);
             this.ibtn_HoaDon.Name = "ibtn_HoaDon";
             this.ibtn_HoaDon.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_HoaDon.Size = new System.Drawing.Size(220, 45);
@@ -334,7 +334,7 @@
             this.ibtn_DatPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_DatPhong.IconSize = 24;
             this.ibtn_DatPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_DatPhong.Location = new System.Drawing.Point(0, 144);
+            this.ibtn_DatPhong.Location = new System.Drawing.Point(0, 166);
             this.ibtn_DatPhong.Name = "ibtn_DatPhong";
             this.ibtn_DatPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_DatPhong.Size = new System.Drawing.Size(220, 45);
@@ -356,7 +356,7 @@
             this.ibtn_DanhSachPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_DanhSachPhong.IconSize = 24;
             this.ibtn_DanhSachPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_DanhSachPhong.Location = new System.Drawing.Point(0, 99);
+            this.ibtn_DanhSachPhong.Location = new System.Drawing.Point(0, 121);
             this.ibtn_DanhSachPhong.Name = "ibtn_DanhSachPhong";
             this.ibtn_DanhSachPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.ibtn_DanhSachPhong.Size = new System.Drawing.Size(220, 45);
@@ -373,7 +373,7 @@
             this.pn_AccImg.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_AccImg.Location = new System.Drawing.Point(0, 0);
             this.pn_AccImg.Name = "pn_AccImg";
-            this.pn_AccImg.Size = new System.Drawing.Size(220, 99);
+            this.pn_AccImg.Size = new System.Drawing.Size(220, 121);
             this.pn_AccImg.TabIndex = 0;
             // 
             // pictureBox1
