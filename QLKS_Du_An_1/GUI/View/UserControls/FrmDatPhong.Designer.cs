@@ -69,6 +69,7 @@
             this.btn_DatPhong.TabIndex = 9;
             this.btn_DatPhong.Text = "Đặt phòng";
             this.btn_DatPhong.UseVisualStyleBackColor = false;
+            this.btn_DatPhong.Click += new System.EventHandler(this.btn_DatPhong_Click);
             // 
             // FrmDatPhong
             // 
