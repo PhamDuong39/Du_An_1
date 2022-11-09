@@ -32,13 +32,13 @@ namespace DAL.Configurations
                 .HasColumnType("nvarchar(12)").IsRequired();
             builder.Property(p => p.Luong).HasColumnName("Luong")
                 .HasColumnType("int").IsRequired();
-            
-            //builder.Property(p => p.IDCv).HasColumnName("IDCv")
-            //    .IsRequired();
+
+            builder.Property(p => p.IDCv).HasColumnName("IDCv")
+                .IsRequired();
 
             // set FK
-            //builder.HasOne(p => p.ChucVu)
-            //    .WithMany().HasForeignKey(p => p.IDCv);
+            builder.HasOne(p => p.ChucVu)
+                .WithMany().HasForeignKey(p => p.IDCv);
 
 
         }

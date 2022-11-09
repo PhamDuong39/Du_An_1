@@ -4,6 +4,7 @@ using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(QLKS_DA1_DbContext))]
-    partial class QLKS_DA1_DbContextModelSnapshot : ModelSnapshot
+    [Migration("20221109163711_tableTK")]
+    partial class tableTK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +23,6 @@ namespace DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("DAL.Models.ChiTietTienNghi", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("IDLoaiTienNghi")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("MaCTTienNghi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasColumnName("MaCTTienNghi");
-
-                    b.Property<string>("TenCTTienNghi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("TenCTTienNghi");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("IDLoaiTienNghi");
-
-                    b.ToTable("ChiTietTienNghi", (string)null);
-                });
 
             modelBuilder.Entity("DAL.Models.ChucVu", b =>
                 {
@@ -67,56 +43,6 @@ namespace DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("ChucVu", (string)null);
-                });
-
-            modelBuilder.Entity("DAL.Models.LoaiPhong", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("GiaNgay")
-                        .HasColumnType("int")
-                        .HasColumnName("GiayNgay");
-
-                    b.Property<string>("MaLoaiPhong")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasColumnName("MaLoaiPhong");
-
-                    b.Property<int>("SoGiuong")
-                        .HasColumnType("int")
-                        .HasColumnName("SoGiuong");
-
-                    b.Property<string>("TenLoaiPhong")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("TenLoaiPhong");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LoaiPhong", (string)null);
-                });
-
-            modelBuilder.Entity("DAL.Models.LoaiTienNghi", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("MaLoaiTienNghi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasColumnName("MaLoaiTienNghi");
-
-                    b.Property<string>("TenLoaiTienNghi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("TenLoaiTienNghi");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LoaiTienNghi", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.NhanVien", b =>
@@ -202,17 +128,6 @@ namespace DAL.Migrations
                         .IsUnique();
 
                     b.ToTable("TaiKhoan", (string)null);
-                });
-
-            modelBuilder.Entity("DAL.Models.ChiTietTienNghi", b =>
-                {
-                    b.HasOne("DAL.Models.LoaiTienNghi", "LoaiTienNghi")
-                        .WithMany()
-                        .HasForeignKey("IDLoaiTienNghi")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoaiTienNghi");
                 });
 
             modelBuilder.Entity("DAL.Models.NhanVien", b =>

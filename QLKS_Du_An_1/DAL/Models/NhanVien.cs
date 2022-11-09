@@ -22,7 +22,9 @@ namespace DAL.Models
 
         // foreign key
         public Guid IDCv { get; set; }
-        public ChucVu ChucVu { get; set; }
+        public virtual ChucVu ChucVu { get; set; }
+
+        public TaiKhoan TaiKhoan { get; set; }
 
     }
 }
