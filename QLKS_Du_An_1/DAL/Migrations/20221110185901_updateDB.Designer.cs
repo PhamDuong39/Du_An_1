@@ -4,6 +4,7 @@ using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(QLKS_DA1_DbContext))]
-    partial class QLKS_DA1_DbContextModelSnapshot : ModelSnapshot
+    [Migration("20221110185901_updateDB")]
+    partial class updateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -412,7 +414,7 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CapDoQuyen");
 
-                    b.Property<Guid?>("IDNv")
+                    b.Property<Guid>("IDNv")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MatKhau")
@@ -428,8 +430,7 @@ namespace DAL.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("IDNv")
-                        .IsUnique()
-                        .HasFilter("[IDNv] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("TaiKhoan", (string)null);
                 });
@@ -558,7 +559,9 @@ namespace DAL.Migrations
                 {
                     b.HasOne("DAL.Models.NhanVien", "NhanVien")
                         .WithOne("TaiKhoan")
-                        .HasForeignKey("DAL.Models.TaiKhoan", "IDNv");
+                        .HasForeignKey("DAL.Models.TaiKhoan", "IDNv")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("NhanVien");
                 });
