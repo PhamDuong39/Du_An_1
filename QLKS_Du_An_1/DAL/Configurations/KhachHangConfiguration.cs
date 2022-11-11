@@ -16,6 +16,7 @@ namespace DAL.Configurations
             builder.ToTable("KhachHang");
             builder.HasKey(p => p.ID);
             builder.Property(p => p.MaKH).HasColumnName("MaKH").HasColumnType("nvarchar(10)").IsRequired();
+            builder.HasAlternateKey(p => p.MaKH);//Set Mã là duy nhất
             builder.Property(p => p.HovaTen).HasColumnName("HoTen").HasColumnType("nvarchar(30)").IsRequired();
             builder.Property(p => p.CCCD).HasColumnName("CCCD").HasColumnType("nvarchar(12)").IsRequired();
             builder.Property(p => p.SDT).HasColumnName("SDT").HasColumnType("nvarchar(12)").IsRequired();

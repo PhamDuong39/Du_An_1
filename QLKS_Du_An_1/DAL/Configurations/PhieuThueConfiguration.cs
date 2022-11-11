@@ -16,7 +16,6 @@ namespace DAL.Configurations
             builder.ToTable("PhieuThue");
             builder.HasKey(p => p.ID);
             builder.Property(p => p.NgayLapPhieu).HasColumnName("NgayLapPhieu").HasColumnType("datetime").IsRequired();
-
             builder.HasOne(p => p.KhachHang).WithMany().HasForeignKey(p => p.IdKH);
             builder.HasOne(p => p.NhanVien).WithMany().HasForeignKey(p => p.IdNV);
         }
