@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View.AddControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GUI.View.UserControls
         public FrmQLDichVu()
         {
             InitializeComponent();
+        }
+
+        private void btn_ThemDichVu_Click(object sender, EventArgs e)
+        {
+            FrmBtnThemDichVu dv = new FrmBtnThemDichVu();
+            dv.ShowDialog();
         }
     }
 }

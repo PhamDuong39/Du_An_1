@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View.AddControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GUI.View.UserControls
         public FrmQLTienNghi()
         {
             InitializeComponent();
+        }
+
+        private void btn_ThemTienNghi_Click(object sender, EventArgs e)
+        {
+            FrmBtnThemTienNghi tn = new FrmBtnThemTienNghi();
+            tn.ShowDialog();
         }
     }
 }

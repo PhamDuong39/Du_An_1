@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View.AddControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GUI.View.UserControls
         public FrmQLPhong()
         {
             InitializeComponent();
+        }
+
+        private void btn_ThemPhong_Click(object sender, EventArgs e)
+        {
+            FrmBtnThemPhong p = new FrmBtnThemPhong();
+            p.ShowDialog();
         }
     }
 }

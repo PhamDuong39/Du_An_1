@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View.AddControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GUI.View.UserControls
         public FrmQLLoaiDichVu()
         {
             InitializeComponent();
+        }
+
+        private void btn_ThemLoaiDichVu_Click(object sender, EventArgs e)
+        {
+            FrmBtnThemLoaiDichVu ldv = new FrmBtnThemLoaiDichVu();
+            ldv.ShowDialog();
         }
     }
 }

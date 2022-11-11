@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using GUI.View.AddControls;
 namespace GUI.View.UserControls
 {
     public partial class FrmQLCTTienNghi : Form
@@ -15,6 +15,11 @@ namespace GUI.View.UserControls
         public FrmQLCTTienNghi()
         {
             InitializeComponent();
+        }
+
+        private void btn_ThemCTTienNghi_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
