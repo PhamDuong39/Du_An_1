@@ -19,7 +19,7 @@ namespace DAL.Configurations
             builder.Property(p => p.TinhTrang).HasColumnName("TinhTrang").HasColumnType("int").IsRequired();
 
             builder.HasOne(p => p.LoaiPhong).WithMany().HasForeignKey(p => p.IDLoaiPhong);
-            builder.HasOne(p => p.ChiTietTienNghi).WithMany().HasForeignKey(p => p.IdCTTienNghi);
+            
         }
     }
 }

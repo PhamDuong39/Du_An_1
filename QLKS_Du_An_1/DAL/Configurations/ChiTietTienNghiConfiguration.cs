@@ -22,6 +22,8 @@ namespace DAL.Configurations
             //FK
             builder.HasOne(p => p.LoaiTienNghi).WithMany()
                 .HasForeignKey(p => p.IDLoaiTienNghi);
+            builder.HasOne(p => p.Phong).WithMany()
+                .HasForeignKey(p => p.IdPhong);
         }
     }
 }
