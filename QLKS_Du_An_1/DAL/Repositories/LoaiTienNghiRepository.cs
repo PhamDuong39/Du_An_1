@@ -10,24 +10,49 @@ namespace DAL.Repositories
 {
     public class LoaiTienNghiRepository : ILoaiTienNghiRepository
     {
+        QLKS_DA1_DbContext _Db;
         public bool Add(LoaiTienNghi obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            
+            obj.ID = Guid.NewGuid();
+            _Db.Add(obj);
+            _Db.SaveChanges();
+            return true;
         }
 
         public List<LoaiTienNghi> GetAll()
         {
-            throw new NotImplementedException();
+            return _Db.LoaiTienNghis.ToList();
         }
 
         public bool Remove(LoaiTienNghi obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var loaiTN = GetAll().FirstOrDefault(a => a.ID == obj.ID);
+            _Db.Remove(loaiTN);
+            _Db.SaveChanges();
+            return true;
         }
 
         public bool Upadate(LoaiTienNghi obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
+            x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
+            x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
+            _Db.Update(x);
+            _Db.SaveChanges();
+            return true;
         }
     }
 }

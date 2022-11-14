@@ -24,7 +24,7 @@ namespace DAL.Models
         {
             // thuc hien rang buoc ket noi
             base.OnConfiguring(optionsBuilder
-                .UseSqlServer("Data Source=DESKTOP-OKDB069;Initial Catalog=QLKS_Du_An_1;Integrated Security=True"));
+                .UseSqlServer("Data Source=LAPTOP-DAV1LO0Q\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan2;Persist Security Info=True;User ID=hiepnt;Password=hiepa8k57tn "));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

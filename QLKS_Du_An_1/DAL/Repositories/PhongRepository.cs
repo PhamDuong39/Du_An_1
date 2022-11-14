@@ -10,24 +10,50 @@ namespace DAL.Repositories
 {
     public class PhongRepository : IPhongRepository
     {
+        private QLKS_DA1_DbContext _Db;
         public bool Add(Phong obj)
         {
-            throw new NotImplementedException();
+            if(obj == null)
+            {
+                return false;
+            }           
+            obj.Id = Guid.NewGuid();
+            _Db.Add(obj);
+            _Db.SaveChanges();
+            return true;
         }
 
         public List<Phong> GetAll()
         {
-            throw new NotImplementedException();
+            return _Db.Phongs.ToList();
         }
 
         public bool Remove(Phong obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var phong = GetAll().FirstOrDefault(a => a.Id == obj.Id);
+            _Db.Remove(phong);
+            _Db.SaveChanges();
+            return true;
         }
 
         public bool Upadate(Phong obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
+            x.MaPhong = obj.MaPhong;
+            x.TinhTrang = obj.TinhTrang;
+            x.IDLoaiPhong = obj.IDLoaiPhong;
+            x.IdCTTienNghi = obj.IdCTTienNghi;
+            _Db.Update(x);
+            _Db.SaveChanges();
+            return true;
         }
     }
 }
