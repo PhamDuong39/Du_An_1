@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Models
+namespace BUS.ViewModels
 {
-    public class ChiTietTienNghi
+    public class ChiTietTienNghiView
     {
         public Guid ID { get; set; }
         public string MaCTTienNghi { get; set; }
@@ -16,7 +16,7 @@ namespace DAL.Models
 
         public Guid? IdPhong { get; set; }
 
-        public virtual LoaiTienNghi LoaiTienNghi { get; set; }
-        public virtual Phong? Phong { get; set; }
+        public string TenLoaiTienNghi { get; set; }
+        public string? MaPhong { get; set; }
     }
 }
