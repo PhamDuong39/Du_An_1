@@ -10,24 +10,63 @@ namespace DAL.Repositories
 {
     public class PhieuThueRepository : IPhieuThueRepository
     {
+        private QLKS_DA1_DbContext _DbContext;
+
+        public PhieuThueRepository()
+        {
+            _DbContext = new QLKS_DA1_DbContext();
+        }
         public bool Add(PhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                obj.ID = Guid.NewGuid();
+                _DbContext.PhieuThues.Add(obj);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
 
         public List<PhieuThue> GetAll()
         {
-            throw new NotImplementedException();
+            return _DbContext.PhieuThues.ToList();
         }
 
         public bool Remove(PhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var pt = _DbContext.PhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                _DbContext.PhieuThues.Remove(pt);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
 
         public bool Upadate(PhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var pt = _DbContext.PhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                pt.IdKH = obj.IdKH;
+                pt.IdNV = obj.IdNV;
+                pt.NgayLapPhieu = obj.NgayLapPhieu;
+                _DbContext.PhieuThues.Update(pt);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
     }
 }

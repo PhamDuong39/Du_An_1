@@ -10,24 +10,65 @@ namespace DAL.Repositories
 {
     public class ChiTietPhieuThueRepository : IChiTietPhieuThueRepository
     {
+        private QLKS_DA1_DbContext _DbContext;
+
+        public ChiTietPhieuThueRepository()
+        {
+            _DbContext = new QLKS_DA1_DbContext();
+
+        }
         public bool Add(ChiTietPhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                obj.ID = Guid.NewGuid();
+                _DbContext.ChiTietPhieuThues.Add(obj);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
 
         public List<ChiTietPhieuThue> GetAll()
         {
-            throw new NotImplementedException();
+            return _DbContext.ChiTietPhieuThues.ToList();
         }
 
         public bool Remove(ChiTietPhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                _DbContext.ChiTietPhieuThues.Remove(ctpt);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
 
         public bool Upadate(ChiTietPhieuThue obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                ctpt.IdPhieuThue = obj.IdPhieuThue;
+                ctpt.IdPhong = obj.IdPhong;
+                ctpt.NgayBatDau = obj.NgayBatDau;
+                ctpt.NgayKetThuc = obj.NgayKetThuc;
+                _DbContext.ChiTietPhieuThues.Update(ctpt);
+                _DbContext.SaveChanges();
+                return true;
+            }
         }
     }
 }

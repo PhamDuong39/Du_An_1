@@ -10,24 +10,61 @@ namespace DAL.Repositories
 {
     public class HoaDonChiTietRepository : IHoaDonChiTietRepository
     {
+        private QLKS_DA1_DbContext _dbContext;
+
+        public HoaDonChiTietRepository()
+        {
+            _dbContext = new QLKS_DA1_DbContext();
+        }
         public bool Add(HoaDonChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                _dbContext.HoaDonChiTiets.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
         }
 
         public List<HoaDonChiTiet> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.HoaDonChiTiets.ToList();
         }
 
         public bool Remove(HoaDonChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
+                _dbContext.HoaDonChiTiets.Remove(hdct);
+                _dbContext.SaveChanges();
+                return true;
+            }
         }
 
         public bool Upadate(HoaDonChiTiet obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
+                hdct.SoLuong = obj.SoLuong;
+                hdct.DonGia = obj.DonGia;
+                _dbContext.HoaDonChiTiets.Update(hdct);
+                _dbContext.SaveChanges();
+                return true;
+            }
         }
     }
 }
