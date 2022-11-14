@@ -11,6 +11,10 @@ namespace DAL.Repositories
     public class ChiTietTienNghiRepository : IChiTietTienNghiRepository
     {
         private QLKS_DA1_DbContext _Db;
+        public ChiTietTienNghiRepository()
+        {
+            _Db = new QLKS_DA1_DbContext();
+        }
         public bool Add(ChiTietTienNghi obj)
         {
             if (obj == null)

@@ -11,6 +11,10 @@ namespace DAL.Repositories
     public class LoaiTienNghiRepository : ILoaiTienNghiRepository
     {
         QLKS_DA1_DbContext _Db;
+        public LoaiTienNghiRepository()
+        {
+            _Db = new QLKS_DA1_DbContext();
+        }
         public bool Add(LoaiTienNghi obj)
         {
             if (obj == null)

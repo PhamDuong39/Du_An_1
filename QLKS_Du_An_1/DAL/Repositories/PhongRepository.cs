@@ -11,6 +11,10 @@ namespace DAL.Repositories
     public class PhongRepository : IPhongRepository
     {
         private QLKS_DA1_DbContext _Db;
+        public PhongRepository()
+        {
+            _Db = new QLKS_DA1_DbContext();
+        }
         public bool Add(Phong obj)
         {
             if(obj == null)

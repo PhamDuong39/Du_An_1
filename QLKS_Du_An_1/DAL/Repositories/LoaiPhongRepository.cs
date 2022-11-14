@@ -10,6 +10,10 @@ namespace DAL.Repositories
     public class LoaiPhongRepository : ILoaiPhongRepository
     {
         private QLKS_DA1_DbContext _Db;
+        public LoaiPhongRepository()
+        {
+            _Db = new QLKS_DA1_DbContext();
+        }
         public bool Add(LoaiPhong obj)
         {
             
