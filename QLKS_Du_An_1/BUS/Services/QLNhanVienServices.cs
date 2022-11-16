@@ -37,8 +37,14 @@ namespace BUS.Services
                     Luong = obj.Luong,
                     IDCv = obj.IDCv,
                 };
-                _iNhanVienRepository.Add(NhanVienNew);
-                return "Thêm thành công";
+                if (_iNhanVienRepository.Add(NhanVienNew))
+                {
+                    return "Thêm thành công";
+                }
+                else
+                {
+                    return "Thêm thất bại";
+                }
             }
         }
 
@@ -51,8 +57,14 @@ namespace BUS.Services
             else
             {
                 var NhanVienNew = _iNhanVienRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                _iNhanVienRepository.Remove(NhanVienNew);
-                return "Sửa thành công";
+                if (_iNhanVienRepository.Remove(NhanVienNew))
+                {
+                    return "Xóa thành công";
+                }
+                else
+                {
+                    return "Xóa thất bại";
+                }
             }
         }
 
@@ -122,8 +134,17 @@ namespace BUS.Services
                 NhanVienNew.CCCD = obj.CCCD;
                 NhanVienNew.Luong = obj.Luong;
                 NhanVienNew.IDCv = obj.IDCv;
-                _iNhanVienRepository.Upadate(NhanVienNew);
-                return "Sửa thành công";
+                if (_iNhanVienRepository.Upadate(NhanVienNew))
+                {
+                    return "Sửa thành công";
+
+                }
+                else
+                {
+                    return "Sửa thất bại";
+
+                }
+
             }
         }
     }

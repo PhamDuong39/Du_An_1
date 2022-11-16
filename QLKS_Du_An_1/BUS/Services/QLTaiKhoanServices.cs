@@ -37,8 +37,14 @@ namespace BUS.Services
                     CapDoQuyen = obj.CapDoQuyen,
                     IDNv = obj.IDNv,
                 };
-                _iTaiKhoanRepository.Add(TaiKhoanNew);
-                return "Thêm thành công";
+                if (_iTaiKhoanRepository.Add(TaiKhoanNew))
+                {
+                    return "Thêm thành công";
+                }
+                else
+                {
+                    return "Thêm thất b";
+                }
             }
         }
         public string Update(TaiKhoanView obj)
@@ -54,8 +60,15 @@ namespace BUS.Services
                 taikhoan.MatKhau = obj.MatKhau;
                 taikhoan.CapDoQuyen = obj.CapDoQuyen;
                 taikhoan.IDNv = obj.IDNv;
-                _iTaiKhoanRepository.Update(taikhoan);
-                return "Sửa thành công";
+                if (_iTaiKhoanRepository.Update(taikhoan))
+                {
+                    return "Sửa thành công";
+                }
+                else
+                {
+                    return "Sửa thất bại";
+                }
+
             }
         }
         public string Delete(TaiKhoanView obj)
@@ -67,8 +80,14 @@ namespace BUS.Services
             else
             {
                 var taiKhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                _iTaiKhoanRepository.Remove(taiKhoan);
-                return "Xóa thành công";
+                if (_iTaiKhoanRepository.Remove(taiKhoan))
+                {
+                    return "Xóa thành công";
+                }
+                else
+                {
+                    return "Xóa thất bại";
+                }
             }
         }
 
