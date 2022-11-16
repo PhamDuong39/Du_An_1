@@ -51,7 +51,7 @@ namespace DAL.Repositories
             }
         }
 
-        public bool Upadate(TaiKhoan obj)
+        public bool Update(TaiKhoan obj)
         {
             if (obj == null)
             {

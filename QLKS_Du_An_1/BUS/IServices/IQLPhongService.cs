@@ -11,8 +11,8 @@ namespace BUS.IServices
     public interface IQLPhongService
     {
         List<PhongView> GetAll();
-        bool Add(PhongView phongView);
-        bool Remove(PhongView phongView);
-        bool Update(PhongView phongView);
+        string Add(PhongView phongView);
+        string Remove(PhongView phongView);
+        string Update(PhongView phongView);
     }
 }

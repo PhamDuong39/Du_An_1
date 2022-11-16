@@ -19,9 +19,9 @@ namespace BUS.Services
             iLoaiPhongRepository = new LoaiPhongRepository();
         }
 
-        public bool Add(LoaiPhongView loaiPhongView)
+        public string Add(LoaiPhongView loaiPhongView)
         {
-           if(loaiPhongView == null) return false;
+           if(loaiPhongView == null) return "Không có đối tượng truyền vào";
             var LoaiPhong = new LoaiPhong()
             {
                 ID = loaiPhongView.ID,
@@ -30,7 +30,14 @@ namespace BUS.Services
                 GiaNgay = loaiPhongView.GiaNgay,
                 SoGiuong = loaiPhongView.SoGiuong,
             };
-            return iLoaiPhongRepository.Add(LoaiPhong);
+            if (iLoaiPhongRepository.Add(LoaiPhong))
+            {
+                return "Thêm  thành công";
+            }
+            else
+            {
+                return "Thêm không thành công";
+            }
             
         }
 
@@ -49,17 +56,21 @@ namespace BUS.Services
             return _list;
         }
 
-        public bool Remove(LoaiPhongView loaiPhongView)
+        public string Remove(LoaiPhongView loaiPhongView)
         {
-            if(loaiPhongView==null) return false;
+            if(loaiPhongView==null) return "Không có đối tượng truyền vào";
             var loaiPhong = iLoaiPhongRepository.GetAll().FirstOrDefault(c => c.ID == loaiPhongView.ID);
-            return iLoaiPhongRepository.Remove(loaiPhong);
+            if (iLoaiPhongRepository.Remove(loaiPhong)) return "Xóa thành công";
+            else
+            {
+                return "Xóa không thành công";
+            }
             
         }
 
-        public bool Update(LoaiPhongView loaiPhongView)
+        public string Update(LoaiPhongView loaiPhongView)
         {
-            if (loaiPhongView == null) return false;
+            if (loaiPhongView == null) return "không có đối tượng truyền vào";
             var loaiPhong = new LoaiPhong()
             {
                 ID = loaiPhongView.ID,
@@ -68,7 +79,14 @@ namespace BUS.Services
                 GiaNgay = loaiPhongView.GiaNgay,
                 SoGiuong = loaiPhongView.SoGiuong,
             };
-            return iLoaiPhongRepository.Upadate(loaiPhong);
+            if (iLoaiPhongRepository.Upadate(loaiPhong))
+            {
+                return "Sửa thành công";
+            }
+            else
+            {
+                return "Sửa Không thành công";
+            }
         }
     }
 }

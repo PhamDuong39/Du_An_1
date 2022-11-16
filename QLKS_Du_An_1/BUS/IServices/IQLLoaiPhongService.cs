@@ -10,9 +10,9 @@ namespace BUS.IServices
     public interface IQLLoaiPhongService
     {
         List<LoaiPhongView> GetAll();
-        bool Add(LoaiPhongView loaiPhongView);
-        bool Remove(LoaiPhongView loaiPhongView);
-        bool Update(LoaiPhongView loaiPhongView);
+        string Add(LoaiPhongView loaiPhongView);
+        string Remove(LoaiPhongView loaiPhongView);
+        string Update(LoaiPhongView loaiPhongView);
 
     }
 }

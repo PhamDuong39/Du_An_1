@@ -10,7 +10,7 @@ namespace DAL.IRepositories
     public interface ITaiKhoanRepository
     {
         public bool Add(TaiKhoan obj);
-        public bool Upadate(TaiKhoan obj);
+        public bool Update(TaiKhoan obj);
         public bool Remove(TaiKhoan obj);
         public List<TaiKhoan> GetAll();
     }

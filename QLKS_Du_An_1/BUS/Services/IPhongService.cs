@@ -23,11 +23,11 @@ namespace BUS.Services
             iLoaiPhongRepository = new LoaiPhongRepository();
             iChiTietTienNghiRepository = new ChiTietTienNghiRepository();
         }
-        public bool Add(PhongView obj)
+        public string Add(PhongView obj)
         {
             if(obj == null)
             {
-                return false;
+                return "Không có đối tượng truyền vào";
             }
             else
             {
@@ -39,8 +39,14 @@ namespace BUS.Services
                     IDLoaiPhong = obj.IDLoaiPhong,
                     IdCTTienNghi = obj.IdCTTienNghi
                 };
-                if (iPhongRepository.Add(phong)) return true;
-                else { return false;}
+                if (iPhongRepository.Add(phong))
+                {
+                    return "Thêm phòng thành công";
+                }
+                else 
+                {
+                    return "Thêm phòng không thành công";
+                };
             }
         }
         
@@ -64,16 +70,23 @@ namespace BUS.Services
 
         }
 
-        public bool Remove(PhongView obj)
+        public string Remove(PhongView obj)
         {
-            if (obj == null) return false;
+            if (obj == null) return "Không có đối tượng truyền vào";
             var phong = iPhongRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
-            return iPhongRepository.Remove(phong);
+            if (iPhongRepository.Remove(phong))
+            {
+                return "Xóa phòng thành công";
+            }
+            else
+            {
+                return "Xóa phòng không thành công";
+            }
         }
 
-        public bool Update(PhongView obj)
+        public string Update(PhongView obj)
         {
-            if (obj == null) return false;
+            if (obj == null) return "Không có đối tượng truyền vào";
             var phong = new Phong()
             {
                 Id = obj.Id,
@@ -82,7 +95,15 @@ namespace BUS.Services
                 IdCTTienNghi = obj.IdCTTienNghi,
                 TinhTrang = obj.TinhTrang
             };
-            return iPhongRepository.Upadate(phong);
+            if (iPhongRepository.Upadate(phong))
+            {
+                return "Sửa Phòng thành công";
+            }
+            else
+            {
+                return "Sửa Phòng không thành công"; 
+            }
+
         }
     }
 }
