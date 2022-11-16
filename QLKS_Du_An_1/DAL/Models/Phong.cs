@@ -14,5 +14,6 @@ namespace DAL.Models
         public Guid IDLoaiPhong { get; set; }
         public Guid IdCTTienNghi { get; set; }
         public virtual LoaiPhong LoaiPhong { get; set; }
+        
     }
 }

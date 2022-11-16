@@ -16,5 +16,10 @@ namespace GUI.View.AddControls
         {
             InitializeComponent();
         }
+
+        private void tb_TenLoaiPhong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
