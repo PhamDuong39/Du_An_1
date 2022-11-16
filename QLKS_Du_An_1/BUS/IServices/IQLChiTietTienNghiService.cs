@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BUS.ViewModels;
 namespace BUS.IServices
 {
-    public interface IChiTietTienNghiService
+    public interface IQLChiTietTienNghiService
     {
         public string Add(ChiTietTienNghiView obj);
         public string Update(ChiTietTienNghiView obj);
