@@ -42,10 +42,10 @@
             this.btn_ThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemPhong.Location = new System.Drawing.Point(875, 56);
+            this.btn_ThemPhong.Location = new System.Drawing.Point(766, 42);
             this.btn_ThemPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemPhong.Name = "btn_ThemPhong";
-            this.btn_ThemPhong.Size = new System.Drawing.Size(206, 53);
+            this.btn_ThemPhong.Size = new System.Drawing.Size(180, 40);
             this.btn_ThemPhong.TabIndex = 15;
             this.btn_ThemPhong.Text = "Thêm phòng";
             this.btn_ThemPhong.UseVisualStyleBackColor = false;
@@ -53,36 +53,36 @@
             // 
             // tbt_SearchRoomName
             // 
-            this.tbt_SearchRoomName.Location = new System.Drawing.Point(77, 67);
+            this.tbt_SearchRoomName.Location = new System.Drawing.Point(67, 50);
             this.tbt_SearchRoomName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchRoomName.Name = "tbt_SearchRoomName";
             this.tbt_SearchRoomName.PlaceholderText = "    Nhập số phòng cần tìm";
-            this.tbt_SearchRoomName.Size = new System.Drawing.Size(342, 27);
+            this.tbt_SearchRoomName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchRoomName.TabIndex = 14;
             // 
             // dtg_DanhSachPhong
             // 
             this.dtg_DanhSachPhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachPhong.Location = new System.Drawing.Point(109, 153);
-            this.dtg_DanhSachPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtg_DanhSachPhong.Location = new System.Drawing.Point(95, 115);
             this.dtg_DanhSachPhong.Name = "dtg_DanhSachPhong";
             this.dtg_DanhSachPhong.RowHeadersWidth = 51;
             this.dtg_DanhSachPhong.RowTemplate.Height = 25;
             this.dtg_DanhSachPhong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_DanhSachPhong.Size = new System.Drawing.Size(922, 643);
+            this.dtg_DanhSachPhong.Size = new System.Drawing.Size(807, 482);
             this.dtg_DanhSachPhong.TabIndex = 13;
+            this.dtg_DanhSachPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellClick);
+            this.dtg_DanhSachPhong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellContentClick);
             // 
             // FrmQLPhong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1141, 851);
+            this.ClientSize = new System.Drawing.Size(998, 562);
             this.Controls.Add(this.btn_ThemPhong);
             this.Controls.Add(this.tbt_SearchRoomName);
             this.Controls.Add(this.dtg_DanhSachPhong);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLPhong";
             this.Text = "FrmQLPhong";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachPhong)).EndInit();

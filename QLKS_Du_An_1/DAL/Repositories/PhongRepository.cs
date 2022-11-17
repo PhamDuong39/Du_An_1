@@ -54,7 +54,7 @@ namespace DAL.Repositories
             x.MaPhong = obj.MaPhong;
             x.TinhTrang = obj.TinhTrang;
             x.IDLoaiPhong = obj.IDLoaiPhong;
-            x.IdCTTienNghi = obj.IdCTTienNghi;
+          
             _Db.Update(x);
             _Db.SaveChanges();
             return true;
