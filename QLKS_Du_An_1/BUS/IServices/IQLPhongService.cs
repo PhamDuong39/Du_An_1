@@ -14,5 +14,7 @@ namespace BUS.IServices
         string Add(PhongView phongView);
         string Remove(PhongView phongView);
         string Update(PhongView phongView);
+
+        Guid GetIdLoaiPhongByName(string Name);
     }
 }
