@@ -18,7 +18,7 @@ namespace DAL.Configurations
             // Cau hinh cac cot
             builder.Property(p => p.MaNV).HasColumnName("MaNV")
                 .HasColumnType("nvarchar(10)").IsRequired();
-            builder.HasAlternateKey(p => p.MaNV);//Set Mã là duy nhất
+            builder.HasIndex(p => p.MaNV).IsUnique();//Set Mã là duy nhất
             builder.Property(p => p.TenNV).HasColumnName("TenNV")
                 .HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(p => p.NgaySinh).HasColumnName("NgaySinh")

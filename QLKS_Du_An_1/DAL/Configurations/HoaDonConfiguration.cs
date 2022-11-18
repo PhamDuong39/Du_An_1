@@ -16,7 +16,7 @@ namespace DAL.Configurations
             builder.ToTable("HoaDon");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.MaHD).HasColumnName("MaHD").HasColumnType("nvarchar(10)").IsRequired();
-            builder.HasAlternateKey(p => p.MaHD);//Set Mã là duy nhất
+            builder.HasIndex(p => p.MaHD).IsUnique();//Set Mã là duy nhất
             builder.Property(x => x.NgayTaoHD).HasColumnName("NgayTaoHD").HasColumnType("datetime").IsRequired();
 
             builder.HasOne(p => p.ChiTietPhieuThue).WithOne(p => p.HoaDon).HasForeignKey<HoaDon>(p => p.IdCTPhieuThue);
