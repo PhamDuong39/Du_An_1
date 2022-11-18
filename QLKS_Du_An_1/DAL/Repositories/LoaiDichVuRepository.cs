@@ -18,7 +18,7 @@ namespace DAL.Repositories
         public bool Add(LoaiDichVu obj)
         {
             if (obj == null) return false;
-            obj.ID = Guid.NewGuid();
+            
             _dbContext.LoaiDichVus.Add(obj);
             _dbContext.SaveChanges();
             return true;
