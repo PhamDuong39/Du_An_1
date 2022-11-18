@@ -17,7 +17,7 @@ namespace DAL.Configurations
             builder.HasKey(x => x.ID);
             builder.Property(p => p.TenTaiKhoan).HasColumnName("TenTaiKhoan")
                 .HasColumnType("nvarchar(20)").IsRequired();
-            builder.HasAlternateKey(p => p.TenTaiKhoan);//Set Tên tài khoản là duy nhất
+            builder.HasIndex(p => p.TenTaiKhoan).IsUnique();//Set Mã là duy nhất
             builder.Property(p => p.MatKhau).HasColumnName("MatKhau")
               .HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(p => p.CapDoQuyen).HasColumnName("CapDoQuyen")
