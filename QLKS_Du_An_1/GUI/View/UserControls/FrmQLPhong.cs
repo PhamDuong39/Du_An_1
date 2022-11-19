@@ -42,7 +42,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachPhong.ColumnCount = 5;
             dtg_DanhSachPhong.Rows.Clear();
             dtg_DanhSachPhong.Columns[0].Name = "ID";
-            dtg_DanhSachPhong.Columns[0].Visible = true;
+            dtg_DanhSachPhong.Columns[0].Visible = false;
             dtg_DanhSachPhong.Columns[1].Name = "Mã phòng";
             dtg_DanhSachPhong.Columns[2].Name = "Tình trạng";
             dtg_DanhSachPhong.Columns[3].Name = "ID Loại phòng";          
@@ -68,6 +68,13 @@ namespace GUI.View.UserControls
             cbn_ChucNangXoa.Name = "btn_XoaPhong";
             cbn_ChucNangXoa.UseColumnTextForButtonValue = true;
             dtg_DanhSachPhong.Columns.Add(cbn_ChucNangXoa);
+
+            DataGridViewButtonColumn cbn_ChucNangCTTN = new DataGridViewButtonColumn();
+            cbn_ChucNangCTTN.HeaderText = "View Detail";
+            cbn_ChucNangCTTN.Text = "Detail";
+            cbn_ChucNangCTTN.Name = "btn_ViewDetail";
+            cbn_ChucNangCTTN.UseColumnTextForButtonValue = true;
+            dtg_DanhSachPhong.Columns.Add(cbn_ChucNangCTTN);
         }
 
         private void dtg_DanhSachPhong_CellClick(object sender, DataGridViewCellEventArgs e)
