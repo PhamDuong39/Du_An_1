@@ -37,7 +37,7 @@ namespace BUS.Services
                     MaPhong = obj.MaPhong,
                     TinhTrang = obj.TinhTrang,
                     IDLoaiPhong = obj.IDLoaiPhong,
-                    IdCTTienNghi = obj.IdCTTienNghi
+               
                 };
                 if (iPhongRepository.Add(phong))
                 {
@@ -54,7 +54,7 @@ namespace BUS.Services
         {
             List<PhongView> _list = new List<PhongView>();
             _list = (from a in iPhongRepository.GetAll()
-                     join c in iChiTietTienNghiRepository.GetAll() on a.Id equals c.IdPhong
+                  
                      join b in iLoaiPhongRepository.GetAll() on a.IDLoaiPhong equals b.ID
                      select new PhongView
                      {
@@ -62,13 +62,15 @@ namespace BUS.Services
                          MaPhong = a.MaPhong,
                          TinhTrang = a.TinhTrang,
                          IDLoaiPhong = a.IDLoaiPhong,
-                         IdCTTienNghi = c.ID,
+                         
                          TenLoaiPhong = b.TenLoaiPhong,
-                         TenCTTienNghi = c.TenCTTienNghi
+                        
                      }).ToList();
             return _list;
 
         }
+
+  
 
         public string Remove(PhongView obj)
         {
@@ -92,7 +94,7 @@ namespace BUS.Services
                 Id = obj.Id,
                 MaPhong = obj.MaPhong,
                 IDLoaiPhong = obj.IDLoaiPhong,
-                IdCTTienNghi = obj.IdCTTienNghi,
+         
                 TinhTrang = obj.TinhTrang
             };
             if (iPhongRepository.Upadate(phong))
@@ -104,6 +106,12 @@ namespace BUS.Services
                 return "Sửa Phòng không thành công"; 
             }
 
+        }
+
+        public Guid GetIdLoaiPhongByName(string Name)
+        {
+            var phong = iLoaiPhongRepository.GetAll().FirstOrDefault(p => p.TenLoaiPhong == Name);
+            return phong.ID;
         }
     }
 }
