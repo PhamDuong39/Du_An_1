@@ -33,7 +33,7 @@ namespace BUS.Services
             {
                 var phong = new Phong
                 {
-                    Id = obj.Id,
+                    //Id = obj.Id,
                     MaPhong = obj.MaPhong,
                     TinhTrang = obj.TinhTrang,
                     IDLoaiPhong = obj.IDLoaiPhong,
