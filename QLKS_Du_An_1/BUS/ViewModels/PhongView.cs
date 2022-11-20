@@ -12,9 +12,9 @@ namespace BUS.ViewModels
         public string MaPhong { get; set; }
         public int TinhTrang { get; set; }
         public Guid IDLoaiPhong { get; set; }
-        public Guid IdCTTienNghi { get; set; }
+  
 
         public string TenLoaiPhong { get; set; }
-        public string TenCTTienNghi { get; set; }
+       
     }
 }

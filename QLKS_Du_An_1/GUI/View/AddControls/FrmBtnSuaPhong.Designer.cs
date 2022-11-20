@@ -31,18 +31,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbb_TrangThai = new System.Windows.Forms.ComboBox();
-            this.cbb_TenCTTienNghi = new System.Windows.Forms.ComboBox();
             this.cbb_TenLoaiPhong = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_MaPhong = new System.Windows.Forms.TextBox();
             this.btn_HuySuaPhong = new System.Windows.Forms.Button();
             this.btn_SuaPhong = new System.Windows.Forms.Button();
+            this.lb_TenPhongSua = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,20 +50,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(137, 20);
+            this.label1.Location = new System.Drawing.Point(110, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 32);
+            this.label1.Size = new System.Drawing.Size(250, 32);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Nhập thông tin phòng";
+            this.label1.Text = "Sửa thông tin phòng";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.cbb_TrangThai);
-            this.panel1.Controls.Add(this.cbb_TenCTTienNghi);
             this.panel1.Controls.Add(this.cbb_TenLoaiPhong);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tb_MaPhong);
@@ -77,25 +73,17 @@
             // cbb_TrangThai
             // 
             this.cbb_TrangThai.FormattingEnabled = true;
-            this.cbb_TrangThai.Location = new System.Drawing.Point(107, 204);
+            this.cbb_TrangThai.Location = new System.Drawing.Point(107, 173);
             this.cbb_TrangThai.Name = "cbb_TrangThai";
             this.cbb_TrangThai.Size = new System.Drawing.Size(191, 23);
             this.cbb_TrangThai.TabIndex = 29;
-            // 
-            // cbb_TenCTTienNghi
-            // 
-            this.cbb_TenCTTienNghi.FormattingEnabled = true;
-            this.cbb_TenCTTienNghi.Location = new System.Drawing.Point(107, 143);
-            this.cbb_TenCTTienNghi.Name = "cbb_TenCTTienNghi";
-            this.cbb_TenCTTienNghi.Size = new System.Drawing.Size(191, 23);
-            this.cbb_TenCTTienNghi.TabIndex = 28;
             // 
             // cbb_TenLoaiPhong
             // 
             this.cbb_TenLoaiPhong.FormattingEnabled = true;
             this.cbb_TenLoaiPhong.Items.AddRange(new object[] {
             "--Chọn loại phòng--"});
-            this.cbb_TenLoaiPhong.Location = new System.Drawing.Point(107, 80);
+            this.cbb_TenLoaiPhong.Location = new System.Drawing.Point(107, 97);
             this.cbb_TenLoaiPhong.Name = "cbb_TenLoaiPhong";
             this.cbb_TenLoaiPhong.Size = new System.Drawing.Size(191, 23);
             this.cbb_TenLoaiPhong.TabIndex = 27;
@@ -103,27 +91,17 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox5.Location = new System.Drawing.Point(62, 204);
+            this.pictureBox5.Location = new System.Drawing.Point(62, 172);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 26;
             this.pictureBox5.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox4.Location = new System.Drawing.Point(62, 142);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox3.Location = new System.Drawing.Point(62, 79);
+            this.pictureBox3.Location = new System.Drawing.Point(62, 97);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,7 +111,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox1.Location = new System.Drawing.Point(62, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(62, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -142,7 +120,7 @@
             // 
             // tb_MaPhong
             // 
-            this.tb_MaPhong.Location = new System.Drawing.Point(107, 20);
+            this.tb_MaPhong.Location = new System.Drawing.Point(107, 30);
             this.tb_MaPhong.Name = "tb_MaPhong";
             this.tb_MaPhong.PlaceholderText = "Nhập mã phòng";
             this.tb_MaPhong.Size = new System.Drawing.Size(191, 23);
@@ -179,22 +157,35 @@
             this.btn_SuaPhong.TabIndex = 34;
             this.btn_SuaPhong.Text = "Cập nhật";
             this.btn_SuaPhong.UseVisualStyleBackColor = false;
+            this.btn_SuaPhong.Click += new System.EventHandler(this.btn_SuaPhong_Click);
+            // 
+            // lb_TenPhongSua
+            // 
+            this.lb_TenPhongSua.AutoSize = true;
+            this.lb_TenPhongSua.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_TenPhongSua.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.lb_TenPhongSua.Location = new System.Drawing.Point(366, 20);
+            this.lb_TenPhongSua.Name = "lb_TenPhongSua";
+            this.lb_TenPhongSua.Size = new System.Drawing.Size(135, 32);
+            this.lb_TenPhongSua.TabIndex = 36;
+            this.lb_TenPhongSua.Text = "Tên phòng";
             // 
             // FrmBtnSuaPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 450);
+            this.Controls.Add(this.lb_TenPhongSua);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaPhong);
             this.Controls.Add(this.btn_SuaPhong);
             this.Name = "FrmBtnSuaPhong";
             this.Text = "FrmBtnSuaPhong";
+            this.Load += new System.EventHandler(this.FrmBtnSuaPhong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -207,14 +198,13 @@
         private Label label1;
         private Panel panel1;
         private ComboBox cbb_TrangThai;
-        private ComboBox cbb_TenCTTienNghi;
         private ComboBox cbb_TenLoaiPhong;
         private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
         private TextBox tb_MaPhong;
         private Button btn_HuySuaPhong;
         private Button btn_SuaPhong;
+        private Label lb_TenPhongSua;
     }
 }

@@ -79,6 +79,9 @@ namespace DAL.Migrations
 
                     b.HasIndex("IdPhong");
 
+                    b.HasIndex("MaCTTienNghi")
+                        .IsUnique();
+
                     b.ToTable("ChiTietTienNghi", (string)null);
                 });
 
@@ -100,7 +103,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaCV");
+                    b.HasIndex("MaCV")
+                        .IsUnique();
 
                     b.ToTable("ChucVu", (string)null);
                 });
@@ -130,9 +134,10 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("MaDichVu");
-
                     b.HasIndex("IDLoaiDichVu");
+
+                    b.HasIndex("MaDichVu")
+                        .IsUnique();
 
                     b.ToTable("DichVu", (string)null);
                 });
@@ -157,9 +162,10 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("MaHD");
-
                     b.HasIndex("IdCTPhieuThue")
+                        .IsUnique();
+
+                    b.HasIndex("MaHD")
                         .IsUnique();
 
                     b.ToTable("HoaDon", (string)null);
@@ -230,7 +236,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaKH");
+                    b.HasIndex("MaKH")
+                        .IsUnique();
 
                     b.ToTable("KhachHang", (string)null);
                 });
@@ -253,7 +260,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaLoaiDichVu");
+                    b.HasIndex("MaLoaiDichVu")
+                        .IsUnique();
 
                     b.ToTable("LoaiDichVu", (string)null);
                 });
@@ -284,7 +292,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaLoaiPhong");
+                    b.HasIndex("MaLoaiPhong")
+                        .IsUnique();
 
                     b.ToTable("LoaiPhong", (string)null);
                 });
@@ -307,7 +316,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaLoaiTienNghi");
+                    b.HasIndex("MaLoaiTienNghi")
+                        .IsUnique();
 
                     b.ToTable("LoaiTienNghi", (string)null);
                 });
@@ -361,9 +371,10 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("MaNV");
-
                     b.HasIndex("IDCv");
+
+                    b.HasIndex("MaNV")
+                        .IsUnique();
 
                     b.ToTable("NhanVien", (string)null);
                 });
@@ -402,9 +413,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("IDLoaiPhong")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdCTTienNghi")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("MaPhong")
                         .IsRequired()
                         .HasColumnType("nvarchar(10)")
@@ -416,9 +424,10 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("MaPhong");
-
                     b.HasIndex("IDLoaiPhong");
+
+                    b.HasIndex("MaPhong")
+                        .IsUnique();
 
                     b.ToTable("Phong", (string)null);
                 });
@@ -448,11 +457,12 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("TenTaiKhoan");
-
                     b.HasIndex("IDNv")
                         .IsUnique()
                         .HasFilter("[IDNv] IS NOT NULL");
+
+                    b.HasIndex("TenTaiKhoan")
+                        .IsUnique();
 
                     b.ToTable("TaiKhoan", (string)null);
                 });
