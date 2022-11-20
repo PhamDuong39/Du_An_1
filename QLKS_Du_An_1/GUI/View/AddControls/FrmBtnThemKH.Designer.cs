@@ -58,9 +58,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(117, 20);
+            this.label1.Location = new System.Drawing.Point(134, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 32);
+            this.label1.Size = new System.Drawing.Size(405, 41);
             this.label1.TabIndex = 21;
             this.label1.Text = "Nhập thông tin khách hàng";
             // 
@@ -79,17 +79,19 @@
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(82, 70);
+            this.panel1.Location = new System.Drawing.Point(94, 93);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 313);
+            this.panel1.Size = new System.Drawing.Size(430, 417);
             this.panel1.TabIndex = 20;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox7.Location = new System.Drawing.Point(76, 261);
+            this.pictureBox7.Location = new System.Drawing.Point(87, 348);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox7.Size = new System.Drawing.Size(27, 32);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 28;
             this.pictureBox7.TabStop = false;
@@ -97,9 +99,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox6.Location = new System.Drawing.Point(76, 212);
+            this.pictureBox6.Location = new System.Drawing.Point(87, 283);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.Size = new System.Drawing.Size(27, 32);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 27;
             this.pictureBox6.TabStop = false;
@@ -107,9 +110,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox5.Location = new System.Drawing.Point(76, 163);
+            this.pictureBox5.Location = new System.Drawing.Point(87, 217);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.Size = new System.Drawing.Size(27, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 26;
             this.pictureBox5.TabStop = false;
@@ -117,9 +121,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox4.Location = new System.Drawing.Point(76, 118);
+            this.pictureBox4.Location = new System.Drawing.Point(87, 157);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.Size = new System.Drawing.Size(27, 32);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
@@ -127,9 +132,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox3.Location = new System.Drawing.Point(76, 68);
+            this.pictureBox3.Location = new System.Drawing.Point(87, 91);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.Size = new System.Drawing.Size(27, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
@@ -137,9 +143,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox1.Location = new System.Drawing.Point(76, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(87, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.Size = new System.Drawing.Size(27, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
@@ -147,49 +154,55 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 262);
+            this.comboBox1.Location = new System.Drawing.Point(141, 349);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(191, 23);
+            this.comboBox1.Size = new System.Drawing.Size(218, 28);
             this.comboBox1.TabIndex = 22;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(123, 69);
+            this.textBox5.Location = new System.Drawing.Point(141, 92);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.PlaceholderText = "Nhập CCCD";
-            this.textBox5.Size = new System.Drawing.Size(191, 23);
+            this.textBox5.Size = new System.Drawing.Size(218, 27);
             this.textBox5.TabIndex = 21;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 119);
+            this.textBox4.Location = new System.Drawing.Point(141, 159);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.PlaceholderText = "Nhập SDT";
-            this.textBox4.Size = new System.Drawing.Size(191, 23);
+            this.textBox4.Size = new System.Drawing.Size(218, 27);
             this.textBox4.TabIndex = 20;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 164);
+            this.textBox3.Location = new System.Drawing.Point(141, 219);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.PlaceholderText = "Nhập địa chỉ";
-            this.textBox3.Size = new System.Drawing.Size(191, 23);
+            this.textBox3.Size = new System.Drawing.Size(218, 27);
             this.textBox3.TabIndex = 19;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 213);
+            this.textBox2.Location = new System.Drawing.Point(141, 284);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "Nhập quốc tịch";
-            this.textBox2.Size = new System.Drawing.Size(191, 23);
+            this.textBox2.Size = new System.Drawing.Size(218, 27);
             this.textBox2.TabIndex = 18;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 19);
+            this.textBox1.Location = new System.Drawing.Point(141, 25);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Nhập tên";
-            this.textBox1.Size = new System.Drawing.Size(191, 23);
+            this.textBox1.Size = new System.Drawing.Size(218, 27);
             this.textBox1.TabIndex = 17;
             // 
             // btn_HuyThemKH
@@ -200,13 +213,14 @@
             this.btn_HuyThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuyThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuyThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyThemKH.Location = new System.Drawing.Point(362, 396);
+            this.btn_HuyThemKH.Location = new System.Drawing.Point(414, 528);
             this.btn_HuyThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuyThemKH.Name = "btn_HuyThemKH";
-            this.btn_HuyThemKH.Size = new System.Drawing.Size(96, 30);
+            this.btn_HuyThemKH.Size = new System.Drawing.Size(110, 40);
             this.btn_HuyThemKH.TabIndex = 23;
             this.btn_HuyThemKH.Text = "Hủy";
             this.btn_HuyThemKH.UseVisualStyleBackColor = false;
+            this.btn_HuyThemKH.Click += new System.EventHandler(this.btn_HuyThemKH_Click);
             // 
             // btn_ThemKH
             // 
@@ -216,23 +230,25 @@
             this.btn_ThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemKH.Location = new System.Drawing.Point(235, 396);
+            this.btn_ThemKH.Location = new System.Drawing.Point(269, 528);
             this.btn_ThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemKH.Name = "btn_ThemKH";
-            this.btn_ThemKH.Size = new System.Drawing.Size(96, 30);
+            this.btn_ThemKH.Size = new System.Drawing.Size(110, 40);
             this.btn_ThemKH.TabIndex = 22;
             this.btn_ThemKH.Text = "Thêm";
             this.btn_ThemKH.UseVisualStyleBackColor = false;
+            this.btn_ThemKH.Click += new System.EventHandler(this.btn_ThemKH_Click);
             // 
             // FrmBtnThemKH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 450);
+            this.ClientSize = new System.Drawing.Size(599, 600);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyThemKH);
             this.Controls.Add(this.btn_ThemKH);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemKH";
             this.Text = "FrmBtnThemKH";
             this.panel1.ResumeLayout(false);

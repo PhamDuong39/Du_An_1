@@ -16,5 +16,20 @@ namespace GUI.View.AddControls
         {
             InitializeComponent();
         }
+
+        private void LoadData()
+        {
+            int stt = 1;
+        }
+
+        private void btn_ThemKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HuyThemKH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
