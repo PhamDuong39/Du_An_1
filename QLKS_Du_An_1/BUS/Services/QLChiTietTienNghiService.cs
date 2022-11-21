@@ -119,7 +119,7 @@ namespace BUS.Services
             lst = (from a in _chiTienNghiRepository.GetAll()
                    join b in _loaitnRepos.GetAll() on a.IDLoaiTienNghi equals b.ID
                    join c in _PhongRepos.GetAll() on a.IdPhong equals c.Id
-                   where a.IdPhong == IdRoom
+                   //where a.IdPhong == IdRoom
                    select new ChiTietTienNghiView
                    {
                        ID = a.ID,
@@ -130,9 +130,9 @@ namespace BUS.Services
                        TenLoaiTienNghi = b.TenLoaiTienNghi,
                        MaPhong = c.MaPhong
                    }).ToList();
-            // return lst.Where(p => p.IdPhong == IdRoom).ToList();
+             return lst.Where(p => p.IdPhong == IdRoom).ToList();
             //return lst.Where(p => p.IdPhong == Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938")).ToList();
-            return lst;
+            //return lst;
         }
 
         public string Remove(ChiTietTienNghiView obj)

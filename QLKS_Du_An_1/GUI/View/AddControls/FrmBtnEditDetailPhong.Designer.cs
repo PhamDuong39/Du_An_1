@@ -42,12 +42,15 @@
             // 
             // dtg_DanhSachCTTNPhong
             // 
+            this.dtg_DanhSachCTTNPhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachCTTNPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_DanhSachCTTNPhong.Location = new System.Drawing.Point(495, 113);
             this.dtg_DanhSachCTTNPhong.Name = "dtg_DanhSachCTTNPhong";
             this.dtg_DanhSachCTTNPhong.RowTemplate.Height = 25;
+            this.dtg_DanhSachCTTNPhong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_DanhSachCTTNPhong.Size = new System.Drawing.Size(409, 280);
             this.dtg_DanhSachCTTNPhong.TabIndex = 0;
+            this.dtg_DanhSachCTTNPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachCTTNPhong_CellClick);
             // 
             // label1
             // 
@@ -75,6 +78,7 @@
             this.btn_HuyCapNhatPhongCTTN.TabIndex = 24;
             this.btn_HuyCapNhatPhongCTTN.Text = "Hủy";
             this.btn_HuyCapNhatPhongCTTN.UseVisualStyleBackColor = false;
+            this.btn_HuyCapNhatPhongCTTN.Click += new System.EventHandler(this.btn_HuyCapNhatPhongCTTN_Click);
             // 
             // btn_CapNhatPhongCTTN
             // 
@@ -117,10 +121,12 @@
             // 
             // dtg_DanhSachCTTNTrong
             // 
+            this.dtg_DanhSachCTTNTrong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachCTTNTrong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_DanhSachCTTNTrong.Location = new System.Drawing.Point(23, 113);
             this.dtg_DanhSachCTTNTrong.Name = "dtg_DanhSachCTTNTrong";
             this.dtg_DanhSachCTTNTrong.RowTemplate.Height = 25;
+            this.dtg_DanhSachCTTNTrong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_DanhSachCTTNTrong.Size = new System.Drawing.Size(354, 280);
             this.dtg_DanhSachCTTNTrong.TabIndex = 29;
             this.dtg_DanhSachCTTNTrong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachCTTNTrong_CellClick);
