@@ -113,5 +113,11 @@ namespace BUS.Services
             var phong = iLoaiPhongRepository.GetAll().FirstOrDefault(p => p.TenLoaiPhong == Name);
             return phong.ID;
         }
+
+        public List<PhongView> Search(string name)
+        {
+            var lst = GetAll().Where(p => p.MaPhong.Contains(name));
+            return lst.ToList();
+        }
     }
 }

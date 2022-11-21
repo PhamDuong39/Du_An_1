@@ -66,6 +66,47 @@ namespace BUS.Services
                        TenLoaiTienNghi = b.TenLoaiTienNghi,
                        MaPhong = c.MaPhong
                    }).ToList();
+            return lst.ToList();
+        }
+
+        public List<CTTNTrongView> GetEmptyCTTN()
+        {
+            List<CTTNTrongView> lst = new List<CTTNTrongView>();
+            lst = (from a in _chiTienNghiRepository.GetAll()
+                   join b in _loaitnRepos.GetAll() on a.IDLoaiTienNghi equals b.ID
+                   select new CTTNTrongView()
+                   {
+                       ID = a.ID,
+                       MaCTTienNghi = a.MaCTTienNghi,
+                       
+                       TenCTTienNghi = a.TenCTTienNghi,
+                       IDLoaiTienNghi = a.IDLoaiTienNghi,
+                       TenLoaiTienNghi = b.TenLoaiTienNghi,
+                       IdPhong = a.IdPhong
+                   }).ToList();
+            var lstEmpty = lst.Where( p => p.IdPhong == null);
+            return lstEmpty.ToList();
+        }
+
+        public List<ChiTietTienNghiView> GetListCTTNRoom(Guid IdRoom)
+        {
+            List<ChiTietTienNghiView> lst = new List<ChiTietTienNghiView>();
+            lst = (from a in _chiTienNghiRepository.GetAll()
+                   join b in _loaitnRepos.GetAll() on a.IDLoaiTienNghi equals b.ID
+                   join c in _PhongRepos.GetAll() on a.IdPhong equals c.Id
+                   where a.IdPhong == IdRoom
+                   select new ChiTietTienNghiView
+                   {
+                       ID = a.ID,
+                       MaCTTienNghi = a.MaCTTienNghi,
+                       IdPhong = a.IdPhong,
+                       TenCTTienNghi = a.TenCTTienNghi,
+                       IDLoaiTienNghi = a.IDLoaiTienNghi,
+                       TenLoaiTienNghi = b.TenLoaiTienNghi,
+                       MaPhong = c.MaPhong
+                   }).ToList();
+            // return lst.Where(p => p.IdPhong == IdRoom).ToList();
+            //return lst.Where(p => p.IdPhong == Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938")).ToList();
             return lst;
         }
 
@@ -118,6 +159,12 @@ namespace BUS.Services
                     return "Sửa thông tin thất bại, vui lòng thử lại";
                 }
             };
+        }
+
+        Guid GetIdByRoomCode(string roomCode)
+        {
+            var phong = _PhongRepos.GetAll().FirstOrDefault(p => p.MaPhong == roomCode);
+            return phong.Id;
         }
     }
 }

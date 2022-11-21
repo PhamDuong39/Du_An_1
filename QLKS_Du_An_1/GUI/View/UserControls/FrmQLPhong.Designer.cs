@@ -59,6 +59,7 @@
             this.tbt_SearchRoomName.PlaceholderText = "    Nhập số phòng cần tìm";
             this.tbt_SearchRoomName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchRoomName.TabIndex = 14;
+            this.tbt_SearchRoomName.TextChanged += new System.EventHandler(this.tbt_SearchRoomName_TextChanged);
             // 
             // dtg_DanhSachPhong
             // 

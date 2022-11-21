@@ -117,6 +117,19 @@ namespace GUI.View.UserControls
                     MessageBox.Show("Xóa phòng thất bại");
                 }
             }
+            if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_ViewDetail")
+            {
+                FrmBtnEditDetailPhong btnEditDetail = new FrmBtnEditDetailPhong();
+                btnEditDetail.MaPhong = MaRoomSelect;
+                btnEditDetail.IdRoomSelected = IDRoomSelect;
+               // MessageBox.Show("" + IDRoomSelect);
+                btnEditDetail.ShowDialog();
+            }
+        }
+
+        private void tbt_SearchRoomName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
         }
     }
 }
