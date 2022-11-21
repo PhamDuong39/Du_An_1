@@ -13,6 +13,6 @@ namespace BUS.IServices
         public string Update(ChucVuView obj);
         public string Remove(ChucVuView obj);
         public List<ChucVuView> GetAll();
-        public List<ChucVuView> Search(string keyWord);
+        public List<ChucVuView> GetList(string obj);
     }
 }
