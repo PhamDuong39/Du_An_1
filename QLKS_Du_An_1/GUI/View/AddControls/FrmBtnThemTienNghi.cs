@@ -17,11 +17,34 @@ namespace GUI.View.AddControls
     {
         private IQLChiTietTienNghiService _iqlCTTNService;
         private IQLLoaiTienNghiService _iqlLoaiTNService;
+        private IQLPhongService _iqLPhongService;
+     
         public FrmBtnThemTienNghi()
         {
             InitializeComponent();
             _iqlCTTNService = new QLChiTietTienNghiService();
             _iqlLoaiTNService = new QLLoaiTienNghiService();
+            _iqLPhongService = new IPhongService();
+
+            LoadDataCBB();
+        }
+
+        private void LoadDataCBB()
+        {
+            var lstLoaiPhong = _iqlLoaiTNService.GetAll();
+            cbb_TenLoaiTienNghi.Items.Clear();
+            foreach (var item in lstLoaiPhong)
+            {
+                cbb_TenLoaiTienNghi.Items.Add(item.TenLoaiTienNghi);
+            }
+
+            var lstMaPhong = _iqLPhongService.GetAll();
+            cbb_MaPhong.Items.Clear();
+            foreach (var item in lstMaPhong)
+            {
+                cbb_MaPhong.Items.Add(item.MaPhong);
+            }
+
         }
 
         private void btn_ThemCTTienNghi_Click(object sender, EventArgs e)
@@ -33,7 +56,16 @@ namespace GUI.View.AddControls
                 ctnv.MaCTTienNghi = tb_MaCTTNThem.Text;
                 ctnv.TenCTTienNghi = tb_TenCTTNThem.Text;
                 ctnv.IDLoaiTienNghi = _iqlLoaiTNService.GetIdByName(cbb_TenLoaiTienNghi.Text);
-                ctnv.IdPhong = _iqlCTTNService.GetIdByRoomCode(cbb_MaPhong.Text);
+
+                if (cbb_MaPhong.Text=="")
+                {
+                    ctnv.IdPhong = null;
+                }
+                else
+                {
+                    ctnv.IdPhong = _iqlCTTNService.GetIdByRoomCode(cbb_MaPhong.Text);
+                }
+                
                 MessageBox.Show(_iqlCTTNService.Add(ctnv));
 
             }

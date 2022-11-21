@@ -1,5 +1,6 @@
 ﻿using BUS.IServices;
 using BUS.Services;
+using BUS.ViewModels;
 using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ namespace GUI.View.AddControls
     {
         public string MaPhong { get; set; }
         public Guid IdRoomSelected { get; set; }
+        private Guid IdCTTNSelected { get; set; }
+        private string MaCTTN { get; set; }
+        private string TenCTTN { get; set; }
+        private Guid IdLoaiTienNghi { get; set; }
+        
+       
 
         private IQLChiTietTienNghiService _iqlCTTNService;
 
@@ -31,19 +38,21 @@ namespace GUI.View.AddControls
 
         private void LoadDataCTTNTrong()
         {
-            dtg_DanhSachCTTNTrong.ColumnCount = 4;
+            dtg_DanhSachCTTNTrong.ColumnCount = 5;
             dtg_DanhSachCTTNTrong.Rows.Clear();
             dtg_DanhSachCTTNTrong.Columns[0].Name = "ID CTTN";
             dtg_DanhSachCTTNTrong.Columns[0].Visible = false;
             dtg_DanhSachCTTNTrong.Columns[1].Name = "Ma CTTN";
             dtg_DanhSachCTTNTrong.Columns[2].Name = "Ten CTTN";
             dtg_DanhSachCTTNTrong.Columns[3].Name = "Ten Loai TN";
+            dtg_DanhSachCTTNTrong.Columns[4].Name = "ID Loai TN";
+            dtg_DanhSachCTTNTrong.Columns[4].Visible = false;
 
             var lstCTTNTrong = _iqlCTTNService.GetEmptyCTTN();
         
             foreach (var item in lstCTTNTrong)
             {
-                dtg_DanhSachCTTNTrong.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi);
+                dtg_DanhSachCTTNTrong.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi, item.IDLoaiTienNghi);
             }
         }
 
@@ -61,10 +70,8 @@ namespace GUI.View.AddControls
             dtg_DanhSachCTTNPhong.Columns[5].Name = "Mã phòng";
 
             //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938"));
-            //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(IDPhong);
+            //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(IdRoomSelected);
             
-            
-
             var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938"));
   
             foreach (var item in lstCTTNPhong)
@@ -76,9 +83,41 @@ namespace GUI.View.AddControls
 
         private void FrmBtnEditDetailPhong_Load(object sender, EventArgs e)
         {
-            lb_TenPhongCTTN.Text = MaPhong;
-            //lb_TenPhongCTTN.Text = "" + IDPhong;           
-            
+            //lb_TenPhongCTTN.Text = MaPhong;
+            lb_TenPhongCTTN.Text = "" + IdRoomSelected;           
+          
+        }
+
+        private void dtg_DanhSachCTTNTrong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rd = e.RowIndex;
+            if (rd == -1 || rd == dtg_DanhSachCTTNTrong.Rows.Count - 1)
+            {
+                return;
+            }
+            IdCTTNSelected = Guid.Parse(Convert.ToString(dtg_DanhSachCTTNTrong.Rows[rd].Cells[0].Value));
+            MaCTTN = Convert.ToString(dtg_DanhSachCTTNTrong.Rows[rd].Cells[1].Value);
+            TenCTTN = Convert.ToString(dtg_DanhSachCTTNTrong.Rows[rd].Cells[2].Value);
+            IdLoaiTienNghi = Guid.Parse(Convert.ToString(dtg_DanhSachCTTNTrong.Rows[rd].Cells[4].Value));
+        }
+
+        private void btn_CapNhatPhongCTTN_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn sẽ thêm tiện nghi cho phòng này không ? ", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ChiTietTienNghiView ctnv = new ChiTietTienNghiView();
+                ctnv.ID = IdCTTNSelected;
+                ctnv.MaCTTienNghi = MaCTTN;
+                ctnv.TenCTTienNghi = TenCTTN;
+                ctnv.IDLoaiTienNghi = IdLoaiTienNghi;
+                ctnv.IdPhong = IdRoomSelected;
+                MessageBox.Show(_iqlCTTNService.Update(ctnv));
+            }
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Bạn đã hủy thêm tiện nghi cho phòng");
+            }
         }
     }
 }

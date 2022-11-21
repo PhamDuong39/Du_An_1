@@ -14,7 +14,7 @@ namespace BUS.IServices
         public List<ChiTietTienNghiView> GetAll();
         public List<ChiTietTienNghiView> Search(string name);
 
-        Guid GetIdByRoomCode(string roomCode);
+        public Guid GetIdByRoomCode(string roomCode);
 
         public List<CTTNTrongView> GetEmptyCTTN();
 
