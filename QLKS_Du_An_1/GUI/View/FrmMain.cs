@@ -184,9 +184,15 @@ namespace GUI.View
             OpenChildForm(new FrmQLTaiKhoan());
         }
 
-        private void ibtn_ThongKe_Click(object sender, EventArgs e)
+        private void ibtn_ChucVu_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FrmQLChucVu());
+        }
+
+        private void ibtn_ThongKe_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new FrmThongKe());
         }
 
@@ -211,8 +217,9 @@ namespace GUI.View
             WindowState = FormWindowState.Minimized;
         }
 
+
         #endregion
 
-
+       
     }
 }

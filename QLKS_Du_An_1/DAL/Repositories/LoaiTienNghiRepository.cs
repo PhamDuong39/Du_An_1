@@ -54,7 +54,7 @@ namespace DAL.Repositories
             var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
             x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
             x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
-            _Db.Update(x);
+            _Db.LoaiTienNghis.Update(x);
             _Db.SaveChanges();
             return true;
         }

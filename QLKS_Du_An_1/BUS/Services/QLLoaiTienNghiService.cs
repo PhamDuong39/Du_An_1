@@ -94,7 +94,6 @@ namespace BUS.Services
             else
             {
                 var ltn = _LoaiTNRepos.GetAll().FirstOrDefault(a => a.ID == obj.ID);
-                ltn.ID = obj.ID;
                 ltn.MaLoaiTienNghi = obj.MaLoaiTienNghi;
                 ltn.TenLoaiTienNghi = obj.TenLoaiTienNghi;
                 if (_LoaiTNRepos.Upadate(ltn))

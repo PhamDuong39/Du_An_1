@@ -12,7 +12,7 @@ namespace DAL.Models
         public string MaPhong { get; set; }
         public int TinhTrang { get; set; }
         public Guid IDLoaiPhong { get; set; }
-        public Guid IdCTTienNghi { get; set; }
+    
         public virtual LoaiPhong LoaiPhong { get; set; }
         
     }

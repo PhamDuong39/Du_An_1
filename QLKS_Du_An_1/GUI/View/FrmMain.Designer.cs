@@ -30,6 +30,7 @@
         {
             this.pn_MenuBar = new System.Windows.Forms.Panel();
             this.ibtn_ThongKe = new FontAwesome.Sharp.IconButton();
+            this.ibtn_ChucVu = new FontAwesome.Sharp.IconButton();
             this.ibtn_QLTaiKhoan = new FontAwesome.Sharp.IconButton();
             this.ibtn_QLNhanVien = new FontAwesome.Sharp.IconButton();
             this.ibtn_QLCTTienNghi = new FontAwesome.Sharp.IconButton();
@@ -60,8 +61,10 @@
             // 
             // pn_MenuBar
             // 
+            this.pn_MenuBar.AutoScroll = true;
             this.pn_MenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.pn_MenuBar.Controls.Add(this.ibtn_ThongKe);
+            this.pn_MenuBar.Controls.Add(this.ibtn_ChucVu);
             this.pn_MenuBar.Controls.Add(this.ibtn_QLTaiKhoan);
             this.pn_MenuBar.Controls.Add(this.ibtn_QLNhanVien);
             this.pn_MenuBar.Controls.Add(this.ibtn_QLCTTienNghi);
@@ -92,16 +95,38 @@
             this.ibtn_ThongKe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtn_ThongKe.IconSize = 24;
             this.ibtn_ThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ibtn_ThongKe.Location = new System.Drawing.Point(0, 661);
+            this.ibtn_ThongKe.Location = new System.Drawing.Point(0, 706);
             this.ibtn_ThongKe.Name = "ibtn_ThongKe";
             this.ibtn_ThongKe.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_ThongKe.Size = new System.Drawing.Size(220, 45);
-            this.ibtn_ThongKe.TabIndex = 13;
+            this.ibtn_ThongKe.Size = new System.Drawing.Size(203, 45);
+            this.ibtn_ThongKe.TabIndex = 14;
             this.ibtn_ThongKe.Text = "Thống kê";
             this.ibtn_ThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ibtn_ThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ibtn_ThongKe.UseVisualStyleBackColor = true;
             this.ibtn_ThongKe.Click += new System.EventHandler(this.ibtn_ThongKe_Click);
+            // 
+            // ibtn_ChucVu
+            // 
+            this.ibtn_ChucVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ibtn_ChucVu.FlatAppearance.BorderSize = 0;
+            this.ibtn_ChucVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtn_ChucVu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ibtn_ChucVu.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.ibtn_ChucVu.IconColor = System.Drawing.Color.Gainsboro;
+            this.ibtn_ChucVu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtn_ChucVu.IconSize = 24;
+            this.ibtn_ChucVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtn_ChucVu.Location = new System.Drawing.Point(0, 661);
+            this.ibtn_ChucVu.Name = "ibtn_ChucVu";
+            this.ibtn_ChucVu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.ibtn_ChucVu.Size = new System.Drawing.Size(203, 45);
+            this.ibtn_ChucVu.TabIndex = 13;
+            this.ibtn_ChucVu.Text = "QL Chức vụ";
+            this.ibtn_ChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ibtn_ChucVu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ibtn_ChucVu.UseVisualStyleBackColor = true;
+            this.ibtn_ChucVu.Click += new System.EventHandler(this.ibtn_ChucVu_Click);
             // 
             // ibtn_QLTaiKhoan
             // 
@@ -117,7 +142,7 @@
             this.ibtn_QLTaiKhoan.Location = new System.Drawing.Point(0, 616);
             this.ibtn_QLTaiKhoan.Name = "ibtn_QLTaiKhoan";
             this.ibtn_QLTaiKhoan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLTaiKhoan.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLTaiKhoan.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLTaiKhoan.TabIndex = 12;
             this.ibtn_QLTaiKhoan.Text = "QL Tài khoản";
             this.ibtn_QLTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,7 +164,7 @@
             this.ibtn_QLNhanVien.Location = new System.Drawing.Point(0, 571);
             this.ibtn_QLNhanVien.Name = "ibtn_QLNhanVien";
             this.ibtn_QLNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLNhanVien.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLNhanVien.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLNhanVien.TabIndex = 11;
             this.ibtn_QLNhanVien.Text = "QL Nhân viên";
             this.ibtn_QLNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,7 +186,7 @@
             this.ibtn_QLCTTienNghi.Location = new System.Drawing.Point(0, 526);
             this.ibtn_QLCTTienNghi.Name = "ibtn_QLCTTienNghi";
             this.ibtn_QLCTTienNghi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLCTTienNghi.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLCTTienNghi.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLCTTienNghi.TabIndex = 10;
             this.ibtn_QLCTTienNghi.Text = "QL Chi tiết tiện nghi";
             this.ibtn_QLCTTienNghi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,7 +208,7 @@
             this.ibtn_QLTienNghi.Location = new System.Drawing.Point(0, 481);
             this.ibtn_QLTienNghi.Name = "ibtn_QLTienNghi";
             this.ibtn_QLTienNghi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLTienNghi.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLTienNghi.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLTienNghi.TabIndex = 9;
             this.ibtn_QLTienNghi.Text = "QL Tiện nghi";
             this.ibtn_QLTienNghi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,7 +230,7 @@
             this.ibtn_QLDichVu.Location = new System.Drawing.Point(0, 436);
             this.ibtn_QLDichVu.Name = "ibtn_QLDichVu";
             this.ibtn_QLDichVu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLDichVu.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLDichVu.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLDichVu.TabIndex = 8;
             this.ibtn_QLDichVu.Text = "QL Dịch vụ";
             this.ibtn_QLDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,7 +252,7 @@
             this.ibtn_QLLoaiDichVu.Location = new System.Drawing.Point(0, 391);
             this.ibtn_QLLoaiDichVu.Name = "ibtn_QLLoaiDichVu";
             this.ibtn_QLLoaiDichVu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLLoaiDichVu.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLLoaiDichVu.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLLoaiDichVu.TabIndex = 7;
             this.ibtn_QLLoaiDichVu.Text = "QL Loại dịch vụ";
             this.ibtn_QLLoaiDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,7 +274,7 @@
             this.ibtn_QLPhong.Location = new System.Drawing.Point(0, 346);
             this.ibtn_QLPhong.Name = "ibtn_QLPhong";
             this.ibtn_QLPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLPhong.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLPhong.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLPhong.TabIndex = 6;
             this.ibtn_QLPhong.Text = "QL Phòng";
             this.ibtn_QLPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,7 +296,7 @@
             this.ibtn_QLLoaiPhong.Location = new System.Drawing.Point(0, 301);
             this.ibtn_QLLoaiPhong.Name = "ibtn_QLLoaiPhong";
             this.ibtn_QLLoaiPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLLoaiPhong.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLLoaiPhong.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLLoaiPhong.TabIndex = 5;
             this.ibtn_QLLoaiPhong.Text = "QL Loại phòng";
             this.ibtn_QLLoaiPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,7 +318,7 @@
             this.ibtn_QLKhachHang.Location = new System.Drawing.Point(0, 256);
             this.ibtn_QLKhachHang.Name = "ibtn_QLKhachHang";
             this.ibtn_QLKhachHang.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_QLKhachHang.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_QLKhachHang.Size = new System.Drawing.Size(203, 45);
             this.ibtn_QLKhachHang.TabIndex = 4;
             this.ibtn_QLKhachHang.Text = "QL Khách hàng";
             this.ibtn_QLKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,7 +340,7 @@
             this.ibtn_HoaDon.Location = new System.Drawing.Point(0, 211);
             this.ibtn_HoaDon.Name = "ibtn_HoaDon";
             this.ibtn_HoaDon.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_HoaDon.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_HoaDon.Size = new System.Drawing.Size(203, 45);
             this.ibtn_HoaDon.TabIndex = 3;
             this.ibtn_HoaDon.Text = "Hóa đơn";
             this.ibtn_HoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,7 +362,7 @@
             this.ibtn_DatPhong.Location = new System.Drawing.Point(0, 166);
             this.ibtn_DatPhong.Name = "ibtn_DatPhong";
             this.ibtn_DatPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_DatPhong.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_DatPhong.Size = new System.Drawing.Size(203, 45);
             this.ibtn_DatPhong.TabIndex = 2;
             this.ibtn_DatPhong.Text = "Đặt phòng";
             this.ibtn_DatPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -359,7 +384,7 @@
             this.ibtn_DanhSachPhong.Location = new System.Drawing.Point(0, 121);
             this.ibtn_DanhSachPhong.Name = "ibtn_DanhSachPhong";
             this.ibtn_DanhSachPhong.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ibtn_DanhSachPhong.Size = new System.Drawing.Size(220, 45);
+            this.ibtn_DanhSachPhong.Size = new System.Drawing.Size(203, 45);
             this.ibtn_DanhSachPhong.TabIndex = 1;
             this.ibtn_DanhSachPhong.Text = "Phòng";
             this.ibtn_DanhSachPhong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -373,7 +398,7 @@
             this.pn_AccImg.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_AccImg.Location = new System.Drawing.Point(0, 0);
             this.pn_AccImg.Name = "pn_AccImg";
-            this.pn_AccImg.Size = new System.Drawing.Size(220, 121);
+            this.pn_AccImg.Size = new System.Drawing.Size(203, 121);
             this.pn_AccImg.TabIndex = 0;
             // 
             // pictureBox1
@@ -509,7 +534,7 @@
         private FontAwesome.Sharp.IconButton ibtn_DatPhong;
         private FontAwesome.Sharp.IconButton ibtn_QLTaiKhoan;
         private FontAwesome.Sharp.IconButton ibtn_QLNhanVien;
-        private FontAwesome.Sharp.IconButton ibtn_ThongKe;
+        private FontAwesome.Sharp.IconButton ibtn_ChucVu;
         private PictureBox pictureBox1;
         private Panel pn_TitleBar;
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
@@ -518,5 +543,6 @@
         private Panel panelDesktop;
         private Label btn_Exit;
         private Label btn_Minimize;
+        private FontAwesome.Sharp.IconButton ibtn_ThongKe;
     }
 }
