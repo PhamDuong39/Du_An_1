@@ -19,12 +19,13 @@ namespace GUI.View.AddControls
         public string MaPhong { get; set; }
         public Guid IdRoomSelected { get; set; }
         private Guid IdCTTNSelected { get; set; }
+
+        private Guid IdCTNNHaveRoom { get; set; }
+
         private string MaCTTN { get; set; }
         private string TenCTTN { get; set; }
         private Guid IdLoaiTienNghi { get; set; }
         
-       
-
         private IQLChiTietTienNghiService _iqlCTTNService;
 
         public FrmBtnEditDetailPhong()
@@ -32,8 +33,6 @@ namespace GUI.View.AddControls
             InitializeComponent();
             _iqlCTTNService = new QLChiTietTienNghiService();
 
-            LoadDataCTTNTrong();
-            LoadDataCTTNPhong();
         }
 
         private void LoadDataCTTNTrong()
@@ -58,7 +57,7 @@ namespace GUI.View.AddControls
 
         private void LoadDataCTTNPhong()
         {
-            dtg_DanhSachCTTNPhong.ColumnCount = 6;
+            dtg_DanhSachCTTNPhong.ColumnCount = 7;
             dtg_DanhSachCTTNPhong.Rows.Clear();
             dtg_DanhSachCTTNPhong.Columns[0].Name = "ID CTTN";
             dtg_DanhSachCTTNPhong.Columns[0].Visible = false;
@@ -68,24 +67,21 @@ namespace GUI.View.AddControls
             dtg_DanhSachCTTNPhong.Columns[4].Name = "ID Phòng";
             dtg_DanhSachCTTNPhong.Columns[4].Visible = false;
             dtg_DanhSachCTTNPhong.Columns[5].Name = "Mã phòng";
+            dtg_DanhSachCTTNPhong.Columns[6].Name = "ID loại TN";
 
             //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938"));
-            //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(IdRoomSelected);
-            
-            var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938"));
-  
+            var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(IdRoomSelected);  
             foreach (var item in lstCTTNPhong)
             {
-                dtg_DanhSachCTTNPhong.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi, item.IdPhong, item.MaPhong);
+                dtg_DanhSachCTTNPhong.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi, item.IdPhong, item.MaPhong, item.IDLoaiTienNghi);
             }
-           
         }
 
         private void FrmBtnEditDetailPhong_Load(object sender, EventArgs e)
         {
-            //lb_TenPhongCTTN.Text = MaPhong;
-            lb_TenPhongCTTN.Text = "" + IdRoomSelected;           
-          
+            lb_TenPhongCTTN.Text = MaPhong;
+            LoadDataCTTNTrong();
+            LoadDataCTTNPhong();
         }
 
         private void dtg_DanhSachCTTNTrong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,9 +111,45 @@ namespace GUI.View.AddControls
                 MessageBox.Show(_iqlCTTNService.Update(ctnv));
             }
             if (result == DialogResult.No)
-            {
+            {             
                 MessageBox.Show("Bạn đã hủy thêm tiện nghi cho phòng");
             }
+            LoadDataCTTNTrong();
+            LoadDataCTTNPhong();
+        }
+
+        private void dtg_DanhSachCTTNPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rd = e.RowIndex;
+            if (rd == -1 || rd == dtg_DanhSachCTTNPhong.Rows.Count - 1)
+            {
+                return;
+            }
+            IdCTNNHaveRoom = Guid.Parse(Convert.ToString(dtg_DanhSachCTTNPhong.Rows[rd].Cells[0].Value));
+            MaCTTN = Convert.ToString(dtg_DanhSachCTTNPhong.Rows[rd].Cells[1].Value);
+            TenCTTN = Convert.ToString(dtg_DanhSachCTTNPhong.Rows[rd].Cells[2].Value);
+            IdLoaiTienNghi = Guid.Parse(Convert.ToString(dtg_DanhSachCTTNPhong.Rows[rd].Cells[6].Value));
+        }
+
+        private void btn_HuyCapNhatPhongCTTN_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa tiện nghi này ra khỏi phòng không ?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ChiTietTienNghiView ctnv = new ChiTietTienNghiView();
+                ctnv.ID = IdCTNNHaveRoom;
+                ctnv.MaCTTienNghi = MaCTTN;
+                ctnv.TenCTTienNghi = TenCTTN;
+                ctnv.IDLoaiTienNghi = IdLoaiTienNghi;
+                ctnv.IdPhong = null;
+                MessageBox.Show(_iqlCTTNService.Update(ctnv));
+            }
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Bạn đã hủy xóa tiện nghi cho phòng");
+            }
+            LoadDataCTTNTrong();
+            LoadDataCTTNPhong();
         }
     }
 }
