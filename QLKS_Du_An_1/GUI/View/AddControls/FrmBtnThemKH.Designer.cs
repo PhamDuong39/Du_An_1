@@ -36,14 +36,16 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbb_GioiTinh = new System.Windows.Forms.ComboBox();
+            this.tbt_CCCD = new System.Windows.Forms.TextBox();
+            this.tbt_SDTKh = new System.Windows.Forms.TextBox();
+            this.tbt_DiaChiKH = new System.Windows.Forms.TextBox();
+            this.tbt_QuocTichKH = new System.Windows.Forms.TextBox();
+            this.tbt_HoTenKH = new System.Windows.Forms.TextBox();
             this.btn_HuyThemKH = new System.Windows.Forms.Button();
             this.btn_ThemKH = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tbt_MaKh = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,28 +70,31 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.tbt_MaKh);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cbb_GioiTinh);
+            this.panel1.Controls.Add(this.tbt_CCCD);
+            this.panel1.Controls.Add(this.tbt_SDTKh);
+            this.panel1.Controls.Add(this.tbt_DiaChiKH);
+            this.panel1.Controls.Add(this.tbt_QuocTichKH);
+            this.panel1.Controls.Add(this.tbt_HoTenKH);
             this.panel1.Location = new System.Drawing.Point(94, 93);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(430, 417);
             this.panel1.TabIndex = 20;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox7.Location = new System.Drawing.Point(87, 348);
+            this.pictureBox7.Location = new System.Drawing.Point(87, 362);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
@@ -99,7 +105,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox6.Location = new System.Drawing.Point(87, 283);
+            this.pictureBox6.Location = new System.Drawing.Point(87, 308);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(27, 32);
@@ -110,7 +116,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox5.Location = new System.Drawing.Point(87, 217);
+            this.pictureBox5.Location = new System.Drawing.Point(87, 251);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 32);
@@ -121,7 +127,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox4.Location = new System.Drawing.Point(87, 157);
+            this.pictureBox4.Location = new System.Drawing.Point(87, 196);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 32);
@@ -132,7 +138,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox3.Location = new System.Drawing.Point(87, 91);
+            this.pictureBox3.Location = new System.Drawing.Point(87, 138);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 32);
@@ -151,59 +157,59 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // comboBox1
+            // cbb_GioiTinh
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(141, 349);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 28);
-            this.comboBox1.TabIndex = 22;
+            this.cbb_GioiTinh.FormattingEnabled = true;
+            this.cbb_GioiTinh.Location = new System.Drawing.Point(141, 363);
+            this.cbb_GioiTinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbb_GioiTinh.Name = "cbb_GioiTinh";
+            this.cbb_GioiTinh.Size = new System.Drawing.Size(218, 28);
+            this.cbb_GioiTinh.TabIndex = 22;
             // 
-            // textBox5
+            // tbt_CCCD
             // 
-            this.textBox5.Location = new System.Drawing.Point(141, 92);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PlaceholderText = "Nhập CCCD";
-            this.textBox5.Size = new System.Drawing.Size(218, 27);
-            this.textBox5.TabIndex = 21;
+            this.tbt_CCCD.Location = new System.Drawing.Point(141, 139);
+            this.tbt_CCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_CCCD.Name = "tbt_CCCD";
+            this.tbt_CCCD.PlaceholderText = "Nhập CCCD";
+            this.tbt_CCCD.Size = new System.Drawing.Size(218, 27);
+            this.tbt_CCCD.TabIndex = 21;
             // 
-            // textBox4
+            // tbt_SDTKh
             // 
-            this.textBox4.Location = new System.Drawing.Point(141, 159);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PlaceholderText = "Nhập SDT";
-            this.textBox4.Size = new System.Drawing.Size(218, 27);
-            this.textBox4.TabIndex = 20;
+            this.tbt_SDTKh.Location = new System.Drawing.Point(141, 198);
+            this.tbt_SDTKh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_SDTKh.Name = "tbt_SDTKh";
+            this.tbt_SDTKh.PlaceholderText = "Nhập SDT";
+            this.tbt_SDTKh.Size = new System.Drawing.Size(218, 27);
+            this.tbt_SDTKh.TabIndex = 20;
             // 
-            // textBox3
+            // tbt_DiaChiKH
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 219);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "Nhập địa chỉ";
-            this.textBox3.Size = new System.Drawing.Size(218, 27);
-            this.textBox3.TabIndex = 19;
+            this.tbt_DiaChiKH.Location = new System.Drawing.Point(141, 253);
+            this.tbt_DiaChiKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_DiaChiKH.Name = "tbt_DiaChiKH";
+            this.tbt_DiaChiKH.PlaceholderText = "Nhập địa chỉ";
+            this.tbt_DiaChiKH.Size = new System.Drawing.Size(218, 27);
+            this.tbt_DiaChiKH.TabIndex = 19;
             // 
-            // textBox2
+            // tbt_QuocTichKH
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 284);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Nhập quốc tịch";
-            this.textBox2.Size = new System.Drawing.Size(218, 27);
-            this.textBox2.TabIndex = 18;
+            this.tbt_QuocTichKH.Location = new System.Drawing.Point(141, 309);
+            this.tbt_QuocTichKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_QuocTichKH.Name = "tbt_QuocTichKH";
+            this.tbt_QuocTichKH.PlaceholderText = "Nhập quốc tịch";
+            this.tbt_QuocTichKH.Size = new System.Drawing.Size(218, 27);
+            this.tbt_QuocTichKH.TabIndex = 18;
             // 
-            // textBox1
+            // tbt_HoTenKH
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 25);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Nhập tên";
-            this.textBox1.Size = new System.Drawing.Size(218, 27);
-            this.textBox1.TabIndex = 17;
+            this.tbt_HoTenKH.Location = new System.Drawing.Point(141, 25);
+            this.tbt_HoTenKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_HoTenKH.Name = "tbt_HoTenKH";
+            this.tbt_HoTenKH.PlaceholderText = "Nhập tên";
+            this.tbt_HoTenKH.Size = new System.Drawing.Size(218, 27);
+            this.tbt_HoTenKH.TabIndex = 17;
             // 
             // btn_HuyThemKH
             // 
@@ -239,6 +245,26 @@
             this.btn_ThemKH.UseVisualStyleBackColor = false;
             this.btn_ThemKH.Click += new System.EventHandler(this.btn_ThemKH_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GUI.Properties.Resources._007_user_1;
+            this.pictureBox2.Location = new System.Drawing.Point(87, 82);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
+            // 
+            // tbt_MaKh
+            // 
+            this.tbt_MaKh.Location = new System.Drawing.Point(141, 82);
+            this.tbt_MaKh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbt_MaKh.Name = "tbt_MaKh";
+            this.tbt_MaKh.PlaceholderText = "Nhập mã KH";
+            this.tbt_MaKh.Size = new System.Drawing.Size(218, 27);
+            this.tbt_MaKh.TabIndex = 29;
+            // 
             // FrmBtnThemKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -259,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,13 +301,15 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
-        private ComboBox comboBox1;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox cbb_GioiTinh;
+        private TextBox tbt_CCCD;
+        private TextBox tbt_SDTKh;
+        private TextBox tbt_DiaChiKH;
+        private TextBox tbt_QuocTichKH;
+        private TextBox tbt_HoTenKH;
         private Button btn_HuyThemKH;
         private Button btn_ThemKH;
+        private PictureBox pictureBox2;
+        private TextBox tbt_MaKh;
     }
 }
