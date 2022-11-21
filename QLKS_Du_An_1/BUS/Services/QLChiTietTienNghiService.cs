@@ -65,8 +65,33 @@ namespace BUS.Services
                        IDLoaiTienNghi = a.IDLoaiTienNghi,
                        TenLoaiTienNghi = b.TenLoaiTienNghi,
                        MaPhong = c.MaPhong
+                       //MaPhong = _PhongRepos.GetAll().Where(p => p.Id == a.IdPhong).Select(p => p.MaPhong)
                    }).ToList();
-            return lst.ToList();
+
+            List<ChiTietTienNghiView> lstEmpty = new List<ChiTietTienNghiView>();
+            lstEmpty = (from a in _chiTienNghiRepository.GetAll()
+                   join b in _loaitnRepos.GetAll() on a.IDLoaiTienNghi equals b.ID
+                   where a.IdPhong == null
+                   select new ChiTietTienNghiView
+                   {
+                       ID = a.ID,
+                       MaCTTienNghi = a.MaCTTienNghi,
+                       IdPhong = a.IdPhong,
+                       TenCTTienNghi = a.TenCTTienNghi,
+                       IDLoaiTienNghi = a.IDLoaiTienNghi,
+                       TenLoaiTienNghi = b.TenLoaiTienNghi
+                   }).ToList();
+
+            List<ChiTietTienNghiView> lstALl = new List<ChiTietTienNghiView>();
+            foreach (var item in lst)
+            {
+                lstALl.Add(item);
+            }
+            foreach (var item in lstEmpty)
+            {
+                lstALl.Add(item);
+            }
+            return lstALl.ToList();
         }
 
         public List<CTTNTrongView> GetEmptyCTTN()
@@ -161,10 +186,11 @@ namespace BUS.Services
             };
         }
 
-        Guid GetIdByRoomCode(string roomCode)
+        public Guid GetIdByRoomCode(string roomCode)
         {
-            var phong = _PhongRepos.GetAll().FirstOrDefault(p => p.MaPhong == roomCode);
-            return phong.Id;
+       
+                var phong = _PhongRepos.GetAll().FirstOrDefault(p => p.MaPhong == roomCode);
+                return phong.Id;
         }
     }
 }

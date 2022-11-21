@@ -91,6 +91,7 @@
             this.btn_CapNhatPhongCTTN.TabIndex = 25;
             this.btn_CapNhatPhongCTTN.Text = "Cập nhật";
             this.btn_CapNhatPhongCTTN.UseVisualStyleBackColor = false;
+            this.btn_CapNhatPhongCTTN.Click += new System.EventHandler(this.btn_CapNhatPhongCTTN_Click);
             // 
             // lb_TenPhongCTTN
             // 
@@ -122,6 +123,7 @@
             this.dtg_DanhSachCTTNTrong.RowTemplate.Height = 25;
             this.dtg_DanhSachCTTNTrong.Size = new System.Drawing.Size(354, 280);
             this.dtg_DanhSachCTTNTrong.TabIndex = 29;
+            this.dtg_DanhSachCTTNTrong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachCTTNTrong_CellClick);
             // 
             // label3
             // 
