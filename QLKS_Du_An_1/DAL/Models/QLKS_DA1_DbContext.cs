@@ -25,7 +25,7 @@ namespace DAL.Models
             // thuc hien rang buoc ket noi
             base.OnConfiguring(optionsBuilder
 
-                .UseSqlServer("Data Source=DESKTOP-QQ18T65\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan2;Persist Security Info=True;User ID=DuAn1;Password=123456"));
+                .UseSqlServer("Data Source=TUNG-1923\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan2;Persist Security Info=True;User ID=tungnt;Password=123456"));
 
 
         }

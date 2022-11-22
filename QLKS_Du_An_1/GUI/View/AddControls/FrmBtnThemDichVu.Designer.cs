@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tb_GiaDichVu = new System.Windows.Forms.TextBox();
+            this.tb_MaDichVu = new System.Windows.Forms.TextBox();
             this.cbb_TenLoaiDichVu = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -38,8 +40,6 @@
             this.tb_TenDichVu = new System.Windows.Forms.TextBox();
             this.btn_HuyDichVu = new System.Windows.Forms.Button();
             this.btn_ThemDichVu = new System.Windows.Forms.Button();
-            this.tb_MaDichVu = new System.Windows.Forms.TextBox();
-            this.tb_GiaDichVu = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -73,6 +73,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 269);
             this.panel1.TabIndex = 32;
+            // 
+            // tb_GiaDichVu
+            // 
+            this.tb_GiaDichVu.Location = new System.Drawing.Point(107, 205);
+            this.tb_GiaDichVu.Name = "tb_GiaDichVu";
+            this.tb_GiaDichVu.PlaceholderText = "Nhập giá";
+            this.tb_GiaDichVu.Size = new System.Drawing.Size(191, 23);
+            this.tb_GiaDichVu.TabIndex = 31;
+            // 
+            // tb_MaDichVu
+            // 
+            this.tb_MaDichVu.Location = new System.Drawing.Point(107, 80);
+            this.tb_MaDichVu.Name = "tb_MaDichVu";
+            this.tb_MaDichVu.PlaceholderText = "Nhập mã dịch vụ";
+            this.tb_MaDichVu.Size = new System.Drawing.Size(191, 23);
+            this.tb_MaDichVu.TabIndex = 30;
             // 
             // cbb_TenLoaiDichVu
             // 
@@ -161,22 +177,7 @@
             this.btn_ThemDichVu.TabIndex = 34;
             this.btn_ThemDichVu.Text = "Thêm";
             this.btn_ThemDichVu.UseVisualStyleBackColor = false;
-            // 
-            // tb_MaDichVu
-            // 
-            this.tb_MaDichVu.Location = new System.Drawing.Point(107, 80);
-            this.tb_MaDichVu.Name = "tb_MaDichVu";
-            this.tb_MaDichVu.PlaceholderText = "Nhập mã dịch vụ";
-            this.tb_MaDichVu.Size = new System.Drawing.Size(191, 23);
-            this.tb_MaDichVu.TabIndex = 30;
-            // 
-            // tb_GiaDichVu
-            // 
-            this.tb_GiaDichVu.Location = new System.Drawing.Point(107, 205);
-            this.tb_GiaDichVu.Name = "tb_GiaDichVu";
-            this.tb_GiaDichVu.PlaceholderText = "Nhập giá";
-            this.tb_GiaDichVu.Size = new System.Drawing.Size(191, 23);
-            this.tb_GiaDichVu.TabIndex = 31;
+            this.btn_ThemDichVu.Click += new System.EventHandler(this.btn_ThemDichVu_Click);
             // 
             // FrmBtnThemDichVu
             // 
