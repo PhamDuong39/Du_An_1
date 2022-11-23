@@ -43,7 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_maNV = new System.Windows.Forms.TextBox();
             this.btn_HuyDichVu = new System.Windows.Forms.Button();
-            this.btn_ThemTaiKhoan = new System.Windows.Forms.Button();
+            this.btn_capnhatTK = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -215,24 +215,24 @@
             this.btn_HuyDichVu.TabIndex = 43;
             this.btn_HuyDichVu.Text = "Hủy";
             this.btn_HuyDichVu.UseVisualStyleBackColor = false;
-            this.btn_HuyDichVu.Click += new System.EventHandler(this.btn_HuyDichVu_Click);
+            this.btn_HuyDichVu.Click += new System.EventHandler(this.btn_huy);
             // 
-            // btn_ThemTaiKhoan
+            // btn_capnhatTK
             // 
-            this.btn_ThemTaiKhoan.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_ThemTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThemTaiKhoan.FlatAppearance.BorderSize = 0;
-            this.btn_ThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ThemTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ThemTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemTaiKhoan.Location = new System.Drawing.Point(371, 471);
-            this.btn_ThemTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_ThemTaiKhoan.Name = "btn_ThemTaiKhoan";
-            this.btn_ThemTaiKhoan.Size = new System.Drawing.Size(110, 40);
-            this.btn_ThemTaiKhoan.TabIndex = 42;
-            this.btn_ThemTaiKhoan.Text = "Cập nhật";
-            this.btn_ThemTaiKhoan.UseVisualStyleBackColor = false;
-            this.btn_ThemTaiKhoan.Click += new System.EventHandler(this.btn_ThemTaiKhoan_Click);
+            this.btn_capnhatTK.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_capnhatTK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_capnhatTK.FlatAppearance.BorderSize = 0;
+            this.btn_capnhatTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_capnhatTK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_capnhatTK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_capnhatTK.Location = new System.Drawing.Point(371, 471);
+            this.btn_capnhatTK.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_capnhatTK.Name = "btn_capnhatTK";
+            this.btn_capnhatTK.Size = new System.Drawing.Size(110, 40);
+            this.btn_capnhatTK.TabIndex = 42;
+            this.btn_capnhatTK.Text = "Cập nhật";
+            this.btn_capnhatTK.UseVisualStyleBackColor = false;
+            this.btn_capnhatTK.Click += new System.EventHandler(this.btn_capnhatTK_Click);
             // 
             // FrmBtnSuaTaiKhoan
             // 
@@ -242,9 +242,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyDichVu);
-            this.Controls.Add(this.btn_ThemTaiKhoan);
+            this.Controls.Add(this.btn_capnhatTK);
             this.Name = "FrmBtnSuaTaiKhoan";
             this.Text = "FrmBtnSuaTaiKhoan";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBtnSuaTaiKhoan_FormClosed);
             this.Load += new System.EventHandler(this.FrmBtnSuaTaiKhoan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -270,7 +271,7 @@
         private PictureBox pictureBox1;
         private TextBox txt_maNV;
         private Button btn_HuyDichVu;
-        private Button btn_ThemTaiKhoan;
+        private Button btn_capnhatTK;
         private Label label5;
         private Label label4;
         private Label label3;
