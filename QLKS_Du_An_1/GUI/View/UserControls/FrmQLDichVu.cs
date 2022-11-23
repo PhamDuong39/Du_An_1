@@ -89,7 +89,7 @@ namespace GUI.View.UserControls
 
         private void dtg_DanhSachDichVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtg_DanhSachDichVu.Columns[e.ColumnIndex].Name == "btn_SuaLoaiDichVu")
+            if (dtg_DanhSachDichVu.Columns[e.ColumnIndex].Name == "btn_SuaDichVu")
             {
                 // Open Form BtnSuaPhong
                 FrmBtnSuaDichVu btnsualtn = new FrmBtnSuaDichVu();
