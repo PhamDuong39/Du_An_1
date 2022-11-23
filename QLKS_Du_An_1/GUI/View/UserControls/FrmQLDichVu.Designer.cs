@@ -42,10 +42,10 @@
             this.btn_ThemDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemDichVu.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemDichVu.Location = new System.Drawing.Point(759, 42);
             this.btn_ThemDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemDichVu.Name = "btn_ThemDichVu";
-            this.btn_ThemDichVu.Size = new System.Drawing.Size(206, 53);
+            this.btn_ThemDichVu.Size = new System.Drawing.Size(180, 40);
             this.btn_ThemDichVu.TabIndex = 18;
             this.btn_ThemDichVu.Text = "Thêm dịch vụ";
             this.btn_ThemDichVu.UseVisualStyleBackColor = false;
@@ -53,36 +53,36 @@
             // 
             // tbt_SearchServicesName
             // 
-            this.tbt_SearchServicesName.Location = new System.Drawing.Point(69, 67);
+            this.tbt_SearchServicesName.Location = new System.Drawing.Point(60, 50);
             this.tbt_SearchServicesName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchServicesName.Name = "tbt_SearchServicesName";
             this.tbt_SearchServicesName.PlaceholderText = "    Nhập tên dịch vụ cần tìm";
-            this.tbt_SearchServicesName.Size = new System.Drawing.Size(342, 27);
+            this.tbt_SearchServicesName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchServicesName.TabIndex = 17;
             // 
             // dtg_DanhSachDichVu
             // 
             this.dtg_DanhSachDichVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachDichVu.Location = new System.Drawing.Point(101, 153);
-            this.dtg_DanhSachDichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtg_DanhSachDichVu.Location = new System.Drawing.Point(88, 115);
             this.dtg_DanhSachDichVu.Name = "dtg_DanhSachDichVu";
             this.dtg_DanhSachDichVu.RowHeadersWidth = 51;
             this.dtg_DanhSachDichVu.RowTemplate.Height = 25;
             this.dtg_DanhSachDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_DanhSachDichVu.Size = new System.Drawing.Size(922, 643);
+            this.dtg_DanhSachDichVu.Size = new System.Drawing.Size(807, 482);
             this.dtg_DanhSachDichVu.TabIndex = 16;
+            this.dtg_DanhSachDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachDichVu_CellClick);
+            this.dtg_DanhSachDichVu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachDichVu_CellContentClick);
             // 
             // FrmQLDichVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1141, 851);
+            this.ClientSize = new System.Drawing.Size(998, 562);
             this.Controls.Add(this.btn_ThemDichVu);
             this.Controls.Add(this.tbt_SearchServicesName);
             this.Controls.Add(this.dtg_DanhSachDichVu);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLDichVu";
             this.Text = "FrmQLDichVu";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachDichVu)).EndInit();
