@@ -40,8 +40,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_HuyDichVu = new System.Windows.Forms.Button();
-            this.btn_ThemDichVu = new System.Windows.Forms.Button();
+            this.btn_huy = new System.Windows.Forms.Button();
+            this.btn_ThemTK = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -181,39 +181,39 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_HuyDichVu
+            // btn_huy
             // 
-            this.btn_HuyDichVu.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_HuyDichVu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HuyDichVu.FlatAppearance.BorderSize = 0;
-            this.btn_HuyDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HuyDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_HuyDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyDichVu.Location = new System.Drawing.Point(527, 471);
-            this.btn_HuyDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_HuyDichVu.Name = "btn_HuyDichVu";
-            this.btn_HuyDichVu.Size = new System.Drawing.Size(110, 40);
-            this.btn_HuyDichVu.TabIndex = 39;
-            this.btn_HuyDichVu.Text = "Hủy";
-            this.btn_HuyDichVu.UseVisualStyleBackColor = false;
-            this.btn_HuyDichVu.Click += new System.EventHandler(this.btn_HuyDichVu_Click);
+            this.btn_huy.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_huy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_huy.FlatAppearance.BorderSize = 0;
+            this.btn_huy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_huy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_huy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_huy.Location = new System.Drawing.Point(527, 471);
+            this.btn_huy.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(110, 40);
+            this.btn_huy.TabIndex = 39;
+            this.btn_huy.Text = "Hủy";
+            this.btn_huy.UseVisualStyleBackColor = false;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
-            // btn_ThemDichVu
+            // btn_ThemTK
             // 
-            this.btn_ThemDichVu.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_ThemDichVu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThemDichVu.FlatAppearance.BorderSize = 0;
-            this.btn_ThemDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ThemDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ThemDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemDichVu.Location = new System.Drawing.Point(380, 471);
-            this.btn_ThemDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_ThemDichVu.Name = "btn_ThemDichVu";
-            this.btn_ThemDichVu.Size = new System.Drawing.Size(110, 40);
-            this.btn_ThemDichVu.TabIndex = 38;
-            this.btn_ThemDichVu.Text = "Thêm";
-            this.btn_ThemDichVu.UseVisualStyleBackColor = false;
-            this.btn_ThemDichVu.Click += new System.EventHandler(this.btn_ThemDichVu_Click);
+            this.btn_ThemTK.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_ThemTK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThemTK.FlatAppearance.BorderSize = 0;
+            this.btn_ThemTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThemTK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ThemTK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_ThemTK.Location = new System.Drawing.Point(380, 471);
+            this.btn_ThemTK.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_ThemTK.Name = "btn_ThemTK";
+            this.btn_ThemTK.Size = new System.Drawing.Size(110, 40);
+            this.btn_ThemTK.TabIndex = 38;
+            this.btn_ThemTK.Text = "Thêm";
+            this.btn_ThemTK.UseVisualStyleBackColor = false;
+            this.btn_ThemTK.Click += new System.EventHandler(this.btn_ThemTK_Click);
             // 
             // FrmBtnThemTaiKhoan
             // 
@@ -222,8 +222,8 @@
             this.ClientSize = new System.Drawing.Size(800, 541);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btn_HuyDichVu);
-            this.Controls.Add(this.btn_ThemDichVu);
+            this.Controls.Add(this.btn_huy);
+            this.Controls.Add(this.btn_ThemTK);
             this.Name = "FrmBtnThemTaiKhoan";
             this.Text = "FrmBtnThemTaiKhoan";
             this.panel1.ResumeLayout(false);
@@ -250,8 +250,8 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
         private TextBox tb_TenDichVu;
-        private Button btn_HuyDichVu;
-        private Button btn_ThemDichVu;
+        private Button btn_huy;
+        private Button btn_ThemTK;
         private TextBox textBox1;
         private PictureBox pictureBox2;
         private TextBox txt_nhaplaimatkhauTK;

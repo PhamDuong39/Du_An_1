@@ -13,7 +13,7 @@ namespace BUS.ViewModels
         public string MatKhau { get; set; }
         public int CapDoQuyen { get; set; }
         public Guid? IDNv { get; set; }
-
+        public string MaNv { get; set; }
         public string? TenNV { get; set; }
     }
 }

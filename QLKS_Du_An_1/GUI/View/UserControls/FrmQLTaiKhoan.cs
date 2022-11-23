@@ -25,7 +25,7 @@ namespace GUI.View.UserControls
         public int CapDoQuyen;
         public Guid? IDNv;
         public string? TenNV;
-
+        public string MaNv;
         public FrmQLTaiKhoan()
         {
             InitializeComponent();
@@ -64,7 +64,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachTaiKhoan.Columns.Add(cbn_ChucNangXoa);
             foreach (var item in list)
             {
-                dtg_DanhSachTaiKhoan.Rows.Add(item.ID, item.TenTaiKhoan, _iqLNhanVien.GetAll().FirstOrDefault(c => c.ID == item.IDNv).MaNV, item.TenNV, item.IDNv, item.MatKhau, item.CapDoQuyen);
+                dtg_DanhSachTaiKhoan.Rows.Add(item.ID, item.TenTaiKhoan,item.MaNv, item.TenNV, item.IDNv, item.MatKhau, item.CapDoQuyen);
             }
 
         }
@@ -83,11 +83,13 @@ namespace GUI.View.UserControls
                 return;
             }
             ID = Guid.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[0].Value.ToString());
-            TenTaiKhoan = dtg_DanhSachTaiKhoan.Rows[rd].Cells[1].Value.ToString();
-            TenNV = dtg_DanhSachTaiKhoan.Rows[rd].Cells[3].Value.ToString();
-            IDNv = Guid.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[4].Value.ToString());
+            //TenTaiKhoan = dtg_DanhSachTaiKhoan.Rows[rd].Cells[1].Value.ToString();
+            //MaNv = dtg_DanhSachTaiKhoan.Rows[rd].Cells[2].Value.ToString();
+            //TenNV = dtg_DanhSachTaiKhoan.Rows[rd].Cells[3].Value.ToString();
+            //IDNv = Guid.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[4].Value.ToString());
             MatKhau = dtg_DanhSachTaiKhoan.Rows[rd].Cells[5].Value.ToString();
             CapDoQuyen = int.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[6].Value.ToString());
+            
         }
 
         private void dtg_DanhSachTaiKhoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -99,12 +101,15 @@ namespace GUI.View.UserControls
                 {
                     FrmBtnSuaTaiKhoan fm = new FrmBtnSuaTaiKhoan();
                     fm.ID = ID;
+                    fm.MaNv = MaNv;
                     fm.TenTaiKhoan = TenTaiKhoan;
                     fm.TenNV= TenNV;
                     fm.IDNv= IDNv;
                     fm.MatKhau= MatKhau;
                     fm.CapDoQuyen= CapDoQuyen;
                     fm.ShowDialog();
+                    
+                    loaddata(_iqLTaiKhoan.GetAll());
                 }
             }
             if (dtg_DanhSachTaiKhoan.Columns[e.ColumnIndex].Name== "btn_Xoataikhoan")
@@ -116,7 +121,7 @@ namespace GUI.View.UserControls
                     tk = _iqLTaiKhoan.GetAll().FirstOrDefault(C=>C.ID==ID);
                     MessageBox.Show(_iqLTaiKhoan.Delete(tk));
                     loaddata(_iqLTaiKhoan.GetAll());
-                }
+                }else
                 {
                     MessageBox.Show("Xóa nhân viên thất bại");
                 }

@@ -56,10 +56,10 @@ namespace BUS.Services
             else
             {
                 var taikhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                taikhoan.TenTaiKhoan = obj.TenTaiKhoan;
+                //taikhoan.TenTaiKhoan = obj.TenTaiKhoan;
                 taikhoan.MatKhau = obj.MatKhau;
                 taikhoan.CapDoQuyen = obj.CapDoQuyen;
-                taikhoan.IDNv = obj.IDNv;
+                //taikhoan.IDNv = obj.IDNv;
                 if (_iTaiKhoanRepository.Update(taikhoan))
                 {
                     return "Sửa thành công";
@@ -93,8 +93,8 @@ namespace BUS.Services
 
         public List<TaiKhoanView> GetAll()
         {
-            List<TaiKhoanView> listTaiKhoan = new List<TaiKhoanView>();
-            listTaiKhoan = (from a in _iTaiKhoanRepository.GetAll()
+            List<TaiKhoanView> listTaiKhoanCoNV = new List<TaiKhoanView>();
+            listTaiKhoanCoNV = (from a in _iTaiKhoanRepository.GetAll()
                             join b in _iNhanVienRepository.GetAll() on a.IDNv equals b.ID
                             select new TaiKhoanView()
                             {
@@ -104,8 +104,31 @@ namespace BUS.Services
                                 MatKhau = a.MatKhau,
                                 CapDoQuyen = a.CapDoQuyen,
                                 TenNV = b.TenNV,
+                                MaNv=b.MaNV
                             }).ToList();
-            return listTaiKhoan;              
+
+            List<TaiKhoanView> listTaiKhoanKCoNV = new List<TaiKhoanView>();
+            listTaiKhoanKCoNV = (from a in _iTaiKhoanRepository.GetAll()
+                                 where a.IDNv == null
+                                select new TaiKhoanView()
+                                {
+                                    ID = a.ID,
+                                    TenTaiKhoan = a.TenTaiKhoan,
+                                    MatKhau = a.MatKhau,
+                                    CapDoQuyen = a.CapDoQuyen,
+                                }).ToList();
+
+            var listAllAccount = new List<TaiKhoanView>();
+            foreach (var item in listTaiKhoanCoNV)
+            {
+                listAllAccount.Add(item);
+            }
+
+            foreach (var item in listTaiKhoanKCoNV)
+            {
+                listAllAccount.Add(item);
+            }
+            return listAllAccount.ToList();
         }
 
         public Guid GetIDbyName(string Name)
