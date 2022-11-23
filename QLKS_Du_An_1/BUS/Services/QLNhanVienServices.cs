@@ -16,6 +16,12 @@ namespace BUS.Services
     {
         private INhanVienRepository _iNhanVienRepository;
         private IChucVuRepository _iChucVuRepository;
+
+        public QLNhanVienServices()
+        {
+            _iNhanVienRepository= new NhanVienRepository();
+            _iChucVuRepository = new ChucVuRepository();
+        }
         public string Add(NhanVienView obj)
         {
             if (obj == null)
