@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace BUS.Services
 {
-    internal class QLTaiKhoanServices : IQLTaiKhoanServices
+    public class QLTaiKhoanServices : IQLTaiKhoanServices
     {
         private ITaiKhoanRepository _iTaiKhoanRepository;
         private INhanVienRepository _iNhanVienRepository;
