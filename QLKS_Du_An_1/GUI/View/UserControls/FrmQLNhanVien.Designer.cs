@@ -42,45 +42,52 @@
             this.btn_ThemNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemNhanVien.Location = new System.Drawing.Point(759, 42);
+            this.btn_ThemNhanVien.Location = new System.Drawing.Point(867, 56);
             this.btn_ThemNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemNhanVien.Name = "btn_ThemNhanVien";
-            this.btn_ThemNhanVien.Size = new System.Drawing.Size(180, 40);
+            this.btn_ThemNhanVien.Size = new System.Drawing.Size(206, 53);
             this.btn_ThemNhanVien.TabIndex = 27;
             this.btn_ThemNhanVien.Text = "Thêm nhân viên";
             this.btn_ThemNhanVien.UseVisualStyleBackColor = false;
+            this.btn_ThemNhanVien.Click += new System.EventHandler(this.btn_ThemNhanVien_Click);
             // 
             // tbt_SearchStaffName
             // 
-            this.tbt_SearchStaffName.Location = new System.Drawing.Point(60, 50);
+            this.tbt_SearchStaffName.Location = new System.Drawing.Point(69, 67);
             this.tbt_SearchStaffName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchStaffName.Name = "tbt_SearchStaffName";
             this.tbt_SearchStaffName.PlaceholderText = "    Tìm theo nhân viên";
-            this.tbt_SearchStaffName.Size = new System.Drawing.Size(300, 23);
+            this.tbt_SearchStaffName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchStaffName.TabIndex = 26;
             // 
             // dtg_DanhSachNhanVien
             // 
             this.dtg_DanhSachNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachNhanVien.Location = new System.Drawing.Point(60, 113);
+            this.dtg_DanhSachNhanVien.Location = new System.Drawing.Point(69, 151);
+            this.dtg_DanhSachNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachNhanVien.Name = "dtg_DanhSachNhanVien";
+            this.dtg_DanhSachNhanVien.RowHeadersWidth = 51;
             this.dtg_DanhSachNhanVien.RowTemplate.Height = 25;
             this.dtg_DanhSachNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_DanhSachNhanVien.Size = new System.Drawing.Size(879, 482);
+            this.dtg_DanhSachNhanVien.Size = new System.Drawing.Size(1005, 643);
             this.dtg_DanhSachNhanVien.TabIndex = 25;
+            this.dtg_DanhSachNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachNhanVien_CellClick);
+            this.dtg_DanhSachNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachNhanVien_CellContentClick);
             // 
             // FrmQLNhanVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(998, 638);
+            this.ClientSize = new System.Drawing.Size(1141, 851);
             this.Controls.Add(this.btn_ThemNhanVien);
             this.Controls.Add(this.tbt_SearchStaffName);
             this.Controls.Add(this.dtg_DanhSachNhanVien);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLNhanVien";
             this.Text = "FrmQLNhanVien";
+            this.Load += new System.EventHandler(this.FrmQLNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
