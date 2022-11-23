@@ -30,18 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.cbb_TinhTrangPhong = new System.Windows.Forms.ComboBox();
+            this.cbb_TenLoaiPhong = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tb_MaPhong = new System.Windows.Forms.TextBox();
+            this.tb_MaPhongThem = new System.Windows.Forms.TextBox();
             this.btn_HuyThemPhong = new System.Windows.Forms.Button();
             this.btn_ThemPhong = new System.Windows.Forms.Button();
-            this.cbb_TenLoaiPhong = new System.Windows.Forms.ComboBox();
-            this.cbb_TenCTTienNghi = new System.Windows.Forms.ComboBox();
-            this.cbb_TrangThai = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,33 +58,39 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.cbb_TrangThai);
-            this.panel1.Controls.Add(this.cbb_TenCTTienNghi);
+            this.panel1.Controls.Add(this.cbb_TinhTrangPhong);
             this.panel1.Controls.Add(this.cbb_TenLoaiPhong);
-            this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.tb_MaPhong);
+            this.panel1.Controls.Add(this.tb_MaPhongThem);
             this.panel1.Location = new System.Drawing.Point(86, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 269);
             this.panel1.TabIndex = 28;
             // 
-            // pictureBox5
+            // cbb_TinhTrangPhong
             // 
-            this.pictureBox5.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox5.Location = new System.Drawing.Point(62, 204);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 26;
-            this.pictureBox5.TabStop = false;
+            this.cbb_TinhTrangPhong.FormattingEnabled = true;
+            this.cbb_TinhTrangPhong.Location = new System.Drawing.Point(107, 172);
+            this.cbb_TinhTrangPhong.Name = "cbb_TinhTrangPhong";
+            this.cbb_TinhTrangPhong.Size = new System.Drawing.Size(191, 23);
+            this.cbb_TinhTrangPhong.TabIndex = 28;
+            // 
+            // cbb_TenLoaiPhong
+            // 
+            this.cbb_TenLoaiPhong.FormattingEnabled = true;
+            this.cbb_TenLoaiPhong.Items.AddRange(new object[] {
+            "--Chọn loại phòng--"});
+            this.cbb_TenLoaiPhong.Location = new System.Drawing.Point(109, 97);
+            this.cbb_TenLoaiPhong.Name = "cbb_TenLoaiPhong";
+            this.cbb_TenLoaiPhong.Size = new System.Drawing.Size(191, 23);
+            this.cbb_TenLoaiPhong.TabIndex = 27;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox4.Location = new System.Drawing.Point(62, 142);
+            this.pictureBox4.Location = new System.Drawing.Point(62, 171);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +100,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox3.Location = new System.Drawing.Point(62, 79);
+            this.pictureBox3.Location = new System.Drawing.Point(62, 96);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -114,13 +117,13 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // tb_MaPhong
+            // tb_MaPhongThem
             // 
-            this.tb_MaPhong.Location = new System.Drawing.Point(107, 20);
-            this.tb_MaPhong.Name = "tb_MaPhong";
-            this.tb_MaPhong.PlaceholderText = "Nhập mã phòng";
-            this.tb_MaPhong.Size = new System.Drawing.Size(191, 23);
-            this.tb_MaPhong.TabIndex = 17;
+            this.tb_MaPhongThem.Location = new System.Drawing.Point(107, 20);
+            this.tb_MaPhongThem.Name = "tb_MaPhongThem";
+            this.tb_MaPhongThem.PlaceholderText = "Nhập mã phòng";
+            this.tb_MaPhongThem.Size = new System.Drawing.Size(191, 23);
+            this.tb_MaPhongThem.TabIndex = 17;
             // 
             // btn_HuyThemPhong
             // 
@@ -153,32 +156,7 @@
             this.btn_ThemPhong.TabIndex = 30;
             this.btn_ThemPhong.Text = "Thêm";
             this.btn_ThemPhong.UseVisualStyleBackColor = false;
-            // 
-            // cbb_TenLoaiPhong
-            // 
-            this.cbb_TenLoaiPhong.FormattingEnabled = true;
-            this.cbb_TenLoaiPhong.Items.AddRange(new object[] {
-            "--Chọn loại phòng--"});
-            this.cbb_TenLoaiPhong.Location = new System.Drawing.Point(107, 80);
-            this.cbb_TenLoaiPhong.Name = "cbb_TenLoaiPhong";
-            this.cbb_TenLoaiPhong.Size = new System.Drawing.Size(191, 23);
-            this.cbb_TenLoaiPhong.TabIndex = 27;
-            // 
-            // cbb_TenCTTienNghi
-            // 
-            this.cbb_TenCTTienNghi.FormattingEnabled = true;
-            this.cbb_TenCTTienNghi.Location = new System.Drawing.Point(107, 143);
-            this.cbb_TenCTTienNghi.Name = "cbb_TenCTTienNghi";
-            this.cbb_TenCTTienNghi.Size = new System.Drawing.Size(191, 23);
-            this.cbb_TenCTTienNghi.TabIndex = 28;
-            // 
-            // cbb_TrangThai
-            // 
-            this.cbb_TrangThai.FormattingEnabled = true;
-            this.cbb_TrangThai.Location = new System.Drawing.Point(107, 204);
-            this.cbb_TrangThai.Name = "cbb_TrangThai";
-            this.cbb_TrangThai.Size = new System.Drawing.Size(191, 23);
-            this.cbb_TrangThai.TabIndex = 29;
+            this.btn_ThemPhong.Click += new System.EventHandler(this.btn_ThemPhong_Click);
             // 
             // FrmBtnThemPhong
             // 
@@ -193,7 +171,6 @@
             this.Text = "FrmBtnThemPhong";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -206,15 +183,13 @@
 
         private Label label1;
         private Panel panel1;
-        private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
-        private TextBox tb_MaPhong;
+        private TextBox tb_MaPhongThem;
         private Button btn_HuyThemPhong;
         private Button btn_ThemPhong;
         private ComboBox cbb_TenLoaiPhong;
-        private ComboBox cbb_TrangThai;
-        private ComboBox cbb_TenCTTienNghi;
+        private ComboBox cbb_TinhTrangPhong;
     }
 }

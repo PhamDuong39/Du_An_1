@@ -30,20 +30,18 @@ namespace GUI.View.AddControls
 
         private void btn_SuaLoaiTienNghi_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn sửa tiện nghi này không ?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn sửa loại tiện nghi này không ?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 LoaiTienNghiView ltn = new LoaiTienNghiView();
                 ltn.ID = IdLoaiTiennghi;
                 ltn.MaLoaiTienNghi = tb_maLoaiTienNghi.Text;
-
-                // 0 = Phòng trống, 1= Phòng có khách , 2 = Phòng đang dọn dẹp
                 ltn.TenLoaiTienNghi = tb_tenLoaiTienNghi.Text;
                 MessageBox.Show(_iqlLoaiTienNghi.Update(ltn)); 
             }
             if (result == DialogResult.No)
             {
-                MessageBox.Show("Bạn đã hủy sửa phòng");
+                MessageBox.Show("Bạn đã hủy sửa loại tiện nghi này");
             }
         }
 

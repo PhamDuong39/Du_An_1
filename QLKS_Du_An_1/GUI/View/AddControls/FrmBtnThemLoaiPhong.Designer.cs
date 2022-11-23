@@ -177,6 +177,7 @@
             this.btn_ThemLoaiPhong.TabIndex = 26;
             this.btn_ThemLoaiPhong.Text = "Thêm";
             this.btn_ThemLoaiPhong.UseVisualStyleBackColor = false;
+            this.btn_ThemLoaiPhong.Click += new System.EventHandler(this.btn_ThemLoaiPhong_Click);
             // 
             // FrmBtnThemLoaiPhong
             // 

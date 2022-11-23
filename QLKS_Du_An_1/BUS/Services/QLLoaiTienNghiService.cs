@@ -62,6 +62,12 @@ namespace BUS.Services
             return ltn.TenLoaiTienNghi;
         }
 
+        public Guid GetIdByName(string TenLoaiTN)
+        {
+            var ltn = _LoaiTNRepos.GetAll().FirstOrDefault(p => p.TenLoaiTienNghi == TenLoaiTN);
+            return ltn.ID;
+        }
+
         public string Remove(LoaiTienNghiView obj)
         {
             if(obj == null)

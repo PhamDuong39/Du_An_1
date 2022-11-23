@@ -177,6 +177,7 @@
             this.btn_SuaDichVu.TabIndex = 38;
             this.btn_SuaDichVu.Text = "Cập nhật";
             this.btn_SuaDichVu.UseVisualStyleBackColor = false;
+            this.btn_SuaDichVu.Click += new System.EventHandler(this.btn_SuaDichVu_Click);
             // 
             // FrmBtnSuaDichVu
             // 
@@ -189,6 +190,7 @@
             this.Controls.Add(this.btn_SuaDichVu);
             this.Name = "FrmBtnSuaDichVu";
             this.Text = "FrmBtnSuaDichVu";
+            this.Load += new System.EventHandler(this.FrmBtnSuaDichVu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

@@ -33,7 +33,7 @@ namespace BUS.Services
             {
                 var phong = new Phong
                 {
-                    Id = obj.Id,
+                    //Id = obj.Id,
                     MaPhong = obj.MaPhong,
                     TinhTrang = obj.TinhTrang,
                     IDLoaiPhong = obj.IDLoaiPhong,
@@ -112,6 +112,12 @@ namespace BUS.Services
         {
             var phong = iLoaiPhongRepository.GetAll().FirstOrDefault(p => p.TenLoaiPhong == Name);
             return phong.ID;
+        }
+
+        public List<PhongView> Search(string name)
+        {
+            var lst = GetAll().Where(p => p.MaPhong.Contains(name));
+            return lst.ToList();
         }
     }
 }

@@ -72,6 +72,8 @@
             this.dtg_DanhSachKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_DanhSachKH.Size = new System.Drawing.Size(1022, 643);
             this.dtg_DanhSachKH.TabIndex = 10;
+            this.dtg_DanhSachKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachKH_CellClick);
+            this.dtg_DanhSachKH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachKH_CellContentClick);
             // 
             // FrmQLKhachHang
             // 

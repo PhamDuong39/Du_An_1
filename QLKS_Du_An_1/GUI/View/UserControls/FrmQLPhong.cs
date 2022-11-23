@@ -17,6 +17,7 @@ namespace GUI.View.UserControls
     public partial class FrmQLPhong : Form
     {
         private IQLPhongService _iqlPhongService;
+        public IQLChiTietTienNghiService _iqlCTTNService;
 
         // CellClick lấy thông tin trên dtg
         public Guid IDRoomSelect { get; set; }
@@ -28,6 +29,7 @@ namespace GUI.View.UserControls
         {
             InitializeComponent();
             _iqlPhongService = new IPhongService();
+            _iqlCTTNService = new QLChiTietTienNghiService();
             LoadData(_iqlPhongService.GetAll());
         }
 
@@ -68,6 +70,13 @@ namespace GUI.View.UserControls
             cbn_ChucNangXoa.Name = "btn_XoaPhong";
             cbn_ChucNangXoa.UseColumnTextForButtonValue = true;
             dtg_DanhSachPhong.Columns.Add(cbn_ChucNangXoa);
+
+            DataGridViewButtonColumn cbn_ChucNangCTTN = new DataGridViewButtonColumn();
+            cbn_ChucNangCTTN.HeaderText = "View Detail";
+            cbn_ChucNangCTTN.Text = "Detail";
+            cbn_ChucNangCTTN.Name = "btn_ViewDetail";
+            cbn_ChucNangCTTN.UseColumnTextForButtonValue = true;
+            dtg_DanhSachPhong.Columns.Add(cbn_ChucNangCTTN);
         }
 
         private void dtg_DanhSachPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,6 +119,19 @@ namespace GUI.View.UserControls
                     MessageBox.Show("Xóa phòng thất bại");
                 }
             }
+            if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_ViewDetail")
+            {
+                FrmBtnEditDetailPhong btnEditDetail = new FrmBtnEditDetailPhong();
+                btnEditDetail.MaPhong = MaRoomSelect;
+                btnEditDetail.IdRoomSelected = IDRoomSelect;
+               // MessageBox.Show("" + IDRoomSelect);
+                btnEditDetail.ShowDialog();
+            }
+        }
+
+        private void tbt_SearchRoomName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
         }
     }
 }
