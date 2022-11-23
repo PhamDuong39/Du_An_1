@@ -17,6 +17,7 @@ namespace GUI.View.UserControls
     public partial class FrmQLPhong : Form
     {
         private IQLPhongService _iqlPhongService;
+        public IQLChiTietTienNghiService _iqlCTTNService;
 
         // CellClick lấy thông tin trên dtg
         public Guid IDRoomSelect { get; set; }
@@ -28,6 +29,7 @@ namespace GUI.View.UserControls
         {
             InitializeComponent();
             _iqlPhongService = new IPhongService();
+            _iqlCTTNService = new QLChiTietTienNghiService();
             LoadData(_iqlPhongService.GetAll());
         }
 
@@ -42,7 +44,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachPhong.ColumnCount = 5;
             dtg_DanhSachPhong.Rows.Clear();
             dtg_DanhSachPhong.Columns[0].Name = "ID";
-            dtg_DanhSachPhong.Columns[0].Visible = false;
+            dtg_DanhSachPhong.Columns[0].Visible = true;
             dtg_DanhSachPhong.Columns[1].Name = "Mã phòng";
             dtg_DanhSachPhong.Columns[2].Name = "Tình trạng";
             dtg_DanhSachPhong.Columns[3].Name = "ID Loại phòng";          

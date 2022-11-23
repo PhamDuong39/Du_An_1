@@ -15,17 +15,28 @@ namespace BUS.Services
     {
         private IHoaDonRepository _hoaDonRepository;
         private Validations _validations;
+        private IChiTietPhieuThueRepository _chiTietPhieuThueRepository;
+        private IKhachHangRepository _khachHangRepository;
+        private INhanVienRepository _nhanVienRepository;
+        private IPhongRepository _phongRepository;
+        private IHoaDonChiTietRepository _hoaDonChiTietRepository;
+        private IDichVuRepository _dichVuRepository;
+        private IPhieuThueRepository _phieuThueRepository;
+
         public HoaDonService()
         {
             _hoaDonRepository = new HoaDonRepository();
             _validations = new Validations();
+            _chiTietPhieuThueRepository = new ChiTietPhieuThueRepository();
+            _khachHangRepository = new KhachHangRepository();
+            _nhanVienRepository = new NhanVienRepository();
+            _phongRepository = new PhongRepository();
+            _hoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _dichVuRepository = new DichVuRepository();
+            _phieuThueRepository= new PhieuThueRepository();
         }
         private string Validate(HoaDonView obj)
         {
-            if (_validations.CheckRong(obj.MaHD) == false) return "Nhập đầy đủ dữ liệu";
-            if (_validations.CheckRong(obj.TenKH) == false) return "Nhập đầy đủ dữ liệu";
-            if (_validations.CheckRong(obj.TenNV) == false) return "Nhập đầy đủ dữ liệu";
-            if (_validations.CheckRong(obj.MaHD) == false) return "Nhập đầy đủ dữ liệu";
             return string.Empty;
         }
         public string Add(HoaDonView obj)
@@ -35,7 +46,36 @@ namespace BUS.Services
 
         public List<HoaDonView> GetAll()
         {
-            throw new NotImplementedException();
+            List<HoaDonView> _lst = new List<HoaDonView>();
+            _lst = (from a in _hoaDonRepository.GetAll()
+                    join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.IdPhieuThue
+                    join c in _hoaDonChiTietRepository.GetAll() on a.Id equals c.IdHoaDon
+                    join d in _dichVuRepository.GetAll() on c.IdDichVu equals d.Id
+                    join e in _phieuThueRepository.GetAll() on b.IdPhieuThue equals e.ID
+                    join f in _nhanVienRepository.GetAll() on e.IdNV equals f.ID
+                    join g in _khachHangRepository.GetAll() on e.IdKH equals g.ID
+                    join h in _phongRepository.GetAll() on b.IdPhong equals h.Id
+                    select new HoaDonView()
+                    {
+                        Id = a.Id,
+                        MaHD = a.MaHD,
+                        NgayTaoHD = a.NgayTaoHD,
+                        IdCTPhieuThue = a.IdCTPhieuThue,
+                        NgayBatDau = b.NgayBatDau,
+                        NgayKetThuc = b.NgayKetThuc,
+                        IdKH = g.ID,
+                        TenKH = g.HovaTen,
+                        IdNV = f.ID,
+                        TenNV = f.TenNV,
+                        IdPhong = h.Id,
+                        MaPhong = h.MaPhong,
+                        IdDichVu = c.IdDichVu,
+                        SoLuongDichVu = c.SoLuong,
+                        DonGia = c.DonGia,
+                        TenDichVu = d.TenDichVu,
+                        TongTien = 9999
+                    }).ToList();
+            return _lst;
         }
 
         public string Remove(HoaDonView obj)
@@ -50,7 +90,7 @@ namespace BUS.Services
 
         public List<HoaDonView> Search(string keyWord)
         {
-            throw new NotImplementedException();
+            return GetAll().Where(c=>c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
         }
     }
 }
