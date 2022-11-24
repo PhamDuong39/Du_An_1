@@ -16,5 +16,17 @@ namespace GUI.View.UserControls
         {
             InitializeComponent();
         }
+
+        public string MaPhong
+        {
+            get
+            {
+                return lb_MaPhong.Text;
+            }
+            set
+            {
+                lb_MaPhong.Text = value;
+            }
+        }
     }
 }
