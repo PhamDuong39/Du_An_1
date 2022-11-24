@@ -28,60 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_MaPhong = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lb_TenKH = new System.Windows.Forms.Label();
+            this.lb_Time = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_MaPhong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lb_MaPhong.AutoSize = true;
+            this.lb_MaPhong.Location = new System.Drawing.Point(3, 9);
+            this.lb_MaPhong.Name = "lb_MaPhong";
+            this.lb_MaPhong.Size = new System.Drawing.Size(62, 15);
+            this.lb_MaPhong.TabIndex = 0;
+            this.lb_MaPhong.Text = "Mã phòng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 26);
+            this.label2.Location = new System.Drawing.Point(146, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
-            // label3
+            // lb_TenKH
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lb_TenKH.AutoSize = true;
+            this.lb_TenKH.Location = new System.Drawing.Point(103, 41);
+            this.lb_TenKH.Name = "lb_TenKH";
+            this.lb_TenKH.Size = new System.Drawing.Size(44, 15);
+            this.lb_TenKH.TabIndex = 2;
+            this.lb_TenKH.Text = "Ten KH";
             // 
-            // label5
+            // lb_Time
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 226);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.lb_Time.AutoSize = true;
+            this.lb_Time.Location = new System.Drawing.Point(3, 69);
+            this.lb_Time.Name = "lb_Time";
+            this.lb_Time.Size = new System.Drawing.Size(60, 15);
+            this.lb_Time.TabIndex = 4;
+            this.lb_Time.Text = "TG Còn lại";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(146, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
             // 
             // ListItemRooms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Controls.Add(this.lb_Time);
+            this.Controls.Add(this.lb_TenKH);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lb_MaPhong);
             this.Name = "ListItemRooms";
-            this.Size = new System.Drawing.Size(293, 273);
+            this.Size = new System.Drawing.Size(192, 94);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +99,10 @@
 
         #endregion
 
-        private Label label1;
+        private Label lb_MaPhong;
         private Label label2;
-        private Label label3;
-        private Label label5;
+        private Label lb_TenKH;
+        private Label lb_Time;
+        private Label label1;
     }
 }
