@@ -43,4 +43,9 @@ values('8716e1e8-9ffe-4ba5-a097-6f9a643e8d7a',2/2/2000,'e1f3f710-491c-4100-825e-
 		('6e909cd4-14e7-4984-8a63-4afc8c090b9ea',2/2/2000,'55262fb8-08b1-4beb-b09b-fd7f4c5fdabd','9d8a046c-782a-4aa5-ae00-43cc5385a5ba'),
 		('8244895b-ccff-4ccc-84f9-2af9d16576c6',2/2/2000,'0cf393ce-c4b6-46cd-9ae7-e2c13082cee7','75b2fb2d-d5f7-4055-bb44-deabd9a35111'),
 		('3425f1aa-158b-403a-bb00-88e6eaf02de7',2/2/2000,'da1c1cbc-4767-4c4b-94e3-c6f583fb2f7a','9d8a046c-782a-4aa5-ae00-43cc5385a5ba')
-insert into Phong
+insert into DichVu
+values('36209f47-b65c-49e6-bc35-338a1e21c265','DV1',N'Dịch vụ 1',100,'85c87692-4fda-4cbe-8449-f2080bf4fb84'),
+		('41d510da-de25-4961-b018-7999e7b1bb94','DV2',N'Dịch vụ 2',200,'d00ca269-6c8a-4748-b4af-515e374a8bec'),
+		('2c077ae4-7388-4b24-ae01-7b74e2a5c8b3','DV3',N'Dịch vụ 3',300,'fd692cb8-d807-4732-943b-2fae8f36f98e'),
+		('83f65b15-2bec-41a4-a4fc-44eb3d0a82d0','DV4',N'Dịch vụ 4',400,'f69bc3a2-fc80-49da-b72d-d792da7b1970')
+insert into 
