@@ -45,7 +45,8 @@ namespace GUI.View.AddControls
             else return true;
         }
         
-        private void btn_ThemDichVu_Click(object sender, EventArgs e)
+
+        private void btn_ThemTK_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thêm tài khoản này không", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -55,20 +56,30 @@ namespace GUI.View.AddControls
                     MessageBox.Show("Nhập khẩu nhập lại sai");
                     return;
                 };
-                var tennv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV==cbo_maNV.Text);
-                
+                var tennv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text);
+
                 TaiKhoanView taiKhoanView = new TaiKhoanView();
-                taiKhoanView.ID=Guid.NewGuid();
+                if (cbo_maNV.Text == "" || cbo_maNV.Text == "Chọn mã nhân viên")
+                {
+                    taiKhoanView.IDNv = null;
+                    taiKhoanView.TenNV = null;
+                }
+                else
+                {
+                    taiKhoanView.IDNv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).ID;
+                    taiKhoanView.TenNV = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).TenNV;
+                }
+                taiKhoanView.ID = Guid.NewGuid();
                 taiKhoanView.TenTaiKhoan = txt_tenTK.Text;
                 taiKhoanView.MatKhau = txt_matkhauTK.Text;
-                taiKhoanView.IDNv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).ID;
                 taiKhoanView.CapDoQuyen = int.Parse(cbb_capdoquyenTK.Text);
-                taiKhoanView.TenNV = tennv.TenNV;
+
                 MessageBox.Show(_iqLTaiKhoan.Add(taiKhoanView));
+
             }
         }
 
-        private void btn_HuyDichVu_Click(object sender, EventArgs e)
+        private void btn_huy_Click(object sender, EventArgs e)
         {
             this.Close();
         }

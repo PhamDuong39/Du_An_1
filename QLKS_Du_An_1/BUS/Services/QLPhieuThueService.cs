@@ -58,6 +58,9 @@ namespace BUS.Services
                                  select new PhieuThueView()
                                  {
                                      ID = a.ID,
+                                     NgayLapPhieu = a.NgayLapPhieu,
+                                     IdKH = b.ID,
+                                     IdNV = c.ID,
                                      TenKH = b.HovaTen,
                                      TenNV = c.TenNV
                                  }).ToList();
