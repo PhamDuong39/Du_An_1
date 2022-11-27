@@ -59,6 +59,7 @@
             this.tbt_SearchStaffName.PlaceholderText = "    Tìm theo nhân viên";
             this.tbt_SearchStaffName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchStaffName.TabIndex = 26;
+            this.tbt_SearchStaffName.TextChanged += new System.EventHandler(this.tbt_SearchStaffName_TextChanged);
             // 
             // dtg_DanhSachNhanVien
             // 
@@ -74,6 +75,7 @@
             this.dtg_DanhSachNhanVien.TabIndex = 25;
             this.dtg_DanhSachNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachNhanVien_CellClick);
             this.dtg_DanhSachNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachNhanVien_CellContentClick);
+            this.dtg_DanhSachNhanVien.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtg_DanhSachNhanVien_RowPostPaint);
             // 
             // FrmQLNhanVien
             // 

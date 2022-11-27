@@ -64,7 +64,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachTaiKhoan.Columns.Add(cbn_ChucNangXoa);
             foreach (var item in list)
             {
-                dtg_DanhSachTaiKhoan.Rows.Add(item.ID, item.TenTaiKhoan,item.MaNv, item.TenNV, item.IDNv, item.MatKhau, item.CapDoQuyen);
+                dtg_DanhSachTaiKhoan.Rows.Add(item.ID, item.TenTaiKhoan,(item.MaNv==null)?"":item.MaNv, item.TenNV, item.IDNv, item.MatKhau, item.CapDoQuyen);
             }
 
         }
@@ -83,8 +83,8 @@ namespace GUI.View.UserControls
                 return;
             }
             ID = Guid.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[0].Value.ToString());
-            //TenTaiKhoan = dtg_DanhSachTaiKhoan.Rows[rd].Cells[1].Value.ToString();
-            //MaNv = dtg_DanhSachTaiKhoan.Rows[rd].Cells[2].Value.ToString();
+            TenTaiKhoan = dtg_DanhSachTaiKhoan.Rows[rd].Cells[1].Value.ToString();
+            MaNv = dtg_DanhSachTaiKhoan.Rows[rd].Cells[2].Value.ToString();
             //TenNV = dtg_DanhSachTaiKhoan.Rows[rd].Cells[3].Value.ToString();
             //IDNv = Guid.Parse(dtg_DanhSachTaiKhoan.Rows[rd].Cells[4].Value.ToString());
             MatKhau = dtg_DanhSachTaiKhoan.Rows[rd].Cells[5].Value.ToString();
@@ -126,6 +126,14 @@ namespace GUI.View.UserControls
                     MessageBox.Show("Xóa nhân viên thất bại");
                 }
             }
+        }
+
+        private void tbt_SearchAccountName_TextChanged(object sender, EventArgs e)
+        {
+            string search=tbt_SearchAccountName.Text;
+            List<TaiKhoanView> listsearchtk= _iqLTaiKhoan.GetAll().Where(c=>c.TenTaiKhoan.ToLower().Contains(search.ToLower())).ToList();
+            loaddata(listsearchtk);
+
         }
     }
 }

@@ -59,6 +59,7 @@
             this.tbt_SearchAccountName.PlaceholderText = "    Tìm theo tài khoản";
             this.tbt_SearchAccountName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchAccountName.TabIndex = 23;
+            this.tbt_SearchAccountName.TextChanged += new System.EventHandler(this.tbt_SearchAccountName_TextChanged);
             // 
             // dtg_DanhSachTaiKhoan
             // 

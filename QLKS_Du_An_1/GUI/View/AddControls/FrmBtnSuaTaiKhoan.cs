@@ -48,6 +48,7 @@ namespace GUI.View.AddControls
             txt_tenTK.Text = TenTaiKhoan;
             cbb_capdoquyenTK.Text=CapDoQuyen.ToString();
             txt_matkhaucuTK.Text=MatKhau.ToString();
+            txt_maNV.Text=MaNv;
         }
 
         private void btn_capnhatTK_Click(object sender, EventArgs e)
@@ -74,10 +75,6 @@ namespace GUI.View.AddControls
             this.Close();
         }
 
-        private void FrmBtnSuaTaiKhoan_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmQLTaiKhoan frm = new FrmQLTaiKhoan();
-            frm.loaddata(_iqLTaiKhoan.GetAll());
-        }
+
     }
 }
