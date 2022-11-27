@@ -246,7 +246,6 @@
             this.Controls.Add(this.btn_capnhatTK);
             this.Name = "FrmBtnSuaTaiKhoan";
             this.Text = "FrmBtnSuaTaiKhoan";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBtnSuaTaiKhoan_FormClosed);
             this.Load += new System.EventHandler(this.FrmBtnSuaTaiKhoan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
