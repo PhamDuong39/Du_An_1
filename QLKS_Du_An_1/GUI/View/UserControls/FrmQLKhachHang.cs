@@ -123,5 +123,10 @@ namespace GUI.View.UserControls
             QuocTichSelect = Convert.ToString(dtg_DanhSachKH.Rows[rd].Cells[8].Value);
 
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadData(_iQLKhachHangService.GetAll());
+        }
     }
 }

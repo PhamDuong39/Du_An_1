@@ -31,6 +31,7 @@
             this.btn_ThemDichVu = new System.Windows.Forms.Button();
             this.tbt_SearchServicesName = new System.Windows.Forms.TextBox();
             this.dtg_DanhSachDichVu = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachDichVu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,12 +75,30 @@
             this.dtg_DanhSachDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachDichVu_CellClick);
             this.dtg_DanhSachDichVu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachDichVu_CellContentClick);
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Refresh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Refresh.Location = new System.Drawing.Point(520, 42);
+            this.btn_Refresh.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(180, 40);
+            this.btn_Refresh.TabIndex = 19;
+            this.btn_Refresh.Text = "Làm mới";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // FrmQLDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(998, 562);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.btn_ThemDichVu);
             this.Controls.Add(this.tbt_SearchServicesName);
             this.Controls.Add(this.dtg_DanhSachDichVu);
@@ -96,5 +115,6 @@
         private Button btn_ThemDichVu;
         private TextBox tbt_SearchServicesName;
         private DataGridView dtg_DanhSachDichVu;
+        private Button btn_Refresh;
     }
 }

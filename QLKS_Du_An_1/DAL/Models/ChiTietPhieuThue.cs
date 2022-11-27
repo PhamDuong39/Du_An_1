@@ -13,6 +13,7 @@ namespace DAL.Models
         public DateTime NgayKetThuc { get; set; }
         public Guid IdPhieuThue { get; set; }
         public Guid IdPhong { get; set; }
+        //public string MaCTPT { get; set; }
 
         public virtual Phong Phong { get; set; }
         public virtual PhieuThue PhieuThue { get; set; }

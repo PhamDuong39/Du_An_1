@@ -152,6 +152,7 @@ namespace GUI.View.UserControls
 
         }
 
+
         private void tbt_SearchStaffName_TextChanged(object sender, EventArgs e)
         {
             string searchnv=tbt_SearchStaffName.Text;
@@ -161,6 +162,11 @@ namespace GUI.View.UserControls
 
         private void dtg_DanhSachNhanVien_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadData(_iqLNhanVien.GetAll());
 
         }
     }

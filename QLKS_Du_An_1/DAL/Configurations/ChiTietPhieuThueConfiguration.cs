@@ -17,7 +17,8 @@ namespace DAL.Configurations
             builder.HasKey(p => p.ID);
             builder.Property(p => p.NgayBatDau).HasColumnName("NgayBatDau").HasColumnType("datetime").IsRequired();
             builder.Property(p => p.NgayKetThuc).HasColumnName("NgayKetThuc").HasColumnType("datetime").IsRequired();
-
+           // builder.Property(p => p.MaCTPT).HasColumnName("MaCTPT").HasColumnType("nvarchar(10)").IsRequired();
+            
             builder.HasOne(p => p.PhieuThue).WithMany().HasForeignKey(p => p.IdPhieuThue);
             builder.HasOne(p => p.Phong).WithMany().HasForeignKey(p => p.IdPhong);
         }
