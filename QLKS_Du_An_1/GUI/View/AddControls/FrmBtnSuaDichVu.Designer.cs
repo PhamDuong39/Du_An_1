@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBtnSuaDichVu));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tb_GiaDichVu = new System.Windows.Forms.TextBox();
@@ -52,9 +53,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(146, 25);
+            this.label1.Location = new System.Drawing.Point(167, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 32);
+            this.label1.Size = new System.Drawing.Size(321, 41);
             this.label1.TabIndex = 37;
             this.label1.Text = "Sửa thông tin dịch vụ";
             // 
@@ -69,81 +70,91 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tb_TenDichVu);
-            this.panel1.Location = new System.Drawing.Point(115, 75);
+            this.panel1.Location = new System.Drawing.Point(131, 100);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 269);
+            this.panel1.Size = new System.Drawing.Size(399, 359);
             this.panel1.TabIndex = 36;
             // 
             // tb_GiaDichVu
             // 
-            this.tb_GiaDichVu.Location = new System.Drawing.Point(107, 205);
+            this.tb_GiaDichVu.Location = new System.Drawing.Point(122, 273);
+            this.tb_GiaDichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_GiaDichVu.Name = "tb_GiaDichVu";
             this.tb_GiaDichVu.PlaceholderText = "Nhập giá";
-            this.tb_GiaDichVu.Size = new System.Drawing.Size(191, 23);
+            this.tb_GiaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_GiaDichVu.TabIndex = 31;
             // 
             // tb_MaDichVu
             // 
-            this.tb_MaDichVu.Location = new System.Drawing.Point(107, 80);
+            this.tb_MaDichVu.Location = new System.Drawing.Point(122, 107);
+            this.tb_MaDichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_MaDichVu.Name = "tb_MaDichVu";
             this.tb_MaDichVu.PlaceholderText = "Nhập mã dịch vụ";
-            this.tb_MaDichVu.Size = new System.Drawing.Size(191, 23);
+            this.tb_MaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_MaDichVu.TabIndex = 30;
             // 
             // cbb_TenLoaiDichVu
             // 
             this.cbb_TenLoaiDichVu.FormattingEnabled = true;
-            this.cbb_TenLoaiDichVu.Location = new System.Drawing.Point(107, 143);
+            this.cbb_TenLoaiDichVu.Location = new System.Drawing.Point(122, 191);
+            this.cbb_TenLoaiDichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbb_TenLoaiDichVu.Name = "cbb_TenLoaiDichVu";
-            this.cbb_TenLoaiDichVu.Size = new System.Drawing.Size(191, 23);
+            this.cbb_TenLoaiDichVu.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiDichVu.TabIndex = 28;
+            this.cbb_TenLoaiDichVu.Text = "Loại Dịch Vụ";
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox5.Location = new System.Drawing.Point(62, 204);
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(71, 272);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.Size = new System.Drawing.Size(27, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 26;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox4.Location = new System.Drawing.Point(62, 142);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(71, 189);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.Size = new System.Drawing.Size(27, 32);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox3.Location = new System.Drawing.Point(62, 79);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(71, 105);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.Size = new System.Drawing.Size(27, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox1.Location = new System.Drawing.Point(62, 19);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(71, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.Size = new System.Drawing.Size(27, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
             // tb_TenDichVu
             // 
-            this.tb_TenDichVu.Location = new System.Drawing.Point(107, 20);
+            this.tb_TenDichVu.Location = new System.Drawing.Point(122, 27);
+            this.tb_TenDichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_TenDichVu.Name = "tb_TenDichVu";
             this.tb_TenDichVu.PlaceholderText = "Nhập tên dịch vụ";
-            this.tb_TenDichVu.Size = new System.Drawing.Size(191, 23);
+            this.tb_TenDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_TenDichVu.TabIndex = 17;
             // 
             // btn_HuySuaDichVu
@@ -154,10 +165,10 @@
             this.btn_HuySuaDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaDichVu.Location = new System.Drawing.Point(392, 401);
+            this.btn_HuySuaDichVu.Location = new System.Drawing.Point(448, 535);
             this.btn_HuySuaDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaDichVu.Name = "btn_HuySuaDichVu";
-            this.btn_HuySuaDichVu.Size = new System.Drawing.Size(96, 30);
+            this.btn_HuySuaDichVu.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaDichVu.TabIndex = 39;
             this.btn_HuySuaDichVu.Text = "Hủy";
             this.btn_HuySuaDichVu.UseVisualStyleBackColor = false;
@@ -170,10 +181,10 @@
             this.btn_SuaDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaDichVu.Location = new System.Drawing.Point(264, 401);
+            this.btn_SuaDichVu.Location = new System.Drawing.Point(302, 535);
             this.btn_SuaDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaDichVu.Name = "btn_SuaDichVu";
-            this.btn_SuaDichVu.Size = new System.Drawing.Size(96, 30);
+            this.btn_SuaDichVu.Size = new System.Drawing.Size(110, 40);
             this.btn_SuaDichVu.TabIndex = 38;
             this.btn_SuaDichVu.Text = "Cập nhật";
             this.btn_SuaDichVu.UseVisualStyleBackColor = false;
@@ -181,13 +192,14 @@
             // 
             // FrmBtnSuaDichVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 450);
+            this.ClientSize = new System.Drawing.Size(729, 600);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaDichVu);
             this.Controls.Add(this.btn_SuaDichVu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaDichVu";
             this.Text = "FrmBtnSuaDichVu";
             this.Load += new System.EventHandler(this.FrmBtnSuaDichVu_Load);
