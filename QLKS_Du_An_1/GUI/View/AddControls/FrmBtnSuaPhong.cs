@@ -62,6 +62,9 @@ namespace GUI.View.AddControls
                 pv.TinhTrang = cbb_TrangThai.Text == "Phòng trống" ? 0 : cbb_TrangThai.Text == "Phòng có khách" ? 1 : 2 ;
                 pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
                 MessageBox.Show(_iqlPhongService.Update(pv));
+
+                FrmQLPhong frmQLPhong = new FrmQLPhong();
+                frmQLPhong.LoadData(_iqlPhongService.GetAll());
             }
             if (result == DialogResult.No)
             {

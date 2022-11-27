@@ -27,7 +27,7 @@ namespace BUS.Services
         {
             if (ctptv == null)
             {
-                return "Them that bai";
+                return "Đặt phòng thất bại";
             }
             else
             {
@@ -36,11 +36,12 @@ namespace BUS.Services
                 ctpt.NgayKetThuc = ctptv.NgayKetThuc;
                 ctpt.IdPhieuThue = ctptv.IdPhieuThue;
                 ctpt.IdPhong = ctptv.IdPhong;
+               // ctpt.MaCTPT = ctptv.MaCTPT;
                 if (_ictptRepos.Add(ctpt))
                 {
-                    return "THem ctpt thanh cong";
+                    return "Đặt phòng thành công";
                 }
-                return "Them ctpt that bai";
+                return "Đặt phòng thất bại";
             }
         }
 
@@ -58,7 +59,10 @@ namespace BUS.Services
                        IdPhieuThue = c.ID,
                        IdPhong = b.Id,
                        NgayLapPhieu = c.NgayLapPhieu,
-                       MaPhong = b.MaPhong
+                       MaPhong = b.MaPhong,
+                       IdKH = c.IdKH,
+                      // MaCTPT = a.MaCTPT
+                      
                    }
                    ).ToList();
             return lst;
@@ -99,6 +103,7 @@ namespace BUS.Services
                 ctpt.NgayKetThuc = ctptv.NgayKetThuc;
                 ctpt.IdPhieuThue = ctptv.IdPhieuThue;
                 ctpt.IdPhong = ctptv.IdPhong;
+               // ctpt.MaCTPT = ctptv.MaCTPT;
                 if (_ictptRepos.Upadate(ctpt))
                 {
                     return "Sua thanh cong";

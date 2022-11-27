@@ -151,5 +151,10 @@ namespace GUI.View.UserControls
         {
 
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadData(_iqLNhanVien.GetAll());
+        }
     }
 }
