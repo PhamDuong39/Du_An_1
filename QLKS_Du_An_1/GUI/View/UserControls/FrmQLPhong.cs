@@ -39,12 +39,12 @@ namespace GUI.View.UserControls
             p.ShowDialog();
         }
 
-        private void LoadData(List<PhongView> lst)
+        public void LoadData(List<PhongView> lst)
         {
             dtg_DanhSachPhong.ColumnCount = 5;
             dtg_DanhSachPhong.Rows.Clear();
             dtg_DanhSachPhong.Columns[0].Name = "ID";
-            dtg_DanhSachPhong.Columns[0].Visible = true;
+            dtg_DanhSachPhong.Columns[0].Visible = false;
             dtg_DanhSachPhong.Columns[1].Name = "Mã phòng";
             dtg_DanhSachPhong.Columns[2].Name = "Tình trạng";
             dtg_DanhSachPhong.Columns[3].Name = "ID Loại phòng";          
@@ -113,6 +113,7 @@ namespace GUI.View.UserControls
                     PhongView pv = new PhongView();
                     pv.Id = IDRoomSelect;
                     MessageBox.Show(_iqlPhongService.Remove(pv));
+                    LoadData(_iqlPhongService.GetAll());
                 }
                 if (result == DialogResult.No)
                 {
@@ -132,6 +133,11 @@ namespace GUI.View.UserControls
         private void tbt_SearchRoomName_TextChanged(object sender, EventArgs e)
         {
             LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.GetAll()) ;
         }
     }
 }

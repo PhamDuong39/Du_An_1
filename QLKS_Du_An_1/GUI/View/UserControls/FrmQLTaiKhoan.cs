@@ -127,5 +127,10 @@ namespace GUI.View.UserControls
                 }
             }
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            loaddata(_iqLTaiKhoan.GetAll());
+        }
     }
 }
