@@ -131,11 +131,11 @@ namespace GUI.View.UserControls
 
         private void tbt_SearchAccountName_TextChanged(object sender, EventArgs e)
         {
-            string search=tbt_SearchAccountName.Text;
-            List<TaiKhoanView> listsearchtk= _iqLTaiKhoan.GetAll().Where(c=>c.TenTaiKhoan.ToLower().Contains(search.ToLower())).ToList();
+            string search = tbt_SearchAccountName.Text;
+            List<TaiKhoanView> listsearchtk = _iqLTaiKhoan.GetAll().Where(c => c.TenTaiKhoan.ToLower().Contains(search.ToLower())).ToList();
             loaddata(listsearchtk);
 
-
+        }
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             loaddata(_iqLTaiKhoan.GetAll());
