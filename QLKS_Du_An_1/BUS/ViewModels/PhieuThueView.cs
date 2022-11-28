@@ -15,5 +15,6 @@ namespace BUS.ViewModels
 
         public string TenKH { get; set; }
         public string TenNV { get; set; }
+        public int MaPhieuThue { get; set; }
     }
 }

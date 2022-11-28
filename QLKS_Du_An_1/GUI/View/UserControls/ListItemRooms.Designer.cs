@@ -28,60 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lb_MaPhong = new System.Windows.Forms.Label();
+            this.lb_TTPhongThue = new System.Windows.Forms.Label();
+            this.lb_TenKH = new System.Windows.Forms.Label();
+            this.lb_DonDep = new System.Windows.Forms.Label();
+            this.lb_TenLoaiPhong = new System.Windows.Forms.Label();
+            this.lb_IdRoom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_MaPhong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lb_MaPhong.AutoSize = true;
+            this.lb_MaPhong.Location = new System.Drawing.Point(3, 9);
+            this.lb_MaPhong.Name = "lb_MaPhong";
+            this.lb_MaPhong.Size = new System.Drawing.Size(62, 15);
+            this.lb_MaPhong.TabIndex = 0;
+            this.lb_MaPhong.Text = "Mã phòng";
             // 
-            // label2
+            // lb_TTPhongThue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lb_TTPhongThue.AutoSize = true;
+            this.lb_TTPhongThue.Location = new System.Drawing.Point(3, 67);
+            this.lb_TTPhongThue.Name = "lb_TTPhongThue";
+            this.lb_TTPhongThue.Size = new System.Drawing.Size(84, 15);
+            this.lb_TTPhongThue.TabIndex = 1;
+            this.lb_TTPhongThue.Text = "TT Phong thue";
             // 
-            // label3
+            // lb_TenKH
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lb_TenKH.AutoSize = true;
+            this.lb_TenKH.Location = new System.Drawing.Point(140, 39);
+            this.lb_TenKH.Name = "lb_TenKH";
+            this.lb_TenKH.Size = new System.Drawing.Size(44, 15);
+            this.lb_TenKH.TabIndex = 2;
+            this.lb_TenKH.Text = "Ten KH";
             // 
-            // label5
+            // lb_DonDep
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 226);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.lb_DonDep.AutoSize = true;
+            this.lb_DonDep.Location = new System.Drawing.Point(117, 67);
+            this.lb_DonDep.Name = "lb_DonDep";
+            this.lb_DonDep.Size = new System.Drawing.Size(67, 15);
+            this.lb_DonDep.TabIndex = 5;
+            this.lb_DonDep.Text = "TT Don dep";
+            // 
+            // lb_TenLoaiPhong
+            // 
+            this.lb_TenLoaiPhong.AutoSize = true;
+            this.lb_TenLoaiPhong.Location = new System.Drawing.Point(99, 9);
+            this.lb_TenLoaiPhong.Name = "lb_TenLoaiPhong";
+            this.lb_TenLoaiPhong.Size = new System.Drawing.Size(85, 15);
+            this.lb_TenLoaiPhong.TabIndex = 6;
+            this.lb_TenLoaiPhong.Text = "Ten loại phòng";
+            // 
+            // lb_IdRoom
+            // 
+            this.lb_IdRoom.AutoSize = true;
+            this.lb_IdRoom.Location = new System.Drawing.Point(3, 39);
+            this.lb_IdRoom.Name = "lb_IdRoom";
+            this.lb_IdRoom.Size = new System.Drawing.Size(17, 15);
+            this.lb_IdRoom.TabIndex = 7;
+            this.lb_IdRoom.Text = "Id";
             // 
             // ListItemRooms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Controls.Add(this.lb_IdRoom);
+            this.Controls.Add(this.lb_TenLoaiPhong);
+            this.Controls.Add(this.lb_DonDep);
+            this.Controls.Add(this.lb_TenKH);
+            this.Controls.Add(this.lb_TTPhongThue);
+            this.Controls.Add(this.lb_MaPhong);
             this.Name = "ListItemRooms";
-            this.Size = new System.Drawing.Size(293, 273);
+            this.Size = new System.Drawing.Size(192, 94);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +110,11 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label5;
+        private Label lb_MaPhong;
+        private Label lb_TTPhongThue;
+        private Label lb_TenKH;
+        private Label lb_DonDep;
+        private Label lb_TenLoaiPhong;
+        private Label lb_IdRoom;
     }
 }

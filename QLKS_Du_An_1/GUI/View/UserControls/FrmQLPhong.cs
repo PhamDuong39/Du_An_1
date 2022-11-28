@@ -17,6 +17,7 @@ namespace GUI.View.UserControls
     public partial class FrmQLPhong : Form
     {
         private IQLPhongService _iqlPhongService;
+        public IQLChiTietTienNghiService _iqlCTTNService;
 
         // CellClick lấy thông tin trên dtg
         public Guid IDRoomSelect { get; set; }
@@ -28,6 +29,7 @@ namespace GUI.View.UserControls
         {
             InitializeComponent();
             _iqlPhongService = new IPhongService();
+            _iqlCTTNService = new QLChiTietTienNghiService();
             LoadData(_iqlPhongService.GetAll());
         }
 
@@ -37,7 +39,7 @@ namespace GUI.View.UserControls
             p.ShowDialog();
         }
 
-        private void LoadData(List<PhongView> lst)
+        public void LoadData(List<PhongView> lst)
         {
             dtg_DanhSachPhong.ColumnCount = 5;
             dtg_DanhSachPhong.Rows.Clear();
@@ -111,12 +113,31 @@ namespace GUI.View.UserControls
                     PhongView pv = new PhongView();
                     pv.Id = IDRoomSelect;
                     MessageBox.Show(_iqlPhongService.Remove(pv));
+                    LoadData(_iqlPhongService.GetAll());
                 }
                 if (result == DialogResult.No)
                 {
                     MessageBox.Show("Xóa phòng thất bại");
                 }
             }
+            if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_ViewDetail")
+            {
+                FrmBtnEditDetailPhong btnEditDetail = new FrmBtnEditDetailPhong();
+                btnEditDetail.MaPhong = MaRoomSelect;
+                btnEditDetail.IdRoomSelected = IDRoomSelect;
+               // MessageBox.Show("" + IDRoomSelect);
+                btnEditDetail.ShowDialog();
+            }
+        }
+
+        private void tbt_SearchRoomName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.GetAll()) ;
         }
     }
 }

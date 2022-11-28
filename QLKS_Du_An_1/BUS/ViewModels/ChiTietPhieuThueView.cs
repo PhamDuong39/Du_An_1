@@ -15,5 +15,8 @@ namespace BUS.ViewModels
         public Guid IdPhong { get; set; }
         public DateTime NgayLapPhieu { get; set; }
         public string MaPhong { get; set; }
+
+        public Guid? IdKH { get; set; }
+       // public string MaCTPT { get; set; }
     }
 }

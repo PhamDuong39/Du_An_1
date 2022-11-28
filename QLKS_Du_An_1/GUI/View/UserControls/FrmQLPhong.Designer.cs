@@ -31,6 +31,7 @@
             this.btn_ThemPhong = new System.Windows.Forms.Button();
             this.tbt_SearchRoomName = new System.Windows.Forms.TextBox();
             this.dtg_DanhSachPhong = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachPhong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             this.tbt_SearchRoomName.PlaceholderText = "    Nhập số phòng cần tìm";
             this.tbt_SearchRoomName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchRoomName.TabIndex = 14;
+            this.tbt_SearchRoomName.TextChanged += new System.EventHandler(this.tbt_SearchRoomName_TextChanged);
             // 
             // dtg_DanhSachPhong
             // 
@@ -74,12 +76,30 @@
             this.dtg_DanhSachPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellClick);
             this.dtg_DanhSachPhong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellContentClick);
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Refresh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Refresh.Location = new System.Drawing.Point(555, 42);
+            this.btn_Refresh.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(180, 40);
+            this.btn_Refresh.TabIndex = 16;
+            this.btn_Refresh.Text = "Làm mới";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // FrmQLPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(998, 562);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.btn_ThemPhong);
             this.Controls.Add(this.tbt_SearchRoomName);
             this.Controls.Add(this.dtg_DanhSachPhong);
@@ -96,5 +116,6 @@
         private Button btn_ThemPhong;
         private TextBox tbt_SearchRoomName;
         private DataGridView dtg_DanhSachPhong;
+        private Button btn_Refresh;
     }
 }
