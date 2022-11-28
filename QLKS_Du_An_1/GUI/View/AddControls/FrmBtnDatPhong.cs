@@ -33,6 +33,7 @@ namespace GUI.View.AddControls
 
             LoadDataDSPhongTrong();
             LoadDataDSPhongDaChon();
+            
         }
         
         private void LoadDataDSPhongTrong()
@@ -109,12 +110,15 @@ namespace GUI.View.AddControls
 
         private void btn_DatPhong_Click(object sender, EventArgs e)
         {
+           
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 PhieuThueView ptv = new PhieuThueView();              
                 ptv.NgayLapPhieu = DateTime.Now;
-                ptv.IdNV = Guid.Parse(Convert.ToString("8A157923-11AC-4AE4-A206-2E8A2A1D7237"));
+                 //ptv.IdNV = Guid.Parse(Convert.ToString("8A157923-11AC-4AE4-A206-2E8A2A1D7237"));
+                //FrmMain main = new FrmMain(TaiKhoanView tkv);
+                ptv.IdNV = FrmMain.IdNV;
                 var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
                 int so = lstmaPT.Max() + 1;
                 ptv.MaPhieuThue = so;

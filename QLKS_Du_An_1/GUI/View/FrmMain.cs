@@ -19,6 +19,7 @@ namespace GUI.View
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        public static  Guid? IdNV { get; set; }
 
         public FrmMain(TaiKhoanView tk)
         {
@@ -27,7 +28,19 @@ namespace GUI.View
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,45);
             pn_MenuBar.Controls.Add(leftBorderBtn);
+            if (tk.CapDoQuyen == 1)
+            {
+                lb_TenNV.Text = "ADMIN";
+                IdNV = null;
 
+            }
+            else
+            {
+                lb_TenNV.Text = tk.TenNV;
+                IdNV = tk.IDNv;
+                
+            }
+       
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
