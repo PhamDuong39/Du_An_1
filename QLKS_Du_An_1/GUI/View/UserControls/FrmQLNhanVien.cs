@@ -162,7 +162,7 @@ namespace GUI.View.UserControls
 
         private void dtg_DanhSachNhanVien_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-
+        }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {

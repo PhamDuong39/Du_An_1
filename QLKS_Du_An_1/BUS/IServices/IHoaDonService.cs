@@ -12,7 +12,8 @@ namespace BUS.IServices
         public string Add(HoaDonView obj);
         public string Update(HoaDonView obj);
         public string Remove(HoaDonView obj);
-        public List<HoaDonView> GetAll();
+        public List<HoaDonView> GetListHD();
+        public List<HoaDonView> GetCTHoaDon();
         public List<HoaDonView> Search(string keyWord);
     }
 }

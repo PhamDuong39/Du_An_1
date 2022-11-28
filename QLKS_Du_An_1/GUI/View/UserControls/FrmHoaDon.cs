@@ -23,7 +23,7 @@ namespace GUI.View.UserControls
         }
         private void LoadData()
         {
-            int stt = 0;
+            int stt = 1;
             dtg_DanhSachHoaDon.ColumnCount = 8;
             dtg_DanhSachHoaDon.Columns[0].Name = "STT";
             dtg_DanhSachHoaDon.Columns[1].Name = "ID HĐ";
@@ -43,7 +43,7 @@ namespace GUI.View.UserControls
 
             dtg_DanhSachHoaDon.Columns[1].Visible = false;
             dtg_DanhSachHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll())
+            foreach (var x in _hoaDonService.GetCTHoaDon())
             {
                 dtg_DanhSachHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.NgayTaoHD, x.NgayKetThuc, x.TenKH, x.TenNV, x.MaPhong);
             }
@@ -76,7 +76,7 @@ namespace GUI.View.UserControls
 
             dtg_DanhSachHoaDon.Columns[1].Visible = false;
             dtg_DanhSachHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetAll().Where(c=>c.NgayTaoHD == dtp_SearchHDByDay.Value))
+            foreach (var x in _hoaDonService.GetCTHoaDon().Where(c => c.NgayTaoHD == dtp_SearchHDByDay.Value))
             {
                 dtg_DanhSachHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.NgayTaoHD, x.NgayKetThuc, x.TenKH, x.TenNV, x.MaPhong);
             }

@@ -33,7 +33,7 @@ namespace BUS.Services
             _phongRepository = new PhongRepository();
             _hoaDonChiTietRepository = new HoaDonChiTietRepository();
             _dichVuRepository = new DichVuRepository();
-            _phieuThueRepository= new PhieuThueRepository();
+            _phieuThueRepository = new PhieuThueRepository();
         }
         private string Validate(HoaDonView obj)
         {
@@ -44,7 +44,7 @@ namespace BUS.Services
             throw new NotImplementedException();
         }
 
-        public List<HoaDonView> GetAll()
+        public List<HoaDonView> GetCTHoaDon()
         {
             List<HoaDonView> _lst = new List<HoaDonView>();
             _lst = (from a in _hoaDonRepository.GetAll()
@@ -77,7 +77,27 @@ namespace BUS.Services
                     }).ToList();
             return _lst;
         }
-
+        public List<HoaDonView> GetListHD()
+        {
+            List<HoaDonView> _lst = new List<HoaDonView>();
+            _lst = (from a in _hoaDonRepository.GetAll()
+                    join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.IdPhieuThue
+                    join e in _phieuThueRepository.GetAll() on b.IdPhieuThue equals e.ID
+                    join f in _nhanVienRepository.GetAll() on e.IdNV equals f.ID
+                    join g in _khachHangRepository.GetAll() on e.IdKH equals g.ID
+                    join h in _phongRepository.GetAll() on b.IdPhong equals h.Id
+                    select new HoaDonView()
+                    {
+                        Id = a.Id,
+                        MaHD = a.MaHD,
+                        NgayTaoHD = a.NgayTaoHD,
+                        TenKH = g.HovaTen,
+                        TenNV = f.TenNV,
+                        NgayKetThuc = DateTime.Now,
+                        MaPhong = h.MaPhong
+                    }).ToList();
+            return _lst;
+        }
         public string Remove(HoaDonView obj)
         {
             throw new NotImplementedException();
@@ -90,7 +110,7 @@ namespace BUS.Services
 
         public List<HoaDonView> Search(string keyWord)
         {
-            return GetAll().Where(c=>c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
+            return GetCTHoaDon().Where(c => c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
         }
     }
 }
