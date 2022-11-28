@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.ViewModels;
 using FontAwesome.Sharp;
 using GUI.View.UserControls;
 
@@ -19,9 +20,10 @@ namespace GUI.View
         private Panel leftBorderBtn;
         private Form currentChildForm;
 
-        public FrmMain()
+        public FrmMain(TaiKhoanView tk)
         {
             InitializeComponent();
+            phanquyen(tk);
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,45);
             pn_MenuBar.Controls.Add(leftBorderBtn);
@@ -51,7 +53,17 @@ namespace GUI.View
             public static Color color12 = Color.FromArgb(255, 228, 225);
 
         }
-
+        public void phanquyen(TaiKhoanView tk)
+        {
+            if (tk.CapDoQuyen == 3)
+            {
+                ibtn_QLTaiKhoan.Visible = false;
+                ibtn_QLDichVu.Visible = false;
+                ibtn_QLLoaiDichVu.Visible = false;
+                ibtn_QLCTTienNghi.Visible = false;
+                ibtn_QLTienNghi.Visible = false;
+            }
+        }
         private void ActivateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)

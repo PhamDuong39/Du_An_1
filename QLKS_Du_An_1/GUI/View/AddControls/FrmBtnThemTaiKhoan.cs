@@ -70,6 +70,7 @@ namespace GUI.View.AddControls
                     taiKhoanView.TenNV = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).TenNV;
                 }
                 taiKhoanView.ID = Guid.NewGuid();
+
                 taiKhoanView.TenTaiKhoan = txt_tenTK.Text;
                 taiKhoanView.MatKhau = txt_matkhauTK.Text;
                 taiKhoanView.CapDoQuyen = int.Parse(cbb_capdoquyenTK.Text);

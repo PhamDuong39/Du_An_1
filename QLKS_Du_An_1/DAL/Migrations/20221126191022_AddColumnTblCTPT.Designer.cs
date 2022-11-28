@@ -4,6 +4,7 @@ using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(QLKS_DA1_DbContext))]
-    partial class QLKS_DA1_DbContextModelSnapshot : ModelSnapshot
+    [Migration("20221126191022_AddColumnTblCTPT")]
+    partial class AddColumnTblCTPT
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,6 +35,11 @@ namespace DAL.Migrations
 
                     b.Property<Guid>("IdPhong")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MaCTPT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("MaCTPT");
 
                     b.Property<DateTime>("NgayBatDau")
                         .HasColumnType("datetime")
@@ -390,10 +397,6 @@ namespace DAL.Migrations
 
                     b.Property<Guid?>("IdNV")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("MaPhieuThue")
-                        .HasColumnType("int")
-                        .HasColumnName("MaPhieuThue");
 
                     b.Property<DateTime>("NgayLapPhieu")
                         .HasColumnType("datetime")
