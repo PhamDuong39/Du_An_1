@@ -12,7 +12,7 @@ namespace DAL.Models
         public string MaHD { get; set; }
         public DateTime NgayTaoHD { get; set; }
         public Guid IdCTPhieuThue { get; set; }
-        public int? TrangThai { get; set; }
+        public int TrangThai { get; set; }
         public DateTime NgayTT { get; set; }
         public virtual ChiTietPhieuThue ChiTietPhieuThue { get; set; }
         
