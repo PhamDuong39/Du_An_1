@@ -91,8 +91,8 @@ namespace GUI.View.UserControls
                 FrmBtnSuaTienNghi btnSuaTN = new FrmBtnSuaTienNghi();
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnSuaTN.IdSelect = IdSelected;
-                btnSuaTN.MaCTTNSelect = MaPhong;
-                btnSuaTN.TenCTTNSelect = TenLoaiCTTN;
+                btnSuaTN.MaCTTNSelect = MaCTTN;
+                btnSuaTN.TenCTTNSelect = TenCTTN;
                 btnSuaTN.TenLoaiCTTNSelect = TenLoaiCTTN;
                 btnSuaTN.MaPhongSelect = MaPhong;
                 btnSuaTN.ShowDialog();
