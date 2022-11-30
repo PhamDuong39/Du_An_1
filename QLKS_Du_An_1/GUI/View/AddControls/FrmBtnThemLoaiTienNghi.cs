@@ -10,14 +10,23 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
+
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemLoaiTienNghi : Form
     {
+        public send_ltn _send;
         private IQLLoaiTienNghiService _iqlLoaiTiennghi;
         public FrmBtnThemLoaiTienNghi()
         {
             InitializeComponent();
+            _iqlLoaiTiennghi = new QLLoaiTienNghiService();
+        }
+        public FrmBtnThemLoaiTienNghi(send_ltn send)
+        {
+            InitializeComponent();
+            _send = send;
             _iqlLoaiTiennghi = new QLLoaiTienNghiService();
         }
 
@@ -33,6 +42,7 @@ namespace GUI.View.AddControls
                     MaLoaiTienNghi = tb_maThemLoaiTienNghi.Text
                 };
                 MessageBox.Show(_iqlLoaiTiennghi.Add(ltn));
+                _send(_iqlLoaiTiennghi.GetAll());
             }
             else
             {

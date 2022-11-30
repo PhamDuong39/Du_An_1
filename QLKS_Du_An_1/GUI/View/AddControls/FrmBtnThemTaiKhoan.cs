@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,20 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemTaiKhoan : Form
     {
+        public send_tk _send;
         IQLTaiKhoanServices _iqLTaiKhoan;
         IQLNhanVienServices _iqLNhanVien;
 
 
         public string? TenNV { get; set; }
+        public FrmBtnThemTaiKhoan(send_tk send )
+        {
+            InitializeComponent();
+            this._send= send;
+            _iqLNhanVien = new QLNhanVienServices();
+            _iqLTaiKhoan = new QLTaiKhoanServices();
+            loadcbb(_iqLNhanVien.GetAll());
+        }
         public FrmBtnThemTaiKhoan()
         {
             InitializeComponent();
@@ -76,7 +86,7 @@ namespace GUI.View.AddControls
                 taiKhoanView.CapDoQuyen = int.Parse(cbb_capdoquyenTK.Text);
 
                 MessageBox.Show(_iqLTaiKhoan.Add(taiKhoanView));
-
+                _send(_iqLTaiKhoan.GetAll());
             }
         }
 

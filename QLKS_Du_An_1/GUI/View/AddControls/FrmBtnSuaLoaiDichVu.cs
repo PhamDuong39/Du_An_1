@@ -10,10 +10,13 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
+
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaLoaiDichVu : Form
     {
+        public send_ldv _send;
         private IQLLoaiDichVuService _iQLLoaiDichVuService;
         public Guid IdLoaiDichVu { get; set; }
 
@@ -22,6 +25,12 @@ namespace GUI.View.AddControls
         public FrmBtnSuaLoaiDichVu()
         {
             InitializeComponent();
+            _iQLLoaiDichVuService = new QLLoaiDichVuService();
+        }
+        public FrmBtnSuaLoaiDichVu(send_ldv send)
+        {
+            InitializeComponent();
+            this._send = send;
             _iQLLoaiDichVuService = new QLLoaiDichVuService();
         }
 
@@ -35,6 +44,7 @@ namespace GUI.View.AddControls
                 ltn.MaLoaiDichVu = tb_MaLoaiDichVu.Text;
                 ltn.TenLoaiDichVu = tb_TenLoaiDichVu.Text;
                 MessageBox.Show(_iQLLoaiDichVuService.Update(ltn));
+                _send(_iQLLoaiDichVuService.GetAll());
             }
             if (result == DialogResult.No)
             {

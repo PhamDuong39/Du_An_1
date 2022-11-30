@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,20 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemKH : Form
     {
+        public send_kh _send;
         private IQLKhachHangService _iQLKhachHangService;
         public FrmBtnThemKH()
         {
             InitializeComponent();
             _iQLKhachHangService = new QLKhachHangService();
+            LoadCbb();
+        }
+        public FrmBtnThemKH(send_kh send)
+        {
+            InitializeComponent();
+            this._send= send;
+            _iQLKhachHangService = new QLKhachHangService();
+            this._send = send;
             LoadCbb();
         }
         private void LoadCbb()
@@ -44,6 +54,7 @@ namespace GUI.View.AddControls
                     GioiTinh = cbb_GioiTinh.Text == "Nam" ? 1 : cbb_GioiTinh.Text == "Nữ" ? 2 : 3,
                 };
                 MessageBox.Show(_iQLKhachHangService.Add(kh));
+                _send(_iQLKhachHangService.GetAll());
             }
             else
             {

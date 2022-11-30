@@ -13,6 +13,7 @@ using BUS.Services;
 using BUS.ViewModels;
 namespace GUI.View.UserControls
 {
+    public delegate void send_ldv(List<LoaiDichVuView> lvi);
     public partial class FrmQLLoaiDichVu : Form
     {
         private IQLLoaiDichVuService _iqlLoaiDichVu;
@@ -29,7 +30,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemLoaiDichVu_Click(object sender, EventArgs e)
         {
-            FrmBtnThemLoaiDichVu ldv = new FrmBtnThemLoaiDichVu();
+            FrmBtnThemLoaiDichVu ldv = new FrmBtnThemLoaiDichVu(LoadData);
             ldv.ShowDialog();
         }
         private void LoadData(List<LoaiDichVuView> lst)
@@ -80,7 +81,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachLoaiDichVu.Columns[e.ColumnIndex].Name == "btn_SuaLoaiDichVu")
             {
                 // Open Form BtnSuaPhong
-                FrmBtnSuaLoaiDichVu btnsualtn = new FrmBtnSuaLoaiDichVu();
+                FrmBtnSuaLoaiDichVu btnsualtn = new FrmBtnSuaLoaiDichVu(LoadData);
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnsualtn.IdLoaiDichVu = IdLoaiDichVuSelect;
                 btnsualtn.MaLoaiDichVu = MaLoaiDichVuSelect;
@@ -95,6 +96,7 @@ namespace GUI.View.UserControls
                     LoaiDichVuView pv = new LoaiDichVuView();
                     pv.ID = IdLoaiDichVuSelect;
                     MessageBox.Show(_iqlLoaiDichVu.Delete(pv));
+                    LoadData(_iqlLoaiDichVu.GetAll());
                 }
                 if (result == DialogResult.No)
                 {
@@ -103,9 +105,6 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadData(_iqlLoaiDichVu.GetAll());
-        }
+      
     }
 }
