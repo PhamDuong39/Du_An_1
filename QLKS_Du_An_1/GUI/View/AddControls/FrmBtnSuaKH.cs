@@ -2,6 +2,7 @@
 using BUS.Services;
 using BUS.ViewModels;
 using DAL.Models;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaKH : Form
     {
+        public send_kh _send;
         private IQLKhachHangService _iQLKhachHangService;
 
         public Guid IdKH { get; set; }
@@ -29,6 +31,12 @@ namespace GUI.View.AddControls
         public FrmBtnSuaKH()
         {
             InitializeComponent();
+            _iQLKhachHangService = new QLKhachHangService();
+        }
+        public FrmBtnSuaKH(send_kh send)
+        {
+            InitializeComponent();
+            this._send = send;
             _iQLKhachHangService = new QLKhachHangService();
         }
 
@@ -47,6 +55,7 @@ namespace GUI.View.AddControls
                 khN.QuocTich = tbt_QuocTichKH.Text;
                 khN.DiaChi = tbt_DiaChiKH.Text;
                 MessageBox.Show(_iQLKhachHangService.Update(khN));
+                _send(_iQLKhachHangService.GetAll());
             }
             else
             {

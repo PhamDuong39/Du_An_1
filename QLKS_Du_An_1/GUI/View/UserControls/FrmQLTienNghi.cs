@@ -13,6 +13,7 @@ using BUS.Services;
 using BUS.ViewModels;
 namespace GUI.View.UserControls
 {
+    public delegate void send_ltn (List<LoaiTienNghiView> ltn);
     public partial class FrmQLTienNghi : Form
     {
         private IQLLoaiTienNghiService _iqlLoaiTienNghi;
@@ -30,7 +31,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemTienNghi_Click(object sender, EventArgs e)
         {
-            FrmBtnThemLoaiTienNghi tn = new FrmBtnThemLoaiTienNghi();
+            FrmBtnThemLoaiTienNghi tn = new FrmBtnThemLoaiTienNghi(LoadData);
             tn.ShowDialog();
 
         }
@@ -83,7 +84,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachTienNghi.Columns[e.ColumnIndex].Name == "btn_SuaLoaiTienNghi")
             {
                 // Open Form BtnSuaPhong
-                FrmBtnSuaLoaiTienNghi btnsualtn = new FrmBtnSuaLoaiTienNghi();
+                FrmBtnSuaLoaiTienNghi btnsualtn = new FrmBtnSuaLoaiTienNghi(LoadData);
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnsualtn.IdLoaiTiennghi = IdLoaiTienNghiSelect;
                 btnsualtn.MaLoaiTienNghi = MaLoaiTienNghiSelect;
@@ -106,9 +107,5 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadData(_iqlLoaiTienNghi.GetAll());
-        }
     }
 }

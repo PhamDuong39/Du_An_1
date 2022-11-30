@@ -15,6 +15,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaLoaiTienNghi : Form
     {
+        public send_ltn _send;
         private IQLLoaiTienNghiService _iqlLoaiTienNghi;
         private IQLChiTietTienNghiService iqlChiTietTienNghiService;
         public Guid IdLoaiTiennghi { get; set; }
@@ -24,6 +25,13 @@ namespace GUI.View.AddControls
         public FrmBtnSuaLoaiTienNghi()
         {
             InitializeComponent();
+            _iqlLoaiTienNghi = new QLLoaiTienNghiService();
+            iqlChiTietTienNghiService = new QLChiTietTienNghiService();
+        }
+        public FrmBtnSuaLoaiTienNghi(send_ltn send)
+        {
+            InitializeComponent();
+            _send= send;
             _iqlLoaiTienNghi = new QLLoaiTienNghiService();
             iqlChiTietTienNghiService = new QLChiTietTienNghiService();
         }
@@ -38,6 +46,7 @@ namespace GUI.View.AddControls
                 ltn.MaLoaiTienNghi = tb_maLoaiTienNghi.Text;
                 ltn.TenLoaiTienNghi = tb_tenLoaiTienNghi.Text;
                 MessageBox.Show(_iqlLoaiTienNghi.Update(ltn)); 
+                _send(_iqlLoaiTienNghi.GetAll());
             }
             if (result == DialogResult.No)
             {

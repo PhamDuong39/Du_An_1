@@ -16,6 +16,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaPhong : Form
     {
+        public send_phong _send;
         private IQLPhongService _iqlPhongService;
         private IQLLoaiPhongService _iqlLoaiPhongService;
 
@@ -31,8 +32,16 @@ namespace GUI.View.AddControls
             _iqlPhongService = new IPhongService();
             _iqlLoaiPhongService = new ILoaiPhongService();
 
+            LoadDataCbb(); 
+        }
+        public FrmBtnSuaPhong(send_phong send)
+        {
+            InitializeComponent();
+            _send = send;
+            _iqlPhongService = new IPhongService();
+            _iqlLoaiPhongService = new ILoaiPhongService();
+
             LoadDataCbb();
-            
         }
 
         private void LoadDataCbb()
@@ -62,9 +71,7 @@ namespace GUI.View.AddControls
                 pv.TinhTrang = cbb_TrangThai.Text == "Phòng trống" ? 0 : cbb_TrangThai.Text == "Phòng có khách" ? 1 : 2 ;
                 pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
                 MessageBox.Show(_iqlPhongService.Update(pv));
-
-                FrmQLPhong frmQLPhong = new FrmQLPhong();
-                frmQLPhong.LoadData(_iqlPhongService.GetAll());
+                _send(_iqlPhongService.GetAll());
             }
             if (result == DialogResult.No)
             {

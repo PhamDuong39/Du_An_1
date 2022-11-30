@@ -14,6 +14,7 @@ using GUI.View.AddControls;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_tk(List<TaiKhoanView> list);
     public partial class FrmQLTaiKhoan : Form
     {
         IQLTaiKhoanServices _iqLTaiKhoan;
@@ -47,6 +48,10 @@ namespace GUI.View.UserControls
             dtg_DanhSachTaiKhoan.Columns[0].Visible= false;
             dtg_DanhSachTaiKhoan.Columns[4].Visible= false;
             dtg_DanhSachTaiKhoan.Columns[5].Visible= false;
+            dtg_DanhSachTaiKhoan.Columns[1].AutoSizeMode=DataGridViewAutoSizeColumnMode.AllCells;
+            dtg_DanhSachTaiKhoan.Columns[2].AutoSizeMode=DataGridViewAutoSizeColumnMode.Fill;
+            dtg_DanhSachTaiKhoan.Columns[3].AutoSizeMode=DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dtg_DanhSachTaiKhoan.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg_DanhSachTaiKhoan.Rows.Clear();
 
             DataGridViewButtonColumn cbn_ChucNangSua = new DataGridViewButtonColumn();
@@ -66,12 +71,13 @@ namespace GUI.View.UserControls
             {
                 dtg_DanhSachTaiKhoan.Rows.Add(item.ID, item.TenTaiKhoan,(item.MaNv==null)?"":item.MaNv, item.TenNV, item.IDNv, item.MatKhau, item.CapDoQuyen);
             }
+           
 
         }
 
         private void btn_ThemTaiKhoan_Click(object sender, EventArgs e)
         {
-            FrmBtnThemTaiKhoan fm = new FrmBtnThemTaiKhoan();
+            FrmBtnThemTaiKhoan fm = new FrmBtnThemTaiKhoan(loaddata);
             fm.ShowDialog();
         }
 
@@ -99,7 +105,7 @@ namespace GUI.View.UserControls
                 DialogResult result = MessageBox.Show("Bạn có muốn cập nhật tài khoản này không", "Thông báo", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    FrmBtnSuaTaiKhoan fm = new FrmBtnSuaTaiKhoan();
+                    FrmBtnSuaTaiKhoan fm = new FrmBtnSuaTaiKhoan(loaddata);
                     fm.ID = ID;
                     fm.MaNv = MaNv;
                     fm.TenTaiKhoan = TenTaiKhoan;
@@ -109,7 +115,7 @@ namespace GUI.View.UserControls
                     fm.CapDoQuyen= CapDoQuyen;
                     fm.ShowDialog();
                     
-                    loaddata(_iqLTaiKhoan.GetAll());
+                    
                 }
             }
             if (dtg_DanhSachTaiKhoan.Columns[e.ColumnIndex].Name== "btn_Xoataikhoan")
@@ -134,11 +140,6 @@ namespace GUI.View.UserControls
             string search = tbt_SearchAccountName.Text;
             List<TaiKhoanView> listsearchtk = _iqLTaiKhoan.GetAll().Where(c => c.TenTaiKhoan.ToLower().Contains(search.ToLower())).ToList();
             loaddata(listsearchtk);
-
-        }
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            loaddata(_iqLTaiKhoan.GetAll());
 
         }
     }

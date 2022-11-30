@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemNhanVien : Form
     {
+        public send_nv _send;
         IQLNhanVienServices _iqLNhanVien;
         IChucVuService _iqLChucVu;
 
@@ -23,6 +25,14 @@ namespace GUI.View.AddControls
             InitializeComponent();
             _iqLNhanVien = new QLNhanVienServices();
             _iqLChucVu= new ChucVuService();
+            loadcbo();
+        }
+        public FrmBtnThemNhanVien(send_nv send)
+        {
+            InitializeComponent();
+            _send = send;
+            _iqLNhanVien = new QLNhanVienServices();
+            _iqLChucVu = new ChucVuService();
             loadcbo();
         }
         public void loadcbo()
@@ -55,7 +65,7 @@ namespace GUI.View.AddControls
                 nhanVienView.IDCv = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
                 nhanVienView.TenCV=cbo_chucvuNV.Text;
                 MessageBox.Show(_iqLNhanVien.Add(nhanVienView));
-                
+                _send(_iqLNhanVien.GetAll());
             }
         }
     }

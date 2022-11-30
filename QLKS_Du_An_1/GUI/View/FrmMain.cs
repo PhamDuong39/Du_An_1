@@ -20,7 +20,20 @@ namespace GUI.View
         private Panel leftBorderBtn;
         private Form currentChildForm;
         public static  Guid? IdNV { get; set; }
+        public FrmMain()
+        {
+            InitializeComponent();
+            
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 45);
+            pn_MenuBar.Controls.Add(leftBorderBtn);
 
+            //Form
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
         public FrmMain(TaiKhoanView tk)
         {
             InitializeComponent();

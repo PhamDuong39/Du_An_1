@@ -11,10 +11,13 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.AddControls;
+using GUI.View.UserControls;
+
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaNhanVien : Form
     {
+        public send_nv _send;
         IQLNhanVienServices _iqLNhanVien;
         IChucVuService _iqLChucVu;
 
@@ -34,6 +37,14 @@ namespace GUI.View.AddControls
             InitializeComponent();
             _iqLNhanVien= new QLNhanVienServices();
             _iqLChucVu= new ChucVuService();
+            loadcbb(_iqLChucVu.GetAll());
+        }
+        public FrmBtnSuaNhanVien(send_nv send)
+        {
+            InitializeComponent();
+            this._send = send;
+            _iqLNhanVien = new QLNhanVienServices();
+            _iqLChucVu = new ChucVuService();
             loadcbb(_iqLChucVu.GetAll());
         }
 
@@ -78,7 +89,7 @@ namespace GUI.View.AddControls
                 nhanVienView.DiaChi = txt_diachiNV.Text;
                 nhanVienView.Luong = Convert.ToInt32(txt_luongNV.Text);
                 MessageBox.Show(_iqLNhanVien.Update(nhanVienView));
-                this.Close();
+                this._send(_iqLNhanVien.GetAll());
             }
         }
 
