@@ -19,6 +19,7 @@ namespace GUI.View.AddControls
         public send_phong _send;
         private IQLPhongService _iqlPhongService;
         private IQLLoaiPhongService _iqlLoaiPhongService;
+        private IQLChiTietPhieuThueService _iqlCTPTService;
 
         // Các prop để nhận dữ liệu từ cell click 
         public Guid IDPhongSua { get; set; }
@@ -31,6 +32,7 @@ namespace GUI.View.AddControls
             InitializeComponent();
             _iqlPhongService = new IPhongService();
             _iqlLoaiPhongService = new ILoaiPhongService();
+            _iqlCTPTService = new QLChiTietPhieuThueService();
 
             LoadDataCbb(); 
         }
@@ -64,6 +66,20 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn sửa phòng này không ?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                var lstIdRoomInCTPT = _iqlCTPTService.GetAll().Select(p => p.IdPhong);
+                foreach (var item in lstIdRoomInCTPT)
+                {
+                    if (item == IDPhongSua)
+                    {
+                        MessageBox.Show("Bạn không thể sửa phòng này vì phòng này đang được sử dụng");
+                        return;
+                    }
+                }
+                if (cbb_TrangThai.Text == "Phòng có khách")
+                {
+                    MessageBox.Show("Bạn không thể sửa trạng thái phòng này ! Vui lòng đặt phòng để chuyển trạng thái này !!");
+                    return;
+                }
                 PhongView pv = new PhongView();
                 pv.Id = IDPhongSua;
                 pv.MaPhong = tb_MaPhong.Text;

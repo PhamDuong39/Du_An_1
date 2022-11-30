@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lb_MaPhong = new System.Windows.Forms.Label();
-            this.lb_TTPhongThue = new System.Windows.Forms.Label();
+            this.lb_Gia = new System.Windows.Forms.Label();
             this.lb_TenKH = new System.Windows.Forms.Label();
             this.lb_DonDep = new System.Windows.Forms.Label();
             this.lb_TenLoaiPhong = new System.Windows.Forms.Label();
@@ -45,14 +45,14 @@
             this.lb_MaPhong.TabIndex = 0;
             this.lb_MaPhong.Text = "Mã phòng";
             // 
-            // lb_TTPhongThue
+            // lb_Gia
             // 
-            this.lb_TTPhongThue.AutoSize = true;
-            this.lb_TTPhongThue.Location = new System.Drawing.Point(3, 67);
-            this.lb_TTPhongThue.Name = "lb_TTPhongThue";
-            this.lb_TTPhongThue.Size = new System.Drawing.Size(84, 15);
-            this.lb_TTPhongThue.TabIndex = 1;
-            this.lb_TTPhongThue.Text = "TT Phong thue";
+            this.lb_Gia.AutoSize = true;
+            this.lb_Gia.Location = new System.Drawing.Point(3, 67);
+            this.lb_Gia.Name = "lb_Gia";
+            this.lb_Gia.Size = new System.Drawing.Size(62, 15);
+            this.lb_Gia.TabIndex = 1;
+            this.lb_Gia.Text = "Giá phòng";
             // 
             // lb_TenKH
             // 
@@ -99,10 +99,11 @@
             this.Controls.Add(this.lb_TenLoaiPhong);
             this.Controls.Add(this.lb_DonDep);
             this.Controls.Add(this.lb_TenKH);
-            this.Controls.Add(this.lb_TTPhongThue);
+            this.Controls.Add(this.lb_Gia);
             this.Controls.Add(this.lb_MaPhong);
             this.Name = "ListItemRooms";
-            this.Size = new System.Drawing.Size(192, 94);
+            this.Size = new System.Drawing.Size(219, 94);
+            this.Click += new System.EventHandler(this.ListItemRooms_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,7 +112,7 @@
         #endregion
 
         private Label lb_MaPhong;
-        private Label lb_TTPhongThue;
+        private Label lb_Gia;
         private Label lb_TenKH;
         private Label lb_DonDep;
         private Label lb_TenLoaiPhong;

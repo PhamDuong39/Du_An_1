@@ -13,5 +13,7 @@ namespace DAL.IRepositories
         public bool Upadate(Phong obj);
         public bool Remove(Phong obj);
         public List<Phong> GetAll();
+
+        public bool UpdateTrangThaiPhong(Phong obj);
     }
 }
