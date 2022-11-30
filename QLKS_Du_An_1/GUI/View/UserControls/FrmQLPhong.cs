@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_phong (List<PhongView> phongViews);
     public partial class FrmQLPhong : Form
     {
         private IQLPhongService _iqlPhongService;
@@ -35,7 +36,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemPhong_Click(object sender, EventArgs e)
         {
-            FrmBtnThemPhong p = new FrmBtnThemPhong();
+            FrmBtnThemPhong p = new FrmBtnThemPhong(LoadData);
             p.ShowDialog();
         }
 
@@ -51,9 +52,9 @@ namespace GUI.View.UserControls
             dtg_DanhSachPhong.Columns[3].Visible = false;          
             dtg_DanhSachPhong.Columns[4].Name = "Tên loại phòng";
 
-            foreach (var item in lst)
+            foreach (var item in lst.OrderBy(p => p.MaPhong))
             {
-                dtg_DanhSachPhong.Rows.Add(item.Id, item.MaPhong, item.TinhTrang == 0 ? "Phòng trống" : item.TinhTrang == 1 ? "Phòng đang có khách" : "Phòng đang dọn dẹp", item.IDLoaiPhong,  item.TenLoaiPhong);
+                dtg_DanhSachPhong.Rows.Add(item.Id, item.MaPhong, item.TinhTrang == 0 ? "Phòng trống" : item.TinhTrang == 1 ? "Phòng đang có khách" : item.TinhTrang == 2 ? "Phòng đang dọn dẹp" : "Phòng sắp có khách thuê", item.IDLoaiPhong,  item.TenLoaiPhong);
             }
 
             // Thêm button control vào datadridview
@@ -97,7 +98,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_SuaPhong")
             {           
                 // Open Form BtnSuaPhong
-                FrmBtnSuaPhong btnSuaPhong = new FrmBtnSuaPhong();
+                FrmBtnSuaPhong btnSuaPhong = new FrmBtnSuaPhong(LoadData);
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnSuaPhong.IDPhongSua = IDRoomSelect;
                 btnSuaPhong.MaPhongSua = MaRoomSelect;
@@ -135,9 +136,5 @@ namespace GUI.View.UserControls
             LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadData(_iqlPhongService.GetAll()) ;
-        }
     }
 }

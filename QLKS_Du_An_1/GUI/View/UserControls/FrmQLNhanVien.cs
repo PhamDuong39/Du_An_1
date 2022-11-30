@@ -14,7 +14,7 @@ using GUI.View.AddControls;
 
 namespace GUI.View.UserControls
 {
-
+    public delegate void send_nv(List<NhanVienView> nhanVienViews);
     public partial class FrmQLNhanVien : Form
     {
         IQLNhanVienServices _iqLNhanVien;
@@ -103,7 +103,7 @@ namespace GUI.View.UserControls
         {
             if (dtg_DanhSachNhanVien.Columns[e.ColumnIndex].Name == "btn_Suanhanvien")
             {
-               FrmBtnSuaNhanVien fm= new FrmBtnSuaNhanVien();
+               FrmBtnSuaNhanVien fm= new FrmBtnSuaNhanVien(LoadData);
                 fm.ID = ID;
                 fm.MaNV= MaNV;
                 fm.TenNV= TenNV;
@@ -139,12 +139,9 @@ namespace GUI.View.UserControls
 
         private void btn_ThemNhanVien_Click(object sender, EventArgs e)
         {
-            FrmBtnThemNhanVien fm = new FrmBtnThemNhanVien();
+            FrmBtnThemNhanVien fm = new FrmBtnThemNhanVien(LoadData);
             fm.ShowDialog(this);
-            if(fm.Controls.Count== 0)
-            {
-                LoadData(_iqLNhanVien.GetAll());
-            }
+            
         }
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
@@ -164,10 +161,6 @@ namespace GUI.View.UserControls
         {
 
         }
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadData(_iqLNhanVien.GetAll());
-
-        }
+       
     }
 }

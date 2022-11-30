@@ -102,6 +102,7 @@ namespace GUI.View.UserControls
                 DialogResult result = MessageBox.Show("Bạn có muốn xóa phiếu thuê này không ?", "Thông báo", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
+
                     PhieuThueView ptv = new PhieuThueView();
                     ptv.ID = IdPTSelected;
                     MessageBox.Show(_iqlPTService.Remove(ptv));

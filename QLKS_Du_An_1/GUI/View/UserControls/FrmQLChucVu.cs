@@ -14,8 +14,10 @@ using System.Windows.Forms;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_cv(string obj);
     public partial class FrmQLChucVu : Form
     {
+        
         private IChucVuService _chucVuService;
         public FrmQLChucVu()
         {
@@ -88,7 +90,7 @@ namespace GUI.View.UserControls
                 DialogResult result = MessageBox.Show("Bạn có muốn sửa chức vụ này không ?", "Thông báo", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    FrmBtnSuaChucVu frm = new FrmBtnSuaChucVu();
+                    FrmBtnSuaChucVu frm = new FrmBtnSuaChucVu(LoadData);
                     frm._cvView.ID = Guid.Parse(dtg_DanhSachChucVu.Rows[e.RowIndex].Cells[1].Value.ToString());
                     frm._cvView.MaCV = dtg_DanhSachChucVu.Rows[e.RowIndex].Cells[2].Value.ToString();
                     frm._cvView.TenCV = dtg_DanhSachChucVu.Rows[e.RowIndex].Cells[3].Value.ToString();

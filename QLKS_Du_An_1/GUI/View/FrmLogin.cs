@@ -132,7 +132,10 @@ private void Bt_Dangnhap_Click_1(object sender, EventArgs e)
                 Tb_Matkhau.PasswordChar= false;
             }
         }
-        
-       
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace GUI.View.AddControls
 
     public partial class FrmBtnSuaTaiKhoan : Form
     {
+        public send_tk _send;
         IQLTaiKhoanServices _iqLTaiKhoan;
         IQLNhanVienServices _iqLNhanVien;
         public Guid ID ;
@@ -33,6 +34,16 @@ namespace GUI.View.AddControls
             _iqLTaiKhoan = new QLTaiKhoanServices();
             txt_maNV.Enabled= false;
             txt_tenTK.Enabled= false;
+            loadcbocapdoquyen();
+        }
+        public FrmBtnSuaTaiKhoan(send_tk send)
+        {
+            InitializeComponent();
+            this._send = send;
+            _iqLNhanVien = new QLNhanVienServices();
+            _iqLTaiKhoan = new QLTaiKhoanServices();
+            txt_maNV.Enabled = false;
+            txt_tenTK.Enabled = false;
             loadcbocapdoquyen();
         }
 
@@ -65,7 +76,7 @@ namespace GUI.View.AddControls
                 // taiKhoanView.TenNV = TenNV;
                 taiKhoanView.TenTaiKhoan = txt_tenTK.Text;
                 MessageBox.Show(_iqLTaiKhoan.Update(taiKhoanView));
-
+                _send(_iqLTaiKhoan.GetAll());
                 
             }
         }

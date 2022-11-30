@@ -10,14 +10,23 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
+
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemLoaiDichVu : Form
     {
+        public send_ldv _send;
         private IQLLoaiDichVuService _iQLLoaiDichVuService;
         public FrmBtnThemLoaiDichVu()
         {
             InitializeComponent();
+            _iQLLoaiDichVuService = new QLLoaiDichVuService();
+        }
+        public FrmBtnThemLoaiDichVu(send_ldv send)
+        {
+            InitializeComponent();
+            this._send = send;
             _iQLLoaiDichVuService = new QLLoaiDichVuService();
         }
 
@@ -33,6 +42,7 @@ namespace GUI.View.AddControls
                     MaLoaiDichVu = tb_MaLoaiDichVu.Text
                 };
                 MessageBox.Show(_iQLLoaiDichVuService.Add(ldv));
+                _send(_iQLLoaiDichVuService.GetAll());
             }
             else
             {
