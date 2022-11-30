@@ -8,6 +8,7 @@ using BUS.ViewModels;
 using DAL.IRepositories;
 using DAL.Repositories;
 using BUS.Ultilities;
+using DAL.Models;
 
 namespace BUS.Services
 {
@@ -41,7 +42,22 @@ namespace BUS.Services
         }
         public string Add(HoaDonView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return "Nhận phòng that bai";
+            }
+            else
+            {
+                HoaDon hd = new HoaDon();
+                hd.MaHD = obj.MaHD;
+                hd.NgayTaoHD = obj.NgayTaoHD;
+                hd.IdCTPhieuThue = obj.IdCTPhieuThue;
+                if (_hoaDonRepository.Add(hd))
+                {
+                    return "Nhận phòng thành công";
+                }
+                return "Nhận phòng  that bai";
+            }
         }
 
         public List<HoaDonView> GetAll()

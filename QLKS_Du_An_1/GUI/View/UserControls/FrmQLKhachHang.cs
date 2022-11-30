@@ -36,6 +36,7 @@ namespace GUI.View.UserControls
         {
             int stt = 1;
             dtg_DanhSachKH.ColumnCount = 9;
+            dtg_DanhSachKH.Rows.Clear();
             dtg_DanhSachKH.Columns[0].Name = "ID";
             dtg_DanhSachKH.Columns[0].Visible = false;
             dtg_DanhSachKH.Columns[1].Name = "STT";
