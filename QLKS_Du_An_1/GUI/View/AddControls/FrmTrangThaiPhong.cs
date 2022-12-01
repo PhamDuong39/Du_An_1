@@ -17,20 +17,26 @@ namespace GUI.View.AddControls
     {
         public string MaPhong { get; set; }
         public string TenKH { get; set; }
-        public Guid IdPhong { get; set; }
         public Guid IdPTCT { get; set; }
-        public Guid IdPT { get; set; }
-        public Guid IdKH { get; set; }
+        private List<DichVuView> lstDVV;
+      
 
         private IQLChiTietPhieuThueService _iqlCTPTService;
         private IQLPhongService _iqlPhongService;
         private IHoaDonService _iqlHDService;
+        private IQLDichVuService _iqlDVService;
+        private IQLHoaDonChiTietView _iqlHDCTService;
         public FrmTrangThaiPhong()
         {
             InitializeComponent();
             _iqlCTPTService = new QLChiTietPhieuThueService();
             _iqlPhongService = new IPhongService();
             _iqlHDService = new HoaDonService();
+            _iqlDVService = new QLDichVuService();
+            _iqlHDCTService = new QLHoaDonChiTietView();
+            lstDVV = new List<DichVuView>();
+            LoadDataCbbDV();
+            LoadDataListDichVu();
         }
         // truyền ngày BD và ngày ngày KT load lên form
         // dựa theo đó làm chức năng nhận phòng
@@ -76,6 +82,9 @@ namespace GUI.View.AddControls
 
                 HoaDonView hdv = new HoaDonView();
                 hdv.MaHD = "HD1";
+                var lstMaHD = _iqlHDService.GetAll();
+                int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
+                hdv.MaHD = "HD" + STTHD;
                 hdv.NgayTaoHD = DateTime.Now;
                 hdv.IdCTPhieuThue = IdPTCT;
                 MessageBox.Show(_iqlHDService.Add(hdv));
@@ -87,6 +96,38 @@ namespace GUI.View.AddControls
             }
         }
 
+        private void LoadDataListDichVu()
+        {
+            dtg_DSDichVu.ColumnCount = 4;
+            dtg_DSDichVu.Rows.Clear();
+            dtg_DSDichVu.Columns[0].Name = "ID dịch vụ";
+            dtg_DSDichVu.Columns[0].Visible = false;
+            dtg_DSDichVu.Columns[1].Name = "Mã dịch vụ";
+            dtg_DSDichVu.Columns[2].Name = "Tên dịch vụ";
+            dtg_DSDichVu.Columns[3].Name = "Giá dịch vụ";
+
+            foreach (var x in lstDVV)
+            {
+                dtg_DSDichVu.Rows.Add(x.Id, x.MaDichVu, x.TenDichVu, x.Gia, x.IDLoaiDichVu, x.TenLoaiDV);
+            }
+        }
+        private void LoadDataCbbDV()
+        {
+            var lstDichVu = _iqlDVService.GetAll();
+            cbb_TenDV.Items.Clear();
+            //cbb_TenDV.SelectedIndex = 0;
+            foreach (var item in lstDichVu)
+            {
+                cbb_TenDV.Items.Add(item.TenDichVu);
+            }
+        }
+
+        private void cbb_TenDV_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
+            var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
+            tb_GiaTienDV.Text = DVChoose.Gia.ToString();
+        }
 
         // Frm này sẽ hiển thị danh sách dịch vụ
         // click button thêm dịch vụ sẽ thêm dịch vụ vào 1 list tạm thời
@@ -97,6 +138,53 @@ namespace GUI.View.AddControls
             // clicl button này sẽ hiển thị lên FrmPrintHoaDon
             // FrmPrintHoaDon sẽ hiển thị lên giá tiền của phòng đã thuê, số dịch vụ đã sử dụng
             // Mỗi phòng sẽ chỉ có 1 hóa đơn duy nhất == Mỗi CPPT sẽ có 1 hóa đơn cho riêng nó
+        }
+
+        //private void AddDVToFlexList(Guid idDVChoose)
+        //{
+        //    var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
+        //    var DVinListFlex = lstDVV.FirstOrDefault(p => p.Id == DVChoose.Id);
+        //    if (DVinListFlex == null)
+        //    {
+        //        lstDVV.Add(DVinListFlex);
+        //    }
+        //}
+
+        private void btn_ThemDichVu_Click(object sender, EventArgs e)
+        {
+            var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
+            var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
+            lstDVV.Add(DVChoose);
+            LoadDataListDichVu();
+        }
+
+        private void btn_LuuDichVu_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có xác nhận muốn sử dụng các dịch vụ đã chọn không ? Lưu ý dịch vụ sau khi chọn sẽ không thế hoàn tác", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (IdPTCT == null)
+                {
+                    MessageBox.Show("Vui lòng đặt 1 phòng để có thể sử dụng các dịch vụ của khách sạn !");
+                    return;
+                }
+                HoaDonChiTietView hdctv = new HoaDonChiTietView();
+               // null here
+                foreach (var item in lstDVV)
+                {
+                    hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                    hdctv.SoLuong = 1;
+                    hdctv.DonGia = item.Gia;
+                    hdctv.IdDichVu = item.Id;
+                    MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                }             
+            }
+            if (result == DialogResult.No)
+            {
+                List<DichVuView> lstEmpty = new List<DichVuView>();
+                lstDVV = lstEmpty;
+                MessageBox.Show("Bạn đã hủy toàn bộ dịch vụ đã chọn");
+            }
         }
     }
 }
