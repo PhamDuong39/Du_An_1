@@ -140,7 +140,7 @@ namespace GUI.View.UserControls
             string search = tbt_SearchAccountName.Text;
             List<TaiKhoanView> listsearchtk = _iqLTaiKhoan.GetAll().Where(c => c.TenTaiKhoan.ToLower().Contains(search.ToLower())).ToList();
             loaddata(listsearchtk);
-
+            
         }
     }
 }
