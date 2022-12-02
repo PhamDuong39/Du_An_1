@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_DatPhong = new System.Windows.Forms.Button();
-            this.dtg_DSPhongTrong = new System.Windows.Forms.DataGridView();
+            this.btn_LuuDichVu = new System.Windows.Forms.Button();
+            this.dtg_DSDichVu = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtp_NgayKetThuc = new System.Windows.Forms.DateTimePicker();
-            this.btn_HuyDatPhong = new System.Windows.Forms.Button();
+            this.btn_HuyLuuDV = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtp_NgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.lb_TenKH = new System.Windows.Forms.Label();
@@ -42,46 +42,47 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ThemDichVu = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_GiaTienDV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbb_TenDV = new System.Windows.Forms.ComboBox();
             this.lb_MaPhong = new System.Windows.Forms.Label();
             this.btn_NhanPhong = new System.Windows.Forms.Button();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongTrong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_DatPhong
+            // btn_LuuDichVu
             // 
-            this.btn_DatPhong.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_DatPhong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DatPhong.FlatAppearance.BorderSize = 0;
-            this.btn_DatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DatPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_DatPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_DatPhong.Location = new System.Drawing.Point(506, 473);
-            this.btn_DatPhong.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_DatPhong.Name = "btn_DatPhong";
-            this.btn_DatPhong.Size = new System.Drawing.Size(80, 30);
-            this.btn_DatPhong.TabIndex = 28;
-            this.btn_DatPhong.Text = "Lưu";
-            this.btn_DatPhong.UseVisualStyleBackColor = false;
+            this.btn_LuuDichVu.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_LuuDichVu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_LuuDichVu.FlatAppearance.BorderSize = 0;
+            this.btn_LuuDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LuuDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_LuuDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_LuuDichVu.Location = new System.Drawing.Point(506, 473);
+            this.btn_LuuDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_LuuDichVu.Name = "btn_LuuDichVu";
+            this.btn_LuuDichVu.Size = new System.Drawing.Size(80, 30);
+            this.btn_LuuDichVu.TabIndex = 28;
+            this.btn_LuuDichVu.Text = "Lưu";
+            this.btn_LuuDichVu.UseVisualStyleBackColor = false;
+            this.btn_LuuDichVu.Click += new System.EventHandler(this.btn_LuuDichVu_Click);
             // 
-            // dtg_DSPhongTrong
+            // dtg_DSDichVu
             // 
-            this.dtg_DSPhongTrong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtg_DSPhongTrong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DSPhongTrong.Location = new System.Drawing.Point(51, 177);
-            this.dtg_DSPhongTrong.Name = "dtg_DSPhongTrong";
-            this.dtg_DSPhongTrong.RowHeadersWidth = 51;
-            this.dtg_DSPhongTrong.RowTemplate.Height = 25;
-            this.dtg_DSPhongTrong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_DSPhongTrong.Size = new System.Drawing.Size(385, 165);
-            this.dtg_DSPhongTrong.TabIndex = 21;
+            this.dtg_DSDichVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtg_DSDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_DSDichVu.Location = new System.Drawing.Point(51, 177);
+            this.dtg_DSDichVu.Name = "dtg_DSDichVu";
+            this.dtg_DSDichVu.RowHeadersWidth = 51;
+            this.dtg_DSDichVu.RowTemplate.Height = 25;
+            this.dtg_DSDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_DSDichVu.Size = new System.Drawing.Size(385, 165);
+            this.dtg_DSDichVu.TabIndex = 21;
             // 
             // label5
             // 
@@ -124,21 +125,21 @@
             this.dtp_NgayKetThuc.Size = new System.Drawing.Size(221, 23);
             this.dtp_NgayKetThuc.TabIndex = 0;
             // 
-            // btn_HuyDatPhong
+            // btn_HuyLuuDV
             // 
-            this.btn_HuyDatPhong.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_HuyDatPhong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HuyDatPhong.FlatAppearance.BorderSize = 0;
-            this.btn_HuyDatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HuyDatPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_HuyDatPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyDatPhong.Location = new System.Drawing.Point(625, 473);
-            this.btn_HuyDatPhong.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_HuyDatPhong.Name = "btn_HuyDatPhong";
-            this.btn_HuyDatPhong.Size = new System.Drawing.Size(80, 30);
-            this.btn_HuyDatPhong.TabIndex = 29;
-            this.btn_HuyDatPhong.Text = "Hủy";
-            this.btn_HuyDatPhong.UseVisualStyleBackColor = false;
+            this.btn_HuyLuuDV.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_HuyLuuDV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HuyLuuDV.FlatAppearance.BorderSize = 0;
+            this.btn_HuyLuuDV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_HuyLuuDV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_HuyLuuDV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_HuyLuuDV.Location = new System.Drawing.Point(625, 473);
+            this.btn_HuyLuuDV.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_HuyLuuDV.Name = "btn_HuyLuuDV";
+            this.btn_HuyLuuDV.Size = new System.Drawing.Size(80, 30);
+            this.btn_HuyLuuDV.TabIndex = 29;
+            this.btn_HuyLuuDV.Text = "Hủy";
+            this.btn_HuyLuuDV.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -174,7 +175,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.dtg_DSPhongTrong);
+            this.panel1.Controls.Add(this.dtg_DSDichVu);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.groupBox2);
@@ -189,9 +190,9 @@
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btn_ThemDichVu);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tb_GiaTienDV);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cbb_TenDV);
             this.panel2.Location = new System.Drawing.Point(529, 177);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 165);
@@ -221,13 +222,14 @@
             this.btn_ThemDichVu.TabIndex = 32;
             this.btn_ThemDichVu.Text = "Thêm dịch vụ";
             this.btn_ThemDichVu.UseVisualStyleBackColor = false;
+            this.btn_ThemDichVu.Click += new System.EventHandler(this.btn_ThemDichVu_Click);
             // 
-            // textBox1
+            // tb_GiaTienDV
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 23);
-            this.textBox1.TabIndex = 36;
+            this.tb_GiaTienDV.Location = new System.Drawing.Point(127, 78);
+            this.tb_GiaTienDV.Name = "tb_GiaTienDV";
+            this.tb_GiaTienDV.Size = new System.Drawing.Size(168, 23);
+            this.tb_GiaTienDV.TabIndex = 36;
             // 
             // label1
             // 
@@ -238,13 +240,14 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Tên dịch vụ";
             // 
-            // comboBox1
+            // cbb_TenDV
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 23);
-            this.comboBox1.TabIndex = 34;
+            this.cbb_TenDV.FormattingEnabled = true;
+            this.cbb_TenDV.Location = new System.Drawing.Point(127, 29);
+            this.cbb_TenDV.Name = "cbb_TenDV";
+            this.cbb_TenDV.Size = new System.Drawing.Size(168, 23);
+            this.cbb_TenDV.TabIndex = 34;
+            this.cbb_TenDV.SelectedValueChanged += new System.EventHandler(this.cbb_TenDV_SelectedValueChanged);
             // 
             // lb_MaPhong
             // 
@@ -298,14 +301,14 @@
             this.ClientSize = new System.Drawing.Size(994, 537);
             this.Controls.Add(this.btn_ThanhToan);
             this.Controls.Add(this.btn_NhanPhong);
-            this.Controls.Add(this.btn_DatPhong);
-            this.Controls.Add(this.btn_HuyDatPhong);
+            this.Controls.Add(this.btn_LuuDichVu);
+            this.Controls.Add(this.btn_HuyLuuDV);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lb_MaPhong);
             this.Name = "FrmTrangThaiPhong";
             this.Text = "FrmTrangThaiPhong";
             this.Load += new System.EventHandler(this.FrmTrangThaiPhong_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongTrong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -318,13 +321,13 @@
         }
 
         #endregion
-        private Button btn_DatPhong;
-        private DataGridView dtg_DSPhongTrong;
+        private Button btn_LuuDichVu;
+        private DataGridView dtg_DSDichVu;
         private Label label5;
         private Label label4;
         private GroupBox groupBox2;
         private DateTimePicker dtp_NgayKetThuc;
-        private Button btn_HuyDatPhong;
+        private Button btn_HuyLuuDV;
         private GroupBox groupBox1;
         private DateTimePicker dtp_NgayBatDau;
         private Label lb_TenKH;
@@ -335,8 +338,8 @@
         private Button btn_ThemDichVu;
         private Panel panel2;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox tb_GiaTienDV;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox cbb_TenDV;
     }
 }

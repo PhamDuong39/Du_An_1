@@ -114,5 +114,12 @@ namespace BUS.Services
                 }
             }
         }
+
+     
+        public Guid GetIdDvByName(string name)
+        {
+            var dv = _iDichVuRepository.GetAll().FirstOrDefault(p => p.TenDichVu == name);
+            return dv.Id;
+        }
     }
 }
