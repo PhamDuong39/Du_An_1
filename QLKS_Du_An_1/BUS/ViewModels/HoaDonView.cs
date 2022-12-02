@@ -12,6 +12,7 @@ namespace BUS.ViewModels
         public Guid Id { get; set; }
         public string MaHD { get; set; }
         public DateTime NgayTaoHD { get; set; }
+        public DateTime NgayTT { get; set; }
         // CTPT
         public Guid IdCTPhieuThue { get; set; }
         public DateTime NgayBatDau { get; set; }
@@ -25,7 +26,9 @@ namespace BUS.ViewModels
         // Phong
         public Guid IdPhong { get; set; }
         public string MaPhong { get; set; }
-
+        // Loai Phong(Lay gia ngay)
+        public int GiaNgay { get; set; }
+        public string TenLoaiPhong { get; set; }
 
 
         // Có thể bỏ join 2 bảng HDCT và dịch vụ tuy nhiên sẽ cần phải tạo thêm 1 dtg con cho form hóa đơn khi in thông tin ra .
