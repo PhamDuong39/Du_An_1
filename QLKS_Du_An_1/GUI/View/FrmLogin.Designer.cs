@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.Tb_Taikhoan = new RJCodeAdvance.RJControls.RJTextBox();
             this.Tb_Matkhau = new RJCodeAdvance.RJControls.RJTextBox();
             this.Bt_Dangnhap = new RJCodeAdvance.RJControls.RJButton();
@@ -60,7 +59,7 @@
             this.Tb_Taikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tb_Taikhoan.ForeColor = System.Drawing.Color.HotPink;
             this.Tb_Taikhoan.Location = new System.Drawing.Point(42, 251);
-            this.Tb_Taikhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_Taikhoan.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Tb_Taikhoan.Multiline = false;
             this.Tb_Taikhoan.Name = "Tb_Taikhoan";
             this.Tb_Taikhoan.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -83,7 +82,7 @@
             this.Tb_Matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tb_Matkhau.ForeColor = System.Drawing.Color.HotPink;
             this.Tb_Matkhau.Location = new System.Drawing.Point(42, 315);
-            this.Tb_Matkhau.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_Matkhau.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Tb_Matkhau.Multiline = false;
             this.Tb_Matkhau.Name = "Tb_Matkhau";
             this.Tb_Matkhau.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -132,7 +131,7 @@
             this.pl_userlogin.Dock = System.Windows.Forms.DockStyle.Left;
             this.pl_userlogin.Location = new System.Drawing.Point(0, 0);
             this.pl_userlogin.Name = "pl_userlogin";
-            this.pl_userlogin.Size = new System.Drawing.Size(332, 600);
+            this.pl_userlogin.Size = new System.Drawing.Size(331, 600);
             this.pl_userlogin.TabIndex = 10;
             // 
             // icon_seemk
@@ -143,7 +142,7 @@
             this.icon_seemk.IconColor = System.Drawing.Color.HotPink;
             this.icon_seemk.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icon_seemk.IconSize = 22;
-            this.icon_seemk.Location = new System.Drawing.Point(276, 324);
+            this.icon_seemk.Location = new System.Drawing.Point(277, 324);
             this.icon_seemk.Margin = new System.Windows.Forms.Padding(0);
             this.icon_seemk.Name = "icon_seemk";
             this.icon_seemk.Size = new System.Drawing.Size(22, 25);
@@ -179,7 +178,7 @@
             this.tgg_button.AutoSize = true;
             this.tgg_button.BackColor = System.Drawing.Color.Maroon;
             this.tgg_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.tgg_button.Location = new System.Drawing.Point(42, 394);
+            this.tgg_button.Location = new System.Drawing.Point(42, 395);
             this.tgg_button.MinimumSize = new System.Drawing.Size(40, 20);
             this.tgg_button.Name = "tgg_button";
             this.tgg_button.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -210,7 +209,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 130;
-            this.iconPictureBox1.Location = new System.Drawing.Point(116, 39);
+            this.iconPictureBox1.Location = new System.Drawing.Point(117, 39);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(130, 136);
             this.iconPictureBox1.TabIndex = 10;
@@ -258,14 +257,15 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.anh_thanh_pho;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(576, 600);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // FrmLogin

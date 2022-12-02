@@ -44,6 +44,7 @@
             this.ibtn_DatPhong = new FontAwesome.Sharp.IconButton();
             this.ibtn_DanhSachPhong = new FontAwesome.Sharp.IconButton();
             this.pn_AccImg = new System.Windows.Forms.Panel();
+            this.lb_TenNV = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_TitleBar = new System.Windows.Forms.Panel();
             this.btn_Minimize = new System.Windows.Forms.Label();
@@ -394,12 +395,22 @@
             // 
             // pn_AccImg
             // 
+            this.pn_AccImg.Controls.Add(this.lb_TenNV);
             this.pn_AccImg.Controls.Add(this.pictureBox1);
             this.pn_AccImg.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_AccImg.Location = new System.Drawing.Point(0, 0);
             this.pn_AccImg.Name = "pn_AccImg";
             this.pn_AccImg.Size = new System.Drawing.Size(203, 121);
             this.pn_AccImg.TabIndex = 0;
+            // 
+            // lb_TenNV
+            // 
+            this.lb_TenNV.AutoSize = true;
+            this.lb_TenNV.Location = new System.Drawing.Point(61, 100);
+            this.lb_TenNV.Name = "lb_TenNV";
+            this.lb_TenNV.Size = new System.Drawing.Size(44, 15);
+            this.lb_TenNV.TabIndex = 1;
+            this.lb_TenNV.Text = "Ten NV";
             // 
             // pictureBox1
             // 
@@ -510,6 +521,7 @@
             this.Text = "FrmMain";
             this.pn_MenuBar.ResumeLayout(false);
             this.pn_AccImg.ResumeLayout(false);
+            this.pn_AccImg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pn_TitleBar.ResumeLayout(false);
             this.pn_TitleBar.PerformLayout();
@@ -544,5 +556,6 @@
         private Label btn_Exit;
         private Label btn_Minimize;
         private FontAwesome.Sharp.IconButton ibtn_ThongKe;
+        private Label lb_TenNV;
     }
 }

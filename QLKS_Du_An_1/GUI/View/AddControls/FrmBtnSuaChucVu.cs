@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaChucVu : Form
     {
+        public send_cv _send;
         public ChucVuView _cvView;
         private IChucVuService _chucVuService;
         public FrmBtnSuaChucVu()
@@ -23,6 +25,14 @@ namespace GUI.View.AddControls
             _cvView = new ChucVuView();
             InitializeComponent();
             
+        }
+        public FrmBtnSuaChucVu(send_cv send)
+        {
+            _chucVuService = new ChucVuService();
+            _cvView = new ChucVuView();
+            InitializeComponent();
+            this._send= send;
+
         }
         private void LoadData()
         {
@@ -41,8 +51,14 @@ namespace GUI.View.AddControls
         private void btn_SuaChucVu_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa", "Thông báo", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) MessageBox.Show(_chucVuService.Update(GetData()));
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show(_chucVuService.Update(GetData()));
+                _send(string.Empty);
+                
+            }
             if (result == DialogResult.No) MessageBox.Show("Canncel");
+            
         }
 
         private void btn_HuySuaChucVu_Click(object sender, EventArgs e)
