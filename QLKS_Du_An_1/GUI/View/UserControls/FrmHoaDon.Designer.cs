@@ -82,14 +82,17 @@
             // 
             // dtg_DanhSachHoaDon
             // 
+            this.dtg_DanhSachHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_DanhSachHoaDon.Location = new System.Drawing.Point(103, 144);
             this.dtg_DanhSachHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachHoaDon.Name = "dtg_DanhSachHoaDon";
             this.dtg_DanhSachHoaDon.RowHeadersWidth = 51;
             this.dtg_DanhSachHoaDon.RowTemplate.Height = 25;
+            this.dtg_DanhSachHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_DanhSachHoaDon.Size = new System.Drawing.Size(960, 631);
             this.dtg_DanhSachHoaDon.TabIndex = 12;
+            this.dtg_DanhSachHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachHoaDon_CellClick);
             // 
             // FrmHoaDon
             // 

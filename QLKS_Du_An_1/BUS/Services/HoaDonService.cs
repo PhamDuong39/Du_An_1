@@ -22,6 +22,8 @@ namespace BUS.Services
         private IHoaDonChiTietRepository _hoaDonChiTietRepository;
         private IDichVuRepository _dichVuRepository;
         private IPhieuThueRepository _phieuThueRepository;
+        private ILoaiDichVuRepository _loaiDichVuRepository;
+        private ILoaiPhongRepository _loaiPhongRepository;
 
         public HoaDonService()
         {
@@ -34,6 +36,8 @@ namespace BUS.Services
             _hoaDonChiTietRepository = new HoaDonChiTietRepository();
             _dichVuRepository = new DichVuRepository();
             _phieuThueRepository = new PhieuThueRepository();
+            _loaiDichVuRepository = new LoaiDichVuRepository();
+            _loaiPhongRepository = new LoaiPhongRepository();
         }
         private string Validate(HoaDonView obj)
         {
@@ -44,58 +48,119 @@ namespace BUS.Services
             throw new NotImplementedException();
         }
 
-        public List<HoaDonView> GetCTHoaDon()
+        public List<HoaDonView> GetCTHoaDon(Guid Id)
         {
             List<HoaDonView> _lst = new List<HoaDonView>();
-            _lst = (from a in _hoaDonRepository.GetAll()
-                    join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.IdPhieuThue
-                    join c in _hoaDonChiTietRepository.GetAll() on a.Id equals c.IdHoaDon
-                    join d in _dichVuRepository.GetAll() on c.IdDichVu equals d.Id
-                    join e in _phieuThueRepository.GetAll() on b.IdPhieuThue equals e.ID
-                    join f in _nhanVienRepository.GetAll() on e.IdNV equals f.ID
-                    join g in _khachHangRepository.GetAll() on e.IdKH equals g.ID
-                    join h in _phongRepository.GetAll() on b.IdPhong equals h.Id
-                    select new HoaDonView()
-                    {
-                        Id = a.Id,
-                        MaHD = a.MaHD,
-                        NgayTaoHD = a.NgayTaoHD,
-                        IdCTPhieuThue = a.IdCTPhieuThue,
-                        NgayBatDau = b.NgayBatDau,
-                        NgayKetThuc = b.NgayKetThuc,
-                        IdKH = g.ID,
-                        TenKH = g.HovaTen,
-                        IdNV = f.ID,
-                        TenNV = f.TenNV,
-                        IdPhong = h.Id,
-                        MaPhong = h.MaPhong,
-                        IdDichVu = c.IdDichVu,
-                        SoLuongDichVu = c.SoLuong,
-                        DonGia = c.DonGia,
-                        TenDichVu = d.TenDichVu,
-                        TongTien = 9999
-                    }).ToList();
+            if (Id==Guid.Empty)
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _hoaDonChiTietRepository.GetAll() on a.Id equals b.IdHoaDon
+                        join c in _dichVuRepository.GetAll() on b.IdDichVu equals c.Id
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            SoLuongDichVu = b.SoLuong,
+                            DonGia = b.DonGia,
+                            TenDichVu = c.TenDichVu
+                        }).ToList();
+            }
+            else
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _hoaDonChiTietRepository.GetAll() on a.Id equals b.IdHoaDon
+                        join c in _dichVuRepository.GetAll() on b.IdDichVu equals c.Id
+                        where a.Id.ToString().ToLower().Contains(Id.ToString().ToLower())
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            SoLuongDichVu = b.SoLuong,
+                            DonGia = b.DonGia,
+                            TenDichVu = c.TenDichVu
+                        }).ToList();
+            }
             return _lst;
         }
-        public List<HoaDonView> GetListHD()
+        public List<HoaDonView> GetCTPhong(Guid Id)
         {
             List<HoaDonView> _lst = new List<HoaDonView>();
-            _lst = (from a in _hoaDonRepository.GetAll()
-                    join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.IdPhieuThue
-                    join e in _phieuThueRepository.GetAll() on b.IdPhieuThue equals e.ID
-                    join f in _nhanVienRepository.GetAll() on e.IdNV equals f.ID
-                    join g in _khachHangRepository.GetAll() on e.IdKH equals g.ID
-                    join h in _phongRepository.GetAll() on b.IdPhong equals h.Id
-                    select new HoaDonView()
-                    {
-                        Id = a.Id,
-                        MaHD = a.MaHD,
-                        NgayTaoHD = a.NgayTaoHD,
-                        TenKH = g.HovaTen,
-                        TenNV = f.TenNV,
-                        NgayKetThuc = DateTime.Now,
-                        MaPhong = h.MaPhong
-                    }).ToList();
+            if(Id == Guid.Empty)
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.ID
+                        join c in _phongRepository.GetAll() on b.IdPhong equals c.Id
+                        join d in _loaiPhongRepository.GetAll() on c.IDLoaiPhong equals d.ID
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            NgayBatDau = b.NgayBatDau,
+                            NgayKetThuc = b.NgayKetThuc,
+                            MaPhong = c.MaPhong,
+                            GiaNgay = d.GiaNgay,
+                            TenLoaiPhong = d.TenLoaiPhong
+                        }).ToList();
+            }
+            else
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.ID
+                        join c in _phongRepository.GetAll() on b.IdPhong equals c.Id
+                        join d in _loaiPhongRepository.GetAll() on c.IDLoaiPhong equals d.ID
+                        where a.Id.ToString().ToLower().Contains(Id.ToString().ToLower())
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            NgayBatDau = b.NgayBatDau,
+                            NgayKetThuc = b.NgayKetThuc,
+                            MaPhong = c.MaPhong,
+                            GiaNgay = d.GiaNgay,
+                            TenLoaiPhong = d.TenLoaiPhong
+                        }).ToList();
+            }
+            return _lst;
+        }
+
+        public List<HoaDonView> GetListHD(Guid Id)
+        {
+            List<HoaDonView> _lst = new List<HoaDonView>();
+            if (Id==Guid.Empty)
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.ID
+                        join c in _phieuThueRepository.GetAll() on b.IdPhieuThue equals c.ID
+                        join d in _khachHangRepository.GetAll() on c.IdKH equals d.ID
+                        join e in _nhanVienRepository.GetAll() on c.IdNV equals e.ID
+                        join f in _phongRepository.GetAll() on b.IdPhong equals f.Id
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            MaHD = a.MaHD,
+                            NgayTaoHD = a.NgayTaoHD,
+                            NgayTT = a.NgayTT,
+                            TenNV = e.TenNV,
+                            TenKH = d.HovaTen,
+                            MaPhong = f.MaPhong,
+                        }).OrderBy(c => c.MaHD).ToList();
+            }
+            else
+            {
+                _lst = (from a in _hoaDonRepository.GetAll()
+                        join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.ID
+                        join c in _phieuThueRepository.GetAll() on b.IdPhieuThue equals c.ID
+                        join d in _khachHangRepository.GetAll() on c.IdKH equals d.ID
+                        join e in _nhanVienRepository.GetAll() on c.IdNV equals e.ID
+                        join f in _phongRepository.GetAll() on b.IdPhong equals f.Id
+                        where a.Id.ToString().ToLower().Contains(Id.ToString().ToLower())
+                        select new HoaDonView()
+                        {
+                            Id = a.Id,
+                            MaHD = a.MaHD,
+                            NgayTaoHD = a.NgayTaoHD,
+                            NgayTT = a.NgayTT,
+                            TenNV = e.TenNV,
+                            TenKH = d.HovaTen,
+                            MaPhong = f.MaPhong,
+                        }).OrderBy(c => c.MaHD).ToList();
+            }
             return _lst;
         }
         public string Remove(HoaDonView obj)
@@ -110,7 +175,7 @@ namespace BUS.Services
 
         public List<HoaDonView> Search(string keyWord)
         {
-            return GetCTHoaDon().Where(c => c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
+            return GetListHD(Guid.Empty).Where(c => c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
         }
     }
 }
