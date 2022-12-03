@@ -1,6 +1,4 @@
 using GUI.View;
-using GUI.View.AddControls;
-using GUI.View.UserControls;
 
 namespace GUI
 {

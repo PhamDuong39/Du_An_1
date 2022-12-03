@@ -9,7 +9,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace GUI.View.AddControls
@@ -22,7 +21,6 @@ namespace GUI.View.AddControls
         private IQLChiTietPhieuThueService _iqlCTPTService;
         private Guid IdRoomPicked { get; set; }
 
-        private List<PhongView> list_phong_trong;
         private List<PhongView> lstRoomChoosen;
         public FrmBtnDatPhong()
         {
@@ -32,14 +30,13 @@ namespace GUI.View.AddControls
             _iqlPTService = new QLPhieuThueService();
             _iqlCTPTService = new QLChiTietPhieuThueService();
             lstRoomChoosen = new List<PhongView>();
-            list_phong_trong= new List<PhongView>();
 
-            /*LoadDataDSPhongTrong();
-            LoadDataDSPhongDaChon();*/
+            LoadDataDSPhongTrong();
+            LoadDataDSPhongDaChon();
             
         }
         
-        private void LoadDataDSPhongTrong(List<PhongView> list)
+        private void LoadDataDSPhongTrong()
         {
             dtg_DSPhongTrong.ColumnCount = 3;
             dtg_DSPhongTrong.Rows.Clear();
@@ -47,12 +44,13 @@ namespace GUI.View.AddControls
             dtg_DSPhongTrong.Columns[0].Visible = false;
             dtg_DSPhongTrong.Columns[1].Name = "Mã phòng";
             dtg_DSPhongTrong.Columns[2].Name = "Loại phòng";
-            dtg_DSPhongTrong.Rows.Clear();
-            foreach (var item in list)
+
+            var lstPhongTrong = _iqlPhongService.GetAll().Where(p => p.TinhTrang == 0);
+            foreach (var item in lstPhongTrong)
             {
                 dtg_DSPhongTrong.Rows.Add(item.Id, item.MaPhong, item.TenLoaiPhong);
             }
-            
+
             DataGridViewButtonColumn cbn_ChucNangChonPhong = new DataGridViewButtonColumn();
             cbn_ChucNangChonPhong.HeaderText = "Thêm";
             cbn_ChucNangChonPhong.Text = "Thêm";
@@ -61,7 +59,7 @@ namespace GUI.View.AddControls
             dtg_DSPhongTrong.Columns.Add(cbn_ChucNangChonPhong);
         }
 
-        private void LoadDataDSPhongDaChon(List<PhongView> _list)
+        private void LoadDataDSPhongDaChon()
         {
             dtg_DSPhongDaChon.ColumnCount = 3;
             dtg_DSPhongDaChon.Rows.Clear();
@@ -70,7 +68,7 @@ namespace GUI.View.AddControls
             dtg_DSPhongDaChon.Columns[1].Name = "Mã phòng";
             dtg_DSPhongDaChon.Columns[2].Name = "Loại phòng";
 
-            foreach (var item in _list)
+            foreach (var item in lstRoomChoosen)
             {
                 dtg_DSPhongDaChon.Rows.Add(item.Id, item.MaPhong, item.TenLoaiPhong);
             }
@@ -87,20 +85,16 @@ namespace GUI.View.AddControls
         {
             if (dtg_DSPhongTrong.Columns[e.ColumnIndex].Name == "btn_ChooseRoom")
             {
-                PhongView roomChoosen = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == IdRoomPicked);
-                for(int i =0;i<list_phong_trong.Count;i++)
-                {
-                    if (list_phong_trong[i].Id == roomChoosen.Id)
-                    {
-                        lstRoomChoosen.Add(list_phong_trong[i]);
-                        list_phong_trong.Remove(list_phong_trong[i]);
-                    }
-                }
-
-                LoadDataDSPhongTrong(list_phong_trong);
-                LoadDataDSPhongDaChon(lstRoomChoosen);
-                /*_iqlPhongService.Update(pv);*/
-                /*LoadDataDSPhongTrong();*/
+                var roomChoosen = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == IdRoomPicked);
+                lstRoomChoosen.Add(roomChoosen);
+                LoadDataDSPhongDaChon();
+                PhongView pv = new PhongView();
+                pv.Id = IdRoomPicked;
+                pv.MaPhong = dtg_DSPhongTrong.Rows[e.RowIndex].Cells[1].Value.ToString();
+                pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(dtg_DSPhongTrong.Rows[e.RowIndex].Cells[2].Value.ToString());
+                pv.TinhTrang = 1;
+                _iqlPhongService.Update(pv);
+                LoadDataDSPhongTrong();
             }
         }
 
@@ -122,6 +116,8 @@ namespace GUI.View.AddControls
             {
                 PhieuThueView ptv = new PhieuThueView();              
                 ptv.NgayLapPhieu = DateTime.Now;
+                 //ptv.IdNV = Guid.Parse(Convert.ToString("8A157923-11AC-4AE4-A206-2E8A2A1D7237"));
+                //FrmMain main = new FrmMain(TaiKhoanView tkv);
                 ptv.IdNV = FrmMain.IdNV;
                 var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
                 int so = lstmaPT.Max() + 1;
@@ -174,9 +170,9 @@ namespace GUI.View.AddControls
         private void FrmBtnDatPhong_Load(object sender, EventArgs e)
         {
             dtp_NgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtp_NgayBatDau.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
+            dtp_NgayBatDau.CustomFormat = "MM/dd/yyyy hh:mm:ss";
             dtp_NgayKetThuc.Format = DateTimePickerFormat.Custom;
-            dtp_NgayKetThuc.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
+            dtp_NgayKetThuc.CustomFormat = "MM/dd/yyyy hh:mm:ss";
         }
 
         private void dtg_DSPhongDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -195,78 +191,23 @@ namespace GUI.View.AddControls
             {
                 var roomChoosen = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == IdRoomPicked);
                 //var room = lstRoomChoosen.FirstOrDefault(p => p.Id == IdRoomPicked);
-                for(int i =0;i<lstRoomChoosen.Count;i++)
-                {
-                    if (lstRoomChoosen[i].Id == roomChoosen.Id)
-                    {
-                        list_phong_trong.Add(lstRoomChoosen[i]);
-                        lstRoomChoosen.Remove(lstRoomChoosen[i]);
-                        
-                    }
-                }
-                LoadDataDSPhongDaChon(lstRoomChoosen);
-                LoadDataDSPhongTrong(list_phong_trong);
-                        
+                lstRoomChoosen.Remove(roomChoosen);
+                LoadDataDSPhongDaChon();
+                PhongView pv = new PhongView();
+                pv.Id = IdRoomPicked;
+                pv.MaPhong = dtg_DSPhongDaChon.Rows[e.RowIndex].Cells[1].Value.ToString();
+                pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(dtg_DSPhongDaChon.Rows[e.RowIndex].Cells[2].Value.ToString());
+                pv.TinhTrang = 0;
+                _iqlPhongService.Update(pv);
+                LoadDataDSPhongTrong();               
             }
         }
 
         private void btn_Reload_Click(object sender, EventArgs e)
         {
             lstRoomChoosen = null;
-            /*LoadDataDSPhongDaChon();*/
-            /*LoadDataDSPhongTrong();*/
+            LoadDataDSPhongDaChon();
+            LoadDataDSPhongTrong();
         }
-        public void take_empty_room()
-        {
-            list_phong_trong.Clear();
-            lstRoomChoosen.Clear();
-            DateTime dt1 = dtp_NgayBatDau.Value;
-            DateTime dt2 = dtp_NgayKetThuc.Value;
-
-
-            List<ChiTietPhieuThueView> y = _iqlCTPTService.GetAll().ToList();
-            List<ChiTietPhieuThueView> List_loc_ctpt = new List<ChiTietPhieuThueView>();
-            foreach( var item in y)
-            {
-                if(item.NgayBatDau.CompareTo(dt1)>=1 && item.NgayKetThuc.CompareTo(dt2) <= -1)
-                {
-                    List_loc_ctpt.Add(item);
-                } else if (item.NgayBatDau.CompareTo(dt1) <= -1 && item.NgayKetThuc.CompareTo(dt1) >=1 && item.NgayKetThuc.CompareTo(dt2) <= -1)
-                {
-                    List_loc_ctpt.Add(item);
-                } else if (item.NgayBatDau.CompareTo(dt1) >= 1 && item.NgayBatDau.CompareTo(dt2) <= -1 && item.NgayKetThuc.CompareTo(dt2) >= 1)
-                {
-                    List_loc_ctpt.Add(item);
-                } else if(item.NgayBatDau.CompareTo(dt1)<=-1&& item.NgayKetThuc.CompareTo(dt2) >= 1)
-                {
-                    List_loc_ctpt.Add(item);
-                }
-            }
-            if (List_loc_ctpt.Count == 0)
-            {
-                list_phong_trong = _iqlPhongService.GetAll();
-            }
-            else
-            {
-                foreach (var item in _iqlPhongService.GetAll())
-                {
-                    foreach (var item2 in List_loc_ctpt)
-                    {
-                        if (item.Id != item2.IdPhong)
-                        {   
-                            list_phong_trong.Add(item);
-                        }
-                    }
-                }
-            }
-
-            LoadDataDSPhongTrong(list_phong_trong);
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            take_empty_room();
-        }
-
-
     }
 }
