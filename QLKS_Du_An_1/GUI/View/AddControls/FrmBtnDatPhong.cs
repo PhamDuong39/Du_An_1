@@ -22,7 +22,12 @@ namespace GUI.View.AddControls
         private IQLChiTietPhieuThueService _iqlCTPTService;
         private Guid IdRoomPicked { get; set; }
 
+
         private List<PhongView> list_phong_trong;
+
+        public TimeSpan oneHour = new TimeSpan(1, 0, 0);
+
+
         private List<PhongView> lstRoomChoosen;
         public FrmBtnDatPhong()
         {
@@ -87,6 +92,7 @@ namespace GUI.View.AddControls
         {
             if (dtg_DSPhongTrong.Columns[e.ColumnIndex].Name == "btn_ChooseRoom")
             {
+
                 PhongView roomChoosen = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == IdRoomPicked);
                 for (int i = 0; i < list_phong_trong.Count; i++)
                 {
@@ -101,6 +107,7 @@ namespace GUI.View.AddControls
                 LoadDataDSPhongDaChon(lstRoomChoosen);
                 /*_iqlPhongService.Update(pv);*/
                 /*LoadDataDSPhongTrong();*/
+
             }
         }
 
@@ -155,6 +162,8 @@ namespace GUI.View.AddControls
                     ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
                     ctptv.IdPhong = item.Id;
                     ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
+                    //DateTime now = DateTime.Now;
+
                     MessageBox.Show(_iqlCTPTService.Add(ctptv));
                 }
             }

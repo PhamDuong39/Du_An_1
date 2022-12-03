@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View.AddControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,16 +45,32 @@ namespace GUI.View.UserControls
         }
         
 
-        public string TTPhongThue
+        public string GiaPhong
         {
-            get { return lb_TTPhongThue.Text; }
-            set { lb_TTPhongThue.Text = value; }
+            get { return lb_Gia.Text; }
+            set { lb_Gia.Text = value; }
         }
 
         public string TTDonDep
         {
             get { return lb_DonDep.Text; }
             set { lb_DonDep.Text = value; }
+        }
+
+        public Guid IdPTCT { get; set; }
+        
+
+        private void ListItemRooms_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("" + IdPhong);
+            //MessageBox.Show("" + IdPTCT);
+            
+            FrmTrangThaiPhong ttPhong = new FrmTrangThaiPhong();
+            ttPhong.MaPhong = MaPhong;
+            ttPhong.TenKH = TenKH;
+            ttPhong.IdPTCT = IdPTCT;
+
+            ttPhong.ShowDialog();
         }
     }
 }

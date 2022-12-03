@@ -35,6 +35,7 @@ namespace BUS.Services
                 hdct.SoLuong = hdctv.SoLuong;
                 hdct.DonGia = hdctv.DonGia;
                 hdct.IdDichVu = hdctv.IdDichVu;
+                hdct.IdHoaDon = hdctv.IdHoaDon;
                 if (_ihdctRepos.Add(hdct))
                 {
                     return "Them thanh cong";

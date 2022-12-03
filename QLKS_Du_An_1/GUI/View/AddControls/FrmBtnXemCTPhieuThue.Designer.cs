@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtp_NgayLapPhieu = new System.Windows.Forms.DateTimePicker();
             this.lb_TenNV = new System.Windows.Forms.Label();
             this.lb_TenKH = new System.Windows.Forms.Label();
             this.dtg_ChiTietPhieuThue = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ChiTietPhieuThue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ChiTietPhieuThue)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +55,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(687, 332);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(512, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(38, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // dtp_NgayLapPhieu
             // 
@@ -90,6 +106,8 @@
             this.dtg_ChiTietPhieuThue.RowTemplate.Height = 25;
             this.dtg_ChiTietPhieuThue.Size = new System.Drawing.Size(579, 225);
             this.dtg_ChiTietPhieuThue.TabIndex = 0;
+            this.dtg_ChiTietPhieuThue.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ChiTietPhieuThue_CellClick);
+            this.dtg_ChiTietPhieuThue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_ChiTietPhieuThue_CellContentClick);
             // 
             // label1
             // 
@@ -101,22 +119,6 @@
             this.label1.Size = new System.Drawing.Size(234, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "Chi Tiết Phiếu Thuê";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(38, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 34);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(512, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 34);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
             // 
             // FrmBtnXemCTPhieuThue
             // 
@@ -131,9 +133,9 @@
             this.Load += new System.EventHandler(this.FrmBtnXemCTPhieuThue_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ChiTietPhieuThue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ChiTietPhieuThue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

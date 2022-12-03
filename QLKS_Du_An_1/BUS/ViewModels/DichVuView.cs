@@ -16,5 +16,6 @@ namespace BUS.ViewModels
         public Guid IDLoaiDichVu { get; set; }
 
         public string TenLoaiDV { get; set; }
+       // public int SoLuong { get; set; }
     }
 }

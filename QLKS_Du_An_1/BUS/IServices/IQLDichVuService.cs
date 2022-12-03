@@ -15,5 +15,6 @@ namespace BUS.IServices
         string Update(DichVuView obj);
         List<DichVuView> Sreach(string tukhoa);
         List<DichVuView> GetAll();
+        public Guid GetIdDvByName(string name);
     }
 }

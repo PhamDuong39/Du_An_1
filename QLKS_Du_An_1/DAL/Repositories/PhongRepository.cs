@@ -59,5 +59,18 @@ namespace DAL.Repositories
             _Db.SaveChanges();
             return true;
         }
+
+        public bool UpdateTrangThaiPhong(Phong obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id); 
+            x.TinhTrang = obj.TinhTrang;
+            _Db.Update(x);
+            _Db.SaveChanges();
+            return true;
+        }
     }
 }

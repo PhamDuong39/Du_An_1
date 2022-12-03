@@ -40,11 +40,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.flp_PhongTang1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flp_PhongTang2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.flp_PhongTang3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -166,6 +167,13 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tầng 1";
             // 
+            // flp_PhongTang1
+            // 
+            this.flp_PhongTang1.Location = new System.Drawing.Point(9, 14);
+            this.flp_PhongTang1.Name = "flp_PhongTang1";
+            this.flp_PhongTang1.Size = new System.Drawing.Size(916, 452);
+            this.flp_PhongTang1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -176,6 +184,13 @@
             this.tabPage2.Size = new System.Drawing.Size(942, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tầng 2";
+            // 
+            // flp_PhongTang2
+            // 
+            this.flp_PhongTang2.Location = new System.Drawing.Point(9, 14);
+            this.flp_PhongTang2.Name = "flp_PhongTang2";
+            this.flp_PhongTang2.Size = new System.Drawing.Size(919, 450);
+            this.flp_PhongTang2.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -188,26 +203,22 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tầng 3";
             // 
-            // flp_PhongTang1
-            // 
-            this.flp_PhongTang1.Location = new System.Drawing.Point(9, 14);
-            this.flp_PhongTang1.Name = "flp_PhongTang1";
-            this.flp_PhongTang1.Size = new System.Drawing.Size(916, 452);
-            this.flp_PhongTang1.TabIndex = 0;
-            // 
-            // flp_PhongTang2
-            // 
-            this.flp_PhongTang2.Location = new System.Drawing.Point(9, 14);
-            this.flp_PhongTang2.Name = "flp_PhongTang2";
-            this.flp_PhongTang2.Size = new System.Drawing.Size(919, 450);
-            this.flp_PhongTang2.TabIndex = 0;
-            // 
             // flp_PhongTang3
             // 
             this.flp_PhongTang3.Location = new System.Drawing.Point(9, 12);
             this.flp_PhongTang3.Name = "flp_PhongTang3";
             this.flp_PhongTang3.Size = new System.Drawing.Size(917, 451);
             this.flp_PhongTang3.TabIndex = 0;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Location = new System.Drawing.Point(863, 80);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_Refresh.TabIndex = 10;
+            this.btn_Refresh.Text = "button1";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // FrmPhong
             // 
@@ -216,6 +227,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(998, 638);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
@@ -258,5 +270,6 @@
         private FlowLayoutPanel flp_PhongTang1;
         private FlowLayoutPanel flp_PhongTang2;
         private FlowLayoutPanel flp_PhongTang3;
+        private Button btn_Refresh;
     }
 }
