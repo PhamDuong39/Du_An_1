@@ -82,9 +82,9 @@ namespace GUI.View.AddControls
 
                 HoaDonView hdv = new HoaDonView();
                 hdv.MaHD = "HD1";
-                var lstMaHD = _iqlHDService.GetAll();
-                int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
-                hdv.MaHD = "HD" + STTHD;
+                //var lstMaHD = _iqlHDService.GetAll();
+                //int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
+                //hdv.MaHD = "HD" + STTHD;
                 hdv.NgayTaoHD = DateTime.Now;
                 hdv.IdCTPhieuThue = IdPTCT;
                 MessageBox.Show(_iqlHDService.Add(hdv));
@@ -172,7 +172,7 @@ namespace GUI.View.AddControls
                // null here
                 foreach (var item in lstDVV)
                 {
-                    hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                   // hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
                     hdctv.SoLuong = 1;
                     hdctv.DonGia = item.Gia;
                     hdctv.IdDichVu = item.Id;
