@@ -16,5 +16,6 @@ namespace BUS.IServices
         public List<HoaDonView> GetCTHoaDon(Guid Id);
         public List<HoaDonView> GetCTPhong(Guid Id);
         public List<HoaDonView> Search(string keyWord);
+        public List<HoaDonView> GetAll();
     }
 }
