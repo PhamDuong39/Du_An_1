@@ -273,12 +273,13 @@ namespace GUI.View.AddControls
                         }
                     }
                 }
-              
-              
             }
 
             LoadDataDSPhongTrong(list_phong_trong);
-        }
+
+
+            }
+
 
 
         private void button1_Click(object sender, EventArgs e)
