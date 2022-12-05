@@ -35,9 +35,9 @@ namespace GUI.View.UserControls
             dtg_thongke.Columns[2].Name = "Năm";
             dtg_thongke.Columns[3].Name = "Tổng Doanh Thu";
             
-                for(int i = 1; i<= 12; i++)
+                for(int i = 1; i <= 12; i++)
                 {
-                    dtg_thongke.Rows.Add(i,i,2022,TongTienThang());
+                    dtg_thongke.Rows.Add(stt++,i,DateTime.Now.Year,TongTienThang(i));
                 }
             
         }
@@ -46,20 +46,19 @@ namespace GUI.View.UserControls
         {
             
         }
-        private int TongTienThang()
+        private int TongTienThang(int Month)
         {
             int tongtien = 0;
             
             
-            for(int month = 0; month <= 12; month++)
-            {
-                var lst = hoaDonService.GetAll().Where(c => c.NgayTaoHD.Month == month);
+            
+                var lst = hoaDonService.GetAll().Where(c => c.NgayTaoHD.Month == Month && c.NgayTaoHD.Year == DateTime.Now.Year);
                 foreach (var t in lst)
                 {
                     tongtien = tongtien + t.TongTien;
                 }
                 
-            }
+            
             return tongtien;
         }
 

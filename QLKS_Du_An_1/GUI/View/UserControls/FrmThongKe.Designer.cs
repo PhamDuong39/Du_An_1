@@ -34,6 +34,7 @@
             this.LiveChart_ThongKe = new LiveCharts.WinForms.CartesianChart();
             this.dtg_thongke = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.angularGauge1 = new LiveCharts.WinForms.AngularGauge();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_thongke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -74,12 +75,21 @@
             // 
             this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
+            // angularGauge1
+            // 
+            this.angularGauge1.Location = new System.Drawing.Point(856, 419);
+            this.angularGauge1.Name = "angularGauge1";
+            this.angularGauge1.Size = new System.Drawing.Size(250, 125);
+            this.angularGauge1.TabIndex = 0;
+            this.angularGauge1.Text = "angularGauge1";
+            // 
             // FrmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1141, 851);
+            this.Controls.Add(this.angularGauge1);
             this.Controls.Add(this.dtg_thongke);
             this.Controls.Add(this.LiveChart_ThongKe);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -99,5 +109,6 @@
         private LiveCharts.WinForms.CartesianChart LiveChart_ThongKe;
         private DataGridView dtg_thongke;
         private BindingSource bindingSource1;
+        private LiveCharts.WinForms.AngularGauge angularGauge1;
     }
 }
