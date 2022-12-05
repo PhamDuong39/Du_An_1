@@ -186,12 +186,36 @@ namespace BUS.Services
 
         public string Update(HoaDonView obj)
         {
-            throw new NotImplementedException();
+            var index = _hoaDonRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
+            if (index == null) return "Không tìm thấy";
+            if (_hoaDonRepository.Upadate(index))
+            {
+                return "Sửa Thành Công";
+            }
+            return "Sửa Không Thành Công";
         }
 
         public List<HoaDonView> Search(string keyWord)
         {
             return GetListHD(Guid.Empty).Where(c => c.MaHD.ToUpper().Contains(keyWord.ToUpper())).ToList();
+        }
+
+        public List<HoaDonView> GetAll()
+        {
+            List<HoaDonView> hdv = new List<HoaDonView>();
+            hdv = (from a in _hoaDonRepository.GetAll()
+                   join b in _chiTietPhieuThueRepository.GetAll() on a.IdCTPhieuThue equals b.ID
+                   select new HoaDonView()
+                   {
+                       Id = a.Id,
+                       MaHD = a.MaHD,
+                       NgayTaoHD = a.NgayTaoHD,
+                       IdCTPhieuThue = b.ID,
+                       NgayTT = a.NgayTT,
+                       TrangThai = a.TrangThai
+                   }
+                   ).ToList();
+            return hdv;
         }
     }
 }

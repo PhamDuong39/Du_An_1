@@ -131,9 +131,9 @@ namespace GUI.View.AddControls
                 ptv.NgayLapPhieu = DateTime.Now;
                 ptv.IdNV = FrmMain.IdNV;
                 var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
-                //int so = lstmaPT.Max() + 1;
-                //ptv.MaPhieuThue = so;
-                ptv.MaPhieuThue = 1;
+                int so = lstmaPT.Max() + 1;
+                ptv.MaPhieuThue = so;
+                //ptv.MaPhieuThue = 1;
                 var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
                 if (lstKH == null)
                 {
@@ -162,7 +162,7 @@ namespace GUI.View.AddControls
                     ctptv.NgayBatDau = dtp_NgayBatDau.Value;
                     ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
                     ctptv.IdPhong = item.Id;
-                    ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == 1).ID;
+                    ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
                     //DateTime now = DateTime.Now;
 
                     MessageBox.Show(_iqlCTPTService.Add(ctptv));
@@ -273,6 +273,8 @@ namespace GUI.View.AddControls
                         }
                     }
                 }
+              
+              
             }
 
             LoadDataDSPhongTrong(list_phong_trong);

@@ -73,6 +73,19 @@ namespace GUI.View.AddControls
                     MessageBox.Show("Vui lòng đặt 1 phòng trước khi nhận phòng");
                     return;
                 }
+               
+                HoaDonView hdv = new HoaDonView();
+                //hdv.MaHD = "HD1";
+                var lstMaHD = _iqlHDService.GetAll();
+                int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
+                hdv.MaHD = "HD" + STTHD;
+                hdv.TrangThai = 0;
+                hdv.NgayTT = null;
+                hdv.NgayTaoHD = DateTime.Now;
+                hdv.IdCTPhieuThue = IdPTCT;
+                MessageBox.Show(_iqlHDService.Add(hdv));
+                
+                // Sau khi nhan phong => update trang thai phong = co khach dang thue
                 PhongView pv = new PhongView();
                 pv.Id = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == IdPTCT).IdPhong;
                 pv.MaPhong = MaPhong;
@@ -80,14 +93,6 @@ namespace GUI.View.AddControls
                 pv.TinhTrang = 1;
                 _iqlPhongService.Update(pv);
 
-                HoaDonView hdv = new HoaDonView();
-                hdv.MaHD = "HD1";
-                //var lstMaHD = _iqlHDService.GetAll();
-                //int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
-                //hdv.MaHD = "HD" + STTHD;
-                hdv.NgayTaoHD = DateTime.Now;
-                hdv.IdCTPhieuThue = IdPTCT;
-                MessageBox.Show(_iqlHDService.Add(hdv));
                 MessageBox.Show("Nhận phòng thành công");
             }
             if (result == DialogResult.No)
@@ -138,6 +143,11 @@ namespace GUI.View.AddControls
             // clicl button này sẽ hiển thị lên FrmPrintHoaDon
             // FrmPrintHoaDon sẽ hiển thị lên giá tiền của phòng đã thuê, số dịch vụ đã sử dụng
             // Mỗi phòng sẽ chỉ có 1 hóa đơn duy nhất == Mỗi CPPT sẽ có 1 hóa đơn cho riêng nó
+            FrmViewHDCT frmViewHoaDon = new FrmViewHDCT();
+            frmViewHoaDon._lstHoaDonCT = _iqlHDService.GetCTHoaDon(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
+            frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
+            frmViewHoaDon._lstGiaPhong = _iqlHDService.GetCTPhong(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
+            frmViewHoaDon.ShowDialog();
         }
 
         //private void AddDVToFlexList(Guid idDVChoose)
@@ -168,11 +178,12 @@ namespace GUI.View.AddControls
                     MessageBox.Show("Vui lòng đặt 1 phòng để có thể sử dụng các dịch vụ của khách sạn !");
                     return;
                 }
-                HoaDonChiTietView hdctv = new HoaDonChiTietView();
+               
                // null here
                 foreach (var item in lstDVV)
                 {
-                   // hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                    HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                    hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
                     hdctv.SoLuong = 1;
                     hdctv.DonGia = item.Gia;
                     hdctv.IdDichVu = item.Id;
