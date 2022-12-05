@@ -20,6 +20,7 @@ namespace GUI.View.UserControls
         private IQLPhieuThueService _iqlPTService;
         private IQLChiTietPhieuThueService _iqlCTPTService;
         public TimeSpan oneHour = new TimeSpan(1, 0, 0);
+        public TimeSpan zeroHour = new TimeSpan(0, 0, 0);
         private Guid? IdKHInPT { get; set; }
         private DateTime NgayBDThue { get; set; }
         private DateTime NgayKTThue { get; set; }
@@ -82,6 +83,7 @@ namespace GUI.View.UserControls
                     listItems1[count1].TenKH = "Phòng trống";
                     listItems1[count1].TTDonDep = "Phòng đã dọn dẹp";
                     listItems1[count1].IdPTCT = Guid.Empty;
+                    
                 }
                 if (flp_PhongTang1.Controls.Count < 0)
                 {
@@ -197,34 +199,57 @@ namespace GUI.View.UserControls
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
-        {          
-            var lstCTPT = _iqlCTPTService.GetAll();
-            foreach (var item in lstCTPT)
-            {
-                DateTime now = DateTime.Now;
-                // Dat phong
-                if (now == item.NgayBatDau)
+        {
+            DateTime now = DateTime.Now;
+            var lstPhongTT0 = _iqlPhongService.GetAll().Where(p => p.TinhTrang == 0);
+            foreach (var item in lstPhongTT0)
+            {              
+                var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
+                if (lstCTPT == null)
                 {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.IdPhong;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == item.IdPhong).IDLoaiPhong;
-                    pv.TinhTrang = 1;
-                    _iqlPhongService.Update(pv);
+                    
                 }
-               
-                if (item.NgayBatDau - now <= oneHour)
+                else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
                 {
                     PhongView pv = new PhongView();
-                    pv.Id = item.IdPhong;
+                    pv.Id = item.Id;
                     pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == item.IdPhong).IDLoaiPhong;
+                    pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
                 }
+                
+            }
+
+            //foreach (var item in lstCTPT)
+            //{
+               // DateTime now = DateTime.Now;
+                // Dat phong
+                
+                //  gio hien tai < gio bat dau
+                //if (item.NgayBatDau - now <= oneHour && item.NgayBatDau - now > zeroHour)
+                //{                
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.IdPhong;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == item.IdPhong).IDLoaiPhong;
+                //    pv.TinhTrang = 3;
+                //    _iqlPhongService.Update(pv);
+                //}
+
+                // Gio hien tai > gio bat dau
+                //if ( item.NgayBatDau - now < zeroHour)
+                //{
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.IdPhong;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.Id == item.IdPhong).IDLoaiPhong;
+                //    pv.TinhTrang = 3;
+                //    _iqlPhongService.Update(pv);
+                //}
                 // Nhan phong
                 // Tra phong
-            }
+            //}
             LoadItemRooms();
         }
     }

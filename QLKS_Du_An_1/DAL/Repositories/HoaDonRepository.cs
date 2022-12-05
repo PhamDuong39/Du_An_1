@@ -52,9 +52,10 @@ namespace DAL.Repositories
             {
                 return false;
             }
-            int indext = GetAll().FindIndex(c => c.Id == obj.Id);
-            if (indext == -1) return false;
-            _db.Update(obj);
+            var indext = GetAll().FirstOrDefault(c => c.Id == obj.Id);
+            if (indext == null) return false;
+            indext.TrangThai = obj.TrangThai;
+            _db.Update(indext);
             _db.SaveChanges();
             return true;
         }

@@ -21,7 +21,7 @@ namespace DAL.Configurations
 
             builder.HasOne(p => p.ChiTietPhieuThue).WithOne(p => p.HoaDon).HasForeignKey<HoaDon>(p => p.IdCTPhieuThue);
             builder.Property(x => x.TrangThai).HasColumnName("TrangThai").HasColumnType("int").IsRequired();
-            builder.Property(x => x.NgayTT).HasColumnName("NgayTT").HasColumnType("datetime").IsRequired();
+            builder.Property(x => x.NgayTT).HasColumnName("NgayTT").HasColumnType("datetime");
         }
     }
 }
