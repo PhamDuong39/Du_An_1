@@ -263,16 +263,51 @@ namespace GUI.View.AddControls
             }
             else
             {
-                foreach (var item in _iqlPhongService.GetAll())
+                List<PhongView> list_phong_co_kh = new List<PhongView>();
+                foreach (var item in List_loc_ctpt)
                 {
-                    foreach (var item2 in List_loc_ctpt)
+                    PhongView pv = _iqlPhongService.GetAll().FirstOrDefault(c => c.Id == item.IdPhong);
+                    list_phong_co_kh.Add(pv);
+                }
+                List<PhongView> listt = _iqlPhongService.GetAll().OrderBy(c => c.MaPhong).ToList();
+                list_phong_co_kh = list_phong_co_kh.OrderBy(C => C.MaPhong).ToList();
+
+                for (int i = 0; i < listt.Count; i++)
+                {
+                    for (int j = 0; j < list_phong_co_kh.Count; j++)
                     {
-                        if (item.Id != item2.IdPhong)
+                        if (listt[0].MaPhong == list_phong_co_kh[0].MaPhong)
                         {
-                            list_phong_trong.Add(item);
+                            listt = listt.Where(c => c.MaPhong != listt[0].MaPhong).ToList();
+                            list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[0].MaPhong).ToList();
+                            i = -1;
+                            j = 0;
+                            if (list_phong_co_kh.Count == 0)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (listt[i].MaPhong == list_phong_co_kh[j].MaPhong)
+                            {
+                                listt = listt.Where(c => c.MaPhong != listt[i].MaPhong).ToList();
+                                list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[j].MaPhong).ToList();
+                                i = -1;
+                                j = 0;
+                                if (list_phong_co_kh.Count == 0)
+                                {
+                                    break;
+                                }
+                            }
                         }
                     }
                 }
+
+                list_phong_trong = listt;
+
+
+
             }
 
             LoadDataDSPhongTrong(list_phong_trong);
