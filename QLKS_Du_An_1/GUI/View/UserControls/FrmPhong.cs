@@ -118,19 +118,30 @@ namespace GUI.View.UserControls
                     IdKHInPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id).IdKH;
                     listItems2[count2].TenKH = _iqlPTService.GetAll().FirstOrDefault(p => p.IdKH == IdKHInPT).TenKH;
                     listItems2[count2].TTDonDep = "Phòng đang có khách";
-
+                    listItems2[count2].IdPTCT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id && p.NgayBatDau - DateTime.Now <= oneHour).ID;
                 }
                 else if (item.TinhTrang == 2) // dang don dep
                 {
                     listItems2[count2].BackColor = Color.Yellow;
                     listItems2[count2].TenKH = "Phòng trống";
                     listItems2[count2].TTDonDep = "Phòng đang dọn dẹp";
+                    listItems2[count2].IdPTCT = Guid.Empty;
+                }
+                else if (item.TinhTrang == 3) // Phong sap co khach thue trong vong 1 tieng
+                {
+                    listItems2[count2].BackColor = Color.LightGray;
+                    IdKHInPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id).IdKH;
+                    listItems2[count2].TenKH = _iqlPTService.GetAll().FirstOrDefault(p => p.IdKH == IdKHInPT).TenKH;
+                    listItems2[count2].TTDonDep = "Phòng đã dọn dẹp";
+                    listItems2[count2].IdPTCT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id && p.NgayBatDau - DateTime.Now <= oneHour).ID;
                 }
                 else // phong trong
                 {
                     listItems2[count2].BackColor = Color.Green;
                     listItems2[count2].TenKH = "Phòng trống";
-                    listItems2[count2].TTDonDep = "Phòng sẵn sàng sử dụng";
+                    listItems2[count2].TTDonDep = "Phòng đã dọn dẹp";
+                    listItems2[count2].IdPTCT = Guid.Empty;
+
                 }
 
                 if (flp_PhongTang2.Controls.Count < 0)
@@ -166,19 +177,30 @@ namespace GUI.View.UserControls
                     IdKHInPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id).IdKH;
                     listItems3[count3].TenKH = _iqlPTService.GetAll().FirstOrDefault(p => p.IdKH == IdKHInPT).TenKH;
                     listItems3[count3].TTDonDep = "Phòng đang có khách";
-
+                    listItems3[count3].IdPTCT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id && p.NgayBatDau - DateTime.Now <= oneHour).ID;
                 }
                 else if (item.TinhTrang == 2) // dang don dep
                 {
                     listItems3[count3].BackColor = Color.Yellow;
                     listItems3[count3].TenKH = "Phòng trống";
                     listItems3[count3].TTDonDep = "Phòng đang dọn dẹp";
+                    listItems3[count3].IdPTCT = Guid.Empty;
+                }
+                else if (item.TinhTrang == 3) // Phong sap co khach thue trong vong 1 tieng
+                {
+                    listItems3[count3].BackColor = Color.LightGray;
+                    IdKHInPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id).IdKH;
+                    listItems3[count3].TenKH = _iqlPTService.GetAll().FirstOrDefault(p => p.IdKH == IdKHInPT).TenKH;
+                    listItems3[count3].TTDonDep = "Phòng đã dọn dẹp";
+                    listItems3[count3].IdPTCT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id && p.NgayBatDau - DateTime.Now <= oneHour).ID;
                 }
                 else // phong trong
                 {
                     listItems3[count3].BackColor = Color.Green;
                     listItems3[count3].TenKH = "Phòng trống";
-                    listItems3[count3].TTDonDep = "Phòng sẵn sàng sử dụng";
+                    listItems3[count3].TTDonDep = "Phòng đã dọn dẹp";
+                    listItems3[count3].IdPTCT = Guid.Empty;
+
                 }
 
                 if (flp_PhongTang3.Controls.Count < 0)
