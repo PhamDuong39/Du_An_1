@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -19,7 +20,7 @@ namespace GUI.View.AddControls
         public send_nv _send;
         IQLNhanVienServices _iqLNhanVien;
         IChucVuService _iqLChucVu;
-
+        Validations VAL;
         public FrmBtnThemNhanVien()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace GUI.View.AddControls
         public FrmBtnThemNhanVien(send_nv send)
         {
             InitializeComponent();
+            VAL= new Validations();
             _send = send;
             _iqLNhanVien = new QLNhanVienServices();
             _iqLChucVu = new ChucVuService();
@@ -37,6 +39,7 @@ namespace GUI.View.AddControls
         }
         public void loadcbo()
         {
+            
             foreach( var item in _iqLChucVu.GetAll())
             {
                 cbo_chucvuNV.Items.Add(item.TenCV);
@@ -50,22 +53,38 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có muốn thêm nhân viên này không", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                
-                NhanVienView nhanVienView = new NhanVienView();
 
-                nhanVienView.ID =Guid.NewGuid();
-                nhanVienView.MaNV= txt_maNV.Text;
-                nhanVienView.TenNV = txt_tenNV.Text;
-                nhanVienView.CCCD = txt_cccdNV.Text;
-                nhanVienView.NgaySinh = DateTime.Parse(dte_ngaysinhNV.Text);
-                nhanVienView.GioiTinh = (cbo_gioitinhNV.Text == "Nam") ? 1 : (cbo_gioitinhNV.Text == "Nữ") ? 2 : 3;
-                nhanVienView.SDT=txt_sdtNV.Text;
-                nhanVienView.DiaChi=txt_diachiNV.Text;
-                nhanVienView.Luong = int.Parse(txt_luongNV.Text);
-                nhanVienView.IDCv = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
-                nhanVienView.TenCV=cbo_chucvuNV.Text;
-                MessageBox.Show(_iqLNhanVien.Add(nhanVienView));
-                _send(_iqLNhanVien.GetAll());
+                if (VAL.CheckSDT(txt_sdtNV.Text) == false)
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ");
+                }
+                else if (VAL.CheckCCCD(txt_cccdNV.Text) == false)
+                {
+                    MessageBox.Show("Số căn cước công dân không hợp lệ");
+                }
+                else if (VAL.CheckRong(txt_tenNV.Text) == false || VAL.CheckRong(txt_diachiNV.Text) || VAL.CheckRong(txt_luongNV.Text.ToString()))
+                {
+                    MessageBox.Show("Vui Lòng nhập đầy đủ thông tin");
+                } else
+                {
+                    NhanVienView nhanVienView = new NhanVienView();
+
+                    nhanVienView.ID = Guid.NewGuid();
+                    nhanVienView.MaNV = txt_maNV.Text;
+                    nhanVienView.TenNV = txt_tenNV.Text;
+                    nhanVienView.CCCD = txt_cccdNV.Text;
+                    nhanVienView.NgaySinh = DateTime.Parse(dte_ngaysinhNV.Text);
+                    nhanVienView.GioiTinh = (cbo_gioitinhNV.Text == "Nam") ? 1 : (cbo_gioitinhNV.Text == "Nữ") ? 2 : 3;
+                    nhanVienView.SDT = txt_sdtNV.Text;
+                    nhanVienView.DiaChi = txt_diachiNV.Text;
+                    nhanVienView.Luong = int.Parse(txt_luongNV.Text);
+                    nhanVienView.IDCv = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
+                    nhanVienView.TenCV = cbo_chucvuNV.Text;
+                    MessageBox.Show(_iqLNhanVien.Add(nhanVienView));
+                    _send(_iqLNhanVien.GetAll());
+                }
+
+                
             }
         }
     }

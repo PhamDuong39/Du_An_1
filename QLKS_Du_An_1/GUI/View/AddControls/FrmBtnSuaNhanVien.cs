@@ -12,6 +12,7 @@ using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.AddControls;
 using GUI.View.UserControls;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -20,6 +21,7 @@ namespace GUI.View.AddControls
         public send_nv _send;
         IQLNhanVienServices _iqLNhanVien;
         IChucVuService _iqLChucVu;
+        Validations VAL;
 
         public Guid ID { get; set; }
         public string MaNV { get; set; }
@@ -38,6 +40,7 @@ namespace GUI.View.AddControls
             _iqLNhanVien= new QLNhanVienServices();
             _iqLChucVu= new ChucVuService();
             loadcbb(_iqLChucVu.GetAll());
+            
         }
         public FrmBtnSuaNhanVien(send_nv send)
         {
@@ -46,6 +49,7 @@ namespace GUI.View.AddControls
             _iqLNhanVien = new QLNhanVienServices();
             _iqLChucVu = new ChucVuService();
             loadcbb(_iqLChucVu.GetAll());
+            VAL = new Validations();
         }
 
         public void loadcbb(List<ChucVuView> list)
@@ -75,21 +79,22 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có muốn cập nhật nhân viên này không", "Thông Báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                Guid IDCV = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
-                NhanVienView nhanVienView = new NhanVienView();
-                nhanVienView.ID = ID;
-                nhanVienView.MaNV = MaNV;
-                nhanVienView.IDCv = IDCV;
-                nhanVienView.TenNV= txt_tenNV.Text;
-                nhanVienView.NgaySinh = DateTime.Parse(dte_ngaysinhNv.Text.ToString());
-                nhanVienView.CCCD = txt_cccdNV.Text;
-                nhanVienView.TenCV= cbo_chucvuNV.Text;
-                nhanVienView.GioiTinh = (cbo_gioitinhNV.Text == "Nam") ? 1 : (cbo_gioitinhNV.Text == "Nữ") ? 2 : 3;
-                nhanVienView.SDT = txt_sdtNV.Text;
-                nhanVienView.DiaChi = txt_diachiNV.Text;
-                nhanVienView.Luong = Convert.ToInt32(txt_luongNV.Text);
-                MessageBox.Show(_iqLNhanVien.Update(nhanVienView));
-                this._send(_iqLNhanVien.GetAll());
+                
+                    Guid IDCV = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
+                    NhanVienView nhanVienView = new NhanVienView();
+                    nhanVienView.ID = ID;
+                    nhanVienView.MaNV = MaNV;
+                    nhanVienView.IDCv = IDCV;
+                    nhanVienView.TenNV = txt_tenNV.Text;
+                    nhanVienView.NgaySinh = DateTime.Parse(dte_ngaysinhNv.Text.ToString());
+                    nhanVienView.CCCD = txt_cccdNV.Text;
+                    nhanVienView.TenCV = cbo_chucvuNV.Text;
+                    nhanVienView.GioiTinh = (cbo_gioitinhNV.Text == "Nam") ? 1 : (cbo_gioitinhNV.Text == "Nữ") ? 2 : 3;
+                    nhanVienView.SDT = txt_sdtNV.Text;
+                    nhanVienView.DiaChi = txt_diachiNV.Text;
+                    nhanVienView.Luong = Convert.ToInt32(txt_luongNV.Text);
+                    MessageBox.Show(_iqLNhanVien.Update(nhanVienView));
+                    this._send(_iqLNhanVien.GetAll());
             }
         }
 

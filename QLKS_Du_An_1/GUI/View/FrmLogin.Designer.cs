@@ -128,10 +128,10 @@
             this.pl_userlogin.Controls.Add(this.Tb_Taikhoan);
             this.pl_userlogin.Controls.Add(this.Bt_Dangnhap);
             this.pl_userlogin.Controls.Add(this.Tb_Matkhau);
-            this.pl_userlogin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pl_userlogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pl_userlogin.Location = new System.Drawing.Point(0, 0);
             this.pl_userlogin.Name = "pl_userlogin";
-            this.pl_userlogin.Size = new System.Drawing.Size(331, 600);
+            this.pl_userlogin.Size = new System.Drawing.Size(338, 600);
             this.pl_userlogin.TabIndex = 10;
             // 
             // icon_seemk
@@ -279,6 +279,7 @@
             this.Location = new System.Drawing.Point(250, 250);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.pl_userlogin.ResumeLayout(false);
             this.pl_userlogin.PerformLayout();

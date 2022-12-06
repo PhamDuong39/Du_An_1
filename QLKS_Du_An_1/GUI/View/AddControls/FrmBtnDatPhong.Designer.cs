@@ -120,18 +120,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(624, 159);
+            this.button1.Location = new System.Drawing.Point(610, 81);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
+            this.button1.Text = "Lọc phòng";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox2.Location = new System.Drawing.Point(58, 360);
+            this.pictureBox2.Location = new System.Drawing.Point(54, 414);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 32);
@@ -183,7 +183,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label5.Location = new System.Drawing.Point(680, 216);
+            this.label5.Location = new System.Drawing.Point(704, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 28);
             this.label5.TabIndex = 20;
@@ -204,11 +204,11 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_NgayKetThuc);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(704, 60);
+            this.groupBox2.Location = new System.Drawing.Point(323, 136);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(289, 71);
+            this.groupBox2.Size = new System.Drawing.Size(267, 71);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ngày trả";
@@ -219,14 +219,14 @@
             this.dtp_NgayKetThuc.Location = new System.Drawing.Point(7, 24);
             this.dtp_NgayKetThuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_NgayKetThuc.Name = "dtp_NgayKetThuc";
-            this.dtp_NgayKetThuc.Size = new System.Drawing.Size(252, 27);
+            this.dtp_NgayKetThuc.Size = new System.Drawing.Size(243, 27);
             this.dtp_NgayKetThuc.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtp_NgayBatDau);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(393, 60);
+            this.groupBox1.Location = new System.Drawing.Point(331, 57);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -247,7 +247,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(60, 413);
+            this.pictureBox7.Location = new System.Drawing.Point(54, 360);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
@@ -319,6 +319,7 @@
             this.cbb_GioiTinhKH.Name = "cbb_GioiTinhKH";
             this.cbb_GioiTinhKH.Size = new System.Drawing.Size(177, 28);
             this.cbb_GioiTinhKH.TabIndex = 9;
+            this.cbb_GioiTinhKH.Text = "Giới Tính   ";
             // 
             // tb_CCCDKH
             // 

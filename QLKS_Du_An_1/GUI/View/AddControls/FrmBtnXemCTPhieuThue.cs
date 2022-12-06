@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,10 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnXemCTPhieuThue : Form
     {
+        private send_pt _send;
         private IQLChiTietPhieuThueService _iqlCTPTService;
         private IQLPhongService _iqlPhongService;
+        private IQLPhieuThueService _iqlPhieuThue;
         public Guid IdPT { get; set; }
         public Guid IdKH { get; set; }
         public string TenKH { get; set; }
@@ -26,9 +29,10 @@ namespace GUI.View.AddControls
         private Guid IdCTPT { get; set; }
         public DateTime NgayBDThue { get; set; }
         public Guid IdPhongInCTPT { get; set; }
-        public FrmBtnXemCTPhieuThue()
+        public FrmBtnXemCTPhieuThue(send_pt send)
         {
             InitializeComponent();
+            _send = send;
             _iqlCTPTService = new QLChiTietPhieuThueService();
             _iqlPhongService = new IPhongService();
 
@@ -110,6 +114,9 @@ namespace GUI.View.AddControls
                     ChiTietPhieuThueView ctptv = new ChiTietPhieuThueView();
                     ctptv.ID = IdCTPT;
                     MessageBox.Show(_iqlCTPTService.Remove(ctptv));
+                    LoadDataCTPT();
+                 
+
                 }
                 if (result == DialogResult.No)
                 {
