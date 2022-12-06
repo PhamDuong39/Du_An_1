@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBtnDatPhong));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tb_MaKH = new System.Windows.Forms.TextBox();
             this.dtg_DSPhongDaChon = new System.Windows.Forms.DataGridView();
@@ -59,7 +60,6 @@
             this.btn_DatPhong = new System.Windows.Forms.Button();
             this.btn_HuyDatPhong = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongDaChon)).BeginInit();
@@ -118,10 +118,20 @@
             this.panel1.Size = new System.Drawing.Size(1070, 496);
             this.panel1.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(624, 159);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox2.Location = new System.Drawing.Point(50, 417);
+            this.pictureBox2.Location = new System.Drawing.Point(58, 360);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 32);
@@ -237,18 +247,19 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(57, 484);
+            this.pictureBox7.Location = new System.Drawing.Point(60, 413);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 16;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(57, 409);
+            this.pictureBox6.Location = new System.Drawing.Point(58, 303);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(27, 32);
@@ -259,7 +270,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(57, 336);
+            this.pictureBox5.Location = new System.Drawing.Point(57, 248);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 32);
@@ -270,7 +281,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(57, 260);
+            this.pictureBox4.Location = new System.Drawing.Point(57, 191);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 32);
@@ -281,7 +292,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(57, 187);
+            this.pictureBox3.Location = new System.Drawing.Point(58, 136);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 32);
@@ -292,7 +303,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(57, 116);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 83);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 32);
@@ -428,16 +439,6 @@
             this.btn_Reload.Text = "Reload";
             this.btn_Reload.UseVisualStyleBackColor = true;
             this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(624, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmBtnDatPhong
             // 

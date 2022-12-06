@@ -88,6 +88,8 @@ namespace GUI.View
                 ibtn_QLLoaiDichVu.Visible = false;
                 ibtn_QLCTTienNghi.Visible = false;
                 ibtn_QLTienNghi.Visible = false;
+                ibtn_QLNhanVien.Visible = false;
+                ibtn_ChucVu.Visible = false;
             }
         }
         private void ActivateButton(object senderBtn, Color color)
