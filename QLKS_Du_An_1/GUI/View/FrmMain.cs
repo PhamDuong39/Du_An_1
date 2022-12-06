@@ -258,8 +258,15 @@ namespace GUI.View
         }
 
 
+
         #endregion
 
-       
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            FrmLogin login = new FrmLogin();
+            this.Close();
+            login.ShowDialog();
+           
+        }
     }
 }
