@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -19,7 +20,7 @@ namespace GUI.View.AddControls
         public send_tk _send;
         IQLTaiKhoanServices _iqLTaiKhoan;
         IQLNhanVienServices _iqLNhanVien;
-
+        Validations VAL;
 
         public string? TenNV { get; set; }
         public FrmBtnThemTaiKhoan(send_tk send )
@@ -28,6 +29,7 @@ namespace GUI.View.AddControls
             this._send= send;
             _iqLNhanVien = new QLNhanVienServices();
             _iqLTaiKhoan = new QLTaiKhoanServices();
+            VAL = new Validations();
             loadcbb(_iqLNhanVien.GetAll());
         }
         public FrmBtnThemTaiKhoan()
@@ -61,32 +63,41 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có muốn thêm tài khoản này không", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if (checktrung(txt_matkhauTK.Text, txt_nhaplaimatkhauTK.Text) == false)
+                if (VAL.CheckRong(txt_tenTK.Text)==false||VAL.CheckRong(txt_matkhauTK.Text)==false||VAL.CheckRong(txt_nhaplaimatkhauTK.Text)==false)
                 {
-                    MessageBox.Show("Nhập khẩu nhập lại sai");
-                    return;
-                };
-                var tennv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text);
-
-                TaiKhoanView taiKhoanView = new TaiKhoanView();
-                if (cbo_maNV.Text == "" || cbo_maNV.Text == "Chọn mã nhân viên")
-                {
-                    taiKhoanView.IDNv = null;
-                    taiKhoanView.TenNV = null;
+                    MessageBox.Show("Vui lòng nhập đầu đủ thông tin");
                 }
                 else
                 {
-                    taiKhoanView.IDNv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).ID;
-                    taiKhoanView.TenNV = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).TenNV;
+                    if (checktrung(txt_matkhauTK.Text, txt_nhaplaimatkhauTK.Text) == false)
+                    {
+                        MessageBox.Show("Nhập khẩu nhập lại sai");
+                        return;
+                    };
+                    var tennv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text);
+
+                    TaiKhoanView taiKhoanView = new TaiKhoanView();
+                    if (cbo_maNV.Text == "" || cbo_maNV.Text == "Chọn mã nhân viên")
+                    {
+                        taiKhoanView.IDNv = null;
+                        taiKhoanView.TenNV = null;
+                    }
+                    else
+                    {
+                        taiKhoanView.IDNv = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).ID;
+                        taiKhoanView.TenNV = _iqLNhanVien.GetAll().FirstOrDefault(c => c.MaNV == cbo_maNV.Text).TenNV;
+                    }
+                    taiKhoanView.ID = Guid.NewGuid();
+
+                    taiKhoanView.TenTaiKhoan = txt_tenTK.Text;
+                    taiKhoanView.MatKhau = txt_matkhauTK.Text;
+                    taiKhoanView.CapDoQuyen = int.Parse(cbb_capdoquyenTK.Text);
+
+                    MessageBox.Show(_iqLTaiKhoan.Add(taiKhoanView));
+                    _send(_iqLTaiKhoan.GetAll());
                 }
-                taiKhoanView.ID = Guid.NewGuid();
-
-                taiKhoanView.TenTaiKhoan = txt_tenTK.Text;
-                taiKhoanView.MatKhau = txt_matkhauTK.Text;
-                taiKhoanView.CapDoQuyen = int.Parse(cbb_capdoquyenTK.Text);
-
-                MessageBox.Show(_iqLTaiKhoan.Add(taiKhoanView));
-                _send(_iqLTaiKhoan.GetAll());
+                
+                
             }
         }
 

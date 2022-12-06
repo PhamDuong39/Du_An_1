@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,15 +12,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnDatPhong : Form
     {
+        public send_pt _send;
         private IQLPhongService _iqlPhongService;
         private IQLKhachHangService _iqlKHService;
         private IQLPhieuThueService _iqlPTService;
         private IQLChiTietPhieuThueService _iqlCTPTService;
+        private Validations val;
         private Guid IdRoomPicked { get; set; }
 
 
@@ -29,21 +33,30 @@ namespace GUI.View.AddControls
 
 
         private List<PhongView> lstRoomChoosen;
-        public FrmBtnDatPhong()
+        public FrmBtnDatPhong(send_pt send)
         {
             InitializeComponent();
+            this._send = send;
             _iqlPhongService = new IPhongService();
             _iqlKHService = new QLKhachHangService();
             _iqlPTService = new QLPhieuThueService();
             _iqlCTPTService = new QLChiTietPhieuThueService();
             lstRoomChoosen = new List<PhongView>();
             list_phong_trong = new List<PhongView>();
+            val = new Validations();
+            loadcbo();
 
             /*LoadDataDSPhongTrong();
             LoadDataDSPhongDaChon();*/
 
         }
 
+        public void loadcbo()
+        {
+            cbb_GioiTinhKH.Items.Add("Nam");
+            cbb_GioiTinhKH.Items.Add("Nữ");
+            cbb_GioiTinhKH.Items.Add("Khác");
+        }
         private void LoadDataDSPhongTrong(List<PhongView> list)
         {
             dtg_DSPhongTrong.ColumnCount = 3;
@@ -127,60 +140,64 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                PhieuThueView ptv = new PhieuThueView();
-                ptv.NgayLapPhieu = DateTime.Now;
-                ptv.IdNV = FrmMain.IdNV;
-                var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
-                int so = lstmaPT.Max() + 1;
-                ptv.MaPhieuThue = so;
-                //ptv.MaPhieuThue = 1;
-                var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
-                if (lstKH == null)
-                {
-                    KhachHangView khv = new KhachHangView();
-                    khv.CCCD = tb_CCCDKH.Text;
-                    khv.MaKH = tb_MaKH.Text;
-                    khv.HovaTen = tb_TenKH.Text;
-                    khv.SDT = tb_SDTKH.Text;
-                    khv.DiaChi = tb_DiaChiKH.Text;
-                    khv.QuocTich = tb_QuocTichKH.Text;
-                    khv.GioiTinh = cbb_GioiTinhKH.Text == "Nam" ? 1 : cbb_GioiTinhKH.Text == "Nữ" ? 2 : 3;
-                    _iqlKHService.Add(khv);
-                    ptv.IdKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text).ID;
-                }
-                else
-                {
-                    ptv.IdKH = lstKH.ID;
-                }
-                _iqlPTService.Add(ptv);
+                
+                    PhieuThueView ptv = new PhieuThueView();
+                    ptv.NgayLapPhieu = DateTime.Now;
+                    ptv.IdNV = FrmMain.IdNV;
+                    var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
+                    int so = lstmaPT.Max() + 1;
+                    ptv.MaPhieuThue = so;
+                    //ptv.MaPhieuThue = 1;
+                    var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
+                    if (lstKH == null)
+                    {
+                        KhachHangView khv = new KhachHangView();
+                        khv.CCCD = tb_CCCDKH.Text;
+                        khv.MaKH = tb_MaKH.Text;
+                        khv.HovaTen = tb_TenKH.Text;
+                        khv.SDT = tb_SDTKH.Text;
+                        khv.DiaChi = tb_DiaChiKH.Text;
+                        khv.QuocTich = tb_QuocTichKH.Text;
+                        khv.GioiTinh = cbb_GioiTinhKH.Text == "Nam" ? 1 : cbb_GioiTinhKH.Text == "Nữ" ? 2 : 3;
+                        _iqlKHService.Add(khv);
+                        ptv.IdKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text).ID;
+                    }
+                    else
+                    {
+                        ptv.IdKH = lstKH.ID;
+                    }
+                    _iqlPTService.Add(ptv);
 
-                foreach (var item in lstRoomChoosen)
-                {
-                    // ĐOẠN NÀY là tôi ko biết là đặt xong chuyển sang trạng thái phòng khi đặt là  j ko thig tùy ý ông nhé  ông tự ấy theo đsung ý ông nhé ( chọn đc cái list muốn đặt rồi ông mới thay đổi trạng thái phòng)
+                    foreach (var item in lstRoomChoosen)
+                    {
+                        // ĐOẠN NÀY là tôi ko biết là đặt xong chuyển sang trạng thái phòng khi đặt là  j ko thig tùy ý ông nhé  ông tự ấy theo đsung ý ông nhé ( chọn đc cái list muốn đặt rồi ông mới thay đổi trạng thái phòng)
 
-                    ChiTietPhieuThueView ctptv = new ChiTietPhieuThueView();
-                    ctptv.NgayBatDau = dtp_NgayBatDau.Value;
-                    ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
-                    ctptv.IdPhong = item.Id;
-                    ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
-                    //DateTime now = DateTime.Now;
+                        ChiTietPhieuThueView ctptv = new ChiTietPhieuThueView();
+                        ctptv.NgayBatDau = dtp_NgayBatDau.Value;
+                        ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
+                        ctptv.IdPhong = item.Id;
+                        ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
+                        //DateTime now = DateTime.Now;
 
-                    MessageBox.Show(_iqlCTPTService.Add(ctptv));
+                        MessageBox.Show(_iqlCTPTService.Add(ctptv));
+                    }
+                    _send(_iqlPTService.GetAll());
+
                 }
-            }
-            if (result == DialogResult.No)
-            {
-                foreach (var item in lstRoomChoosen)
+                if (result == DialogResult.No)
                 {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 0;
-                    _iqlPhongService.Update(pv);
+                    foreach (var item in lstRoomChoosen)
+                    {
+                        PhongView pv = new PhongView();
+                        pv.Id = item.Id;
+                        pv.MaPhong = item.MaPhong;
+                        pv.IDLoaiPhong = item.IDLoaiPhong;
+                        pv.TinhTrang = 0;
+                        _iqlPhongService.Update(pv);
+                    }
+                    MessageBox.Show("Bạn đã hủy đặt phòng");
                 }
-                MessageBox.Show("Bạn đã hủy đặt phòng");
-            }
+            _send(_iqlPTService.GetAll());
         }
 
         private void FrmBtnDatPhong_Load(object sender, EventArgs e)
@@ -296,7 +313,7 @@ namespace GUI.View.AddControls
                             {
                                 listt = listt.Where(c => c.MaPhong != listt[i].MaPhong).ToList();
                                 list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[j].MaPhong).ToList();
-                                i = -1;
+                                i = 0;
                                 j = 0;
                                 if (list_phong_co_kh.Count == 0)
                                 {

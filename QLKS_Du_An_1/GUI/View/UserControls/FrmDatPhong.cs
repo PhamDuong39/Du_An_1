@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_pt(List<PhieuThueView> list);
     public partial class FrmDatPhong : Form
     {
         private IQLPhieuThueService _iqlPTService;
@@ -65,7 +66,7 @@ namespace GUI.View.UserControls
 
         private void btn_DatPhong_Click(object sender, EventArgs e)
         {
-            FrmBtnDatPhong btnDatphong = new FrmBtnDatPhong();
+            FrmBtnDatPhong btnDatphong = new FrmBtnDatPhong(LoadDataPT);
             btnDatphong.ShowDialog();
         }
 
@@ -88,7 +89,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachPT.Columns[e.ColumnIndex].Name == "btn_XemCTPhieuThue")
             {
                 // Open Form BtnSuaPhong
-                FrmBtnXemCTPhieuThue ctpt = new FrmBtnXemCTPhieuThue();
+                FrmBtnXemCTPhieuThue ctpt = new FrmBtnXemCTPhieuThue(LoadDataPT);
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 ctpt.IdPT = IdPTSelected;
                 ctpt.TenKH = TenKHSelect;
@@ -114,9 +115,5 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadDataPT(_iqlPTService.GetAll());
-        }
     }
 }
