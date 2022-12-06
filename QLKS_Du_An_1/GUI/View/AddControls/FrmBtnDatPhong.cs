@@ -235,7 +235,10 @@ namespace GUI.View.AddControls
             DateTime dt1 = dtp_NgayBatDau.Value;
             DateTime dt2 = dtp_NgayKetThuc.Value;
 
-
+            if (dt1.CompareTo(dt2) >= 1)
+            {
+                MessageBox.Show("Ngày lọc không hợp lệ, Vui lòng nhập lại", "Thông Báo");
+            }
             List<ChiTietPhieuThueView> y = _iqlCTPTService.GetAll().ToList();
             List<ChiTietPhieuThueView> List_loc_ctpt = new List<ChiTietPhieuThueView>();
             foreach (var item in y)
@@ -320,6 +323,11 @@ namespace GUI.View.AddControls
         private void button1_Click(object sender, EventArgs e)
         {
             take_empty_room();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
