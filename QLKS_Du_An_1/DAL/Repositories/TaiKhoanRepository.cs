@@ -38,16 +38,23 @@ namespace DAL.Repositories
 
         public bool Remove(TaiKhoan obj)
         {
-            if (obj == null)
+            try
+            {
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                    _DbContext.TaiKhoans.Remove(tk);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch
             {
                 return false;
-            }
-            else
-            {
-                var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                _DbContext.TaiKhoans.Remove(tk);
-                _DbContext.SaveChanges();
-                return true;
             }
         }
 
