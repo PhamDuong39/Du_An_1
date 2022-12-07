@@ -43,15 +43,23 @@ namespace DAL.Repositories
 
         public bool Remove(DichVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                int indext = GetAll().FindIndex(c => c.Id == obj.Id);
+                if (indext == -1) return false;
+                _db.Remove(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            int indext = GetAll().FindIndex(c => c.Id == obj.Id);
-            if (indext == -1) return false;
-            _db.Remove(obj);
-            _db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(DichVu obj)

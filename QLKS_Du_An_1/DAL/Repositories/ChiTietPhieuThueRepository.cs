@@ -39,17 +39,26 @@ namespace DAL.Repositories
 
         public bool Remove(ChiTietPhieuThue obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                    _DbContext.ChiTietPhieuThues.Remove(ctpt);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            else
-            {
-                var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                _DbContext.ChiTietPhieuThues.Remove(ctpt);
-                _DbContext.SaveChanges();
-                return true;
-            }
+            
         }
 
         public bool Upadate(ChiTietPhieuThue obj)
