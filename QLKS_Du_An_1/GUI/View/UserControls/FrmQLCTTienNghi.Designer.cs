@@ -60,6 +60,7 @@
             this.tbt_SearchUseDetailName.PlaceholderText = "    Nhập tên chi tiết tiện nghi cần tìm";
             this.tbt_SearchUseDetailName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchUseDetailName.TabIndex = 20;
+            this.tbt_SearchUseDetailName.TextChanged += new System.EventHandler(this.tbt_SearchUseDetailName_TextChanged);
             // 
             // dtg_DanhSachCTTienNghi
             // 

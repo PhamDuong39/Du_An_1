@@ -117,5 +117,10 @@ namespace GUI.View.UserControls
         {
             LoadDataCTTN(_iqlCTTNService.GetAll());
         }
+
+        private void tbt_SearchUseDetailName_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataCTTN(_iqlCTTNService.Search(tbt_SearchUseDetailName.Text));
+        }
     }
 }

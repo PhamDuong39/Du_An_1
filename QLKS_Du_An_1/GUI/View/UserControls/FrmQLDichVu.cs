@@ -122,5 +122,10 @@ namespace GUI.View.UserControls
         {
             LoadData(_iQLDichVuService.GetAll());
         }
+
+        private void tbt_SearchServicesName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iQLDichVuService.Sreach(tbt_SearchServicesName.Text));
+        }
     }
 }
