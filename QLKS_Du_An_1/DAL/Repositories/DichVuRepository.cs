@@ -17,15 +17,23 @@ namespace DAL.Repositories
         }
         public bool Add(DichVu obj)
         {
-            if (obj == null)
+            try
+            {
+                if (obj == null)
+                {
+                    return false;
+                }
+                if (_db.DichVus.FirstOrDefault(c => c.MaDichVu == obj.MaDichVu) != null) return false;
+                obj.Id = Guid.NewGuid();
+                _db.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
             {
                 return false;
             }
-            if (_db.DichVus.FirstOrDefault(c => c.MaDichVu == obj.MaDichVu) != null) return false;
-            obj.Id = Guid.NewGuid();
-            _db.Add(obj);
-            _db.SaveChanges();
-            return true;
+          
         }
 
         public List<DichVu> GetAll()

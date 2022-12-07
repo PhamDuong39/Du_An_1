@@ -18,10 +18,12 @@ namespace GUI.View.AddControls
         public List<HoaDonView> _lstHoaDon;
         public List<HoaDonView> _lstHoaDonCT;
         public List<HoaDonView> _lstGiaPhong;
+        public DateTime NgayThanhToanHD { get; set; }
         public IQLChiTietPhieuThueService _iqlCTPTService;
         public IHoaDonService _iqlHDService;
         public IPhongService _iqlPhongService;
-        public int GiaGio = 150;
+        public int GiaTienTraPhongMuon = 50000;
+        public int TongTienPhaiTra { get; set; }
         public FrmViewHDCT()
         {
             InitializeComponent();
@@ -54,11 +56,89 @@ namespace GUI.View.AddControls
 
         private void TinhTienThanhToan()
         {
-            int stt = 1, tienPhong = 0, tienDV = 0, tongTien;
+            int stt = 1, tienDV = 0;
+            double tienPhong = 0, tongTien, SoNgayTinhToan = 0;
             foreach (var x in _lstGiaPhong)
             {
-                dgrid_HDCT.Rows.Add(stt++, x.TenLoaiPhong, x.GiaNgay, "1", x.GiaNgay);
-                tienPhong = x.GiaNgay;
+                double SoNgayThue = 0;
+                int count = 0;
+                DateTime NgayBDThue = x.NgayBatDau;
+                DateTime NgayTT = NgayThanhToanHD;
+                TimeSpan SLNgayThue = NgayTT - NgayBDThue;
+                TimeSpan SoNgayThueDatTruoc = x.NgayKetThuc - x.NgayBatDau;
+
+                if (SLNgayThue.TotalHours <= 24.24)// TH1 : Số ngày thuê < 1 ngày
+                {
+                    count = 1;
+                    SoNgayThue = 1;
+                    
+                }
+                else if (SLNgayThue.TotalHours > 24.24 && SLNgayThue.TotalHours <= (SoNgayThueDatTruoc.TotalHours + 0.24)) // TH2 : Số ngày thuê nhiều hơn 1 ngày nhưng ít hơn tổng số ngày đặt trước
+                {
+                    count = 2;
+                    int soNgayTinhToan = (int)SLNgayThue.TotalHours / 24;
+                    double GioLe = SLNgayThue.TotalHours - soNgayTinhToan * 24;// Giờ lẻ của giờ thực tế thuê
+                    if (GioLe <= 1)
+                    {
+                        SoNgayThue = soNgayTinhToan;
+                    }
+                    else if (GioLe > 1 && GioLe <= 13)
+                    {
+                        SoNgayThue = soNgayTinhToan + 0.5;
+                    }
+                    else
+                    {
+                        SoNgayThue = soNgayTinhToan + 1;
+                    }
+                }
+                else// SLNgayThue.ToTalHours > SoNgayThueDatTruoc.TotalHours + 0.24 -- TH3 : Số ngày thuê vượt quá số ngày đã đặt
+                {
+                    count = 3;
+                    double SoGioQua = SLNgayThue.TotalHours - SoNgayThueDatTruoc.TotalHours;
+                    if (SoGioQua <= 1)  // OK
+                    {
+                        SoNgayThue = Math.Round(SoNgayThueDatTruoc.TotalHours / 24);
+                    }
+                    else if (SoGioQua > 1 && SoGioQua <= 11)
+                    {
+                        SoNgayThue = Math.Round(SoNgayThueDatTruoc.TotalHours / 24) + 0.5;
+                    }
+                    else if (SoGioQua > 11 && SoGioQua <= 24.24)
+                    {
+                        SoNgayThue = Math.Round(SoNgayThueDatTruoc.TotalHours / 24) + 1;
+                    }
+                    else//SoGioQua > 24
+                    {
+                        SoNgayTinhToan = SoGioQua / 24;
+                        double GioQuaLe = SLNgayThue.TotalHours - SoNgayTinhToan * 24;
+                        if (GioQuaLe <= 1)
+                        {
+                            SoNgayTinhToan = (int)SoGioQua / 24;
+                        } 
+                        else if (GioQuaLe > 1 && GioQuaLe <= 12)
+                        {
+                            SoNgayTinhToan += 0.5;
+                        }
+                        else
+                        {
+                            SoNgayTinhToan += 1;
+                        }
+                        SoNgayThue = (SoNgayThueDatTruoc.TotalHours / 24);
+                    }
+                }
+                if (count == 1 || count == 2)
+                {
+                    tienPhong = x.GiaNgay * SoNgayThue;
+                }
+                else if (count == 3)
+                {
+
+                    tienPhong = x.GiaNgay * SoNgayThue + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;
+                }
+               
+                dgrid_HDCT.Rows.Add(stt++, x.TenLoaiPhong, x.GiaNgay, SoNgayThue, tienPhong);
+               
+                
             }
             foreach (var x in _lstHoaDonCT)
             {
@@ -78,6 +158,8 @@ namespace GUI.View.AddControls
                 lbl_NgayThanhToan.Text = x.NgayTT.ToString();
                 lbl_TongTien.Text = tongTien.ToString() + " Đồng";
             }
+
+
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)

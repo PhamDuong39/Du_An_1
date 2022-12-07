@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +47,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.flp_PhongTang3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Refresh = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lb_TimeReset = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -212,13 +216,41 @@
             // 
             // btn_Refresh
             // 
-            this.btn_Refresh.Location = new System.Drawing.Point(863, 80);
+            this.btn_Refresh.Location = new System.Drawing.Point(899, 70);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
             this.btn_Refresh.TabIndex = 10;
-            this.btn_Refresh.Text = "button1";
+            this.btn_Refresh.Text = "Reset Now";
             this.btn_Refresh.UseVisualStyleBackColor = true;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(835, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Second";
+            // 
+            // lb_TimeReset
+            // 
+            this.lb_TimeReset.AutoSize = true;
+            this.lb_TimeReset.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_TimeReset.ForeColor = System.Drawing.Color.Transparent;
+            this.lb_TimeReset.Location = new System.Drawing.Point(813, 73);
+            this.lb_TimeReset.Name = "lb_TimeReset";
+            this.lb_TimeReset.Size = new System.Drawing.Size(25, 20);
+            this.lb_TimeReset.TabIndex = 12;
+            this.lb_TimeReset.Text = "00";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmPhong
             // 
@@ -227,6 +259,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(998, 638);
+            this.Controls.Add(this.lb_TimeReset);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
@@ -271,5 +305,8 @@
         private FlowLayoutPanel flp_PhongTang2;
         private FlowLayoutPanel flp_PhongTang3;
         private Button btn_Refresh;
+        private Label label5;
+        private Label lb_TimeReset;
+        private System.Windows.Forms.Timer timer1;
     }
 }

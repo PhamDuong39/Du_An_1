@@ -19,7 +19,7 @@ namespace GUI.View.AddControls
         public string TenKH { get; set; }
         public Guid IdPTCT { get; set; }
         private List<DichVuView> lstDVV;
-      
+ 
 
         private IQLChiTietPhieuThueService _iqlCTPTService;
         private IQLPhongService _iqlPhongService;
@@ -77,8 +77,17 @@ namespace GUI.View.AddControls
                 HoaDonView hdv = new HoaDonView();
                 //hdv.MaHD = "HD1";
                 var lstMaHD = _iqlHDService.GetAll();
-                int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
-                hdv.MaHD = "HD" + STTHD;
+                var soMaHD = _iqlHDService.GetAll().Select(p => p.MaHD).ToList();
+                if (soMaHD.Count == 0)
+                {
+                    hdv.MaHD = "HD1";
+                }    
+                else
+                {
+                    int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
+                    hdv.MaHD = "HD" + STTHD;
+                }
+               
                 hdv.TrangThai = 0;
                 hdv.NgayTT = null;
                 hdv.NgayTaoHD = DateTime.Now;
@@ -147,6 +156,7 @@ namespace GUI.View.AddControls
             frmViewHoaDon._lstHoaDonCT = _iqlHDService.GetCTHoaDon(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstGiaPhong = _iqlHDService.GetCTPhong(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
+            frmViewHoaDon.NgayThanhToanHD = DateTime.Now;
             frmViewHoaDon.ShowDialog();
         }
 
