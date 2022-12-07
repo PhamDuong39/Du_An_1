@@ -52,9 +52,10 @@ namespace DAL.Repositories
                 return false;
             }
             var x = _Db.ChiTietTienNghis.FirstOrDefault(a => a.ID == obj.ID);
-            x.MaCTTienNghi = obj.TenCTTienNghi;
+            x.MaCTTienNghi = obj.MaCTTienNghi;
             x.TenCTTienNghi = obj.TenCTTienNghi;
             x.IDLoaiTienNghi = obj.IDLoaiTienNghi;
+            x.IdPhong = obj.IdPhong;
             _Db.Update(x);
             _Db.SaveChanges();
             return true;

@@ -39,9 +39,9 @@ namespace DAL.Repositories
             {
                 return false;
             }
-            int indext = GetAll().FindIndex(c => c.ID == obj.ID);
-            if (indext == -1) return false;
-            _db.Remove(obj);
+            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+            if (indext == null) return false;
+            _db.Remove(indext);
             _db.SaveChanges();
             return true;
         }
@@ -52,9 +52,11 @@ namespace DAL.Repositories
             {
                 return false;
             }
-            int indext = GetAll().FindIndex(c => c.ID == obj.ID);
-            if (indext == -1) return false;
-            _db.Update(obj);
+            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+            if (indext == null) return false;
+            indext.MaCV = obj.MaCV;
+            indext.TenCV = obj.TenCV;
+            _db.ChucVus.Update(indext);
             _db.SaveChanges();
             return true;
         }

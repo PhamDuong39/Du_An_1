@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.ViewModels;
 using FontAwesome.Sharp;
 using GUI.View.UserControls;
 
@@ -18,14 +19,39 @@ namespace GUI.View
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-
+        public static  Guid? IdNV { get; set; }
         public FrmMain()
         {
             InitializeComponent();
+            
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 45);
+            pn_MenuBar.Controls.Add(leftBorderBtn);
+
+            //Form
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+        public FrmMain(TaiKhoanView tk)
+        {
+            InitializeComponent();
+            phanquyen(tk);
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,45);
             pn_MenuBar.Controls.Add(leftBorderBtn);
-
+            if (tk.CapDoQuyen == 1)
+            {
+                lb_TenNV.Text = "ADMIN";
+                IdNV = null;
+            }
+            else
+            {
+                lb_TenNV.Text = tk.TenNV;
+                IdNV = tk.IDNv;               
+            }
+       
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -51,7 +77,19 @@ namespace GUI.View
             public static Color color12 = Color.FromArgb(255, 228, 225);
 
         }
-
+        public void phanquyen(TaiKhoanView tk)
+        {
+            if (tk.CapDoQuyen == 3)
+            {
+                ibtn_QLTaiKhoan.Visible = false;
+                ibtn_QLDichVu.Visible = false;
+                ibtn_QLLoaiDichVu.Visible = false;
+                ibtn_QLCTTienNghi.Visible = false;
+                ibtn_QLTienNghi.Visible = false;
+                ibtn_QLNhanVien.Visible = false;
+                ibtn_ChucVu.Visible = false;
+            }
+        }
         private void ActivateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -218,8 +256,14 @@ namespace GUI.View
         }
 
 
+
         #endregion
 
-       
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogin login = new FrmLogin();        
+            login.Show();         
+        }
     }
 }

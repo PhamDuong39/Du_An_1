@@ -14,9 +14,11 @@ using System.Windows.Forms;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_phong (List<PhongView> phongViews);
     public partial class FrmQLPhong : Form
     {
         private IQLPhongService _iqlPhongService;
+        public IQLChiTietTienNghiService _iqlCTTNService;
 
         // CellClick lấy thông tin trên dtg
         public Guid IDRoomSelect { get; set; }
@@ -28,16 +30,17 @@ namespace GUI.View.UserControls
         {
             InitializeComponent();
             _iqlPhongService = new IPhongService();
+            _iqlCTTNService = new QLChiTietTienNghiService();
             LoadData(_iqlPhongService.GetAll());
         }
 
         private void btn_ThemPhong_Click(object sender, EventArgs e)
         {
-            FrmBtnThemPhong p = new FrmBtnThemPhong();
+            FrmBtnThemPhong p = new FrmBtnThemPhong(LoadData);
             p.ShowDialog();
         }
 
-        private void LoadData(List<PhongView> lst)
+        public void LoadData(List<PhongView> lst)
         {
             dtg_DanhSachPhong.ColumnCount = 5;
             dtg_DanhSachPhong.Rows.Clear();
@@ -49,9 +52,9 @@ namespace GUI.View.UserControls
             dtg_DanhSachPhong.Columns[3].Visible = false;          
             dtg_DanhSachPhong.Columns[4].Name = "Tên loại phòng";
 
-            foreach (var item in lst)
+            foreach (var item in lst.OrderBy(p => p.MaPhong))
             {
-                dtg_DanhSachPhong.Rows.Add(item.Id, item.MaPhong, item.TinhTrang == 0 ? "Phòng trống" : item.TinhTrang == 1 ? "Phòng đang có khách" : "Phòng đang dọn dẹp", item.IDLoaiPhong,  item.TenLoaiPhong);
+                dtg_DanhSachPhong.Rows.Add(item.Id, item.MaPhong, item.TinhTrang == 0 ? "Phòng trống" : item.TinhTrang == 1 ? "Phòng đang có khách" : item.TinhTrang == 2 ? "Phòng đang dọn dẹp" : "Phòng sắp có khách thuê", item.IDLoaiPhong,  item.TenLoaiPhong);
             }
 
             // Thêm button control vào datadridview
@@ -95,7 +98,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_SuaPhong")
             {           
                 // Open Form BtnSuaPhong
-                FrmBtnSuaPhong btnSuaPhong = new FrmBtnSuaPhong();
+                FrmBtnSuaPhong btnSuaPhong = new FrmBtnSuaPhong(LoadData);
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnSuaPhong.IDPhongSua = IDRoomSelect;
                 btnSuaPhong.MaPhongSua = MaRoomSelect;
@@ -111,12 +114,27 @@ namespace GUI.View.UserControls
                     PhongView pv = new PhongView();
                     pv.Id = IDRoomSelect;
                     MessageBox.Show(_iqlPhongService.Remove(pv));
+                    LoadData(_iqlPhongService.GetAll());
                 }
                 if (result == DialogResult.No)
                 {
                     MessageBox.Show("Xóa phòng thất bại");
                 }
             }
+            if (dtg_DanhSachPhong.Columns[e.ColumnIndex].Name == "btn_ViewDetail")
+            {
+                FrmBtnEditDetailPhong btnEditDetail = new FrmBtnEditDetailPhong();
+                btnEditDetail.MaPhong = MaRoomSelect;
+                btnEditDetail.IdRoomSelected = IDRoomSelect;
+               // MessageBox.Show("" + IDRoomSelect);
+                btnEditDetail.ShowDialog();
+            }
         }
+
+        private void tbt_SearchRoomName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
+        }
+
     }
 }

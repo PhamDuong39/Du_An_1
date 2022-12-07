@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,21 @@ namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemPhong : Form
     {
+        public send_phong _send;
         private IQLPhongService _iqlPhongService;
         private IQLLoaiPhongService _iqlLoaiPhongService;
         public FrmBtnThemPhong()
         {
             InitializeComponent();
+            _iqlPhongService = new IPhongService();
+            _iqlLoaiPhongService = new ILoaiPhongService();
+
+            LoadDataCbb();
+        }
+        public FrmBtnThemPhong(send_phong send)
+        {
+            InitializeComponent();
+            this._send = send;
             _iqlPhongService = new IPhongService();
             _iqlLoaiPhongService = new ILoaiPhongService();
 
@@ -52,6 +63,7 @@ namespace GUI.View.AddControls
                 pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
 
                 MessageBox.Show(_iqlPhongService.Add(pv));
+                _send(_iqlPhongService.GetAll());
             }
             if (result == DialogResult.No)
             {

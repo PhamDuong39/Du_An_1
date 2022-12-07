@@ -38,7 +38,8 @@ namespace BUS.Services
                     ID = khv.ID,
                     IdKH = khv.IdKH,
                     IdNV = khv.IdNV,
-                    NgayLapPhieu = khv.NgayLapPhieu
+                    NgayLapPhieu = khv.NgayLapPhieu,
+                    MaPhieuThue = khv.MaPhieuThue,
                 };
                 if (_iPhieuThueRepository.Add(pt))
                 {
@@ -53,13 +54,17 @@ namespace BUS.Services
         public List<PhieuThueView> GetAll()
         {
             _lstPhieuThueView = (from a in _iPhieuThueRepository.GetAll()
-                                 join b in _iKhachHangRepository.GetAll() on a.ID equals b.ID
-                                 join c in _iNhanVienRepository.GetAll() on a.ID equals c.ID
+                                 join b in _iKhachHangRepository.GetAll() on a.IdKH equals b.ID
+                                 join c in _iNhanVienRepository.GetAll() on a.IdNV equals c.ID
                                  select new PhieuThueView()
                                  {
                                      ID = a.ID,
+                                     IdKH = b.ID,
+                                     IdNV = c.ID,
                                      TenKH = b.HovaTen,
-                                     TenNV = c.TenNV
+                                     TenNV = c.TenNV,
+                                     NgayLapPhieu = a.NgayLapPhieu,
+                                     MaPhieuThue = a.MaPhieuThue,
                                  }).ToList();
             return _lstPhieuThueView;
         }

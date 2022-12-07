@@ -70,7 +70,6 @@ namespace BUS.Services
 
         }
 
-  
 
         public string Remove(PhongView obj)
         {
@@ -112,6 +111,30 @@ namespace BUS.Services
         {
             var phong = iLoaiPhongRepository.GetAll().FirstOrDefault(p => p.TenLoaiPhong == Name);
             return phong.ID;
+        }
+
+        public List<PhongView> Search(string name)
+        {
+            var lst = GetAll().Where(p => p.MaPhong.Contains(name));
+            return lst.ToList();
+        }
+
+        public string UpdateTrangThaiPhong(PhongView phongView)
+        {
+            if (phongView == null) return "Không có đối tượng truyền vào";
+            var phong = new Phong()
+            {
+                Id = phongView.Id,
+                TinhTrang = phongView.TinhTrang
+            };
+            if (iPhongRepository.Upadate(phong))
+            {
+                return "Sửa tT Phòng thành công";
+            }
+            else
+            {
+                return "Sửa tt Phòng không thành công";
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace GUI.View.UserControls
 {
+    public delegate void send_kh(List<KhachHangView> list);
     public partial class FrmQLKhachHang : Form
     {
         private IQLKhachHangService _iQLKhachHangService;
@@ -36,6 +37,7 @@ namespace GUI.View.UserControls
         {
             int stt = 1;
             dtg_DanhSachKH.ColumnCount = 9;
+            dtg_DanhSachKH.Rows.Clear();
             dtg_DanhSachKH.Columns[0].Name = "ID";
             dtg_DanhSachKH.Columns[0].Visible = false;
             dtg_DanhSachKH.Columns[1].Name = "STT";
@@ -46,6 +48,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachKH.Columns[6].Name = "Địa chỉ";
             dtg_DanhSachKH.Columns[7].Name = "Giới tính";
             dtg_DanhSachKH.Columns[8].Name = "Quốc tịch";
+            dtg_DanhSachKH.Rows.Clear();
             foreach (var x in list)
             {
                 dtg_DanhSachKH.Rows.Add(x.ID, stt++, x.MaKH, x.HovaTen, x.CCCD, x.SDT, x.DiaChi, x.GioiTinh == 1? "Nam" : x.GioiTinh == 2 ? "Nữ" : "Khác" , x.QuocTich);
@@ -68,7 +71,7 @@ namespace GUI.View.UserControls
        
         private void btn_ThemKhachHang_Click(object sender, EventArgs e)
         {
-            FrmBtnThemKH kh = new FrmBtnThemKH();
+            FrmBtnThemKH kh = new FrmBtnThemKH(LoadData);
             kh.ShowDialog();
         }
 
@@ -77,7 +80,7 @@ namespace GUI.View.UserControls
             if (dtg_DanhSachKH.Columns[e.ColumnIndex].Name == "btn_SuaKH") // nếu bấm vào nút có tên btn_SuaKH được tạo trên dtg thì :  
             {
                 // Open Form BtnSuaPhong
-                FrmBtnSuaKH btnsuakh = new FrmBtnSuaKH();
+                FrmBtnSuaKH btnsuakh = new FrmBtnSuaKH(LoadData);
                 // Đấy dữ liệu vừa cell click sang các prop bên form FrmBtnSuaKH
                 // bên frmSuaKh sẽ ko có select để cho dễ phân biệt
                 btnsuakh.IdKH = IdKHSelect;
@@ -123,5 +126,7 @@ namespace GUI.View.UserControls
             QuocTichSelect = Convert.ToString(dtg_DanhSachKH.Rows[rd].Cells[8].Value);
 
         }
+
+       
     }
 }

@@ -58,18 +58,6 @@ namespace BUS.Services
                    }).ToList();
             return _lst;
         }
-        public List<ChucVuView> Search(string keyWord)
-        {
-            List<ChucVuView> _lst = new List<ChucVuView>();
-            _lst = (from a in _chucVuRepository.GetAll().Where(c=>c.MaCV.Contains(keyWord) || c.TenCV.Contains(keyWord))
-                    select new ChucVuView()
-                    {
-                        ID = a.ID,
-                        MaCV = a.MaCV,
-                        TenCV = a.TenCV,
-                    }).ToList();
-            return _lst;
-        }
         public string Remove(ChucVuView obj)
         {
             var temp = _chucVuRepository.GetAll().FindIndex(c => c.ID == obj.ID);
@@ -88,6 +76,11 @@ namespace BUS.Services
             if (temp1.FindIndex(c => c.MaCV == obj.MaCV) != -1) return "Đã có mã Chức Vụ này";
             if (_chucVuRepository.Upadate(GetChucVu(obj))) return "Sửa thành công";
             return "Sửa không thành công";
+        }
+        public List<ChucVuView> GetList(string obj)
+        {
+            if (obj == string.Empty) return GetAll();
+            return GetAll().Where(c => c.MaCV.Contains(obj)).ToList();
         }
     }
 }

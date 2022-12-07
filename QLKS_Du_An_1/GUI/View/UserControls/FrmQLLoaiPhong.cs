@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace GUI.View.UserControls
 {
+    public delegate void send_Lphong(List<LoaiPhongView> lphongList);
     public partial class FrmQLLoaiPhong : Form
     {
         private IQLLoaiPhongService _iqLLoaiPhongService;
@@ -31,7 +32,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemLoaiPhong_Click(object sender, EventArgs e)
         {
-            FrmBtnThemLoaiPhong frmBtnThemLoaiPhong = new FrmBtnThemLoaiPhong();
+            FrmBtnThemLoaiPhong frmBtnThemLoaiPhong = new FrmBtnThemLoaiPhong(LoadData);
             frmBtnThemLoaiPhong.ShowDialog();
         }
 
@@ -110,5 +111,7 @@ namespace GUI.View.UserControls
                 }
             }
         }
+
+       
     }
 }

@@ -15,5 +15,7 @@ namespace BUS.IServices
         public string GetTenLoaiTNById(Guid Id);
         public List<LoaiTienNghiView> Search(string name);
 
+        Guid GetIdByName(string TenLoaiTN);
+
     }
 }

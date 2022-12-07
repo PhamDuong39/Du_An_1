@@ -156,9 +156,17 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasColumnName("MaHD");
 
+                    b.Property<DateTime?>("NgayTT")
+                        .HasColumnType("datetime")
+                        .HasColumnName("NgayTT");
+
                     b.Property<DateTime>("NgayTaoHD")
                         .HasColumnType("datetime")
                         .HasColumnName("NgayTaoHD");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int")
+                        .HasColumnName("TrangThai");
 
                     b.HasKey("Id");
 
@@ -385,11 +393,15 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdKH")
+                    b.Property<Guid?>("IdKH")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdNV")
+                    b.Property<Guid?>("IdNV")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("MaPhieuThue")
+                        .HasColumnType("int")
+                        .HasColumnName("MaPhieuThue");
 
                     b.Property<DateTime>("NgayLapPhieu")
                         .HasColumnType("datetime")
@@ -559,15 +571,11 @@ namespace DAL.Migrations
                 {
                     b.HasOne("DAL.Models.KhachHang", "KhachHang")
                         .WithMany()
-                        .HasForeignKey("IdKH")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdKH");
 
                     b.HasOne("DAL.Models.NhanVien", "NhanVien")
                         .WithMany()
-                        .HasForeignKey("IdNV")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdNV");
 
                     b.Navigation("KhachHang");
 

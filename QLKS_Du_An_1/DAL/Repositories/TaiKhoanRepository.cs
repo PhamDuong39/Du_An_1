@@ -60,8 +60,8 @@ namespace DAL.Repositories
             else
             {
                 var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                tk.IDNv = obj.IDNv;
-                tk.TenTaiKhoan = obj.TenTaiKhoan;
+                //tk.IDNv = obj.IDNv;
+                //tk.TenTaiKhoan = obj.TenTaiKhoan;
                 tk.CapDoQuyen = obj.CapDoQuyen;
                 tk.MatKhau = obj.MatKhau;
                 _DbContext.TaiKhoans.Update(tk);

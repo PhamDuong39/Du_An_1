@@ -80,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1141, 851);
+            this.ClientSize = new System.Drawing.Size(1141, 749);
             this.Controls.Add(this.btn_ThemTienNghi);
             this.Controls.Add(this.tbt_SearchUseName);
             this.Controls.Add(this.dtg_DanhSachTienNghi);

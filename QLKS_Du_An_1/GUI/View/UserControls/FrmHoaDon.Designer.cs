@@ -41,9 +41,11 @@
             // 
             this.groupBox1.Controls.Add(this.dtp_SearchHDByDay);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(81, 26);
+            this.groupBox1.Location = new System.Drawing.Point(93, 35);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(154, 55);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(176, 73);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chọn ngày";
@@ -51,49 +53,58 @@
             // dtp_SearchHDByDay
             // 
             this.dtp_SearchHDByDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_SearchHDByDay.Location = new System.Drawing.Point(6, 18);
+            this.dtp_SearchHDByDay.Location = new System.Drawing.Point(7, 24);
+            this.dtp_SearchHDByDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_SearchHDByDay.Name = "dtp_SearchHDByDay";
-            this.dtp_SearchHDByDay.Size = new System.Drawing.Size(141, 23);
+            this.dtp_SearchHDByDay.Size = new System.Drawing.Size(161, 27);
             this.dtp_SearchHDByDay.TabIndex = 0;
+            this.dtp_SearchHDByDay.ValueChanged += new System.EventHandler(this.dtp_SearchHDByDay_ValueChanged);
             // 
             // tbt_SearchHDByMa
             // 
-            this.tbt_SearchHDByMa.Location = new System.Drawing.Point(570, 44);
+            this.tbt_SearchHDByMa.Location = new System.Drawing.Point(651, 59);
             this.tbt_SearchHDByMa.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchHDByMa.Name = "tbt_SearchHDByMa";
             this.tbt_SearchHDByMa.PlaceholderText = "    Tìm mã hóa đơn";
-            this.tbt_SearchHDByMa.Size = new System.Drawing.Size(360, 23);
+            this.tbt_SearchHDByMa.Size = new System.Drawing.Size(411, 27);
             this.tbt_SearchHDByMa.TabIndex = 10;
+            this.tbt_SearchHDByMa.TextChanged += new System.EventHandler(this.tbt_SearchHDByMa_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(487, 50);
+            this.label4.Location = new System.Drawing.Point(557, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 15);
+            this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Tìm kiếm";
             // 
             // dtg_DanhSachHoaDon
             // 
+            this.dtg_DanhSachHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachHoaDon.Location = new System.Drawing.Point(90, 108);
+            this.dtg_DanhSachHoaDon.Location = new System.Drawing.Point(103, 144);
+            this.dtg_DanhSachHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachHoaDon.Name = "dtg_DanhSachHoaDon";
+            this.dtg_DanhSachHoaDon.RowHeadersWidth = 51;
             this.dtg_DanhSachHoaDon.RowTemplate.Height = 25;
-            this.dtg_DanhSachHoaDon.Size = new System.Drawing.Size(840, 473);
+            this.dtg_DanhSachHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_DanhSachHoaDon.Size = new System.Drawing.Size(960, 631);
             this.dtg_DanhSachHoaDon.TabIndex = 12;
+            this.dtg_DanhSachHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachHoaDon_CellClick);
             // 
             // FrmHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(998, 638);
+            this.ClientSize = new System.Drawing.Size(1141, 851);
             this.Controls.Add(this.dtg_DanhSachHoaDon);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbt_SearchHDByMa);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmHoaDon";
             this.Text = "FrmHoaDon";
             this.groupBox1.ResumeLayout(false);
