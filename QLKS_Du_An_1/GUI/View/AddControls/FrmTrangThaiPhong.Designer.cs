@@ -290,7 +290,7 @@
             this.btn_ThanhToan.Name = "btn_ThanhToan";
             this.btn_ThanhToan.Size = new System.Drawing.Size(132, 30);
             this.btn_ThanhToan.TabIndex = 31;
-            this.btn_ThanhToan.Text = "Thanh toán";
+            this.btn_ThanhToan.Text = "Xem hóa đơn";
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
             this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
