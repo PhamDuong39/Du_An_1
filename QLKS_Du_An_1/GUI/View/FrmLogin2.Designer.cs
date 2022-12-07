@@ -142,6 +142,7 @@
             this.Tb_Matkhau.TabIndex = 2;
             this.Tb_Matkhau.Texts = "";
             this.Tb_Matkhau.UnderlinedStyle = false;
+            this.Tb_Matkhau.TabStop= false;
             // 
             // tb_Taikhoan
             // 
@@ -164,6 +165,7 @@
             this.tb_Taikhoan.TabIndex = 1;
             this.tb_Taikhoan.Texts = "";
             this.tb_Taikhoan.UnderlinedStyle = false;
+            this.tb_Taikhoan.TabStop= false;
             // 
             // guna2PictureBox1
             // 
