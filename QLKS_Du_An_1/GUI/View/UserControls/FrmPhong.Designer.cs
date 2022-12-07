@@ -240,7 +240,7 @@
             this.lb_TimeReset.AutoSize = true;
             this.lb_TimeReset.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_TimeReset.ForeColor = System.Drawing.Color.Transparent;
-            this.lb_TimeReset.Location = new System.Drawing.Point(813, 73);
+            this.lb_TimeReset.Location = new System.Drawing.Point(804, 73);
             this.lb_TimeReset.Name = "lb_TimeReset";
             this.lb_TimeReset.Size = new System.Drawing.Size(25, 20);
             this.lb_TimeReset.TabIndex = 12;

@@ -45,13 +45,11 @@ namespace GUI.View
             {
                 lb_TenNV.Text = "ADMIN";
                 IdNV = null;
-
             }
             else
             {
                 lb_TenNV.Text = tk.TenNV;
-                IdNV = tk.IDNv;
-                
+                IdNV = tk.IDNv;               
             }
        
             //Form
@@ -263,10 +261,9 @@ namespace GUI.View
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            FrmLogin login = new FrmLogin();
             this.Close();
-            login.ShowDialog();
-           
+            FrmLogin login = new FrmLogin();        
+            login.Show();         
         }
     }
 }
