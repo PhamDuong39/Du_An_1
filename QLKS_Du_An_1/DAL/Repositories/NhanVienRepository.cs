@@ -31,18 +31,11 @@ namespace DAL.Repositories
 
         public bool Remove(NhanVien obj)
         {
-            try
-            {
-                if (obj == null) return false;
-                var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
-                _dbContext.NhanViens.Remove(temobj);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
+            _dbContext.NhanViens.Remove(temobj);
+            _dbContext.SaveChanges();
+            return true;
         }
 
         public bool Upadate(NhanVien obj)

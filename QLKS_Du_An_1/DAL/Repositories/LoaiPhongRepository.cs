@@ -36,21 +36,14 @@ namespace DAL.Repositories
 
         public bool Remove(LoaiPhong obj)
         {
-            try
-            {
-                if (obj == null)
-                {
-                    return false;
-                }
-                var loaiphong = GetAll().FirstOrDefault(a => a.ID == obj.ID);
-                _Db.Remove(loaiphong);
-                _Db.SaveChanges();
-                return true;
-            }
-            catch
+            if (obj == null)
             {
                 return false;
             }
+            var loaiphong = GetAll().FirstOrDefault(a => a.ID == obj.ID);
+            _Db.Remove(loaiphong);
+            _Db.SaveChanges();
+            return true;
         }
 
         public bool Upadate(LoaiPhong obj)

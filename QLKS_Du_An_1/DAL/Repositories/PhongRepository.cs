@@ -34,21 +34,14 @@ namespace DAL.Repositories
 
         public bool Remove(Phong obj)
         {
-            try
-            {
-                if (obj == null)
-                {
-                    return false;
-                }
-                var phong = GetAll().FirstOrDefault(a => a.Id == obj.Id);
-                _Db.Remove(phong);
-                _Db.SaveChanges();
-                return true;
-            }
-            catch
+            if (obj == null)
             {
                 return false;
             }
+            var phong = GetAll().FirstOrDefault(a => a.Id == obj.Id);
+            _Db.Remove(phong);
+            _Db.SaveChanges();
+            return true;
         }
 
         public bool Upadate(Phong obj)

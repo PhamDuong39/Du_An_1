@@ -31,18 +31,11 @@ namespace DAL.Repositories
 
         public bool Remove(KhachHang obj)
         {
-            try
-            {
-                if (obj == null) return false;
-                var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
-                _dbContext.KhachHangs.Remove(temobj);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            if (obj == null) return false;
+            var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
+            _dbContext.KhachHangs.Remove(temobj);
+            _dbContext.SaveChanges();
+            return true;
         }
 
         public bool Upadate(KhachHang obj)

@@ -38,23 +38,16 @@ namespace DAL.Repositories
 
         public bool Remove(PhieuThue obj)
         {
-            try
-            {
-                if (obj == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    var pt = _DbContext.PhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                    _DbContext.PhieuThues.Remove(pt);
-                    _DbContext.SaveChanges();
-                    return true;
-                }
-            }
-            catch
+            if (obj == null)
             {
                 return false;
+            }
+            else
+            {
+                var pt = _DbContext.PhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                _DbContext.PhieuThues.Remove(pt);
+                _DbContext.SaveChanges();
+                return true;
             }
         }
 
