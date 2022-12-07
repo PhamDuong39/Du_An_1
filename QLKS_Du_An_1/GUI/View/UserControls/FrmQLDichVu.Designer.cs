@@ -60,6 +60,7 @@
             this.tbt_SearchServicesName.PlaceholderText = "    Nhập tên dịch vụ cần tìm";
             this.tbt_SearchServicesName.Size = new System.Drawing.Size(300, 23);
             this.tbt_SearchServicesName.TabIndex = 17;
+            this.tbt_SearchServicesName.TextChanged += new System.EventHandler(this.tbt_SearchServicesName_TextChanged);
             // 
             // dtg_DanhSachDichVu
             // 

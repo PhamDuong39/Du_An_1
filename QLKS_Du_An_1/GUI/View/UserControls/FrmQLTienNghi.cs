@@ -107,5 +107,9 @@ namespace GUI.View.UserControls
             }
         }
 
+        private void tbt_SearchUseName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlLoaiTienNghi.Search(tbt_SearchUseName.Text));
+        }
     }
 }

@@ -59,6 +59,11 @@ namespace GUI.View.AddControls
             {
                 PhongView pv = new PhongView();
                 pv.MaPhong = tb_MaPhongThem.Text;
+                if (cbb_TinhTrangPhong.Text == "Phòng có khách")
+                {
+                    MessageBox.Show("Bạn không thể thêm phòng với trạng thái có khách đang thuê");
+                    return;
+                }
                 pv.TinhTrang = cbb_TinhTrangPhong.Text == "Phòng trống" ? 0 : cbb_TinhTrangPhong.Text == "Phòng có khách" ? 1 : 2;
                 pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
 
