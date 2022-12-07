@@ -31,11 +31,19 @@ namespace DAL.Repositories
 
         public bool Remove(LoaiDichVu obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
-            _dbContext.LoaiDichVus.Remove(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
+                _dbContext.LoaiDichVus.Remove(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public bool Upadate(LoaiDichVu obj)
