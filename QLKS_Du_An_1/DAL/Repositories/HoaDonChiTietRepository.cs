@@ -37,16 +37,23 @@ namespace DAL.Repositories
 
         public bool Remove(HoaDonChiTiet obj)
         {
-            if (obj == null)
+            try
+            {
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
+                    _dbContext.HoaDonChiTiets.Remove(hdct);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch
             {
                 return false;
-            }
-            else
-            {
-                var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
-                _dbContext.HoaDonChiTiets.Remove(hdct);
-                _dbContext.SaveChanges();
-                return true;
             }
         }
 
