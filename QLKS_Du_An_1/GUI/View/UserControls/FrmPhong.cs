@@ -19,7 +19,7 @@ namespace GUI.View.UserControls
         private IQLListItemRoomViewService _iqlListRoomService;
         private IQLPhieuThueService _iqlPTService;
         private IQLChiTietPhieuThueService _iqlCTPTService;
-        private int TimeLeft = 300;
+        private int TimeLeft = 120;
         public TimeSpan oneHour = new TimeSpan(1, 0, 0);
         public TimeSpan zeroHour = new TimeSpan(0, 0, 0);
         private Guid? IdKHInPT { get; set; }
@@ -277,7 +277,7 @@ namespace GUI.View.UserControls
                     }
                 }
                 LoadItemRooms();
-                TimeLeft = 300;
+                TimeLeft = 120;
             }           
         }
     }
