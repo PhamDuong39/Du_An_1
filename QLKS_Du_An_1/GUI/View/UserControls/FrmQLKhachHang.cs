@@ -127,6 +127,9 @@ namespace GUI.View.UserControls
 
         }
 
-       
+        private void tbt_SearchCusName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iQLKhachHangService.Search(tbt_SearchCusName.Text));
+        }
     }
 }

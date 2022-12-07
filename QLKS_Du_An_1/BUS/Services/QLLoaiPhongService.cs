@@ -68,6 +68,12 @@ namespace BUS.Services
             
         }
 
+        public List<LoaiPhongView> Search(string TenLoaiPhong)
+        {
+            var lstSearch = GetAll().Where(p => p.TenLoaiPhong.Contains(TenLoaiPhong));
+            return lstSearch.ToList();
+        }
+
         public string Update(LoaiPhongView loaiPhongView)
         {
             if (loaiPhongView == null) return "không có đối tượng truyền vào";
