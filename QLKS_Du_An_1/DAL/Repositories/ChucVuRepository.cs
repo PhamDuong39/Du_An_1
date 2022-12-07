@@ -35,15 +35,23 @@ namespace DAL.Repositories
 
         public bool Remove(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                if (indext == null) return false;
+                _db.Remove(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
-            if (indext == null) return false;
-            _db.Remove(indext);
-            _db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(ChucVu obj)
