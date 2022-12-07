@@ -32,10 +32,9 @@ namespace GUI.View.UserControls
             dtg_thongke.Columns[1].Name = "Thang";
             dtg_thongke.Columns[2].Name = "Nam";
             dtg_thongke.Columns[3].Name = "Doanh Thu";
-            var lst = _qlHoadon.GetAll();
-            foreach(var x in lst)
+            for(int i = 1; i <= 12; i++)
             {
-                dtg_thongke.Rows.Add(x.Id,x.IdNV,x.IdKH,x.DonGia);
+                dtg_thongke.Rows.Add(stt++, i, DateTime.Now.Year, TongTienThang(i));
             }
            
         }
