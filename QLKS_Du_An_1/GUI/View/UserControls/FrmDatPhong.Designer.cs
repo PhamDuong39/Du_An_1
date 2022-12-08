@@ -51,7 +51,7 @@
             // 
             // tbt_SearchCusName
             // 
-            this.tbt_SearchCusName.Location = new System.Drawing.Point(104, 52);
+            this.tbt_SearchCusName.Location = new System.Drawing.Point(104, 65);
             this.tbt_SearchCusName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchCusName.Name = "tbt_SearchCusName";
             this.tbt_SearchCusName.PlaceholderText = "    Tìm theo tên khách hàng";

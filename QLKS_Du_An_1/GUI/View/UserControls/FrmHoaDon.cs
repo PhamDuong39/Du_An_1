@@ -126,5 +126,10 @@ namespace GUI.View.UserControls
                 frm.ShowDialog();
             }
         }
+
+        private void btn_OpenFrmThongKe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

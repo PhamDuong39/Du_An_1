@@ -28,7 +28,13 @@ namespace DAL.Models
 
 
 
-                .UseSqlServer("Data Source=LAPTOP-DAV1LO0Q\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan3;Persist Security Info=True;User ID=hiepnt;Password=hiepa8k57tn"));
+<<<<<<< HEAD
+                .UseSqlServer("Data Source=LAPTOP-07LH20M4\\SQLEXPRESS02;Initial Catalog=QLKS_DuAn1_Lan3;Persist Security Info=True;User ID=DBSET;Password=123"));
+=======
+
+                .UseSqlServer("Data Source=DESKTOP-0GA19F5\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan3;Persist Security Info=True;User ID=duongpaph28223;Password=123456"));
+
+>>>>>>> 51672adbfd5298fe3380f564a9fc4b53aa4f3e05
 
 
         }

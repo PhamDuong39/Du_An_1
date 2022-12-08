@@ -172,15 +172,15 @@ namespace GUI.View.AddControls
                         KhachHangView khv = new KhachHangView();
                         khv.CCCD = tb_CCCDKH.Text;
                     //khv.MaKH = tb_MaKH.Text;
-                    if (somkh.Count == 0)
-                    {
-                        khv.MaKH = "KH1";
-                    }
-                    else
-                    {
-                        int soduoima=somkh.Max(p=>Convert.ToInt32(p.Substring(2,p.Length-2)))+1;
-                        khv.MaKH = "KH" + soduoima;
-                    }
+                        if (somkh.Count == 0)
+                        {
+                            khv.MaKH = "KH1";
+                        }
+                        else
+                        {
+                            int soduoima=somkh.Max(p=>Convert.ToInt32(p.Substring(2,p.Length-2)))+1;
+                            khv.MaKH = "KH" + soduoima;
+                        }
                         khv.HovaTen = tb_TenKH.Text;
                         khv.SDT = tb_SDTKH.Text;
                         khv.DiaChi = tb_DiaChiKH.Text;

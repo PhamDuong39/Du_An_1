@@ -49,6 +49,8 @@
             this.lbl_TongTien = new System.Windows.Forms.Label();
             this.lb_NgayBD = new System.Windows.Forms.Label();
             this.lb_NgayKT = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btn_inHD = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_HDCT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +69,7 @@
             this.btn_HuySuaChucVu.TabIndex = 48;
             this.btn_HuySuaChucVu.Text = "Hủy";
             this.btn_HuySuaChucVu.UseVisualStyleBackColor = false;
+            this.btn_HuySuaChucVu.Click += new System.EventHandler(this.btn_HuySuaChucVu_Click);
             // 
             // btn_ThanhToan
             // 
@@ -264,11 +267,33 @@
             this.lb_NgayKT.TabIndex = 69;
             this.lb_NgayKT.Text = "label2";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // btn_inHD
+            // 
+            this.btn_inHD.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_inHD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_inHD.FlatAppearance.BorderSize = 0;
+            this.btn_inHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_inHD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_inHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_inHD.Location = new System.Drawing.Point(446, 671);
+            this.btn_inHD.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_inHD.Name = "btn_inHD";
+            this.btn_inHD.Size = new System.Drawing.Size(162, 40);
+            this.btn_inHD.TabIndex = 70;
+            this.btn_inHD.Text = "In Hóa Đơn";
+            this.btn_inHD.UseVisualStyleBackColor = false;
+            this.btn_inHD.Click += new System.EventHandler(this.btn_inHD_Click);
+            // 
             // FrmViewHDCT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 733);
+            this.Controls.Add(this.btn_inHD);
             this.Controls.Add(this.lb_NgayKT);
             this.Controls.Add(this.lb_NgayBD);
             this.Controls.Add(this.lbl_TongTien);
@@ -322,5 +347,7 @@
         private Label lbl_TongTien;
         private Label lb_NgayBD;
         private Label lb_NgayKT;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private Button btn_inHD;
     }
 }

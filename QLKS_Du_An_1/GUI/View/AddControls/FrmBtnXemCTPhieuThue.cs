@@ -131,5 +131,10 @@ namespace GUI.View.AddControls
             frmUpdateCTPT.IdPhieuThueMuonUpdate = IdPT;
             frmUpdateCTPT.ShowDialog();
         }
+
+        private void btn_HuyXemCTTienNghi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -11,13 +11,17 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
+using BUS.Ultilities;
 namespace GUI.View.AddControls
 {
+    
     public partial class FrmBtnSuaLoaiTienNghi : Form
     {
         public send_ltn _send;
         private IQLLoaiTienNghiService _iqlLoaiTienNghi;
         private IQLChiTietTienNghiService iqlChiTietTienNghiService;
+        private Validations val;
+        
         public Guid IdLoaiTiennghi { get; set; }
 
         public string MaLoaiTienNghi { get; set; }
@@ -34,6 +38,7 @@ namespace GUI.View.AddControls
             _send= send;
             _iqlLoaiTienNghi = new QLLoaiTienNghiService();
             iqlChiTietTienNghiService = new QLChiTietTienNghiService();
+            val = new Validations();
         }
 
         private void btn_SuaLoaiTienNghi_Click(object sender, EventArgs e)

@@ -96,6 +96,7 @@
             this.tb_tenChucVuThem.PlaceholderText = "Nhập Tên Chức Vụ";
             this.tb_tenChucVuThem.Size = new System.Drawing.Size(218, 27);
             this.tb_tenChucVuThem.TabIndex = 21;
+            this.tb_tenChucVuThem.TabStop = false;
             // 
             // tb_MaChucVuThem
             // 
@@ -105,6 +106,7 @@
             this.tb_MaChucVuThem.PlaceholderText = "Nhập Mã Chức Vụ";
             this.tb_MaChucVuThem.Size = new System.Drawing.Size(218, 27);
             this.tb_MaChucVuThem.TabIndex = 17;
+            this.tb_MaChucVuThem.TabStop = false;
             // 
             // btn_HuyThemChucVu
             // 

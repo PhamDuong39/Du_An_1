@@ -37,6 +37,7 @@ namespace GUI.View
         public FrmMain(TaiKhoanView tk)
         {
             InitializeComponent();
+            OpenChildForm(new FrmPhong());
             phanquyen(tk);
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,45);
@@ -262,7 +263,7 @@ namespace GUI.View
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmLogin login = new FrmLogin();        
+            FrmLogin2 login = new FrmLogin2();        
             login.Show();         
         }
     }

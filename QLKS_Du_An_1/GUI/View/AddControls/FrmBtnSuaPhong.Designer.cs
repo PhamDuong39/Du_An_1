@@ -80,6 +80,7 @@
             this.cbb_TrangThai.Name = "cbb_TrangThai";
             this.cbb_TrangThai.Size = new System.Drawing.Size(218, 28);
             this.cbb_TrangThai.TabIndex = 29;
+            this.cbb_TrangThai.TabStop = false;
             // 
             // cbb_TenLoaiPhong
             // 
@@ -91,6 +92,7 @@
             this.cbb_TenLoaiPhong.Name = "cbb_TenLoaiPhong";
             this.cbb_TenLoaiPhong.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiPhong.TabIndex = 27;
+            this.cbb_TenLoaiPhong.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -133,6 +135,7 @@
             this.tb_MaPhong.PlaceholderText = "Nhập mã phòng";
             this.tb_MaPhong.Size = new System.Drawing.Size(218, 27);
             this.tb_MaPhong.TabIndex = 17;
+            this.tb_MaPhong.TabStop = false;
             // 
             // btn_HuySuaPhong
             // 
