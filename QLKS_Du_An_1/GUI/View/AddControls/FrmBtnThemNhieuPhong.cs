@@ -60,6 +60,11 @@ namespace GUI.View.AddControls
                         int so = lstPhong.Max(p => Convert.ToInt32(p.MaPhong.Substring(2, p.MaPhong.Length - 2)) + 1);
                         pv.MaPhong = "P" + cbb_tang.Text.Substring(5, 1) + so;
                     }
+                    if (cbb_TinhTrangPhong.Text == "Phòng có khách")
+                    {
+                        MessageBox.Show("Bạn không thế thêm phòng với trạng thái có khách đang thuê !!");
+                        return;
+                    }
                     pv.TinhTrang = cbb_TinhTrangPhong.Text == "Phòng trống" ? 0 : cbb_TinhTrangPhong.Text == "Phòng có khách" ? 1 : 2;
                     pv.IDLoaiPhong = _qlphong.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
                     MessageBox.Show(_qlphong.Add(pv));
