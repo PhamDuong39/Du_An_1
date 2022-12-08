@@ -136,5 +136,10 @@ namespace GUI.View.UserControls
             LoadData(_iqlPhongService.Search(tbt_SearchRoomName.Text));
         }
 
+        private void btn_ThemNhieuPhong_Click(object sender, EventArgs e)
+        {
+            FrmBtnThemNhieuPhong btn = new FrmBtnThemNhieuPhong();
+            btn.ShowDialog();
+        }
     }
 }
