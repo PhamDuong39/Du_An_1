@@ -72,8 +72,7 @@ namespace GUI.View.AddControls
                 {
                     MessageBox.Show("Vui lòng đặt 1 phòng trước khi nhận phòng");
                     return;
-                }
-               
+                }               
                 HoaDonView hdv = new HoaDonView();
                 //hdv.MaHD = "HD1";
                 var lstMaHD = _iqlHDService.GetAll();
@@ -86,12 +85,16 @@ namespace GUI.View.AddControls
                 {
                     int STTHD = lstMaHD.Max(p => Convert.ToInt32(p.MaHD.Substring(2, p.MaHD.Length - 2)) + 1);
                     hdv.MaHD = "HD" + STTHD;
-                }
-               
+                }             
                 hdv.TrangThai = 0;
                 hdv.NgayTT = null;
                 hdv.NgayTaoHD = DateTime.Now;
                 hdv.IdCTPhieuThue = IdPTCT;
+                if (_iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).TinhTrang != 3)
+                {
+                    MessageBox.Show("Bạn không thể nhận phòng này vì phòng này chưa có ai thuê !!");
+                    return;
+                }
                 MessageBox.Show(_iqlHDService.Add(hdv));
                 
                 // Sau khi nhan phong => update trang thai phong = co khach dang thue
@@ -101,7 +104,6 @@ namespace GUI.View.AddControls
                 pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).IDLoaiPhong;
                 pv.TinhTrang = 1;
                 _iqlPhongService.Update(pv);
-
                 MessageBox.Show("Nhận phòng thành công");
             }
             if (result == DialogResult.No)
@@ -152,6 +154,11 @@ namespace GUI.View.AddControls
             // clicl button này sẽ hiển thị lên FrmPrintHoaDon
             // FrmPrintHoaDon sẽ hiển thị lên giá tiền của phòng đã thuê, số dịch vụ đã sử dụng
             // Mỗi phòng sẽ chỉ có 1 hóa đơn duy nhất == Mỗi CPPT sẽ có 1 hóa đơn cho riêng nó
+            if (_iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).TinhTrang != 1)
+            {
+                MessageBox.Show("Bạn không thể xem hóa đơn của phòng này vì phòng này chưa có khách sử dụng !!");
+                return;
+            }
             FrmViewHDCT frmViewHoaDon = new FrmViewHDCT();
             frmViewHoaDon._lstHoaDonCT = _iqlHDService.GetCTHoaDon(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
@@ -188,8 +195,12 @@ namespace GUI.View.AddControls
                     MessageBox.Show("Vui lòng đặt 1 phòng để có thể sử dụng các dịch vụ của khách sạn !");
                     return;
                 }
-               
-               // null here
+                if (_iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).TinhTrang != 1)
+                {
+                    MessageBox.Show("Bạn không thể sử dụng dịch vụ vì chưa nhận phòng !!");
+                    return;
+                }
+                // null here
                 foreach (var item in lstDVV)
                 {
                     HoaDonChiTietView hdctv = new HoaDonChiTietView();
@@ -205,6 +216,31 @@ namespace GUI.View.AddControls
                 List<DichVuView> lstEmpty = new List<DichVuView>();
                 lstDVV = lstEmpty;
                 MessageBox.Show("Bạn đã hủy toàn bộ dịch vụ đã chọn");
+            }
+        }
+
+        private void btn_ChuyenTTPhongTrong_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Vui lòng xác nhận chuyển trạng thái về phòng trống", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                PhongView pv = new PhongView();
+                pv.Id = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).Id;
+                pv.MaPhong = MaPhong;
+                pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).IDLoaiPhong;
+                pv.TinhTrang = 0;
+               
+                if (_iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).TinhTrang != 2)//2
+                {
+                    MessageBox.Show("Bạn không thể chuyển trạng thái phòng này vì phòng này đang có khách thuê !! hoặc phòng đang trống");
+                    return;
+                }
+                _iqlPhongService.Update(pv);
+                MessageBox.Show("Chuyển trạng thái thành công");
+            }
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Bạn đã hủy thay đổi trạng thái phòng này !");
             }
         }
     }

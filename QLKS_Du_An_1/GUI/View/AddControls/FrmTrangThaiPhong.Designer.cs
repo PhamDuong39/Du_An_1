@@ -48,6 +48,7 @@
             this.lb_MaPhong = new System.Windows.Forms.Label();
             this.btn_NhanPhong = new System.Windows.Forms.Button();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
+            this.btn_ChuyenTTPhongTrong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -294,11 +295,29 @@
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
             this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
+            // btn_ChuyenTTPhongTrong
+            // 
+            this.btn_ChuyenTTPhongTrong.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_ChuyenTTPhongTrong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChuyenTTPhongTrong.FlatAppearance.BorderSize = 0;
+            this.btn_ChuyenTTPhongTrong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ChuyenTTPhongTrong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ChuyenTTPhongTrong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_ChuyenTTPhongTrong.Location = new System.Drawing.Point(81, 473);
+            this.btn_ChuyenTTPhongTrong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_ChuyenTTPhongTrong.Name = "btn_ChuyenTTPhongTrong";
+            this.btn_ChuyenTTPhongTrong.Size = new System.Drawing.Size(237, 30);
+            this.btn_ChuyenTTPhongTrong.TabIndex = 32;
+            this.btn_ChuyenTTPhongTrong.Text = "Chuyển thành phòng trống";
+            this.btn_ChuyenTTPhongTrong.UseVisualStyleBackColor = false;
+            this.btn_ChuyenTTPhongTrong.Click += new System.EventHandler(this.btn_ChuyenTTPhongTrong_Click);
+            // 
             // FrmTrangThaiPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 537);
+            this.Controls.Add(this.btn_ChuyenTTPhongTrong);
             this.Controls.Add(this.btn_ThanhToan);
             this.Controls.Add(this.btn_NhanPhong);
             this.Controls.Add(this.btn_LuuDichVu);
@@ -341,5 +360,6 @@
         private TextBox tb_GiaTienDV;
         private Label label1;
         private ComboBox cbb_TenDV;
+        private Button btn_ChuyenTTPhongTrong;
     }
 }
