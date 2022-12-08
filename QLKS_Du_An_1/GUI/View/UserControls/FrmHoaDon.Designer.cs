@@ -33,6 +33,7 @@
             this.tbt_SearchHDByMa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtg_DanhSachHoaDon = new System.Windows.Forms.DataGridView();
+            this.btn_OpenFrmThongKe = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -94,12 +95,23 @@
             this.dtg_DanhSachHoaDon.TabIndex = 12;
             this.dtg_DanhSachHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachHoaDon_CellClick);
             // 
+            // btn_OpenFrmThongKe
+            // 
+            this.btn_OpenFrmThongKe.Location = new System.Drawing.Point(358, 60);
+            this.btn_OpenFrmThongKe.Name = "btn_OpenFrmThongKe";
+            this.btn_OpenFrmThongKe.Size = new System.Drawing.Size(153, 29);
+            this.btn_OpenFrmThongKe.TabIndex = 13;
+            this.btn_OpenFrmThongKe.Text = "Open Thống Kê";
+            this.btn_OpenFrmThongKe.UseVisualStyleBackColor = true;
+            this.btn_OpenFrmThongKe.Click += new System.EventHandler(this.btn_OpenFrmThongKe_Click);
+            // 
             // FrmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1141, 851);
+            this.Controls.Add(this.btn_OpenFrmThongKe);
             this.Controls.Add(this.dtg_DanhSachHoaDon);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbt_SearchHDByMa);
@@ -121,5 +133,6 @@
         private TextBox tbt_SearchHDByMa;
         private Label label4;
         private DataGridView dtg_DanhSachHoaDon;
+        private Button btn_OpenFrmThongKe;
     }
 }
