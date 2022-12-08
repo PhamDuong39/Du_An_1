@@ -55,8 +55,9 @@ namespace GUI.View.UserControls
             {
                 listItems1[count1] = new ListItemRooms();
                 listItems1[count1].MaPhong = item.MaPhong;
-                listItems1[count1].TenLoaiPhong = item.TenLoaiPhong;
+                listItems1[count1].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems1[count1].IdPhong = Convert.ToString(item.Id);
+                listItems1[count1].GiaPhong = item.Gia.ToString() + " VND";
                 
                 if (item.TinhTrang == 1)    // co khach su dung
                 {
@@ -113,8 +114,9 @@ namespace GUI.View.UserControls
             {
                 listItems2[count2] = new ListItemRooms();
                 listItems2[count2].MaPhong = item.MaPhong;
-                listItems2[count2].TenLoaiPhong = item.TenLoaiPhong;
+                listItems2[count2].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems2[count2].IdPhong = Convert.ToString(item.Id);
+                listItems2[count2].GiaPhong = item.Gia.ToString() + " VND";
 
                 if (item.TinhTrang == 1)    // co khach su dung
                 {
@@ -172,8 +174,9 @@ namespace GUI.View.UserControls
             {
                 listItems3[count3] = new ListItemRooms();
                 listItems3[count3].MaPhong = item.MaPhong;
-                listItems3[count3].TenLoaiPhong = item.TenLoaiPhong;
+                listItems3[count3].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems3[count3].IdPhong = Convert.ToString(item.Id);
+                listItems3[count3].GiaPhong = item.Gia.ToString() + " VND";
 
                 if (item.TinhTrang == 1)    // co khach su dung
                 {
