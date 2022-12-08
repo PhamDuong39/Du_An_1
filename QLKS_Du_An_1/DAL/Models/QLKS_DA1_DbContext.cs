@@ -28,7 +28,7 @@ namespace DAL.Models
 
 
 
-                .UseSqlServer("Data Source=DESKTOP-0GA19F5\\SQLEXPRESS;Initial Catalog=QLKS_DuAn1_Lan3;Persist Security Info=True;User ID=duongpaph28223;Password=123456"));
+                .UseSqlServer("Data Source=LAPTOP-07LH20M4\\SQLEXPRESS02;Initial Catalog=QLKS_DuAn1_Lan3;Persist Security Info=True;User ID=dbset;Password=123"));
 
 
 
