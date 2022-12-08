@@ -25,6 +25,7 @@ namespace GUI.View.AddControls
         public int GiaTienTraPhongMuon = 50000;
         double SoNgayThue = 0;
         double tienPhong = 0;
+        int tienDV = 0;
         public int TongTienPhaiTra { get; set; }
         public double tongTien { get; set; }
         public FrmViewHDCT()
@@ -70,7 +71,7 @@ namespace GUI.View.AddControls
 
         private void TinhTienThanhToan()
         {
-            int stt = 1, tienDV = 0;
+            int stt = 1;
            double  SoNgayTinhToan = 0;
             foreach (var x in _lstGiaPhong)
             {
@@ -157,7 +158,7 @@ namespace GUI.View.AddControls
             foreach (var x in _lstHoaDonCT)
             {
                 dgrid_HDCT.Rows.Add(stt++, x.TenDichVu, x.DonGia, x.SoLuongDichVu, x.DonGia * x.SoLuongDichVu);
-                tienDV = x.DonGia * x.SoLuongDichVu;
+                tienDV += x.DonGia * x.SoLuongDichVu;
             }
 
             tongTien = tienDV + tienPhong;
