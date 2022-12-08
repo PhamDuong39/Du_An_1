@@ -31,6 +31,7 @@
             this.btn_ThemPhong = new System.Windows.Forms.Button();
             this.tbt_SearchRoomName = new System.Windows.Forms.TextBox();
             this.dtg_DanhSachPhong = new System.Windows.Forms.DataGridView();
+            this.btn_ThemNhieuPhong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachPhong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +77,30 @@
             this.dtg_DanhSachPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellClick);
             this.dtg_DanhSachPhong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachPhong_CellContentClick);
             // 
+            // btn_ThemNhieuPhong
+            // 
+            this.btn_ThemNhieuPhong.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_ThemNhieuPhong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThemNhieuPhong.FlatAppearance.BorderSize = 0;
+            this.btn_ThemNhieuPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThemNhieuPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ThemNhieuPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_ThemNhieuPhong.Location = new System.Drawing.Point(591, 56);
+            this.btn_ThemNhieuPhong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_ThemNhieuPhong.Name = "btn_ThemNhieuPhong";
+            this.btn_ThemNhieuPhong.Size = new System.Drawing.Size(206, 53);
+            this.btn_ThemNhieuPhong.TabIndex = 16;
+            this.btn_ThemNhieuPhong.Text = "Thêm Nhiều Phòng";
+            this.btn_ThemNhieuPhong.UseVisualStyleBackColor = false;
+            this.btn_ThemNhieuPhong.Click += new System.EventHandler(this.btn_ThemNhieuPhong_Click);
+            // 
             // FrmQLPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1141, 749);
+            this.Controls.Add(this.btn_ThemNhieuPhong);
             this.Controls.Add(this.btn_ThemPhong);
             this.Controls.Add(this.tbt_SearchRoomName);
             this.Controls.Add(this.dtg_DanhSachPhong);
@@ -99,5 +118,6 @@
         private Button btn_ThemPhong;
         private TextBox tbt_SearchRoomName;
         private DataGridView dtg_DanhSachPhong;
+        private Button btn_ThemNhieuPhong;
     }
 }
