@@ -18,8 +18,6 @@ namespace GUI.View.UserControls
         public DateTime NgayThanhToanHD { get; set; }
         public int GiaTienTraPhongMuon = 50000;
         double SoNgayThue = 0;
-        double tienPhong = 0;
-        int tienDV = 0;
         public int TongTienPhaiTra { get; set; }
         public double tongTien { get; set; }
         public FrmThongKe()
@@ -64,7 +62,8 @@ namespace GUI.View.UserControls
 
         private double TinhTienThanhToan(Guid Id)
         {
-            int stt = 1;
+            double tienPhong = 0;
+            int tienDV = 0;
             double SoNgayTinhToan = 0;
             foreach (var x in _qlHoadon.GetCTPhong(Id))
             {
