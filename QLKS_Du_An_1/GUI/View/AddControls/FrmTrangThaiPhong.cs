@@ -230,7 +230,7 @@ namespace GUI.View.AddControls
                 pv.MaPhong = MaPhong;
                 pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).IDLoaiPhong;
                 pv.TinhTrang = 0;
-               
+
                 if (_iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).TinhTrang != 2)//2
                 {
                     MessageBox.Show("Bạn không thể chuyển trạng thái phòng này vì phòng này đang có khách thuê !! hoặc phòng đang trống");
@@ -244,6 +244,7 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã hủy thay đổi trạng thái phòng này !");
             }
 
+        }
         private void btn_HuyLuuDV_Click(object sender, EventArgs e)
         {
             this.Close();
