@@ -15,7 +15,9 @@ namespace GUI.View.UserControls
     public partial class FrmThongKe : Form
     {
         private IHoaDonService _qlHoadon;
-       
+        public List<HoaDonView> _lstHoaDonTK;
+        public List<HoaDonView> _lstHoaDonCTTK;
+        public List<HoaDonView> _lstGiaPhongTK;
         public FrmThongKe()
         {
             InitializeComponent();

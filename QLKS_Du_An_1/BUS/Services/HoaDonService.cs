@@ -155,6 +155,7 @@ namespace BUS.Services
                             TenNV = e.TenNV,
                             TenKH = d.HovaTen,
                             MaPhong = f.MaPhong,
+                            TrangThai = a.TrangThai
                         }).OrderBy(c => c.MaHD).ToList();
             }
             else
@@ -175,6 +176,7 @@ namespace BUS.Services
                             TenNV = e.TenNV,
                             TenKH = d.HovaTen,
                             MaPhong = f.MaPhong,
+                            TrangThai = a.TrangThai
                         }).OrderBy(c => c.MaHD).ToList();
             }
             return _lst;
@@ -188,6 +190,8 @@ namespace BUS.Services
         {
             var index = _hoaDonRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
             if (index == null) return "Không tìm thấy";
+            index.TrangThai = obj.TrangThai;
+            index.NgayTT = DateTime.Now;
             if (_hoaDonRepository.Upadate(index))
             {
                 return "Sửa Thành Công";

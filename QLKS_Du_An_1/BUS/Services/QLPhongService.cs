@@ -62,7 +62,7 @@ namespace BUS.Services
                          MaPhong = a.MaPhong,
                          TinhTrang = a.TinhTrang,
                          IDLoaiPhong = a.IDLoaiPhong,
-                         
+                         Gia = b.GiaNgay,
                          TenLoaiPhong = b.TenLoaiPhong,
                         
                      }).ToList();

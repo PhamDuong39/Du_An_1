@@ -15,6 +15,6 @@ namespace BUS.ViewModels
   
 
         public string TenLoaiPhong { get; set; }
-       
+        public int Gia { get; set; }
     }
 }
