@@ -87,5 +87,10 @@ namespace GUI.View.AddControls
                 
             }
         }
+
+        private void btn_HuyThemKH_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

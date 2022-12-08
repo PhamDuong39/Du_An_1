@@ -246,6 +246,7 @@
             this.btn_HuySuaKH.TabIndex = 19;
             this.btn_HuySuaKH.Text = "Hủy";
             this.btn_HuySuaKH.UseVisualStyleBackColor = false;
+            this.btn_HuySuaKH.Click += new System.EventHandler(this.btn_HuySuaKH_Click);
             // 
             // btn_SuaKH
             // 
@@ -274,8 +275,10 @@
             this.Controls.Add(this.btn_SuaKH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaKH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaKH";
             this.Load += new System.EventHandler(this.FrmBtnSuaKH_Load);
             this.panel1.ResumeLayout(false);

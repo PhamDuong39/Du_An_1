@@ -52,5 +52,10 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã không thên loại phòng này");
             }
         }
+
+        private void btn_HuyThemLoaiPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -74,5 +74,15 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã hủy thêm tiện nghi");
             }
         }
+
+        private void FrmBtnThemTienNghi_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HuyThemCTTienNghi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

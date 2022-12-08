@@ -73,5 +73,10 @@ namespace GUI.View.AddControls
             cbb_GioiTinh.Text = GioiTinhKH;
             tbt_QuocTichKH.Text = QuocTich;
         }
+
+        private void btn_HuySuaKH_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

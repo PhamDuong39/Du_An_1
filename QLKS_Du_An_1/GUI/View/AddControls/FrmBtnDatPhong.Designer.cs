@@ -32,8 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tb_MaKH = new System.Windows.Forms.TextBox();
             this.dtg_DSPhongDaChon = new System.Windows.Forms.DataGridView();
             this.dtg_DSPhongTrong = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,9 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_DatPhong = new System.Windows.Forms.Button();
             this.btn_HuyDatPhong = new System.Windows.Forms.Button();
-            this.btn_Reload = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongDaChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongTrong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -89,8 +85,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.tb_MaKH);
             this.panel1.Controls.Add(this.dtg_DSPhongDaChon);
             this.panel1.Controls.Add(this.dtg_DSPhongTrong);
             this.panel1.Controls.Add(this.label5);
@@ -127,26 +121,6 @@
             this.button1.Text = "Lọc phòng";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GUI.Properties.Resources._007_user_1;
-            this.pictureBox2.Location = new System.Drawing.Point(54, 414);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
-            // tb_MaKH
-            // 
-            this.tb_MaKH.Location = new System.Drawing.Point(87, 419);
-            this.tb_MaKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tb_MaKH.Name = "tb_MaKH";
-            this.tb_MaKH.PlaceholderText = "Nhập mã Khách hàng";
-            this.tb_MaKH.Size = new System.Drawing.Size(177, 27);
-            this.tb_MaKH.TabIndex = 23;
             // 
             // dtg_DSPhongDaChon
             // 
@@ -204,7 +178,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_NgayKetThuc);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(323, 136);
+            this.groupBox2.Location = new System.Drawing.Point(331, 136);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -219,7 +193,7 @@
             this.dtp_NgayKetThuc.Location = new System.Drawing.Point(7, 24);
             this.dtp_NgayKetThuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_NgayKetThuc.Name = "dtp_NgayKetThuc";
-            this.dtp_NgayKetThuc.Size = new System.Drawing.Size(243, 27);
+            this.dtp_NgayKetThuc.Size = new System.Drawing.Size(235, 27);
             this.dtp_NgayKetThuc.TabIndex = 0;
             // 
             // groupBox1
@@ -247,7 +221,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(54, 360);
+            this.pictureBox7.Location = new System.Drawing.Point(54, 386);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
@@ -259,7 +233,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(58, 303);
+            this.pictureBox6.Location = new System.Drawing.Point(58, 329);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(27, 32);
@@ -270,7 +244,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(57, 248);
+            this.pictureBox5.Location = new System.Drawing.Point(57, 274);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 32);
@@ -281,7 +255,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(57, 191);
+            this.pictureBox4.Location = new System.Drawing.Point(57, 217);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 32);
@@ -292,7 +266,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(58, 136);
+            this.pictureBox3.Location = new System.Drawing.Point(58, 162);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 32);
@@ -303,7 +277,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(57, 83);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 109);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 32);
@@ -314,7 +288,7 @@
             // cbb_GioiTinhKH
             // 
             this.cbb_GioiTinhKH.FormattingEnabled = true;
-            this.cbb_GioiTinhKH.Location = new System.Drawing.Point(87, 364);
+            this.cbb_GioiTinhKH.Location = new System.Drawing.Point(87, 390);
             this.cbb_GioiTinhKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbb_GioiTinhKH.Name = "cbb_GioiTinhKH";
             this.cbb_GioiTinhKH.Size = new System.Drawing.Size(177, 28);
@@ -323,7 +297,7 @@
             // 
             // tb_CCCDKH
             // 
-            this.tb_CCCDKH.Location = new System.Drawing.Point(87, 141);
+            this.tb_CCCDKH.Location = new System.Drawing.Point(87, 167);
             this.tb_CCCDKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_CCCDKH.Name = "tb_CCCDKH";
             this.tb_CCCDKH.PlaceholderText = "Nhập CCCD";
@@ -332,7 +306,7 @@
             // 
             // tb_SDTKH
             // 
-            this.tb_SDTKH.Location = new System.Drawing.Point(87, 196);
+            this.tb_SDTKH.Location = new System.Drawing.Point(87, 222);
             this.tb_SDTKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_SDTKH.Name = "tb_SDTKH";
             this.tb_SDTKH.PlaceholderText = "Nhập SDT";
@@ -341,7 +315,7 @@
             // 
             // tb_DiaChiKH
             // 
-            this.tb_DiaChiKH.Location = new System.Drawing.Point(87, 253);
+            this.tb_DiaChiKH.Location = new System.Drawing.Point(87, 279);
             this.tb_DiaChiKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_DiaChiKH.Name = "tb_DiaChiKH";
             this.tb_DiaChiKH.PlaceholderText = "Nhập địa chỉ";
@@ -350,7 +324,7 @@
             // 
             // tb_QuocTichKH
             // 
-            this.tb_QuocTichKH.Location = new System.Drawing.Point(87, 308);
+            this.tb_QuocTichKH.Location = new System.Drawing.Point(87, 334);
             this.tb_QuocTichKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_QuocTichKH.Name = "tb_QuocTichKH";
             this.tb_QuocTichKH.PlaceholderText = "Nhập quốc tịch";
@@ -359,7 +333,7 @@
             // 
             // tb_TenKH
             // 
-            this.tb_TenKH.Location = new System.Drawing.Point(87, 88);
+            this.tb_TenKH.Location = new System.Drawing.Point(87, 114);
             this.tb_TenKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_TenKH.Name = "tb_TenKH";
             this.tb_TenKH.PlaceholderText = "Nhập tên";
@@ -369,10 +343,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(298, 72);
+            this.panel2.Location = new System.Drawing.Point(299, 72);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(11, 353);
+            this.panel2.Size = new System.Drawing.Size(10, 398);
             this.panel2.TabIndex = 3;
             // 
             // label3
@@ -429,17 +403,7 @@
             this.btn_HuyDatPhong.TabIndex = 17;
             this.btn_HuyDatPhong.Text = "Hủy";
             this.btn_HuyDatPhong.UseVisualStyleBackColor = false;
-            // 
-            // btn_Reload
-            // 
-            this.btn_Reload.Location = new System.Drawing.Point(448, 579);
-            this.btn_Reload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Reload.Name = "btn_Reload";
-            this.btn_Reload.Size = new System.Drawing.Size(98, 40);
-            this.btn_Reload.TabIndex = 25;
-            this.btn_Reload.Text = "Reload";
-            this.btn_Reload.UseVisualStyleBackColor = true;
-            this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
+            this.btn_HuyDatPhong.Click += new System.EventHandler(this.btn_HuyDatPhong_Click);
             // 
             // FrmBtnDatPhong
             // 
@@ -447,7 +411,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1149, 649);
-            this.Controls.Add(this.btn_Reload);
             this.Controls.Add(this.btn_HuyDatPhong);
             this.Controls.Add(this.btn_DatPhong);
             this.Controls.Add(this.panel1);
@@ -459,7 +422,6 @@
             this.Load += new System.EventHandler(this.FrmBtnDatPhong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongDaChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSPhongTrong)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -504,9 +466,6 @@
         private DataGridView dtg_DSPhongDaChon;
         private Button btn_DatPhong;
         private Button btn_HuyDatPhong;
-        private PictureBox pictureBox2;
-        private TextBox tb_MaKH;
-        private Button btn_Reload;
         private Button button1;
     }
 }

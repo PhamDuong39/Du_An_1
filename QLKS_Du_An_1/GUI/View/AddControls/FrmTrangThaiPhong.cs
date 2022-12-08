@@ -207,5 +207,10 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã hủy toàn bộ dịch vụ đã chọn");
             }
         }
+
+        private void btn_HuyLuuDV_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

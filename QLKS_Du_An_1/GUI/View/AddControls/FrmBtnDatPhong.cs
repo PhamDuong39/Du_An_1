@@ -140,6 +140,23 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                    if(val.CheckCCCD(tb_CCCDKH.Text)==false)
+                    {
+                    MessageBox.Show("Số CCCD không hợp lệ vui lòng nhập lại","Thông báo");
+                    return;
+                    } else if(val.CheckSDT(tb_SDTKH.Text)==false)
+                    {
+                    MessageBox.Show("Số điện thoại không hợp lệ vui lòng nhập lại", "Thông báo");
+                    return;
+                    } else if (val.CheckRong(tb_TenKH.Text) == false || val.CheckRong(tb_SDTKH.Text)==false||val.CheckRong(tb_DiaChiKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false||val.CheckRong(tb_CCCDKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false)
+                    {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin","Thông Báo");
+                    return;
+                    } else if (lstRoomChoosen.Count==0)
+                    {
+                    MessageBox.Show("Vui lòng chọn phòng để đặt", "Thông báo");
+                    return;
+                    }
                 
                     PhieuThueView ptv = new PhieuThueView();
                     ptv.NgayLapPhieu = DateTime.Now;
@@ -149,11 +166,21 @@ namespace GUI.View.AddControls
                     ptv.MaPhieuThue = so;
                     //ptv.MaPhieuThue = 1;
                     var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
+                    var somkh=_iqlKHService.GetAll().OrderBy(p=>p.MaKH).Select(p=>p.MaKH).ToList();
                     if (lstKH == null)
                     {
                         KhachHangView khv = new KhachHangView();
                         khv.CCCD = tb_CCCDKH.Text;
-                        khv.MaKH = tb_MaKH.Text;
+                    //khv.MaKH = tb_MaKH.Text;
+                    if (somkh.Count == 0)
+                    {
+                        khv.MaKH = "KH1";
+                    }
+                    else
+                    {
+                        int soduoima=somkh.Max(p=>Convert.ToInt32(p.Substring(2,p.Length-2)))+1;
+                        khv.MaKH = "KH" + soduoima;
+                    }
                         khv.HovaTen = tb_TenKH.Text;
                         khv.SDT = tb_SDTKH.Text;
                         khv.DiaChi = tb_DiaChiKH.Text;
@@ -239,14 +266,9 @@ namespace GUI.View.AddControls
             }
         }
 
-        private void btn_Reload_Click(object sender, EventArgs e)
-        {
-            lstRoomChoosen = null;
-            /*LoadDataDSPhongDaChon();*/
-            /*LoadDataDSPhongTrong();*/
-        }
         public void take_empty_room()
         {
+
             list_phong_trong.Clear();
             lstRoomChoosen.Clear();
             DateTime dt1 = dtp_NgayBatDau.Value;
@@ -345,6 +367,11 @@ namespace GUI.View.AddControls
         private void pictureBox7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_HuyDatPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

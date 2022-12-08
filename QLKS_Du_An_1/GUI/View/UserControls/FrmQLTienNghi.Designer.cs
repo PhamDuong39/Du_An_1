@@ -42,10 +42,10 @@
             this.btn_ThemTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemTienNghi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemTienNghi.Location = new System.Drawing.Point(759, 42);
+            this.btn_ThemTienNghi.Location = new System.Drawing.Point(867, 56);
             this.btn_ThemTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemTienNghi.Name = "btn_ThemTienNghi";
-            this.btn_ThemTienNghi.Size = new System.Drawing.Size(180, 40);
+            this.btn_ThemTienNghi.Size = new System.Drawing.Size(206, 53);
             this.btn_ThemTienNghi.TabIndex = 21;
             this.btn_ThemTienNghi.Text = "Thêm tiện nghi";
             this.btn_ThemTienNghi.UseVisualStyleBackColor = false;
@@ -53,11 +53,11 @@
             // 
             // tbt_SearchUseName
             // 
-            this.tbt_SearchUseName.Location = new System.Drawing.Point(65, 52);
+            this.tbt_SearchUseName.Location = new System.Drawing.Point(74, 69);
             this.tbt_SearchUseName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchUseName.Name = "tbt_SearchUseName";
             this.tbt_SearchUseName.PlaceholderText = "    Nhập tên tện nghi cần tìm";
-            this.tbt_SearchUseName.Size = new System.Drawing.Size(300, 23);
+            this.tbt_SearchUseName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchUseName.TabIndex = 20;
             this.tbt_SearchUseName.TextChanged += new System.EventHandler(this.tbt_SearchUseName_TextChanged);
             // 
@@ -65,25 +65,27 @@
             // 
             this.dtg_DanhSachTienNghi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachTienNghi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachTienNghi.Location = new System.Drawing.Point(88, 115);
+            this.dtg_DanhSachTienNghi.Location = new System.Drawing.Point(101, 153);
+            this.dtg_DanhSachTienNghi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachTienNghi.Name = "dtg_DanhSachTienNghi";
             this.dtg_DanhSachTienNghi.RowHeadersWidth = 51;
             this.dtg_DanhSachTienNghi.RowTemplate.Height = 25;
             this.dtg_DanhSachTienNghi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_DanhSachTienNghi.Size = new System.Drawing.Size(807, 482);
+            this.dtg_DanhSachTienNghi.Size = new System.Drawing.Size(922, 643);
             this.dtg_DanhSachTienNghi.TabIndex = 19;
             this.dtg_DanhSachTienNghi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachTienNghi_CellClick);
             this.dtg_DanhSachTienNghi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_DanhSachTienNghi_CellContentClick);
             // 
             // FrmQLTienNghi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(998, 562);
+            this.ClientSize = new System.Drawing.Size(1141, 749);
             this.Controls.Add(this.btn_ThemTienNghi);
             this.Controls.Add(this.tbt_SearchUseName);
             this.Controls.Add(this.dtg_DanhSachTienNghi);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLTienNghi";
             this.Text = "FrmQLTienNghi";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DanhSachTienNghi)).EndInit();

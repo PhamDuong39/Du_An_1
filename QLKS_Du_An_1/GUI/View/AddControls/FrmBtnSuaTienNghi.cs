@@ -73,7 +73,7 @@ namespace GUI.View.AddControls
 
         private void btn_HuySuaCTTienNghi_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void FrmBtnSuaTienNghi_Load(object sender, EventArgs e)

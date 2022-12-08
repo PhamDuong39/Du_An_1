@@ -36,7 +36,11 @@
             this.lb_TenKH = new System.Windows.Forms.Label();
             this.dtg_ChiTietPhieuThue = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+
+            this.btn_HuyXemCTTienNghi = new System.Windows.Forms.Button();
+
             this.btn_ThueThemPhong = new System.Windows.Forms.Button();
+
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,14 +57,20 @@
             this.panel1.Controls.Add(this.lb_TenNV);
             this.panel1.Controls.Add(this.lb_TenKH);
             this.panel1.Controls.Add(this.dtg_ChiTietPhieuThue);
-            this.panel1.Location = new System.Drawing.Point(54, 78);
+
+            this.panel1.Location = new System.Drawing.Point(65, 84);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(712, 365);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(505, 22);
+
+            this.pictureBox3.Location = new System.Drawing.Point(576, 31);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 34);
             this.pictureBox3.TabIndex = 6;
@@ -68,7 +78,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(51, 22);
+
+            this.pictureBox1.Location = new System.Drawing.Point(61, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 34);
             this.pictureBox1.TabIndex = 4;
@@ -77,15 +90,20 @@
             // dtp_NgayLapPhieu
             // 
             this.dtp_NgayLapPhieu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_NgayLapPhieu.Location = new System.Drawing.Point(268, 24);
+
+            this.dtp_NgayLapPhieu.Location = new System.Drawing.Point(327, 35);
+            this.dtp_NgayLapPhieu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_NgayLapPhieu.Name = "dtp_NgayLapPhieu";
-            this.dtp_NgayLapPhieu.Size = new System.Drawing.Size(115, 23);
+            this.dtp_NgayLapPhieu.Size = new System.Drawing.Size(124, 27);
+
             this.dtp_NgayLapPhieu.TabIndex = 3;
             // 
             // lb_TenNV
             // 
             this.lb_TenNV.AutoSize = true;
-            this.lb_TenNV.Location = new System.Drawing.Point(543, 30);
+
+            this.lb_TenNV.Location = new System.Drawing.Point(620, 42);
+
             this.lb_TenNV.Name = "lb_TenNV";
             this.lb_TenNV.Size = new System.Drawing.Size(82, 15);
             this.lb_TenNV.TabIndex = 2;
@@ -117,12 +135,32 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(306, 22);
+
+            this.label1.Location = new System.Drawing.Point(353, 9);
+
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "Chi Tiết Phiếu Thuê";
             // 
+
+            // btn_HuyXemCTTienNghi
+            // 
+            this.btn_HuyXemCTTienNghi.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_HuyXemCTTienNghi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_HuyXemCTTienNghi.FlatAppearance.BorderSize = 0;
+            this.btn_HuyXemCTTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_HuyXemCTTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_HuyXemCTTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_HuyXemCTTienNghi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_HuyXemCTTienNghi.Location = new System.Drawing.Point(740, 564);
+            this.btn_HuyXemCTTienNghi.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_HuyXemCTTienNghi.Name = "btn_HuyXemCTTienNghi";
+            this.btn_HuyXemCTTienNghi.Size = new System.Drawing.Size(110, 40);
+            this.btn_HuyXemCTTienNghi.TabIndex = 42;
+            this.btn_HuyXemCTTienNghi.Text = "Hủy";
+            this.btn_HuyXemCTTienNghi.UseVisualStyleBackColor = false;
+
             // btn_ThueThemPhong
             // 
             this.btn_ThueThemPhong.BackColor = System.Drawing.Color.SeaGreen;
@@ -139,16 +177,23 @@
             this.btn_ThueThemPhong.Text = "Thêm phòng";
             this.btn_ThueThemPhong.UseVisualStyleBackColor = false;
             this.btn_ThueThemPhong.Click += new System.EventHandler(this.btn_ThueThemPhong_Click);
+
             // 
             // FrmBtnXemCTPhieuThue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(826, 486);
+
+            this.ClientSize = new System.Drawing.Size(914, 618);
+            this.Controls.Add(this.btn_HuyXemCTTienNghi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.Name = "FrmBtnXemCTPhieuThue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnXemCTPhieuThue";
             this.Load += new System.EventHandler(this.FrmBtnXemCTPhieuThue_Load);
             this.panel1.ResumeLayout(false);
@@ -171,6 +216,10 @@
         private DateTimePicker dtp_NgayLapPhieu;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
+
+        private Button btn_HuyXemCTTienNghi;
+
         private Button btn_ThueThemPhong;
+
     }
 }
