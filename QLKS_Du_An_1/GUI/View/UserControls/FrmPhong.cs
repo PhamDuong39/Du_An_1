@@ -37,7 +37,7 @@ namespace GUI.View.UserControls
  
         }
 
-        private void FrmPhong_Load(object sender, EventArgs e)
+        public void FrmPhong_Load(object sender, EventArgs e)
         {
             LoadItemRooms();
         }
@@ -226,7 +226,7 @@ namespace GUI.View.UserControls
             }
             #endregion
         }
-        private void LoadItemRooms()
+        public void LoadItemRooms()
         {
             #region Tang1
             var lstPhongTang1 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "1").ToList();

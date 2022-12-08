@@ -140,90 +140,92 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                    if(val.CheckCCCD(tb_CCCDKH.Text)==false)
-                    {
-                    MessageBox.Show("Số CCCD không hợp lệ vui lòng nhập lại","Thông báo");
-                    return;
-                    } else if(val.CheckSDT(tb_SDTKH.Text)==false)
-                    {
-                    MessageBox.Show("Số điện thoại không hợp lệ vui lòng nhập lại", "Thông báo");
-                    return;
-                    } else if (val.CheckRong(tb_TenKH.Text) == false || val.CheckRong(tb_SDTKH.Text)==false||val.CheckRong(tb_DiaChiKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false||val.CheckRong(tb_CCCDKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false)
-                    {
-                    MessageBox.Show("Vui lòng điền đầy đủ thông tin","Thông Báo");
-                    return;
-                    } else if (lstRoomChoosen.Count==0)
-                    {
-                    MessageBox.Show("Vui lòng chọn phòng để đặt", "Thông báo");
-                    return;
-                    }
+                if(val.CheckCCCD(tb_CCCDKH.Text)==false)
+                {
+                MessageBox.Show("Số CCCD không hợp lệ vui lòng nhập lại","Thông báo");
+                return;
+                } else if(val.CheckSDT(tb_SDTKH.Text)==false)
+                {
+                MessageBox.Show("Số điện thoại không hợp lệ vui lòng nhập lại", "Thông báo");
+                return;
+                } else if (val.CheckRong(tb_TenKH.Text) == false || val.CheckRong(tb_SDTKH.Text)==false||val.CheckRong(tb_DiaChiKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false||val.CheckRong(tb_CCCDKH.Text)==false||val.CheckRong(tb_QuocTichKH.Text)==false)
+                {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin","Thông Báo");
+                return;
+                } else if (lstRoomChoosen.Count==0)
+                {
+                MessageBox.Show("Vui lòng chọn phòng để đặt", "Thông báo");
+                return;
+                }
                 
-                    PhieuThueView ptv = new PhieuThueView();
-                    ptv.NgayLapPhieu = DateTime.Now;
-                    ptv.IdNV = FrmMain.IdNV;
-                    var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
-                    int so = lstmaPT.Max() + 1;
-                    ptv.MaPhieuThue = so;
-                    //ptv.MaPhieuThue = 1;
-                    var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
-                    var somkh=_iqlKHService.GetAll().OrderBy(p=>p.MaKH).Select(p=>p.MaKH).ToList();
-                    if (lstKH == null)
+                PhieuThueView ptv = new PhieuThueView();
+                ptv.NgayLapPhieu = DateTime.Now;
+                ptv.IdNV = FrmMain.IdNV;
+                var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
+                             
+                int so = lstmaPT.Max() + 1;
+                ptv.MaPhieuThue = so;
+                              
+                //ptv.MaPhieuThue = 1;
+                var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
+                var somkh=_iqlKHService.GetAll().OrderBy(p=>p.MaKH).Select(p=>p.MaKH).ToList();
+                if (lstKH == null)
+                {
+                    KhachHangView khv = new KhachHangView();
+                    khv.CCCD = tb_CCCDKH.Text;
+                //khv.MaKH = tb_MaKH.Text;
+                    if (somkh.Count == 0)
                     {
-                        KhachHangView khv = new KhachHangView();
-                        khv.CCCD = tb_CCCDKH.Text;
-                    //khv.MaKH = tb_MaKH.Text;
-                        if (somkh.Count == 0)
-                        {
-                            khv.MaKH = "KH1";
-                        }
-                        else
-                        {
-                            int soduoima=somkh.Max(p=>Convert.ToInt32(p.Substring(2,p.Length-2)))+1;
-                            khv.MaKH = "KH" + soduoima;
-                        }
-                        khv.HovaTen = tb_TenKH.Text;
-                        khv.SDT = tb_SDTKH.Text;
-                        khv.DiaChi = tb_DiaChiKH.Text;
-                        khv.QuocTich = tb_QuocTichKH.Text;
-                        khv.GioiTinh = cbb_GioiTinhKH.Text == "Nam" ? 1 : cbb_GioiTinhKH.Text == "Nữ" ? 2 : 3;
-                        _iqlKHService.Add(khv);
-                        ptv.IdKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text).ID;
+                        khv.MaKH = "KH1";
                     }
                     else
                     {
-                        ptv.IdKH = lstKH.ID;
+                        int soduoima=somkh.Max(p=>Convert.ToInt32(p.Substring(2,p.Length-2)))+1;
+                        khv.MaKH = "KH" + soduoima;
                     }
-                    _iqlPTService.Add(ptv);
-
-                    foreach (var item in lstRoomChoosen)
-                    {
-                        // ĐOẠN NÀY là tôi ko biết là đặt xong chuyển sang trạng thái phòng khi đặt là  j ko thig tùy ý ông nhé  ông tự ấy theo đsung ý ông nhé ( chọn đc cái list muốn đặt rồi ông mới thay đổi trạng thái phòng)
-
-                        ChiTietPhieuThueView ctptv = new ChiTietPhieuThueView();
-                        ctptv.NgayBatDau = dtp_NgayBatDau.Value;
-                        ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
-                        ctptv.IdPhong = item.Id;
-                        ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
-                        //DateTime now = DateTime.Now;
-
-                        MessageBox.Show(_iqlCTPTService.Add(ctptv));
-                    }
-                    _send(_iqlPTService.GetAll());
-
+                    khv.HovaTen = tb_TenKH.Text;
+                    khv.SDT = tb_SDTKH.Text;
+                    khv.DiaChi = tb_DiaChiKH.Text;
+                    khv.QuocTich = tb_QuocTichKH.Text;
+                    khv.GioiTinh = cbb_GioiTinhKH.Text == "Nam" ? 1 : cbb_GioiTinhKH.Text == "Nữ" ? 2 : 3;
+                    _iqlKHService.Add(khv);
+                    ptv.IdKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text).ID;
                 }
-                if (result == DialogResult.No)
+                else
                 {
-                    foreach (var item in lstRoomChoosen)
-                    {
-                        PhongView pv = new PhongView();
-                        pv.Id = item.Id;
-                        pv.MaPhong = item.MaPhong;
-                        pv.IDLoaiPhong = item.IDLoaiPhong;
-                        pv.TinhTrang = 0;
-                        _iqlPhongService.Update(pv);
-                    }
-                    MessageBox.Show("Bạn đã hủy đặt phòng");
+                    ptv.IdKH = lstKH.ID;
                 }
+                _iqlPTService.Add(ptv);
+
+                foreach (var item in lstRoomChoosen)
+                {
+                    // ĐOẠN NÀY là tôi ko biết là đặt xong chuyển sang trạng thái phòng khi đặt là  j ko thig tùy ý ông nhé  ông tự ấy theo đsung ý ông nhé ( chọn đc cái list muốn đặt rồi ông mới thay đổi trạng thái phòng)
+
+                    ChiTietPhieuThueView ctptv = new ChiTietPhieuThueView();
+                    ctptv.NgayBatDau = dtp_NgayBatDau.Value;
+                    ctptv.NgayKetThuc = dtp_NgayKetThuc.Value;
+                    ctptv.IdPhong = item.Id;
+                    ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
+                    //DateTime now = DateTime.Now;
+
+                    MessageBox.Show(_iqlCTPTService.Add(ctptv));
+                }
+                _send(_iqlPTService.GetAll());
+
+            }
+            if (result == DialogResult.No)
+            {
+                foreach (var item in lstRoomChoosen)
+                {
+                    PhongView pv = new PhongView();
+                    pv.Id = item.Id;
+                    pv.MaPhong = item.MaPhong;
+                    pv.IDLoaiPhong = item.IDLoaiPhong;
+                    pv.TinhTrang = 0;
+                    _iqlPhongService.Update(pv);
+                }
+                MessageBox.Show("Bạn đã hủy đặt phòng");
+            }
             _send(_iqlPTService.GetAll());
         }
 

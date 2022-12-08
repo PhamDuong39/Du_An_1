@@ -70,7 +70,7 @@ namespace GUI.View.UserControls
             cbn_ChucNangXoa.Name = "btn_Xoanhanvien";
             cbn_ChucNangXoa.UseColumnTextForButtonValue = true;
             dtg_DanhSachNhanVien.Columns.Add(cbn_ChucNangXoa);
-            foreach (var item in list)
+            foreach (var item in list.OrderBy(p => p.MaNV))
             {
                 dtg_DanhSachNhanVien.Rows.Add(item.ID, item.MaNV, item.TenNV, item.NgaySinh, (item.GioiTinh==1)?"Nam":(item.GioiTinh==2)?"Nữ":"Khác", item.DiaChi, item.SDT, item.CCCD, item.Luong, item.IDCv,item.TenCV);
             }
