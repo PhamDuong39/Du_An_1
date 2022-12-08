@@ -47,7 +47,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(134, 21);
+            this.label1.Location = new System.Drawing.Point(82, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(406, 41);
             this.label1.TabIndex = 31;
@@ -60,10 +60,10 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tb_tenLoaiTienNghi);
             this.panel1.Controls.Add(this.tb_maLoaiTienNghi);
-            this.panel1.Location = new System.Drawing.Point(140, 81);
+            this.panel1.Location = new System.Drawing.Point(88, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 359);
+            this.panel1.Size = new System.Drawing.Size(399, 264);
             this.panel1.TabIndex = 30;
             // 
             // pictureBox3
@@ -114,13 +114,14 @@
             this.btn_HuySuaLoaiTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaLoaiTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaLoaiTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaLoaiTienNghi.Location = new System.Drawing.Point(402, 465);
+            this.btn_HuySuaLoaiTienNghi.Location = new System.Drawing.Point(377, 373);
             this.btn_HuySuaLoaiTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaLoaiTienNghi.Name = "btn_HuySuaLoaiTienNghi";
             this.btn_HuySuaLoaiTienNghi.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaLoaiTienNghi.TabIndex = 33;
             this.btn_HuySuaLoaiTienNghi.Text = "Hủy";
             this.btn_HuySuaLoaiTienNghi.UseVisualStyleBackColor = false;
+            this.btn_HuySuaLoaiTienNghi.Click += new System.EventHandler(this.btn_HuySuaLoaiTienNghi_Click);
             // 
             // btn_SuaLoaiTienNghi
             // 
@@ -130,7 +131,7 @@
             this.btn_SuaLoaiTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaLoaiTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaLoaiTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaLoaiTienNghi.Location = new System.Drawing.Point(256, 465);
+            this.btn_SuaLoaiTienNghi.Location = new System.Drawing.Point(231, 373);
             this.btn_SuaLoaiTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaLoaiTienNghi.Name = "btn_SuaLoaiTienNghi";
             this.btn_SuaLoaiTienNghi.Size = new System.Drawing.Size(110, 40);
@@ -143,12 +144,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 548);
+            this.ClientSize = new System.Drawing.Size(596, 451);
             this.Controls.Add(this.btn_HuySuaLoaiTienNghi);
             this.Controls.Add(this.btn_SuaLoaiTienNghi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBtnSuaLoaiTienNghi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaLoaiTienNghi";
             this.Load += new System.EventHandler(this.FrmBtnSuaLoaiTienNghi_Load);
             this.panel1.ResumeLayout(false);

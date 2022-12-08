@@ -11,6 +11,8 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
+using BUS.Ultilities;
+
 
 namespace GUI.View.AddControls
 {
@@ -19,6 +21,7 @@ namespace GUI.View.AddControls
         public send_cv _send;
         public ChucVuView _cvView;
         private IChucVuService _chucVuService;
+        Validations VAL;
         public FrmBtnSuaChucVu()
         {
             _chucVuService = new ChucVuService();
@@ -32,6 +35,7 @@ namespace GUI.View.AddControls
             _cvView = new ChucVuView();
             InitializeComponent();
             this._send= send;
+            VAL= new Validations();
 
         }
         private void LoadData()
@@ -53,6 +57,12 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+
+                if (VAL.CheckRong(tb_MaChucVuSua.Text) == false||VAL.CheckRong(tb_tenChucVuSua.Text)==false)
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo");
+                    return;
+                }
                 MessageBox.Show(_chucVuService.Update(GetData()));
                 _send(string.Empty);
                 

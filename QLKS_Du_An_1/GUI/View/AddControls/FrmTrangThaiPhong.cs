@@ -219,6 +219,7 @@ namespace GUI.View.AddControls
             }
         }
 
+
         private void btn_ChuyenTTPhongTrong_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Vui lòng xác nhận chuyển trạng thái về phòng trống", "Thông báo", MessageBoxButtons.YesNo);
@@ -242,6 +243,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã hủy thay đổi trạng thái phòng này !");
             }
+
+        private void btn_HuyLuuDV_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

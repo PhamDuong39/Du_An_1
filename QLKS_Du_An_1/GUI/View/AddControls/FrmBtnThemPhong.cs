@@ -75,5 +75,10 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã hủy thêm loại phòng");
             }
         }
+
+        private void btn_HuyThemPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
