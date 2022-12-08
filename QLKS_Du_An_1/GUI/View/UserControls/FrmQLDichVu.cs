@@ -118,10 +118,7 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadData(_iQLDichVuService.GetAll());
-        }
+
 
         private void tbt_SearchServicesName_TextChanged(object sender, EventArgs e)
         {

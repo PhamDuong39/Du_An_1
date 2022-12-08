@@ -74,6 +74,7 @@
             this.tb_MaLoaiDichVu.PlaceholderText = "Nhập mã loại dịch vụ";
             this.tb_MaLoaiDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_MaLoaiDichVu.TabIndex = 30;
+            this.tb_MaLoaiDichVu.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -105,6 +106,7 @@
             this.tb_TenLoaiDichVu.PlaceholderText = "Nhập tên loại dịch vụ";
             this.tb_TenLoaiDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_TenLoaiDichVu.TabIndex = 17;
+            this.tb_TenLoaiDichVu.TabStop = false;
             // 
             // btn_HuyThemLoaiDichVu
             // 

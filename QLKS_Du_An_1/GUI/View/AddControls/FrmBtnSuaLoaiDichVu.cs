@@ -11,6 +11,7 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {

@@ -17,15 +17,23 @@ namespace DAL.Repositories
         }
         public bool Add(ChiTietTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+
+                obj.ID = Guid.NewGuid();
+                _Db.Add(obj);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            
-            obj.ID = Guid.NewGuid();
-            _Db.Add(obj);
-            _Db.SaveChanges();
-            return true;
         }
 
         public List<ChiTietTienNghi> GetAll()

@@ -13,6 +13,7 @@ using BUS.ViewModels;
 using GUI.View.AddControls;
 namespace GUI.View.UserControls
 {
+    public delegate void send_cttn(List<ChiTietTienNghiView> LIST);
     public partial class FrmQLCTTienNghi : Form
     {
         private IQLChiTietTienNghiService _iqlCTTNService;
@@ -64,7 +65,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemCTTienNghi_Click(object sender, EventArgs e)
         {
-            FrmBtnThemTienNghi frmBtnThemTienNghi = new FrmBtnThemTienNghi();
+            FrmBtnThemTienNghi frmBtnThemTienNghi = new FrmBtnThemTienNghi(LoadDataCTTN);
             frmBtnThemTienNghi.ShowDialog();
         }
 
@@ -91,8 +92,8 @@ namespace GUI.View.UserControls
                 FrmBtnSuaTienNghi btnSuaTN = new FrmBtnSuaTienNghi();
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnSuaTN.IdSelect = IdSelected;
-                btnSuaTN.MaCTTNSelect = MaPhong;
-                btnSuaTN.TenCTTNSelect = TenLoaiCTTN;
+                btnSuaTN.MaCTTNSelect = MaCTTN;
+                btnSuaTN.TenCTTNSelect = TenCTTN;
                 btnSuaTN.TenLoaiCTTNSelect = TenLoaiCTTN;
                 btnSuaTN.MaPhongSelect = MaPhong;
                 btnSuaTN.ShowDialog();
@@ -113,10 +114,7 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            LoadDataCTTN(_iqlCTTNService.GetAll());
-        }
+
 
         private void tbt_SearchUseDetailName_TextChanged(object sender, EventArgs e)
         {

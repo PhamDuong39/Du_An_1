@@ -95,6 +95,8 @@
             this.cbb_MaPhong.Name = "cbb_MaPhong";
             this.cbb_MaPhong.Size = new System.Drawing.Size(218, 28);
             this.cbb_MaPhong.TabIndex = 27;
+            this.cbb_MaPhong.TabStop = false;
+            this.cbb_MaPhong.Text = "Mã phòng";
             // 
             // pictureBox2
             // 
@@ -115,6 +117,8 @@
             this.cbb_TenLoaiTienNghi.Name = "cbb_TenLoaiTienNghi";
             this.cbb_TenLoaiTienNghi.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiTienNghi.TabIndex = 25;
+            this.cbb_TenLoaiTienNghi.TabStop = false;
+            this.cbb_TenLoaiTienNghi.Text = "Loai Tiện Nghi";
             // 
             // pictureBox3
             // 
@@ -146,6 +150,7 @@
             this.tb_TenCTTNThem.PlaceholderText = "Nhập Tên CT Tiện Nghi";
             this.tb_TenCTTNThem.Size = new System.Drawing.Size(218, 27);
             this.tb_TenCTTNThem.TabIndex = 21;
+            this.tb_TenCTTNThem.TabStop = false;
             // 
             // tb_MaCTTNThem
             // 
@@ -155,6 +160,7 @@
             this.tb_MaCTTNThem.PlaceholderText = "Nhập mã CT Tiện Nghi";
             this.tb_MaCTTNThem.Size = new System.Drawing.Size(218, 27);
             this.tb_MaCTTNThem.TabIndex = 17;
+            this.tb_MaCTTNThem.TabStop = false;
             // 
             // btn_HuyThemCTTienNghi
             // 
