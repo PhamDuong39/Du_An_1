@@ -40,7 +40,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachTienNghi.ColumnCount = 3;
             dtg_DanhSachTienNghi.Rows.Clear();
             dtg_DanhSachTienNghi.Columns[0].Name = "ID";
-            dtg_DanhSachTienNghi.Columns[0].Visible = true;
+            dtg_DanhSachTienNghi.Columns[0].Visible = false;
             dtg_DanhSachTienNghi.Columns[1].Name = "Mã loại tiện nghi";
             dtg_DanhSachTienNghi.Columns[2].Name = "Tên loại tiện nghi";
             
