@@ -23,7 +23,10 @@ namespace GUI.View.AddControls
         public IHoaDonService _iqlHDService;
         public IPhongService _iqlPhongService;
         public int GiaTienTraPhongMuon = 50000;
+        double SoNgayThue = 0;
+        double tienPhong = 0;
         public int TongTienPhaiTra { get; set; }
+        public double tongTien { get; set; }
         public FrmViewHDCT()
         {
             InitializeComponent();
@@ -57,10 +60,10 @@ namespace GUI.View.AddControls
         private void TinhTienThanhToan()
         {
             int stt = 1, tienDV = 0;
-            double tienPhong = 0, tongTien, SoNgayTinhToan = 0;
+           double  SoNgayTinhToan = 0;
             foreach (var x in _lstGiaPhong)
             {
-                double SoNgayThue = 0;
+                
                 int count = 0;
                 DateTime NgayBDThue = x.NgayBatDau;
                 DateTime NgayTT = NgayThanhToanHD;
@@ -188,11 +191,68 @@ namespace GUI.View.AddControls
                     MessageBox.Show(_iqlPhongService.Update(pv));
                 }
                 
+                
             }
             if (result == DialogResult.No)
             {
                 MessageBox.Show("Bạn đã hủy thanh toán phòng này!");
             }
+            
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            foreach(var item in _lstHoaDon)
+            {
+                e.Graphics.DrawString("\t\t\t Hóa Đơn", new Font("Arial", 20, FontStyle.Bold), Brushes.Green, new Point(10, 10));
+                
+                e.Graphics.DrawString("\t Address : Cao đăng FPT PolyTechnic,Trịnh Văn Bô,Xuân Phương, Nam Từ Liêm, Hà Nội", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new Point(10, 80));
+                
+                e.Graphics.DrawString("\t Số HĐ : " + item.MaHD + "\t\tNgày Bắt Đầu : " + item.NgayBatDau, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 150));
+                
+                e.Graphics.DrawString("\t Thu Ngân : " + item.TenNV + "\t\tNgày Kết Thúc : " + item.NgayKetThuc, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 220));
+                
+                e.Graphics.DrawString("\t Tên Khách Hàng : " + item.TenKH + "\t\tNgày Thanh Toán : " + DateTime.Now, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 290));
+                
+                e.Graphics.DrawString("\t Số Phòng Thuê : " + item.MaPhong , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 360));
+                e.Graphics.DrawString($"\t Tên \t|| \t Đơn Giá \t|| \t Số Lượng \t||\t Số Tiền" , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 430));
+
+                
+                foreach(var x in _lstGiaPhong)
+                {
+                    e.Graphics.DrawString(x.TenLoaiPhong + "\t\t"  + x.GiaNgay + "\t\t\t"  + SoNgayThue + "\t\t\t" +  tienPhong, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, 500));
+                }
+                int z = 570;
+                foreach (var y in _lstHoaDonCT)
+                {
+                    
+                    e.Graphics.DrawString( y.TenDichVu + "\t\t" +  y.DonGia + "\t\t\t" + y.SoLuongDichVu + "\t\t\t" + y.DonGia , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, z));
+                    z += 70;
+                }
+
+                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() , new Font("Arial",20,FontStyle.Regular), Brushes.Black, new Point(10, 500 + _lstGiaPhong.Count * 70+ _lstHoaDonCT.Count*70 + 70));
+
+
+                
+                
+            }
+            
+        }
+
+        private void btn_HuySuaChucVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_inHD_Click(object sender, EventArgs e)
+        {
+            PrintDialog prd = new PrintDialog();
+                prd.Document = printDocument1;
+                DialogResult dls = prd.ShowDialog();
+                if(dls == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
         }
     }
 }

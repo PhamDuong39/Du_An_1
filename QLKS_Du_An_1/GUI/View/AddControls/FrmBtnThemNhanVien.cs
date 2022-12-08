@@ -62,7 +62,7 @@ namespace GUI.View.AddControls
                 {
                     MessageBox.Show("Số căn cước công dân không hợp lệ");
                 }
-                else if (VAL.CheckRong(txt_tenNV.Text) == false || VAL.CheckRong(txt_diachiNV.Text) || VAL.CheckRong(txt_luongNV.Text.ToString()))
+                else if (VAL.CheckRong(txt_tenNV.Text) == false || VAL.CheckRong(txt_diachiNV.Text) == false || VAL.CheckRong(txt_luongNV.Text.ToString()) == false)
                 {
                     MessageBox.Show("Vui Lòng nhập đầy đủ thông tin");
                 } else
