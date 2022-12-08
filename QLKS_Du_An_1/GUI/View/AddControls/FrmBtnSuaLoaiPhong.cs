@@ -53,5 +53,20 @@ namespace GUI.View.AddControls
             tb_SoGiuong.Text = Convert.ToString(SoGiuongLoaiPhongSua);
             tb_GiaNgay.Text = Convert.ToString(GiaNgayLoaiPhongSua);
         }
+
+        private void btn_HuySuaLoaiPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

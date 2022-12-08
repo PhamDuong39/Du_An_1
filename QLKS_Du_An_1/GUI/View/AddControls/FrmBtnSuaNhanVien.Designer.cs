@@ -387,7 +387,9 @@
             this.Controls.Add(this.btn_SuaNV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBtnSuaNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaNhanVien";
             this.Load += new System.EventHandler(this.FrmBtnSuaNhanVien_Load);
             this.panel1.ResumeLayout(false);

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -41,6 +42,7 @@ namespace GUI.View.AddControls
             {
                 var ldv = new DichVuView()
                 {
+                    
                     Id = Guid.NewGuid(),
                     TenDichVu = tb_TenDichVu.Text,
                     MaDichVu = tb_MaDichVu.Text,
@@ -54,6 +56,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã không thêm dịch vụ này");
             }
+        }
+
+        private void btn_HuyDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

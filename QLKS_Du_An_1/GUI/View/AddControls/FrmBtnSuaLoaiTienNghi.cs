@@ -59,5 +59,10 @@ namespace GUI.View.AddControls
             tb_maLoaiTienNghi.Text = MaLoaiTienNghi;
             tb_tenLoaiTienNghi.Text = TenLoaiTienNghi;
         }
+
+        private void btn_HuySuaLoaiTienNghi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
