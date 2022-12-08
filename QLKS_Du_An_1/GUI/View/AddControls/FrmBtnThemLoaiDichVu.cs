@@ -49,5 +49,10 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn đã không thên loại dịch vụ này");
             }
         }
+
+        private void btn_HuyThemLoaiDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

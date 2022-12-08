@@ -57,5 +57,10 @@ namespace GUI.View.AddControls
             tb_MaLoaiDichVu.Text = MaLoaiDichVu;
             tb_TenLoaiDichVu.Text = TenLoaiDichVu;
         }
+
+        private void btn_HuySuaLoaiDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

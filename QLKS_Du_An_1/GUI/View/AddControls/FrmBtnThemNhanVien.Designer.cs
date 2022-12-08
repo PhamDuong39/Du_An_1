@@ -289,13 +289,14 @@
             this.btn_HuyThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuyThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuyThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyThemKH.Location = new System.Drawing.Point(496, 510);
+            this.btn_HuyThemKH.Location = new System.Drawing.Point(620, 510);
             this.btn_HuyThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuyThemKH.Name = "btn_HuyThemKH";
             this.btn_HuyThemKH.Size = new System.Drawing.Size(110, 40);
             this.btn_HuyThemKH.TabIndex = 27;
             this.btn_HuyThemKH.Text = "Hủy";
             this.btn_HuyThemKH.UseVisualStyleBackColor = false;
+            this.btn_HuyThemKH.Click += new System.EventHandler(this.btn_HuyThemKH_Click);
             // 
             // btn_ThemKH
             // 
@@ -305,7 +306,7 @@
             this.btn_ThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemKH.Location = new System.Drawing.Point(351, 510);
+            this.btn_ThemKH.Location = new System.Drawing.Point(475, 510);
             this.btn_ThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemKH.Name = "btn_ThemKH";
             this.btn_ThemKH.Size = new System.Drawing.Size(110, 40);
@@ -324,6 +325,7 @@
             this.Controls.Add(this.btn_HuyThemKH);
             this.Controls.Add(this.btn_ThemKH);
             this.Name = "FrmBtnThemNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemNhanVien";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

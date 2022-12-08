@@ -66,7 +66,7 @@
             this.btn_DatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DatPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_DatPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_DatPhong.Location = new System.Drawing.Point(942, 41);
+            this.btn_DatPhong.Location = new System.Drawing.Point(922, 39);
             this.btn_DatPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_DatPhong.Name = "btn_DatPhong";
             this.btn_DatPhong.Size = new System.Drawing.Size(145, 53);

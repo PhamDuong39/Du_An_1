@@ -102,5 +102,10 @@ namespace GUI.View.AddControls
             cbb_TrangThai.Text = TinhTrangSua;
             cbb_TenLoaiPhong.Text = TenLoaiPhongSua;
         }
+
+        private void btn_HuySuaPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

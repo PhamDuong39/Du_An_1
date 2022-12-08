@@ -148,6 +148,7 @@
             this.btn_HuyThemPhong.TabIndex = 31;
             this.btn_HuyThemPhong.Text = "Hủy";
             this.btn_HuyThemPhong.UseVisualStyleBackColor = false;
+            this.btn_HuyThemPhong.Click += new System.EventHandler(this.btn_HuyThemPhong_Click);
             // 
             // btn_ThemPhong
             // 
@@ -175,8 +176,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyThemPhong);
             this.Controls.Add(this.btn_ThemPhong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemPhong";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -47,7 +47,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(123, 57);
+            this.label1.Location = new System.Drawing.Point(101, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(405, 41);
             this.label1.TabIndex = 37;
@@ -63,7 +63,7 @@
             this.panel1.Location = new System.Drawing.Point(109, 125);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 317);
+            this.panel1.Size = new System.Drawing.Size(399, 255);
             this.panel1.TabIndex = 36;
             // 
             // tb_MaLoaiDichVu
@@ -114,13 +114,14 @@
             this.btn_HuySuaLoaiDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaLoaiDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaLoaiDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaLoaiDichVu.Location = new System.Drawing.Point(445, 495);
+            this.btn_HuySuaLoaiDichVu.Location = new System.Drawing.Point(398, 417);
             this.btn_HuySuaLoaiDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaLoaiDichVu.Name = "btn_HuySuaLoaiDichVu";
             this.btn_HuySuaLoaiDichVu.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaLoaiDichVu.TabIndex = 39;
             this.btn_HuySuaLoaiDichVu.Text = "Hủy";
             this.btn_HuySuaLoaiDichVu.UseVisualStyleBackColor = false;
+            this.btn_HuySuaLoaiDichVu.Click += new System.EventHandler(this.btn_HuySuaLoaiDichVu_Click);
             // 
             // btn_SuaLoaiDichVu
             // 
@@ -130,7 +131,7 @@
             this.btn_SuaLoaiDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaLoaiDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaLoaiDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaLoaiDichVu.Location = new System.Drawing.Point(282, 495);
+            this.btn_SuaLoaiDichVu.Location = new System.Drawing.Point(235, 417);
             this.btn_SuaLoaiDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaLoaiDichVu.Name = "btn_SuaLoaiDichVu";
             this.btn_SuaLoaiDichVu.Size = new System.Drawing.Size(110, 40);
@@ -148,8 +149,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaLoaiDichVu);
             this.Controls.Add(this.btn_SuaLoaiDichVu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaLoaiDichVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaLoaiDichVu";
             this.Load += new System.EventHandler(this.FrmBtnSuaLoaiDichVu_Load);
             this.panel1.ResumeLayout(false);
