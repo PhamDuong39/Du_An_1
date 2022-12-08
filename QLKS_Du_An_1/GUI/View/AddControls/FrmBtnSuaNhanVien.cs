@@ -14,6 +14,7 @@ using GUI.View.AddControls;
 using GUI.View.UserControls;
 using BUS.Ultilities;
 
+
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaNhanVien : Form
@@ -79,7 +80,7 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có muốn cập nhật nhân viên này không", "Thông Báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                
+                    
                     Guid IDCV = _iqLChucVu.GetAll().FirstOrDefault(c => c.TenCV == cbo_chucvuNV.Text).ID;
                     NhanVienView nhanVienView = new NhanVienView();
                     nhanVienView.ID = ID;

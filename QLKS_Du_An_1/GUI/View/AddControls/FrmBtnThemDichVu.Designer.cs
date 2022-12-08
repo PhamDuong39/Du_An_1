@@ -84,6 +84,7 @@
             this.tb_GiaDichVu.PlaceholderText = "Nhập giá";
             this.tb_GiaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_GiaDichVu.TabIndex = 31;
+            this.tb_GiaDichVu.TabStop = false;
             // 
             // tb_MaDichVu
             // 
@@ -93,6 +94,7 @@
             this.tb_MaDichVu.PlaceholderText = "Nhập mã dịch vụ";
             this.tb_MaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_MaDichVu.TabIndex = 30;
+            this.tb_MaDichVu.TabStop = false;
             // 
             // cbb_TenLoaiDichVu
             // 
@@ -102,6 +104,8 @@
             this.cbb_TenLoaiDichVu.Name = "cbb_TenLoaiDichVu";
             this.cbb_TenLoaiDichVu.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiDichVu.TabIndex = 28;
+            this.cbb_TenLoaiDichVu.TabStop = false;
+            this.cbb_TenLoaiDichVu.Text = "Loại dịch vụ";
             // 
             // pictureBox5
             // 
@@ -155,6 +159,7 @@
             this.tb_TenDichVu.PlaceholderText = "Nhập tên dịch vụ";
             this.tb_TenDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_TenDichVu.TabIndex = 17;
+            this.tb_TenDichVu.TabStop = false;
             // 
             // btn_HuyDichVu
             // 

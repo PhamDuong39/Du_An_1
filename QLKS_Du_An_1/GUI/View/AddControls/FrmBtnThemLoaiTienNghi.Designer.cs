@@ -96,6 +96,7 @@
             this.tb_tenThemLoaiTienNghi.PlaceholderText = "Nhập Tên Loại Tiện Nghi";
             this.tb_tenThemLoaiTienNghi.Size = new System.Drawing.Size(218, 27);
             this.tb_tenThemLoaiTienNghi.TabIndex = 21;
+            this.tb_tenThemLoaiTienNghi.TabStop = false;
             // 
             // tb_maThemLoaiTienNghi
             // 
@@ -105,6 +106,7 @@
             this.tb_maThemLoaiTienNghi.PlaceholderText = "Nhập Mã Loại Tiện Nghi";
             this.tb_maThemLoaiTienNghi.Size = new System.Drawing.Size(218, 27);
             this.tb_maThemLoaiTienNghi.TabIndex = 17;
+            this.tb_maThemLoaiTienNghi.TabStop = false;
             // 
             // btn_HuySuaLoaiTienNghi
             // 

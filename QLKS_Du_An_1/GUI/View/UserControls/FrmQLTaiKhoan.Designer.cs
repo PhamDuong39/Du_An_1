@@ -44,7 +44,7 @@
             this.btn_ThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemTaiKhoan.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemTaiKhoan.Location = new System.Drawing.Point(914, 56);
             this.btn_ThemTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemTaiKhoan.Name = "btn_ThemTaiKhoan";
             this.btn_ThemTaiKhoan.Size = new System.Drawing.Size(206, 53);
@@ -55,7 +55,7 @@
             // 
             // tbt_SearchAccountName
             // 
-            this.tbt_SearchAccountName.Location = new System.Drawing.Point(57, 69);
+            this.tbt_SearchAccountName.Location = new System.Drawing.Point(104, 82);
             this.tbt_SearchAccountName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchAccountName.Name = "tbt_SearchAccountName";
             this.tbt_SearchAccountName.PlaceholderText = "    Tìm theo tài khoản";
@@ -87,7 +87,7 @@
             this.dtg_DanhSachTaiKhoan.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_DanhSachTaiKhoan.EnableHeadersVisualStyles = false;
             this.dtg_DanhSachTaiKhoan.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtg_DanhSachTaiKhoan.Location = new System.Drawing.Point(57, 153);
+            this.dtg_DanhSachTaiKhoan.Location = new System.Drawing.Point(104, 133);
             this.dtg_DanhSachTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachTaiKhoan.Name = "dtg_DanhSachTaiKhoan";
             this.dtg_DanhSachTaiKhoan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

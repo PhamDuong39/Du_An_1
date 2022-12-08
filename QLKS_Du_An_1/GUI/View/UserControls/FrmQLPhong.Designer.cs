@@ -43,7 +43,7 @@
             this.btn_ThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemPhong.Location = new System.Drawing.Point(875, 56);
+            this.btn_ThemPhong.Location = new System.Drawing.Point(825, 54);
             this.btn_ThemPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemPhong.Name = "btn_ThemPhong";
             this.btn_ThemPhong.Size = new System.Drawing.Size(206, 53);
@@ -54,7 +54,7 @@
             // 
             // tbt_SearchRoomName
             // 
-            this.tbt_SearchRoomName.Location = new System.Drawing.Point(77, 67);
+            this.tbt_SearchRoomName.Location = new System.Drawing.Point(109, 80);
             this.tbt_SearchRoomName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchRoomName.Name = "tbt_SearchRoomName";
             this.tbt_SearchRoomName.PlaceholderText = "    Nhập số phòng cần tìm";
@@ -85,7 +85,7 @@
             this.btn_ThemNhieuPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemNhieuPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemNhieuPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemNhieuPhong.Location = new System.Drawing.Point(591, 56);
+            this.btn_ThemNhieuPhong.Location = new System.Drawing.Point(541, 54);
             this.btn_ThemNhieuPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemNhieuPhong.Name = "btn_ThemNhieuPhong";
             this.btn_ThemNhieuPhong.Size = new System.Drawing.Size(206, 53);

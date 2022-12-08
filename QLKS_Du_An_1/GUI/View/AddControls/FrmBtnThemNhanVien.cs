@@ -35,6 +35,8 @@ namespace GUI.View.AddControls
             _send = send;
             _iqLNhanVien = new QLNhanVienServices();
             _iqLChucVu = new ChucVuService();
+            txt_maNV.Visible= false;
+            pictureBox8.Visible= false;
             loadcbo();
         }
         public void loadcbo()
@@ -47,6 +49,7 @@ namespace GUI.View.AddControls
             cbo_gioitinhNV.Items.Add("Nam");
             cbo_gioitinhNV.Items.Add("Nữ");
             cbo_gioitinhNV.Items.Add("Khác");
+            
         }
         private void btn_ThemKH_Click(object sender, EventArgs e)
         {
@@ -62,15 +65,28 @@ namespace GUI.View.AddControls
                 {
                     MessageBox.Show("Số căn cước công dân không hợp lệ");
                 }
-                else if (VAL.CheckRong(txt_tenNV.Text) == false || VAL.CheckRong(txt_diachiNV.Text) == false || VAL.CheckRong(txt_luongNV.Text.ToString()) == false)
+
+                else if (VAL.CheckRong(txt_tenNV.Text) == false || VAL.CheckRong(txt_diachiNV.Text)==false || VAL.CheckRong(txt_luongNV.Text.ToString())==false)
+
                 {
                     MessageBox.Show("Vui Lòng nhập đầy đủ thông tin");
                 } else
                 {
+                    var somnv=_iqLNhanVien.GetAll().OrderBy(p=>p.MaNV).Select(p=>p.MaNV).ToList();
+
                     NhanVienView nhanVienView = new NhanVienView();
 
                     nhanVienView.ID = Guid.NewGuid();
-                    nhanVienView.MaNV = txt_maNV.Text;
+                    if(somnv.Count == 0)
+                    {
+                        nhanVienView.MaNV = "NV1";
+                    }
+                    else
+                    {
+                        int sodnv = somnv.Max(p => Convert.ToInt32(p.Substring(2, p.Length - 2))) + 1;
+                        nhanVienView.MaNV = "NV" + sodnv.ToString();
+                    }
+                    //nhanVienView.MaNV = txt_maNV.Text;
                     nhanVienView.TenNV = txt_tenNV.Text;
                     nhanVienView.CCCD = txt_cccdNV.Text;
                     nhanVienView.NgaySinh = DateTime.Parse(dte_ngaysinhNV.Text);

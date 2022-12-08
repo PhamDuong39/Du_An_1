@@ -47,13 +47,13 @@
             this.lb_TenNV = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_TitleBar = new System.Windows.Forms.Panel();
+            this.btn_Logout = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Minimize = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Label();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btn_Logout = new RJCodeAdvance.RJControls.RJButton();
             this.pn_MenuBar.SuspendLayout();
             this.pn_AccImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,7 +83,7 @@
             this.pn_MenuBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_MenuBar.Location = new System.Drawing.Point(0, 0);
             this.pn_MenuBar.Name = "pn_MenuBar";
-            this.pn_MenuBar.Size = new System.Drawing.Size(220, 731);
+            this.pn_MenuBar.Size = new System.Drawing.Size(220, 732);
             this.pn_MenuBar.TabIndex = 0;
             // 
             // ibtn_ThongKe
@@ -434,9 +434,28 @@
             this.pn_TitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_TitleBar.Location = new System.Drawing.Point(220, 0);
             this.pn_TitleBar.Name = "pn_TitleBar";
-            this.pn_TitleBar.Size = new System.Drawing.Size(1014, 45);
+            this.pn_TitleBar.Size = new System.Drawing.Size(1017, 45);
             this.pn_TitleBar.TabIndex = 1;
             this.pn_TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pn_TitleBar_MouseDown);
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_Logout.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_Logout.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Logout.BorderRadius = 0;
+            this.btn_Logout.BorderSize = 0;
+            this.btn_Logout.FlatAppearance.BorderSize = 0;
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout.Location = new System.Drawing.Point(794, 12);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(73, 24);
+            this.btn_Logout.TabIndex = 4;
+            this.btn_Logout.Text = "Logout";
+            this.btn_Logout.TextColor = System.Drawing.Color.White;
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // btn_Minimize
             // 
@@ -496,7 +515,7 @@
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelShadow.Location = new System.Drawing.Point(220, 45);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(1014, 9);
+            this.panelShadow.Size = new System.Drawing.Size(1017, 9);
             this.panelShadow.TabIndex = 2;
             // 
             // panelDesktop
@@ -505,33 +524,14 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 54);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1014, 677);
+            this.panelDesktop.Size = new System.Drawing.Size(1017, 678);
             this.panelDesktop.TabIndex = 3;
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_Logout.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_Logout.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Logout.BorderRadius = 0;
-            this.btn_Logout.BorderSize = 0;
-            this.btn_Logout.FlatAppearance.BorderSize = 0;
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Location = new System.Drawing.Point(794, 12);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(73, 24);
-            this.btn_Logout.TabIndex = 4;
-            this.btn_Logout.Text = "Logout";
-            this.btn_Logout.TextColor = System.Drawing.Color.White;
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 731);
+            this.ClientSize = new System.Drawing.Size(1237, 732);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelShadow);
             this.Controls.Add(this.pn_TitleBar);

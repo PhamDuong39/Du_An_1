@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -19,6 +20,8 @@ namespace GUI.View.AddControls
     {
         public send_kh _send;
         private IQLKhachHangService _iQLKhachHangService;
+
+        private Validations val;
 
         public Guid IdKH { get; set; }
         public string MaKH { get; set; }
@@ -38,6 +41,7 @@ namespace GUI.View.AddControls
             InitializeComponent();
             this._send = send;
             _iQLKhachHangService = new QLKhachHangService();
+            val= new Validations();
         }
 
         private void btn_SuaKH_Click(object sender, EventArgs e)
@@ -45,6 +49,20 @@ namespace GUI.View.AddControls
             DialogResult hoi = MessageBox.Show("Bạn có chắc chắn sửa khách hàng này không ?", "Thông báo", MessageBoxButtons.YesNo);
             if (hoi == DialogResult.Yes)
             {
+                if (val.CheckRong(tbt_CCCD.Text) == false||val.CheckRong(tbt_DiaChiKH.Text)==false||val.CheckRong(tbt_SDTKh.Text)==false||val.CheckRong(cbb_GioiTinh.Text)==false||val.CheckRong(tbt_HoTenKH.Text)==false)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
+                    return;
+                } else if (val.CheckSDT(tbt_CCCD.Text) == false)
+                {
+                    MessageBox.Show("Căn cước công dân không hợp lệ, vui lòng nhập lại", "Thông báo");
+                    return;
+                } else if(val.CheckSDT(tbt_SDTKh.Text).Equals(false))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ, Vui lòng nhập lại");
+                    return;
+                }
+
                 KhachHangView khN = new KhachHangView();
                 khN.ID = IdKH;
                 khN.MaKH = tbt_MaKh.Text;

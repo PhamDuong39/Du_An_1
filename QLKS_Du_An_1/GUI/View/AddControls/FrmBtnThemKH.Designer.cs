@@ -72,9 +72,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.tbt_MaKh);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.tbt_MaKh);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -95,27 +95,32 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(87, 82);
+            this.pictureBox2.Location = new System.Drawing.Point(87, 352);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 30;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // tbt_MaKh
             // 
-            this.tbt_MaKh.Location = new System.Drawing.Point(141, 82);
+            this.tbt_MaKh.Location = new System.Drawing.Point(141, 352);
             this.tbt_MaKh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbt_MaKh.Name = "tbt_MaKh";
             this.tbt_MaKh.PlaceholderText = "Nhập mã KH";
             this.tbt_MaKh.Size = new System.Drawing.Size(218, 27);
             this.tbt_MaKh.TabIndex = 29;
+            this.tbt_MaKh.TabStop = false;
+            this.tbt_MaKh.Visible = false;
+            this.tbt_MaKh.TextChanged += new System.EventHandler(this.tbt_MaKh_TextChanged);
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(87, 362);
+            this.pictureBox7.Location = new System.Drawing.Point(87, 296);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
@@ -126,7 +131,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(87, 308);
+            this.pictureBox6.Location = new System.Drawing.Point(87, 242);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(27, 32);
@@ -137,7 +142,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(87, 251);
+            this.pictureBox5.Location = new System.Drawing.Point(87, 185);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 32);
@@ -148,7 +153,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(87, 196);
+            this.pictureBox4.Location = new System.Drawing.Point(87, 130);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 32);
@@ -159,7 +164,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(87, 138);
+            this.pictureBox3.Location = new System.Drawing.Point(87, 72);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 32);
@@ -181,47 +186,52 @@
             // cbb_GioiTinh
             // 
             this.cbb_GioiTinh.FormattingEnabled = true;
-            this.cbb_GioiTinh.Location = new System.Drawing.Point(141, 363);
+            this.cbb_GioiTinh.Location = new System.Drawing.Point(141, 297);
             this.cbb_GioiTinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbb_GioiTinh.Name = "cbb_GioiTinh";
             this.cbb_GioiTinh.Size = new System.Drawing.Size(218, 28);
             this.cbb_GioiTinh.TabIndex = 22;
+            this.cbb_GioiTinh.TabStop = false;
             // 
             // tbt_CCCD
             // 
-            this.tbt_CCCD.Location = new System.Drawing.Point(141, 139);
+            this.tbt_CCCD.Location = new System.Drawing.Point(141, 73);
             this.tbt_CCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbt_CCCD.Name = "tbt_CCCD";
             this.tbt_CCCD.PlaceholderText = "Nhập CCCD";
             this.tbt_CCCD.Size = new System.Drawing.Size(218, 27);
             this.tbt_CCCD.TabIndex = 21;
+            this.tbt_CCCD.TabStop = false;
             // 
             // tbt_SDTKh
             // 
-            this.tbt_SDTKh.Location = new System.Drawing.Point(141, 198);
+            this.tbt_SDTKh.Location = new System.Drawing.Point(141, 132);
             this.tbt_SDTKh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbt_SDTKh.Name = "tbt_SDTKh";
             this.tbt_SDTKh.PlaceholderText = "Nhập SDT";
             this.tbt_SDTKh.Size = new System.Drawing.Size(218, 27);
             this.tbt_SDTKh.TabIndex = 20;
+            this.tbt_SDTKh.TabStop = false;
             // 
             // tbt_DiaChiKH
             // 
-            this.tbt_DiaChiKH.Location = new System.Drawing.Point(141, 253);
+            this.tbt_DiaChiKH.Location = new System.Drawing.Point(141, 187);
             this.tbt_DiaChiKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbt_DiaChiKH.Name = "tbt_DiaChiKH";
             this.tbt_DiaChiKH.PlaceholderText = "Nhập địa chỉ";
             this.tbt_DiaChiKH.Size = new System.Drawing.Size(218, 27);
             this.tbt_DiaChiKH.TabIndex = 19;
+            this.tbt_DiaChiKH.TabStop = false;
             // 
             // tbt_QuocTichKH
             // 
-            this.tbt_QuocTichKH.Location = new System.Drawing.Point(141, 309);
+            this.tbt_QuocTichKH.Location = new System.Drawing.Point(141, 243);
             this.tbt_QuocTichKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbt_QuocTichKH.Name = "tbt_QuocTichKH";
             this.tbt_QuocTichKH.PlaceholderText = "Nhập quốc tịch";
             this.tbt_QuocTichKH.Size = new System.Drawing.Size(218, 27);
             this.tbt_QuocTichKH.TabIndex = 18;
+            this.tbt_QuocTichKH.TabStop = false;
             // 
             // tbt_HoTenKH
             // 
@@ -231,6 +241,7 @@
             this.tbt_HoTenKH.PlaceholderText = "Nhập tên";
             this.tbt_HoTenKH.Size = new System.Drawing.Size(218, 27);
             this.tbt_HoTenKH.TabIndex = 17;
+            this.tbt_HoTenKH.TabStop = false;
             // 
             // btn_HuyThemKH
             // 
