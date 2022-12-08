@@ -105,6 +105,9 @@ namespace GUI.View.UserControls
             }
         }
 
-      
+        private void tbt_SearchServicesTypeName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlLoaiDichVu.Sreach(tbt_SearchServicesTypeName.Text));
+        }
     }
 }

@@ -280,5 +280,10 @@ namespace GUI.View.UserControls
                 TimeLeft = 120;
             }           
         }
+
+        private void tb_SearchMaPhong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace BUS.IServices
     public interface IQLLoaiPhongService
     {
         List<LoaiPhongView> GetAll();
+        List<LoaiPhongView> Search(string TenLoaiPhong);
         string Add(LoaiPhongView loaiPhongView);
         string Remove(LoaiPhongView loaiPhongView);
         string Update(LoaiPhongView loaiPhongView);

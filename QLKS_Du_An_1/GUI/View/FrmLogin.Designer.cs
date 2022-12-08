@@ -58,15 +58,15 @@
             this.Tb_Taikhoan.BorderSize = 1;
             this.Tb_Taikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tb_Taikhoan.ForeColor = System.Drawing.Color.HotPink;
-            this.Tb_Taikhoan.Location = new System.Drawing.Point(42, 251);
-            this.Tb_Taikhoan.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Tb_Taikhoan.Location = new System.Drawing.Point(37, 188);
+            this.Tb_Taikhoan.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Tb_Taikhoan.Multiline = false;
             this.Tb_Taikhoan.Name = "Tb_Taikhoan";
-            this.Tb_Taikhoan.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.Tb_Taikhoan.Padding = new System.Windows.Forms.Padding(9, 5, 9, 5);
             this.Tb_Taikhoan.PasswordChar = false;
             this.Tb_Taikhoan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.Tb_Taikhoan.PlaceholderText = "Tên tài khoản";
-            this.Tb_Taikhoan.Size = new System.Drawing.Size(261, 35);
+            this.Tb_Taikhoan.Size = new System.Drawing.Size(228, 27);
             this.Tb_Taikhoan.TabIndex = 7;
             this.Tb_Taikhoan.TabStop = false;
             this.Tb_Taikhoan.Texts = "";
@@ -81,15 +81,15 @@
             this.Tb_Matkhau.BorderSize = 1;
             this.Tb_Matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Tb_Matkhau.ForeColor = System.Drawing.Color.HotPink;
-            this.Tb_Matkhau.Location = new System.Drawing.Point(42, 315);
-            this.Tb_Matkhau.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Tb_Matkhau.Location = new System.Drawing.Point(37, 236);
+            this.Tb_Matkhau.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Tb_Matkhau.Multiline = false;
             this.Tb_Matkhau.Name = "Tb_Matkhau";
-            this.Tb_Matkhau.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.Tb_Matkhau.Padding = new System.Windows.Forms.Padding(9, 5, 9, 5);
             this.Tb_Matkhau.PasswordChar = true;
             this.Tb_Matkhau.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.Tb_Matkhau.PlaceholderText = "Mật khẩu";
-            this.Tb_Matkhau.Size = new System.Drawing.Size(261, 35);
+            this.Tb_Matkhau.Size = new System.Drawing.Size(228, 27);
             this.Tb_Matkhau.TabIndex = 8;
             this.Tb_Matkhau.TabStop = false;
             this.Tb_Matkhau.Texts = "";
@@ -107,9 +107,10 @@
             this.Bt_Dangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bt_Dangnhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Bt_Dangnhap.ForeColor = System.Drawing.Color.White;
-            this.Bt_Dangnhap.Location = new System.Drawing.Point(104, 452);
+            this.Bt_Dangnhap.Location = new System.Drawing.Point(91, 339);
+            this.Bt_Dangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Bt_Dangnhap.Name = "Bt_Dangnhap";
-            this.Bt_Dangnhap.Size = new System.Drawing.Size(142, 52);
+            this.Bt_Dangnhap.Size = new System.Drawing.Size(124, 39);
             this.Bt_Dangnhap.TabIndex = 9;
             this.Bt_Dangnhap.Text = "Đăng nhập";
             this.Bt_Dangnhap.TextColor = System.Drawing.Color.White;
@@ -130,8 +131,9 @@
             this.pl_userlogin.Controls.Add(this.Tb_Matkhau);
             this.pl_userlogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pl_userlogin.Location = new System.Drawing.Point(0, 0);
+            this.pl_userlogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pl_userlogin.Name = "pl_userlogin";
-            this.pl_userlogin.Size = new System.Drawing.Size(338, 600);
+            this.pl_userlogin.Size = new System.Drawing.Size(296, 450);
             this.pl_userlogin.TabIndex = 10;
             // 
             // icon_seemk
@@ -141,11 +143,11 @@
             this.icon_seemk.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.icon_seemk.IconColor = System.Drawing.Color.HotPink;
             this.icon_seemk.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icon_seemk.IconSize = 22;
-            this.icon_seemk.Location = new System.Drawing.Point(277, 324);
+            this.icon_seemk.IconSize = 19;
+            this.icon_seemk.Location = new System.Drawing.Point(242, 243);
             this.icon_seemk.Margin = new System.Windows.Forms.Padding(0);
             this.icon_seemk.Name = "icon_seemk";
-            this.icon_seemk.Size = new System.Drawing.Size(22, 25);
+            this.icon_seemk.Size = new System.Drawing.Size(19, 19);
             this.icon_seemk.TabIndex = 17;
             this.icon_seemk.TabStop = false;
             this.icon_seemk.Visible = false;
@@ -156,9 +158,9 @@
             this.lb_tbsaimk.AutoSize = true;
             this.lb_tbsaimk.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lb_tbsaimk.ForeColor = System.Drawing.Color.HotPink;
-            this.lb_tbsaimk.Location = new System.Drawing.Point(43, 355);
+            this.lb_tbsaimk.Location = new System.Drawing.Point(38, 266);
             this.lb_tbsaimk.Name = "lb_tbsaimk";
-            this.lb_tbsaimk.Size = new System.Drawing.Size(130, 15);
+            this.lb_tbsaimk.Size = new System.Drawing.Size(107, 12);
             this.lb_tbsaimk.TabIndex = 16;
             this.lb_tbsaimk.Text = "Mật khẩu không hợp lệ";
             // 
@@ -167,9 +169,9 @@
             this.lb_tbsaittk.AutoSize = true;
             this.lb_tbsaittk.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lb_tbsaittk.ForeColor = System.Drawing.Color.HotPink;
-            this.lb_tbsaittk.Location = new System.Drawing.Point(42, 291);
+            this.lb_tbsaittk.Location = new System.Drawing.Point(37, 218);
             this.lb_tbsaittk.Name = "lb_tbsaittk";
-            this.lb_tbsaittk.Size = new System.Drawing.Size(151, 15);
+            this.lb_tbsaittk.Size = new System.Drawing.Size(126, 12);
             this.lb_tbsaittk.TabIndex = 15;
             this.lb_tbsaittk.Text = "Tên tài khoản không hợp lệ";
             // 
@@ -178,14 +180,15 @@
             this.tgg_button.AutoSize = true;
             this.tgg_button.BackColor = System.Drawing.Color.Maroon;
             this.tgg_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.tgg_button.Location = new System.Drawing.Point(42, 395);
-            this.tgg_button.MinimumSize = new System.Drawing.Size(40, 20);
+            this.tgg_button.Location = new System.Drawing.Point(37, 296);
+            this.tgg_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tgg_button.MinimumSize = new System.Drawing.Size(35, 15);
             this.tgg_button.Name = "tgg_button";
             this.tgg_button.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.tgg_button.OffToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(20)))), ((int)(((byte)(137)))));
             this.tgg_button.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(20)))), ((int)(((byte)(137)))));
             this.tgg_button.OnToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.tgg_button.Size = new System.Drawing.Size(40, 20);
+            this.tgg_button.Size = new System.Drawing.Size(35, 15);
             this.tgg_button.TabIndex = 14;
             this.tgg_button.UseVisualStyleBackColor = false;
             // 
@@ -194,9 +197,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(20)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(88, 397);
+            this.label1.Location = new System.Drawing.Point(77, 298);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.Size = new System.Drawing.Size(68, 12);
             this.label1.TabIndex = 12;
             this.label1.Text = "Nhớ tài khoản";
             // 
@@ -208,10 +211,11 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 130;
-            this.iconPictureBox1.Location = new System.Drawing.Point(117, 39);
+            this.iconPictureBox1.IconSize = 102;
+            this.iconPictureBox1.Location = new System.Drawing.Point(102, 29);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(130, 136);
+            this.iconPictureBox1.Size = new System.Drawing.Size(102, 102);
             this.iconPictureBox1.TabIndex = 10;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -221,9 +225,10 @@
             this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(338, 0);
+            this.panel1.Location = new System.Drawing.Point(296, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 600);
+            this.panel1.Size = new System.Drawing.Size(504, 450);
             this.panel1.TabIndex = 11;
             // 
             // btn_Minimize
@@ -232,10 +237,10 @@
             this.btn_Minimize.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Minimize.ForeColor = System.Drawing.Color.Black;
-            this.btn_Minimize.Location = new System.Drawing.Point(523, 0);
+            this.btn_Minimize.Location = new System.Drawing.Point(458, 0);
             this.btn_Minimize.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.Size = new System.Drawing.Size(24, 23);
+            this.btn_Minimize.Size = new System.Drawing.Size(21, 19);
             this.btn_Minimize.TabIndex = 8;
             this.btn_Minimize.Text = "__";
             this.btn_Minimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -246,10 +251,10 @@
             this.btn_Exit.AutoSize = true;
             this.btn_Exit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Exit.ForeColor = System.Drawing.Color.Gray;
-            this.btn_Exit.Location = new System.Drawing.Point(549, 9);
+            this.btn_Exit.Location = new System.Drawing.Point(480, 7);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(20, 23);
+            this.btn_Exit.Size = new System.Drawing.Size(17, 19);
             this.btn_Exit.TabIndex = 7;
             this.btn_Exit.Text = "X";
             this.btn_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -260,8 +265,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::GUI.Properties.Resources.anh_thanh_pho;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(576, 600);
+            this.pictureBox1.Size = new System.Drawing.Size(504, 450);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -270,14 +276,13 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pl_userlogin);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(250, 250);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
