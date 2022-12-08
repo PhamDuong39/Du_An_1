@@ -66,15 +66,18 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn sửa phòng này không ?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                //var lstIdRoomInCTPT = _iqlCTPTService.GetAll().Select(p => p.IdPhong);
-                //foreach (var item in lstIdRoomInCTPT)
-                //{
-                //    if (item == IDPhongSua)
-                //    {
-                //        MessageBox.Show("Bạn không thể sửa phòng này vì phòng này đang được sử dụng");
-                //        return;
-                //    }
-                //}
+
+                var test = _iqlPhongService.GetAll().Where(p => p.Id == IDPhongSua);
+                foreach (var item in test)
+                {
+                    if (item.TinhTrang == 1)
+                    {
+                        MessageBox.Show("Bạn không thể sửa phòng này vì phòng này đang được sử dụng");
+                        return;
+                    }
+                }
+
+             
                 if (cbb_TrangThai.Text == "Phòng có khách")
                 {
                     MessageBox.Show("Bạn không thể sửa trạng thái phòng này ! Vui lòng đặt phòng để chuyển trạng thái này !!");
