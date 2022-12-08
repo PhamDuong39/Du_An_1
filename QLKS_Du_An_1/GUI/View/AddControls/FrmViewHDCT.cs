@@ -52,6 +52,17 @@ namespace GUI.View.AddControls
         private void FrmViewHDCT_Load(object sender, EventArgs e)
         {
             TinhTienThanhToan();
+            foreach (var item in _lstHoaDon)
+            {
+                if (item.TrangThai == 1)//Trạng thái đã thanh toán
+                {
+                    btn_ThanhToan.Visible = false;
+                }
+                else
+                {
+                    btn_ThanhToan.Visible=true;
+                }
+            }
         }
 
         private void TinhTienThanhToan()
@@ -110,7 +121,7 @@ namespace GUI.View.AddControls
                     else//SoGioQua > 24
                     {
                         SoNgayTinhToan = SoGioQua / 24;
-                        double GioQuaLe = SLNgayThue.TotalHours - SoNgayTinhToan * 24;
+                        double GioQuaLe = SoGioQua - SoNgayTinhToan * 24;
                         if (GioQuaLe <= 1)
                         {
                             SoNgayTinhToan = (int)SoGioQua / 24;
@@ -123,7 +134,7 @@ namespace GUI.View.AddControls
                         {
                             SoNgayTinhToan += 1;
                         }
-                        SoNgayThue = (SoNgayThueDatTruoc.TotalHours / 24);
+                        SoNgayThue = Math.Round(SLNgayThue.TotalHours / 24);
                     }
                 }
                 if (count == 1 || count == 2)
@@ -132,8 +143,8 @@ namespace GUI.View.AddControls
                 }
                 else if (count == 3)
                 {
-
-                    tienPhong = x.GiaNgay * SoNgayThue + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;
+                    //tienPhong = x.GiaNgay * SoNgayThue + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;
+                    tienPhong = x.GiaNgay * Math.Round(SoNgayThueDatTruoc.TotalHours / 24) + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;                   
                 }
                
                 dgrid_HDCT.Rows.Add(stt++, x.TenLoaiPhong, x.GiaNgay, SoNgayThue, tienPhong);
