@@ -207,9 +207,10 @@ namespace GUI.View.AddControls
                     ctptv.IdPhong = item.Id;
                     ctptv.IdPhieuThue = _iqlPTService.GetAll().FirstOrDefault(p => p.MaPhieuThue == so).ID;
                     //DateTime now = DateTime.Now;
-
-                    MessageBox.Show(_iqlCTPTService.Add(ctptv));
+                    _iqlCTPTService.Add(ctptv);
+                    
                 }
+                MessageBox.Show("Đặt phòng thành công");
                 _send(_iqlPTService.GetAll());
 
             }

@@ -119,10 +119,11 @@ namespace GUI.View.AddControls
                     }
                     pv.TinhTrang = cbb_TinhTrangPhong.Text == "Phòng trống" ? 0 : cbb_TinhTrangPhong.Text == "Phòng có khách" ? 1 : 2;
                     pv.IDLoaiPhong = _qlphong.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
-                    MessageBox.Show(_qlphong.Add(pv));
+                    _qlphong.Add(pv);
+                   
                     
                 }
-
+                MessageBox.Show("Thêm phòng thành công");
             }
             else if(dls == DialogResult.No)
             {
