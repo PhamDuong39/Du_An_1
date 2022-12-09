@@ -51,15 +51,67 @@ namespace GUI.View.AddControls
                     PhongView pv = new PhongView();
                     var lstPhong = _qlphong.GetAll();
                     var lstmaPhong = _qlphong.GetAll().Select(p => p.MaPhong).ToList();
-                    if(lstmaPhong.Count == 0)
+                    if (cbb_tang.Text == "Tầng 1")
                     {
-                        pv.MaPhong = "P" + cbb_tang.Text.Substring(5, 1) + "01";
+                        var lstMaPhongTang1 = lstmaPhong.Where(p => p.Substring(1, 1) == "1");
+                        if (lstMaPhongTang1.Count() == 0)
+                        {
+                            pv.MaPhong = "P101";
+                        }
+                        else
+                        {
+                            int so = lstMaPhongTang1.Max(p => Convert.ToInt32(p.Substring(3, p.Length - 3)) + 1);
+                            if (so<= 9)
+                            {
+                                pv.MaPhong = "P10" + so;
+                            }
+                            else
+                            {
+                                pv.MaPhong = "P1" + so;
+                            }                         
+                        }
                     }
-                    else
+                    else if(cbb_tang.Text == "Tầng 2")
                     {
-                        int so = lstPhong.Max(p => Convert.ToInt32(p.MaPhong.Substring(2, p.MaPhong.Length - 2)) + 1);
-                        pv.MaPhong = "P" + cbb_tang.Text.Substring(5, 1) + so;
+                        var lstMaPhongTang2 = lstmaPhong.Where(p => p.Substring(1, 1) == "2");
+                        if (lstMaPhongTang2.Count() == 0)
+                        {
+                            pv.MaPhong = "P201";
+                        }
+                        else
+                        {
+                            int so = lstMaPhongTang2.Max(p => Convert.ToInt32(p.Substring(3, p.Length - 3)) + 1);
+                            if (so <= 9)
+                            {
+                                pv.MaPhong = "P20" + so;
+                            }
+                            else
+                            {
+                                pv.MaPhong = "P2" + so;
+                            }
+                        }
                     }
+                    else if(cbb_tang.Text == "Tầng 3")
+                    {
+                        var lstMaPhongTang3 = lstmaPhong.Where(p => p.Substring(1, 1) == "3");
+                        if (lstMaPhongTang3.Count() == 0)
+                        {
+                            pv.MaPhong = "P301";
+                        }
+                        else
+                        {
+                            int so = lstMaPhongTang3.Max(p => Convert.ToInt32(p.Substring(3, p.Length - 3)) + 1);
+                            if (so <= 9)
+                            {
+                                pv.MaPhong = "P30" + so;
+                            }
+                            else
+                            {
+                                pv.MaPhong = "P3" + so;
+                            }
+                        }
+                    }
+         
                     if (cbb_TinhTrangPhong.Text == "Phòng có khách")
                     {
                         MessageBox.Show("Bạn không thế thêm phòng với trạng thái có khách đang thuê !!");
@@ -67,10 +119,11 @@ namespace GUI.View.AddControls
                     }
                     pv.TinhTrang = cbb_TinhTrangPhong.Text == "Phòng trống" ? 0 : cbb_TinhTrangPhong.Text == "Phòng có khách" ? 1 : 2;
                     pv.IDLoaiPhong = _qlphong.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
-                    MessageBox.Show(_qlphong.Add(pv));
+                    _qlphong.Add(pv);
+                   
                     
                 }
-
+                MessageBox.Show("Thêm phòng thành công");
             }
             else if(dls == DialogResult.No)
             {
