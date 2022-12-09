@@ -352,7 +352,7 @@ namespace GUI.View.UserControls
 
             #region Tang3
             var lstPhongTang3 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "3").ToList();
-            ListItemRooms[] listItems3 = new ListItemRooms[lstPhongTang1.Count];
+            ListItemRooms[] listItems3 = new ListItemRooms[lstPhongTang3.Count];
             int count3 = 0;
             foreach (var item in lstPhongTang3)
             {

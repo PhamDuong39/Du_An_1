@@ -162,10 +162,10 @@ namespace GUI.View.AddControls
                 ptv.NgayLapPhieu = DateTime.Now;
                 ptv.IdNV = FrmMain.IdNV;
                 var lstmaPT = _iqlPTService.GetAll().Select(p => p.MaPhieuThue);
-                             
+
                 int so = lstmaPT.Max() + 1;
                 ptv.MaPhieuThue = so;
-                              
+
                 //ptv.MaPhieuThue = 1;
                 var lstKH = _iqlKHService.GetAll().FirstOrDefault(p => p.CCCD == tb_CCCDKH.Text);
                 var somkh=_iqlKHService.GetAll().OrderBy(p=>p.MaKH).Select(p=>p.MaKH).ToList();
