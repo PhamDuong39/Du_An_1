@@ -67,7 +67,7 @@ namespace GUI.View.AddControls
                 ctnv.TenCTTienNghi = tb_TenCTTNThem.Text;
                 ctnv.IDLoaiTienNghi = _iqlLoaiTNService.GetIdByName(cbb_TenLoaiTienNghi.Text);
 
-                if (cbb_MaPhong.Text=="")
+                if (cbb_MaPhong.Text=="" || cbb_MaPhong.Text == "Mã phòng")
                 {
                     ctnv.IdPhong = null;
                 }

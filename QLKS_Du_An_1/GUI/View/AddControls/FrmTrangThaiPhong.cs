@@ -1,6 +1,7 @@
 ﻿using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -179,6 +180,12 @@ namespace GUI.View.AddControls
 
         private void btn_ThemDichVu_Click(object sender, EventArgs e)
         {
+            if (cbb_TenDV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ muốn sử dụng !");
+                return;
+            }
+            
             var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
             var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
             lstDVV.Add(DVChoose);
@@ -243,7 +250,9 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã hủy thay đổi trạng thái phòng này !");
             }
-
+            //FrmPhong frmPhong = new FrmPhong();
+            //frmPhong.FrmPhong_Load(object sender, EventArgs e);
+        
         }
         private void btn_HuyLuuDV_Click(object sender, EventArgs e)
         {

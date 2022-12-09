@@ -43,7 +43,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachCTTienNghi.Columns[3].Name = "Tên Loại TN";   
             dtg_DanhSachCTTienNghi.Columns[4].Name = "Mã phòng";
 
-            foreach (var item in lst)
+            foreach (var item in lst.OrderBy(p => p.MaCTTienNghi))
             {
                 dtg_DanhSachCTTienNghi.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi, item.MaPhong);
             }

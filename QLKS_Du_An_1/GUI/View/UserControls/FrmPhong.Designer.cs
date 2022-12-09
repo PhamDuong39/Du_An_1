@@ -100,6 +100,7 @@
             // 
             // flp_PhongTang1
             // 
+            this.flp_PhongTang1.AutoScroll = true;
             this.flp_PhongTang1.Location = new System.Drawing.Point(9, 14);
             this.flp_PhongTang1.Name = "flp_PhongTang1";
             this.flp_PhongTang1.Size = new System.Drawing.Size(916, 452);
@@ -118,6 +119,7 @@
             // 
             // flp_PhongTang2
             // 
+            this.flp_PhongTang2.AutoScroll = true;
             this.flp_PhongTang2.Location = new System.Drawing.Point(9, 14);
             this.flp_PhongTang2.Name = "flp_PhongTang2";
             this.flp_PhongTang2.Size = new System.Drawing.Size(919, 450);
@@ -136,6 +138,7 @@
             // 
             // flp_PhongTang3
             // 
+            this.flp_PhongTang3.AutoScroll = true;
             this.flp_PhongTang3.Location = new System.Drawing.Point(9, 12);
             this.flp_PhongTang3.Name = "flp_PhongTang3";
             this.flp_PhongTang3.Size = new System.Drawing.Size(917, 451);
