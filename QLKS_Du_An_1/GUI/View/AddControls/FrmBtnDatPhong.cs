@@ -140,6 +140,8 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                DateTime ngayBatDau = dtp_NgayBatDau.Value;
+                DateTime NgayKetThuc = dtp_NgayKetThuc.Value;
                 if(val.CheckCCCD(tb_CCCDKH.Text)==false)
                 {
                 MessageBox.Show("Số CCCD không hợp lệ vui lòng nhập lại","Thông báo");
@@ -156,6 +158,10 @@ namespace GUI.View.AddControls
                 {
                 MessageBox.Show("Vui lòng chọn phòng để đặt", "Thông báo");
                 return;
+                } else if ((NgayKetThuc - ngayBatDau).TotalHours <= 1)
+                {
+                    MessageBox.Show("Ngày nhận phải lớn hơn ngày trả !");
+                    return;
                 }
                 
                 PhieuThueView ptv = new PhieuThueView();
@@ -364,6 +370,13 @@ namespace GUI.View.AddControls
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTime ngayBatDau = dtp_NgayBatDau.Value;
+            DateTime NgayKetThuc = dtp_NgayKetThuc.Value;
+            if ((NgayKetThuc - ngayBatDau).TotalHours <= 1)
+            {
+                MessageBox.Show("Ngày nhận phải lớn hơn ngày trả !");
+                return;
+            }
             take_empty_room();
         }
 

@@ -17,15 +17,24 @@ namespace DAL.Repositories
         }
         public bool Add(HoaDon obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                if (_db.HoaDons.FirstOrDefault(c => c.MaHD == obj.MaHD) != null) return false;
+                obj.Id = Guid.NewGuid();
+                _db.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            if (_db.HoaDons.FirstOrDefault(c => c.MaHD == obj.MaHD) != null) return false;
-            obj.Id = Guid.NewGuid();
-            _db.Add(obj);
-            _db.SaveChanges();
-            return true;
+           
         }
 
         public List<HoaDon> GetAll()
