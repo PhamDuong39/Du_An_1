@@ -46,7 +46,7 @@ namespace GUI.View.AddControls
             DialogResult dls = MessageBox.Show("Bạn có muốn thêm nhũng phòng này không ?","Trả Lời",MessageBoxButtons.YesNo);
             if(dls == DialogResult.Yes)
             {
-                for(int x = 0; x < Convert.ToInt32(tb_SoLuongThem.Text) - 1; x++)
+                for(int x = 0; x < Convert.ToInt32(tb_SoLuongThem.Text) ; x++)
                 {
                     PhongView pv = new PhongView();
                     var lstPhong = _qlphong.GetAll();
@@ -67,7 +67,8 @@ namespace GUI.View.AddControls
                             }
                             else
                             {
-                                pv.MaPhong = "P1" + so;
+                                int SoLon = lstMaPhongTang1.Max(p => Convert.ToInt32(p.Substring(2, p.Length - 2)) + 1);
+                                pv.MaPhong = "P1" + SoLon;
                             }                         
                         }
                     }
@@ -87,7 +88,8 @@ namespace GUI.View.AddControls
                             }
                             else
                             {
-                                pv.MaPhong = "P2" + so;
+                                int SoLon = lstMaPhongTang2.Max(p => Convert.ToInt32(p.Substring(2, p.Length - 2)) + 1);
+                                pv.MaPhong = "P2" + SoLon;
                             }
                         }
                     }
@@ -99,7 +101,7 @@ namespace GUI.View.AddControls
                             pv.MaPhong = "P301";
                         }
                         else
-                        {
+                        {// P310
                             int so = lstMaPhongTang3.Max(p => Convert.ToInt32(p.Substring(3, p.Length - 3)) + 1);
                             if (so <= 9)
                             {
@@ -107,9 +109,11 @@ namespace GUI.View.AddControls
                             }
                             else
                             {
-                                pv.MaPhong = "P3" + so;
+                                int SoLon = lstMaPhongTang3.Max(p => Convert.ToInt32(p.Substring(2, p.Length - 2)) + 1);
+                                pv.MaPhong = "P3" + SoLon;
                             }
                         }
+
                     }
          
                     if (cbb_TinhTrangPhong.Text == "Phòng có khách")
