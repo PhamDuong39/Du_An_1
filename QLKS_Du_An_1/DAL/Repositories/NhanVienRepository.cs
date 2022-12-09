@@ -17,11 +17,19 @@ namespace DAL.Repositories
         }
         public bool Add(NhanVien obj)
         {
-            if (obj == null) return false;
-            obj.ID = Guid.NewGuid();
-            _dbContext.NhanViens.Add(obj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                obj.ID = Guid.NewGuid();
+                _dbContext.NhanViens.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public List<NhanVien> GetAll()

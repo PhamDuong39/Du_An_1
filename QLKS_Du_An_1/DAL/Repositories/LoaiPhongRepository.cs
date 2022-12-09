@@ -16,16 +16,24 @@ namespace DAL.Repositories
         }
         public bool Add(LoaiPhong obj)
         {
-            
+
+            try
+            {
                 if (obj == null)
                 {
                     return false;
                 }
-                
+
                 obj.ID = Guid.NewGuid();
                 _Db.Add(obj);
                 _Db.SaveChanges();
                 return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
             
         }
 
