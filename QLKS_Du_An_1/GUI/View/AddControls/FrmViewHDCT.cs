@@ -216,7 +216,7 @@ namespace GUI.View.AddControls
         {
             foreach(var item in _lstHoaDon)
             {
-                e.Graphics.DrawString("\t\t\t Hóa Đơn", new Font("Arial", 20, FontStyle.Bold), Brushes.Green, new Point(10, 10));
+                e.Graphics.DrawString("\t\t Hóa Đơn", new Font("Arial", 30, FontStyle.Bold), Brushes.Green, new Point(10, 10));
                 
                 e.Graphics.DrawString("\t Address : Cao đăng FPT PolyTechnic,Trịnh Văn Bô,Xuân Phương, Nam Từ Liêm, Hà Nội", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new Point(10, 80));
                 
@@ -224,25 +224,36 @@ namespace GUI.View.AddControls
                 
                 e.Graphics.DrawString("\t Thu Ngân : " + item.TenNV + "\t\tNgày Kết Thúc : " + item.NgayKetThuc, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 220));
                 
-                e.Graphics.DrawString("\t Tên Khách Hàng : " + item.TenKH + "\t\tNgày Thanh Toán : " + DateTime.Now, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 290));
+                e.Graphics.DrawString("\t Tên Khách Hàng : " + item.TenKH + "\t\tNgày Thanh Toán : " + item.NgayTT, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 290));
                 
                 e.Graphics.DrawString("\t Số Phòng Thuê : " + item.MaPhong , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 360));
-                e.Graphics.DrawString($"\t Tên \t|| \t Đơn Giá \t|| \t Số Lượng \t||\t Số Tiền" , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 430));
+                e.Graphics.DrawString($"\t\t\tTên             \t|| \t Đơn Giá \t || \t Số Lượng \t||\t Số Tiền" , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 430));
+                e.Graphics.DrawString("\t\t         --------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 460));
 
-                
-                foreach(var x in _lstGiaPhong)
+                //foreach (var x in _lstGiaPhong)
+                //{
+                //    e.Graphics.DrawString("\t\t          " + x.TenLoaiPhong + "\t       "  + x.GiaNgay + "\t\t\t      "  + SoNgayThue + "\t\t             " +  tienPhong  , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, 500));
+                //}
+                //int z = 540;
+                //foreach (var y in _lstHoaDonCT)
+                //{
+
+                //    e.Graphics.DrawString("\t\t          " + y.TenDichVu + "\t\t       " +  y.DonGia + "\t\t\t      " + y.SoLuongDichVu + "\t\t             " + y.DonGia , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, z));
+                //    z += 40;
+                //}
+                foreach (var x in _lstGiaPhong)
                 {
-                    e.Graphics.DrawString(x.TenLoaiPhong + "\t\t"  + x.GiaNgay + "\t\t\t"  + SoNgayThue + "\t\t\t" +  tienPhong, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, 500));
+                    e.Graphics.DrawString($"\t\t          {x.TenLoaiPhong}\t       {x.GiaNgay}\t\t\t      {SoNgayThue}\t\t             {tienPhong}"  , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, 500));
                 }
-                int z = 570;
+                int z = 540;
                 foreach (var y in _lstHoaDonCT)
                 {
-                    
-                    e.Graphics.DrawString( y.TenDichVu + "\t\t" +  y.DonGia + "\t\t\t" + y.SoLuongDichVu + "\t\t\t" + y.DonGia , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, z));
-                    z += 70;
-                }
 
-                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() , new Font("Arial",20,FontStyle.Regular), Brushes.Black, new Point(10, 500 + _lstGiaPhong.Count * 70+ _lstHoaDonCT.Count*70 + 70));
+                    e.Graphics.DrawString($"\t\t          {y.TenDichVu}\t\t       { y.DonGia}\t\t\t      { y.SoLuongDichVu}\t\t             {y.DonGia}" , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, z));
+                    z += 40;
+                }
+                e.Graphics.DrawString("\t\t         --------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40 + _lstHoaDonCT.Count * 40 ));
+                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " Đồng", new Font("Arial",25,FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40+ _lstHoaDonCT.Count*40 + 40));
 
 
                 
