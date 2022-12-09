@@ -18,16 +18,24 @@ namespace DAL.Repositories
         }
         public bool Add(TaiKhoan obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    obj.ID = Guid.NewGuid();
+                    _DbContext.TaiKhoans.Add(obj);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                obj.ID = Guid.NewGuid();
-                _DbContext.TaiKhoans.Add(obj);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
 
