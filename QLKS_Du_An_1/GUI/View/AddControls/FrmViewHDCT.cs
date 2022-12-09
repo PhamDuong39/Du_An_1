@@ -253,7 +253,7 @@ namespace GUI.View.AddControls
                     z += 40;
                 }
                 e.Graphics.DrawString("\t\t         --------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40 + _lstHoaDonCT.Count * 40 ));
-                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " Đồng", new Font("Arial",25,FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40+ _lstHoaDonCT.Count*40 + 40));
+                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " VNĐ", new Font("Arial",25,FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40+ _lstHoaDonCT.Count*40 + 40));
 
 
                 
