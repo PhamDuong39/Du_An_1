@@ -62,31 +62,47 @@ namespace DAL.Repositories
 
         public bool Upadate(Phong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
+                x.MaPhong = obj.MaPhong;
+                x.TinhTrang = obj.TinhTrang;
+                x.IDLoaiPhong = obj.IDLoaiPhong;
+
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
-            x.MaPhong = obj.MaPhong;
-            x.TinhTrang = obj.TinhTrang;
-            x.IDLoaiPhong = obj.IDLoaiPhong;
-          
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
 
         public bool UpdateTrangThaiPhong(Phong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
+                x.TinhTrang = obj.TinhTrang;
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id); 
-            x.TinhTrang = obj.TinhTrang;
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }

@@ -56,17 +56,25 @@ namespace DAL.Repositories
 
         public bool Upadate(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                if (indext == null) return false;
+                indext.MaCV = obj.MaCV;
+                indext.TenCV = obj.TenCV;
+                _db.ChucVus.Update(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
-            if (indext == null) return false;
-            indext.MaCV = obj.MaCV;
-            indext.TenCV = obj.TenCV;
-            _db.ChucVus.Update(indext);
-            _db.SaveChanges();
-            return true;
         }
     }
 }
