@@ -17,11 +17,20 @@ namespace DAL.Repositories
         }
         public bool Add(LoaiDichVu obj)
         {
-            if (obj == null) return false;
+            try
+            {
+                if (obj == null) return false;
+
+                _dbContext.LoaiDichVus.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
             
-            _dbContext.LoaiDichVus.Add(obj);
-            _dbContext.SaveChanges();
-            return true;
         }
 
         public List<LoaiDichVu> GetAll()

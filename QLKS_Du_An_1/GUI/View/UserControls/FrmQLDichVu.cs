@@ -51,7 +51,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachDichVu.Columns[5].Name = "Tên loại dịch vụ";
 
 
-            foreach (var x in lst)
+            foreach (var x in lst.OrderBy(p => p.MaDichVu))
             {
                 dtg_DanhSachDichVu.Rows.Add(x.Id,x.MaDichVu,x.TenDichVu,x.Gia,x.IDLoaiDichVu,x.TenLoaiDV);
             }

@@ -53,7 +53,9 @@ namespace GUI.View.UserControls
         public double TongTienThang(int Month,int Year)
         {
             double i = 0;
-            foreach (var x in _qlHoadon.GetListHD(Guid.Empty).Where(c=>c.NgayTT.Value.Month == Month && c.TrangThai == 1 && c.NgayTT.Value.Year == Year))
+
+            foreach (var x in _qlHoadon.GetListHD(Guid.Empty).Where(c=> c.TrangThai == 1 && c.NgayTT.Value.Month == Month &&  c.NgayTT.Value.Year == Year))
+
             {
                 i += TinhTienThanhToan(x.Id);
             }
