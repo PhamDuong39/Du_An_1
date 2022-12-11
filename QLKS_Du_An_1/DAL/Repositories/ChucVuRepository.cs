@@ -17,15 +17,24 @@ namespace DAL.Repositories
         }
         public bool Add(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                if (_db.ChucVus.FirstOrDefault(c => c.MaCV == obj.MaCV) != null) return false;
+                obj.ID = Guid.NewGuid();
+                _db.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            if (_db.ChucVus.FirstOrDefault(c => c.MaCV == obj.MaCV) != null) return false;
-            obj.ID = Guid.NewGuid();
-            _db.Add(obj);
-            _db.SaveChanges();
-            return true;
+           
         }
 
         public List<ChucVu> GetAll()

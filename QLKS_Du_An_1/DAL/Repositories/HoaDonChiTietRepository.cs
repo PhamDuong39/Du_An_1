@@ -18,16 +18,25 @@ namespace DAL.Repositories
         }
         public bool Add(HoaDonChiTiet obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    _dbContext.HoaDonChiTiets.Add(obj);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            else
-            {
-                _dbContext.HoaDonChiTiets.Add(obj);
-                _dbContext.SaveChanges();
-                return true;
-            }
+       
         }
 
         public List<HoaDonChiTiet> GetAll()

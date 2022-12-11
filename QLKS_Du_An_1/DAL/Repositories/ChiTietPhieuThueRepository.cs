@@ -19,16 +19,24 @@ namespace DAL.Repositories
         }
         public bool Add(ChiTietPhieuThue obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    obj.ID = Guid.NewGuid();
+                    _DbContext.ChiTietPhieuThues.Add(obj);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                obj.ID = Guid.NewGuid();
-                _DbContext.ChiTietPhieuThues.Add(obj);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
 

@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using BUS.Ultilities;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge;
+using ZXing;
 
 namespace GUI.View.AddControls
 {
@@ -30,7 +34,8 @@ namespace GUI.View.AddControls
         private List<PhongView> list_phong_trong;
 
         public TimeSpan oneHour = new TimeSpan(1, 0, 0);
-
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice captureDevice;
 
         private List<PhongView> lstRoomChoosen;
         public FrmBtnDatPhong(send_pt send)
@@ -140,6 +145,8 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đặt phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                DateTime ngayBatDau = dtp_NgayBatDau.Value;
+                DateTime NgayKetThuc = dtp_NgayKetThuc.Value;
                 if(val.CheckCCCD(tb_CCCDKH.Text)==false)
                 {
                 MessageBox.Show("Số CCCD không hợp lệ vui lòng nhập lại","Thông báo");
@@ -156,6 +163,10 @@ namespace GUI.View.AddControls
                 {
                 MessageBox.Show("Vui lòng chọn phòng để đặt", "Thông báo");
                 return;
+                } else if ((NgayKetThuc - ngayBatDau).TotalHours <= 1)
+                {
+                    MessageBox.Show("Ngày nhận phải lớn hơn ngày trả !");
+                    return;
                 }
                 
                 PhieuThueView ptv = new PhieuThueView();
@@ -230,13 +241,7 @@ namespace GUI.View.AddControls
             _send(_iqlPTService.GetAll());
         }
 
-        private void FrmBtnDatPhong_Load(object sender, EventArgs e)
-        {
-            dtp_NgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtp_NgayBatDau.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
-            dtp_NgayKetThuc.Format = DateTimePickerFormat.Custom;
-            dtp_NgayKetThuc.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
-        }
+   
 
         private void dtg_DSPhongDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -364,6 +369,13 @@ namespace GUI.View.AddControls
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTime ngayBatDau = dtp_NgayBatDau.Value;
+            DateTime NgayKetThuc = dtp_NgayKetThuc.Value;
+            if ((NgayKetThuc - ngayBatDau).TotalHours <= 1)
+            {
+                MessageBox.Show("Ngày nhận phải lớn hơn ngày trả !");
+                return;
+            }
             take_empty_room();
         }
 
@@ -376,5 +388,112 @@ namespace GUI.View.AddControls
         {
             this.Close();
         }
+
+        // Cai thu vien Aforce  va zxing 
+        // aforce de doc video
+        // zxing de decode tu img sang string
+
+        private void FrmBtnDatPhong_Load(object sender, EventArgs e)
+        {
+            dtp_NgayBatDau.Format = DateTimePickerFormat.Custom;
+            dtp_NgayBatDau.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
+            dtp_NgayKetThuc.Format = DateTimePickerFormat.Custom;
+            dtp_NgayKetThuc.CustomFormat = "MM'/'dd'/'yyyy hh':'mm tt";
+
+            // Tìm kiếm web cam , Thêm tên của web cam vào combobox
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            foreach (FilterInfo item in filterInfoCollection)
+            {
+                cbb_CameraName.Items.Add(item.Name);
+            }
+            cbb_CameraName.SelectedIndex = 0;
+            //captureDevice = new VideoCaptureDevice();
+        }
+
+        private void btn_OpenFormScanCCCD_Click(object sender, EventArgs e)
+        {
+            // Tạo 1 frame sự kiện mới cho phép cập nhật img scan từ web cam vào Picture box
+            if (tb_TextInfor.Text != "")
+            {
+                MessageBox.Show("Vui lòng mở lại form để có thể thay đổi thông tin scan !!");
+                return;
+            }
+            captureDevice = new VideoCaptureDevice(filterInfoCollection[cbb_CameraName.SelectedIndex].MonikerString);
+            captureDevice.NewFrame += CaptureDevice_NewFrame;
+            captureDevice.Start();
+            TimeResetCam.Start();   
+        }
+
+        private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+           pb_CamScan.Image = (Bitmap)eventArgs.Frame.Clone();
+
+        }
+
+        private void FrmBtnDatPhong_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //captureDevice.Stop();
+            //Đóng cam khi form đóng
+
+            if (captureDevice != null)
+            {
+                if (captureDevice.IsRunning == true)
+                {
+                    captureDevice.SignalToStop();
+                    captureDevice = null;
+                }
+            }
+        }
+
+        private void TimeResetCam_Tick(object sender, EventArgs e)
+        {
+            // Reset Img qr code từ web cam mỗi lần 1 s
+            // 1s có thể quét lại đc
+            if (pb_CamScan.Image != null)
+            {
+                BarcodeReader barcodeReader = new BarcodeReader();
+                Result result = barcodeReader.Decode((Bitmap)pb_CamScan.Image);
+                if (result != null)
+                {
+                    tb_TextInfor.Text = result.ToString();
+                    TimeResetCam.Stop();
+                    try
+                    {
+                        if (captureDevice != null)
+                        {
+                            if (captureDevice.IsRunning == true)
+                            {
+                                captureDevice.SignalToStop();
+                                captureDevice = null;
+                            }
+                        }
+                    }
+                    catch (Exception a)
+                    {
+
+                        MessageBox.Show(a + "");
+                    }
+                }
+            }     
+
+        }
+
+        private void tb_TextInfor_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_TextInfor.Text == "" )
+            {
+                return;
+            }
+            // 001203048325||Phạm Ánh Dương|30092003|Nam|2/25/98C phố Hữu Nghị, Xuân Khanh,Sơn Tây,Hà Nội|08022021
+            string InforCus = tb_TextInfor.Text;
+            string[] lstCharInforCus =  InforCus.Split('|');
+            tb_CCCDKH.Text = lstCharInforCus[0];
+            tb_TenKH.Text = lstCharInforCus[2];
+            cbb_GioiTinhKH.Text = lstCharInforCus[4];
+            string DiaChi = lstCharInforCus[5];
+            string[] lstCharDiaChi = DiaChi.Split(',');
+            tb_DiaChiKH.Text = lstCharDiaChi[lstCharDiaChi.Length - 1];
+        }    
     }
 }
