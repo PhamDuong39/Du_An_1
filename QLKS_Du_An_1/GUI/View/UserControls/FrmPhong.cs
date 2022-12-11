@@ -430,7 +430,25 @@ namespace GUI.View.UserControls
                     pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
-                }                
+                }
+                else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
+                {
+                    PhongView pv = new PhongView();
+                    pv.Id = item.Id;
+                    pv.MaPhong = item.MaPhong;
+                    pv.IDLoaiPhong = item.IDLoaiPhong;
+                    pv.TinhTrang = 3;
+                    _iqlPhongService.Update(pv);
+                }
+                else if (now - lstCTPT.NgayBatDau > oneHour)
+                {
+                    PhongView pv = new PhongView();
+                    pv.Id = item.Id;
+                    pv.MaPhong = item.MaPhong;
+                    pv.IDLoaiPhong = item.IDLoaiPhong;
+                    pv.TinhTrang = 1;
+                    _iqlPhongService.Update(pv);
+                }
             }
             LoadItemRooms();
         }
