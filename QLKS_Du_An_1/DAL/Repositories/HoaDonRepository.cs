@@ -65,17 +65,25 @@ namespace DAL.Repositories
 
         public bool Upadate(HoaDon obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                if (indext == null) return false;
+                indext.TrangThai = obj.TrangThai;
+                indext.NgayTT = obj.NgayTT;
+                _db.Update(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.Id == obj.Id);
-            if (indext == null) return false;
-            indext.TrangThai = obj.TrangThai;
-            indext.NgayTT = obj.NgayTT;
-            _db.Update(indext);
-            _db.SaveChanges();
-            return true;
         }
     }
 }

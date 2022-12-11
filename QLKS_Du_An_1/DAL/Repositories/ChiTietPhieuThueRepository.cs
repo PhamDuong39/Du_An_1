@@ -71,20 +71,28 @@ namespace DAL.Repositories
 
         public bool Upadate(ChiTietPhieuThue obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                    ctpt.IdPhieuThue = obj.IdPhieuThue;
+                    ctpt.IdPhong = obj.IdPhong;
+                    ctpt.NgayBatDau = obj.NgayBatDau;
+                    ctpt.NgayKetThuc = obj.NgayKetThuc;
+                    _DbContext.ChiTietPhieuThues.Update(ctpt);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                var ctpt = _DbContext.ChiTietPhieuThues.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                ctpt.IdPhieuThue = obj.IdPhieuThue;
-                ctpt.IdPhong = obj.IdPhong;
-                ctpt.NgayBatDau = obj.NgayBatDau;
-                ctpt.NgayKetThuc = obj.NgayKetThuc;
-                _DbContext.ChiTietPhieuThues.Update(ctpt);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
     }
