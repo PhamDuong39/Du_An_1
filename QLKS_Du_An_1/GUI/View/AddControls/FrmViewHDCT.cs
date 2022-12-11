@@ -248,31 +248,31 @@ namespace GUI.View.AddControls
 
                     e.Graphics.DrawString($"{y.TenLoaiPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(100, z));
                     
-                    e.Graphics.DrawString($"{y.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z));
+                    e.Graphics.DrawString($"{y.GiaNgay}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z));
                     
-                    e.Graphics.DrawString($"{y.SoLuongDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z));
+                    e.Graphics.DrawString($"{SoNgayThue}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z));
                     
-                    e.Graphics.DrawString($"{y.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z));
+                    e.Graphics.DrawString($"{tienPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z));
 
-                    Point point5 = new Point(50, point1.Y + 16);
-                    Point point6 = new Point(800, point2.Y + 16);
+                    Point point5 = new Point(50, point1.Y + 65);
+                    Point point6 = new Point(800, point2.Y + 65);
                     e.Graphics.DrawLine(p, point5, point6);
                     z += 26;
                 }
                 foreach (var x in _lstHoaDonCT)
                 {
 
-                    e.Graphics.DrawString($"{x.TenDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(100, z + _lstGiaPhong.Count * 26));
+                    e.Graphics.DrawString($"{x.TenDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(100, z +  25));
 
-                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z + _lstGiaPhong.Count * 26));
+                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z +  25));
 
-                    e.Graphics.DrawString($"{x.SoLuongDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z + _lstGiaPhong.Count * 26));
+                    e.Graphics.DrawString($"{x.SoLuongDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z +  25));
 
-                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z + _lstGiaPhong.Count * 26));
-                    Point point7 = new Point(50, z + _lstGiaPhong.Count * 26 + 16);
-                    Point point8 = new Point(800, z + _lstGiaPhong.Count * 26 + 16);
+                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z + 25));
+                    Point point7 = new Point(50, z  + 50);
+                    Point point8 = new Point(800, z + 50);
                     e.Graphics.DrawLine(p, point7, point8);
-                    z += 26;
+                    z += 50;
                 }
 
 
@@ -293,7 +293,7 @@ namespace GUI.View.AddControls
                 //    z += 40;
                 //}
                 //e.Graphics.DrawString("\t\t         --------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40 + _lstHoaDonCT.Count * 40 ));
-                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " VNĐ", new Font("Arial", 25, FontStyle.Regular), Brushes.Red, new Point(10, z + _lstGiaPhong.Count * 40 + _lstHoaDonCT.Count * 40 + 40));
+                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " VNĐ", new Font("Arial", 25, FontStyle.Regular), Brushes.Red, new Point(10, z + _lstGiaPhong.Count * 25 + _lstHoaDonCT.Count * 25 + 25));
 
 
 
