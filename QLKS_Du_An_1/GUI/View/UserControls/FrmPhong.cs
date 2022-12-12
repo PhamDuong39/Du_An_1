@@ -420,7 +420,7 @@ namespace GUI.View.UserControls
                 var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
                 if (lstCTPT == null)
                 {
-                    
+                    MessageBox.Show("TH1");
                 }
                 else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
                 {
@@ -430,7 +430,9 @@ namespace GUI.View.UserControls
                     pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
+                    MessageBox.Show("TH2");
                 }
+                // need check
                 else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
                 {
                     PhongView pv = new PhongView();
@@ -439,16 +441,20 @@ namespace GUI.View.UserControls
                     pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
+                    MessageBox.Show("TH3");
                 }
-                else if (now - lstCTPT.NgayBatDau > oneHour)
-                {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 1;
-                    _iqlPhongService.Update(pv);
-                }
+                //else if (now - lstCTPT.NgayBatDau > oneHour)
+                //{
+
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.Id;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                //    pv.TinhTrang = 1;
+                //    _iqlPhongService.Update(pv);
+
+                  
+                //}
             }
             LoadItemRooms();
         }
@@ -472,6 +478,16 @@ namespace GUI.View.UserControls
 
                     }
                     else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
+                    {
+                        PhongView pv = new PhongView();
+                        pv.Id = item.Id;
+                        pv.MaPhong = item.MaPhong;
+                        pv.IDLoaiPhong = item.IDLoaiPhong;
+                        pv.TinhTrang = 3;
+                        _iqlPhongService.Update(pv);
+                    }
+                    // need check
+                    else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
                     {
                         PhongView pv = new PhongView();
                         pv.Id = item.Id;

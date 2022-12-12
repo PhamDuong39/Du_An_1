@@ -22,6 +22,7 @@ namespace GUI.View.AddControls
         public IQLChiTietPhieuThueService _iqlCTPTService;
         public IHoaDonService _iqlHDService;
         public IPhongService _iqlPhongService;
+        
         public int GiaTienTraPhongMuon = 50000;
         double SoNgayThue = 0;
         double tienPhong = 0;
@@ -192,7 +193,8 @@ namespace GUI.View.AddControls
                     hdv.IdCTPhieuThue = item.IdCTPhieuThue;
                     hdv.NgayTT = item.NgayTT;
                     hdv.TrangThai = 1;
-                    MessageBox.Show(_iqlHDService.Update(hdv));
+                    _iqlHDService.Update(hdv);
+                    //MessageBox.Show(_iqlHDService.Update(hdv));
                    // MessageBox.Show(_iqlHDService.Update(_lstHoaDon.FirstOrDefault(c => c.Id == item.Id)));
 
                     PhongView pv = new PhongView();
@@ -200,7 +202,21 @@ namespace GUI.View.AddControls
                     pv.MaPhong = item.MaPhong;
                     pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == item.MaPhong).IDLoaiPhong;
                     pv.TinhTrang = 2;
-                    MessageBox.Show(_iqlPhongService.Update(pv));
+                    _iqlPhongService.Update(pv);
+                    //MessageBox.Show(_iqlPhongService.Update(pv));
+
+                    ChiTietPhieuThueView ctptview = new ChiTietPhieuThueView();
+                    ctptview.ID = item.IdCTPhieuThue;
+                    ctptview.NgayBatDau = item.NgayBatDau;
+                    ctptview.NgayKetThuc = DateTime.Now;
+                    ctptview.IdPhong = item.IdPhong;
+                    //ctptview.IdPhieuThue = _;
+                    //MessageBox.Show(_iqlCTPTService.Update(ctptview));
+                    //_iqlCTPTService.Update(ctptview);
+                    MessageBox.Show(item.IdCTPhieuThue.ToString());
+                    MessageBox.Show("Thanh toán thành công");
+
+
                 }
                 
                 
