@@ -69,18 +69,26 @@ namespace DAL.Repositories
 
         public bool Upadate(HoaDonChiTiet obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
+                    hdct.SoLuong = obj.SoLuong;
+                    hdct.DonGia = obj.DonGia;
+                    _dbContext.HoaDonChiTiets.Update(hdct);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
-                hdct.SoLuong = obj.SoLuong;
-                hdct.DonGia = obj.DonGia;
-                _dbContext.HoaDonChiTiets.Update(hdct);
-                _dbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
     }

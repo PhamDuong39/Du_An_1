@@ -98,7 +98,7 @@ namespace GUI.View.UserControls
                 btnsualtn.MaDichVu = MaDichVuSelected;
                 btnsualtn.TenDichVu = TenDichVuSelected;
                 btnsualtn.Gia = GiaSelected;
-                btnsualtn.IDLoaiDichVu = IdDichVuSelected;
+                btnsualtn.IDLoaiDichVu = IDLoaiDichVuSelected;
                 btnsualtn.TenLoaiDV = TenLoaiDichVuSelected;
                 btnsualtn.ShowDialog();
             }

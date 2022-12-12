@@ -63,16 +63,24 @@ namespace DAL.Repositories
 
         public bool Upadate(LoaiTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
+                x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
+                x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
+                _Db.LoaiTienNghis.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
-            x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
-            x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
-            _Db.LoaiTienNghis.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }
