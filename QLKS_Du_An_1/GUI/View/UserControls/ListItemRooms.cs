@@ -13,10 +13,12 @@ namespace GUI.View.UserControls
 {
     public partial class ListItemRooms : UserControl
     {
-        public ListItemRooms()
+        public FrmPhong _main;
+        public ListItemRooms(FrmPhong main)
         {
             InitializeComponent();
             lb_IdRoom.Visible = false;
+            _main = main;
         }
 
         public string IdPhong
@@ -65,7 +67,7 @@ namespace GUI.View.UserControls
             //MessageBox.Show("" + IdPhong);
             //MessageBox.Show("" + IdPTCT);
             
-            FrmTrangThaiPhong ttPhong = new FrmTrangThaiPhong();
+            FrmTrangThaiPhong ttPhong = new FrmTrangThaiPhong(_main);
             ttPhong.MaPhong = MaPhong;
             ttPhong.TenKH = TenKH;
             ttPhong.IdPTCT = IdPTCT;

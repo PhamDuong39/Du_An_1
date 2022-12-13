@@ -33,16 +33,17 @@ namespace GUI.View.UserControls
             _iqlListRoomService = new QLListItemRoomViewService();
             _iqlPTService = new QLPhieuThueService();
             _iqlCTPTService = new QLChiTietPhieuThueService();
-
+            LoadItemRooms_search(_iqlPhongService.GetAll());
  
         }
 
         public void FrmPhong_Load(object sender, EventArgs e)
         {
             LoadItemRooms();
+            LoadItemRooms_search(_iqlPhongService.GetAll());
         }
 
-        private void LoadItemRooms_search(List<PhongView> Listphong)
+        public void LoadItemRooms_search(List<PhongView> Listphong)
         {
             #region Tang1
             var lstPhongTang1 = Listphong.Where(p => p.MaPhong.Substring(1, 1) == "1").ToList();
@@ -53,7 +54,7 @@ namespace GUI.View.UserControls
             flp_PhongTang3.Controls.Clear();
             foreach (var item in lstPhongTang1)
             {
-                listItems1[count1] = new ListItemRooms();
+                listItems1[count1] = new ListItemRooms(this);
                 listItems1[count1].MaPhong = item.MaPhong;
                 listItems1[count1].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems1[count1].IdPhong = Convert.ToString(item.Id);
@@ -112,7 +113,7 @@ namespace GUI.View.UserControls
             int count2 = 0;
             foreach (var item in lstPhongTang2)
             {
-                listItems2[count2] = new ListItemRooms();
+                listItems2[count2] = new ListItemRooms(this);
                 listItems2[count2].MaPhong = item.MaPhong;
                 listItems2[count2].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems2[count2].IdPhong = Convert.ToString(item.Id);
@@ -172,7 +173,7 @@ namespace GUI.View.UserControls
             int count3 = 0;
             foreach (var item in lstPhongTang3)
             {
-                listItems3[count3] = new ListItemRooms();
+                listItems3[count3] = new ListItemRooms(this);
                 listItems3[count3].MaPhong = item.MaPhong;
                 listItems3[count3].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems3[count3].IdPhong = Convert.ToString(item.Id);
@@ -237,7 +238,7 @@ namespace GUI.View.UserControls
             flp_PhongTang3.Controls.Clear();
             foreach (var item in lstPhongTang1.OrderBy(p => p.MaPhong))
             {
-                listItems1[count1] = new ListItemRooms();
+                listItems1[count1] = new ListItemRooms(this);
                 listItems1[count1].MaPhong = item.MaPhong;
                 listItems1[count1].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems1[count1].IdPhong = Convert.ToString(item.Id);
@@ -296,7 +297,7 @@ namespace GUI.View.UserControls
             int count2 = 0;
             foreach (var item in lstPhongTang2.OrderBy(p => p.MaPhong))
             {
-                listItems2[count2] = new ListItemRooms();
+                listItems2[count2] = new ListItemRooms(this);
                 listItems2[count2].MaPhong = item.MaPhong;
                 listItems2[count2].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems2[count2].IdPhong = Convert.ToString(item.Id);
@@ -356,7 +357,7 @@ namespace GUI.View.UserControls
             int count3 = 0;
             foreach (var item in lstPhongTang3.OrderBy(p => p.MaPhong))
             {
-                listItems3[count3] = new ListItemRooms();
+                listItems3[count3] = new ListItemRooms(this);
                 listItems3[count3].MaPhong = item.MaPhong;
                 listItems3[count3].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems3[count3].IdPhong = Convert.ToString(item.Id);
