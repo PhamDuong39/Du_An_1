@@ -24,53 +24,69 @@ namespace BUS.Services
         }
         public string Add(NhanVienView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var NhanVienNew = new NhanVien()
+                if (obj == null)
                 {
-                    ID = obj.ID,
-                    MaNV = obj.MaNV,
-                    TenNV = obj.TenNV,
-                    NgaySinh = obj.NgaySinh,
-                    GioiTinh = obj.GioiTinh,
-                    DiaChi = obj.DiaChi,
-                    SDT = obj.SDT,
-                    CCCD = obj.CCCD,
-                    Luong = obj.Luong,
-                    IDCv = obj.IDCv,
-                };
-                if (_iNhanVienRepository.Add(NhanVienNew))
-                {
-                    return "Thêm thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Thêm thất bại";
+                    var NhanVienNew = new NhanVien()
+                    {
+                        ID = obj.ID,
+                        MaNV = obj.MaNV,
+                        TenNV = obj.TenNV,
+                        NgaySinh = obj.NgaySinh,
+                        GioiTinh = obj.GioiTinh,
+                        DiaChi = obj.DiaChi,
+                        SDT = obj.SDT,
+                        CCCD = obj.CCCD,
+                        Luong = obj.Luong,
+                        IDCv = obj.IDCv,
+                    };
+                    if (_iNhanVienRepository.Add(NhanVienNew))
+                    {
+                        return "Thêm thành công";
+                    }
+                    else
+                    {
+                        return "Thêm thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Thêm thất bại";
             }
         }
 
         public string Delete(NhanVienView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var NhanVienNew = _iNhanVienRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                if (_iNhanVienRepository.Remove(NhanVienNew))
+                if (obj == null)
                 {
-                    return "Xóa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Xóa thất bại";
+                    var NhanVienNew = _iNhanVienRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    if (_iNhanVienRepository.Remove(NhanVienNew))
+                    {
+                        return "Xóa thành công";
+                    }
+                    else
+                    {
+                        return "Xóa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Xóa thất bại";
             }
         }
 
@@ -124,33 +140,41 @@ namespace BUS.Services
 
         public string Update(NhanVienView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var NhanVienNew = _iNhanVienRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                NhanVienNew.MaNV = obj.MaNV;
-                NhanVienNew.TenNV = obj.TenNV;
-                NhanVienNew.NgaySinh = obj.NgaySinh;
-                NhanVienNew.GioiTinh = obj.GioiTinh;
-                NhanVienNew.DiaChi = obj.DiaChi;
-                NhanVienNew.SDT = obj.SDT;
-                NhanVienNew.CCCD = obj.CCCD;
-                NhanVienNew.Luong = obj.Luong;
-                NhanVienNew.IDCv = obj.IDCv;
-                if (_iNhanVienRepository.Upadate(NhanVienNew))
+                if (obj == null)
                 {
-                    return "Sửa thành công";
-
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Sửa thất bại";
+                    var NhanVienNew = _iNhanVienRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    NhanVienNew.MaNV = obj.MaNV;
+                    NhanVienNew.TenNV = obj.TenNV;
+                    NhanVienNew.NgaySinh = obj.NgaySinh;
+                    NhanVienNew.GioiTinh = obj.GioiTinh;
+                    NhanVienNew.DiaChi = obj.DiaChi;
+                    NhanVienNew.SDT = obj.SDT;
+                    NhanVienNew.CCCD = obj.CCCD;
+                    NhanVienNew.Luong = obj.Luong;
+                    NhanVienNew.IDCv = obj.IDCv;
+                    if (_iNhanVienRepository.Upadate(NhanVienNew))
+                    {
+                        return "Sửa thành công";
+
+                    }
+                    else
+                    {
+                        return "Sửa thất bại";
+
+                    }
 
                 }
+            }
+            catch (Exception)
+            {
 
+                return "Sửa thất bại";
             }
         }
     }

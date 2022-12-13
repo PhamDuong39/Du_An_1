@@ -24,27 +24,35 @@ namespace BUS.Services
 
         public string Add(KhachHangView khv)
         {
-            if (khv == null) 
+            try
             {
-                return "Thêm thất bại";
-            }
-            else
-            {
-                KhachHang kh = new KhachHang()
+                if (khv == null)
                 {
-                    ID = khv.ID,
-                    MaKH = khv.MaKH,
-                    HovaTen = khv.HovaTen,
-                    CCCD = khv.CCCD,
-                    SDT = khv.SDT,
-                    DiaChi = khv.DiaChi,
-                    GioiTinh = khv.GioiTinh,
-                    QuocTich = khv.QuocTich,
-                };
-                if (_iKhachHangRepository.Add(kh))
-                {
-                    return "Thêm thành công";
+                    return "Thêm thất bại";
                 }
+                else
+                {
+                    KhachHang kh = new KhachHang()
+                    {
+                        ID = khv.ID,
+                        MaKH = khv.MaKH,
+                        HovaTen = khv.HovaTen,
+                        CCCD = khv.CCCD,
+                        SDT = khv.SDT,
+                        DiaChi = khv.DiaChi,
+                        GioiTinh = khv.GioiTinh,
+                        QuocTich = khv.QuocTich,
+                    };
+                    if (_iKhachHangRepository.Add(kh))
+                    {
+                        return "Thêm thành công";
+                    }
+                    return "Thêm thất bại";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Thêm thất bại";
             }
             
@@ -77,42 +85,58 @@ namespace BUS.Services
 
         public string Update(KhachHangView khv)
         {
-            if (khv == null)
+            try
             {
-                return "Sửa thất bại";
-            }
-            else
-            {
-                var x = _iKhachHangRepository.GetAll().FirstOrDefault(x => x.ID == khv.ID);
-                x.MaKH = khv.MaKH;
-                x.HovaTen = khv.HovaTen;
-                x.CCCD = khv.CCCD;
-                x.SDT = khv.SDT;
-                x.DiaChi = khv.DiaChi;
-                x.GioiTinh = khv.GioiTinh;
-                x.QuocTich = khv.QuocTich;
-                if (_iKhachHangRepository.Upadate(x))
+                if (khv == null)
                 {
-                    return "Sửa thành công";
+                    return "Sửa thất bại";
                 }
-                    return "Sửa thất bại";              
+                else
+                {
+                    var x = _iKhachHangRepository.GetAll().FirstOrDefault(x => x.ID == khv.ID);
+                    x.MaKH = khv.MaKH;
+                    x.HovaTen = khv.HovaTen;
+                    x.CCCD = khv.CCCD;
+                    x.SDT = khv.SDT;
+                    x.DiaChi = khv.DiaChi;
+                    x.GioiTinh = khv.GioiTinh;
+                    x.QuocTich = khv.QuocTich;
+                    if (_iKhachHangRepository.Upadate(x))
+                    {
+                        return "Sửa thành công";
+                    }
+                    return "Sửa thất bại";
+                }
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thất bại";
             }
             
         }
 
         public string Remove(KhachHangView khv)
         {
-            if(khv == null)
+            try
             {
-                return "Xóa thất bại";
-            }
-            else
-            {
-                var kh = _iKhachHangRepository.GetAll().FirstOrDefault(p => p.ID == khv.ID);
-                if (_iKhachHangRepository.Remove(kh))
+                if (khv == null)
                 {
-                    return "Xóa thành công";
+                    return "Xóa thất bại";
                 }
+                else
+                {
+                    var kh = _iKhachHangRepository.GetAll().FirstOrDefault(p => p.ID == khv.ID);
+                    if (_iKhachHangRepository.Remove(kh))
+                    {
+                        return "Xóa thành công";
+                    }
+                    return "Xóa thất bại";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Xóa thất bại";
             }
         }

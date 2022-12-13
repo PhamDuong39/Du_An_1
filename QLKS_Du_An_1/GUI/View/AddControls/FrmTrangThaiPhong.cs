@@ -16,6 +16,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmTrangThaiPhong : Form
     {
+        public FrmPhong _main;
         public string MaPhong { get; set; }
         public string TenKH { get; set; }
         public Guid IdPTCT { get; set; }
@@ -27,7 +28,7 @@ namespace GUI.View.AddControls
         private IHoaDonService _iqlHDService;
         private IQLDichVuService _iqlDVService;
         private IQLHoaDonChiTietView _iqlHDCTService;
-        public FrmTrangThaiPhong()
+        public FrmTrangThaiPhong(FrmPhong main)
         {
             InitializeComponent();
             _iqlCTPTService = new QLChiTietPhieuThueService();
@@ -38,6 +39,7 @@ namespace GUI.View.AddControls
             lstDVV = new List<DichVuView>();
             LoadDataCbbDV();
             LoadDataListDichVu();
+            _main = main;
         }
         // truyền ngày BD và ngày ngày KT load lên form
         // dựa theo đó làm chức năng nhận phòng
@@ -105,6 +107,7 @@ namespace GUI.View.AddControls
                 pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).IDLoaiPhong;
                 pv.TinhTrang = 1;
                 _iqlPhongService.Update(pv);
+                _main.LoadItemRooms_search(_iqlPhongService.GetAll());
                 MessageBox.Show("Nhận phòng thành công");
             }
             if (result == DialogResult.No)
@@ -160,11 +163,12 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn không thể xem hóa đơn của phòng này vì phòng này chưa có khách sử dụng !!");
                 return;
             }
-            FrmViewHDCT frmViewHoaDon = new FrmViewHDCT();
+            FrmViewHDCT frmViewHoaDon = new FrmViewHDCT(_main);
             frmViewHoaDon._lstHoaDonCT = _iqlHDService.GetCTHoaDon(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstGiaPhong = _iqlHDService.GetCTPhong(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon.NgayThanhToanHD = DateTime.Now;
+            frmViewHoaDon.IdPTCTEdit = IdPTCT;
             frmViewHoaDon.ShowDialog();
         }
 
@@ -185,10 +189,12 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Vui lòng chọn dịch vụ muốn sử dụng !");
                 return;
             }
-            
-            var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
-            var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
-            lstDVV.Add(DVChoose);
+            for (int i = 1; i <= Convert.ToInt32(tb_SL.Value); i++)
+            {
+                var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
+                var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
+                lstDVV.Add(DVChoose);               
+            }
             LoadDataListDichVu();
         }
 
@@ -208,15 +214,66 @@ namespace GUI.View.AddControls
                     return;
                 }
                 // null here
+                //foreach (var item in lstDVV)
+                //{               
+                //    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) == null)
+                //    {
+                //        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                //        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                //        hdctv.SoLuong = 1;
+                //        hdctv.DonGia = item.Gia;
+                //        hdctv.IdDichVu = item.Id;
+                //        MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                //    }
+                //    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) != null)
+                //    {
+                //        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                //        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                //        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                //        int soMax = slHdct.SoLuong + 1;
+                //        hdctv.SoLuong =  soMax;
+                //        hdctv.DonGia = item.Gia;
+                //        hdctv.IdDichVu = item.Id;
+                //        MessageBox.Show(_iqlHDCTService.Update(hdctv));
+                //    }
+
+                //}
+                //
+
+                int SoLuongThem = lstDVV.Count;
                 foreach (var item in lstDVV)
                 {
-                    HoaDonChiTietView hdctv = new HoaDonChiTietView();
-                    hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
-                    hdctv.SoLuong = 1;
-                    hdctv.DonGia = item.Gia;
-                    hdctv.IdDichVu = item.Id;
-                    MessageBox.Show(_iqlHDCTService.Add(hdctv));
-                }             
+                    var idHD = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD) == null)
+                    {
+                        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                        hdctv.SoLuong = Convert.ToInt32(tb_SL.Value);
+                        hdctv.DonGia = item.Gia;
+                        hdctv.IdDichVu = item.Id;
+                        _iqlHDCTService.Add(hdctv);
+                        //MessageBox.Show("TH1");
+                        MessageBox.Show("Thêm thành công");
+                        return;
+                    }
+                    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD) != null)
+                    {
+                        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                        hdctv.IdDichVu = item.Id;
+          
+                        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD);
+                        int soMax = slHdct.SoLuong;
+                        //hdctv.SoLuong = soMax;
+                        hdctv.SoLuong = soMax + Convert.ToInt32(tb_SL.Value);  
+                        hdctv.DonGia = item.Gia;
+                        _iqlHDCTService.Update(hdctv);
+                        MessageBox.Show("Thêm thành công");                 
+                        return;
+                    }
+
+                }
+
             }
             if (result == DialogResult.No)
             {
@@ -244,6 +301,7 @@ namespace GUI.View.AddControls
                     return;
                 }
                 _iqlPhongService.Update(pv);
+                _main.LoadItemRooms_search(_iqlPhongService.GetAll());
                 MessageBox.Show("Chuyển trạng thái thành công");
             }
             if (result == DialogResult.No)

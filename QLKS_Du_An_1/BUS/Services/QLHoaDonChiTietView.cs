@@ -25,21 +25,29 @@ namespace BUS.Services
         }
         public string Add(HoaDonChiTietView hdctv)
         {
-            if (hdctv == null)
+            try
             {
-                return "THem that bai";
-            }
-            else
-            {
-                HoaDonChiTiet hdct = new HoaDonChiTiet();
-                hdct.SoLuong = hdctv.SoLuong;
-                hdct.DonGia = hdctv.DonGia;
-                hdct.IdDichVu = hdctv.IdDichVu;
-                hdct.IdHoaDon = hdctv.IdHoaDon;
-                if (_ihdctRepos.Add(hdct))
+                if (hdctv == null)
                 {
-                    return "Them thanh cong";
+                    return "THem that bai";
                 }
+                else
+                {
+                    HoaDonChiTiet hdct = new HoaDonChiTiet();
+                    hdct.SoLuong = hdctv.SoLuong;
+                    hdct.DonGia = hdctv.DonGia;
+                    hdct.IdDichVu = hdctv.IdDichVu;
+                    hdct.IdHoaDon = hdctv.IdHoaDon;
+                    if (_ihdctRepos.Add(hdct))
+                    {
+                        return "Them thanh cong";
+                    }
+                    return "THem that bai";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "THem that bai";
             }
         }
@@ -64,17 +72,25 @@ namespace BUS.Services
 
         public string Remove(HoaDonChiTietView hdctv)
         {
-            if (hdctv == null)
+            try
             {
-                return "THem that bai";
-            }
-            else
-            {
-                var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon);
-                if (_ihdctRepos.Remove(hdct))
+                if (hdctv == null)
                 {
-                    return "Xoa thanh cong";
+                    return "THem that bai";
                 }
+                else
+                {
+                    var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon);
+                    if (_ihdctRepos.Remove(hdct))
+                    {
+                        return "Xoa thanh cong";
+                    }
+                    return "Xoa that bai";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Xoa that bai";
             }
         }
@@ -86,22 +102,32 @@ namespace BUS.Services
 
         public string Update(HoaDonChiTietView hdctv)
         {
-            if (hdctv == null)
+            try
             {
-                return "THem that bai";
-            }
-            else
-            {
-                var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon);
-                hdct.SoLuong = hdctv.SoLuong;
-                hdct.DonGia = hdctv.DonGia;
-                hdct.IdDichVu = hdctv.IdDichVu;
-                if (_ihdctRepos.Remove(hdct))
+                if (hdctv == null)
                 {
-                    return "Xoa thanh cong";
+                    return "THem that bai";
                 }
+                else
+                {
+                    var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon && p.IdDichVu == hdctv.IdDichVu);
+                    hdct.SoLuong = hdctv.SoLuong;
+                    hdct.DonGia = hdctv.DonGia;
+                    //hdct.IdDichVu = hdctv.IdDichVu;
+                    if (_ihdctRepos.Upadate(hdct))
+                    {
+                        return "Xoa thanh cong";
+                    }
+                    return "Xoa that bai";
+                }
+            }
+            catch
+            {
+
                 return "Xoa that bai";
             }
+
+
         }
     }
 }

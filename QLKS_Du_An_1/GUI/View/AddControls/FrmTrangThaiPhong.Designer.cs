@@ -49,11 +49,13 @@
             this.btn_NhanPhong = new System.Windows.Forms.Button();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
             this.btn_ChuyenTTPhongTrong = new System.Windows.Forms.Button();
+            this.tb_SL = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_SL)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_LuuDichVu
@@ -190,14 +192,16 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.tb_SL);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btn_ThemDichVu);
             this.panel2.Controls.Add(this.tb_GiaTienDV);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbb_TenDV);
-            this.panel2.Location = new System.Drawing.Point(529, 177);
+            this.panel2.Location = new System.Drawing.Point(529, 142);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(355, 165);
+            this.panel2.Size = new System.Drawing.Size(355, 200);
             this.panel2.TabIndex = 33;
             // 
             // label3
@@ -217,7 +221,7 @@
             this.btn_ThemDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemDichVu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemDichVu.Location = new System.Drawing.Point(104, 117);
+            this.btn_ThemDichVu.Location = new System.Drawing.Point(95, 157);
             this.btn_ThemDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemDichVu.Name = "btn_ThemDichVu";
             this.btn_ThemDichVu.Size = new System.Drawing.Size(132, 32);
@@ -313,6 +317,18 @@
             this.btn_ChuyenTTPhongTrong.UseVisualStyleBackColor = false;
             this.btn_ChuyenTTPhongTrong.Click += new System.EventHandler(this.btn_ChuyenTTPhongTrong_Click);
             // 
+            // tb_SL
+            // 
+            this.tb_SL.Location = new System.Drawing.Point(119, 117);
+            this.tb_SL.Name = "tb_SL";
+            this.tb_SL.Size = new System.Drawing.Size(120, 23);
+            this.tb_SL.TabIndex = 38;
+            this.tb_SL.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FrmTrangThaiPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -337,6 +353,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_SL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,5 +381,6 @@
         private Label label1;
         private ComboBox cbb_TenDV;
         private Button btn_ChuyenTTPhongTrong;
+        private NumericUpDown tb_SL;
     }
 }

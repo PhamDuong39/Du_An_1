@@ -314,56 +314,100 @@ namespace GUI.View.AddControls
             else
             {
                 List<PhongView> list_phong_co_kh = new List<PhongView>();
-                foreach (var item in List_loc_ctpt)
+                //foreach (var item in List_loc_ctpt)
+                //{
+                //    // null
+                //    PhongView pv = _iqlPhongService.GetAll().FirstOrDefault(c => c.Id == item.IdPhong);
+                //    list_phong_co_kh.Add(pv);
+                //}
+                for (int i = 0; i < List_loc_ctpt.Count; i++)
                 {
-                    PhongView pv = _iqlPhongService.GetAll().FirstOrDefault(c => c.Id == item.IdPhong);
+                    // OK
+                   // MessageBox.Show(List_loc_ctpt[i].MaPhong + "phong co trong ctpt");
+                    PhongView pv = _iqlPhongService.GetAll().FirstOrDefault(c => c.Id == List_loc_ctpt[i].IdPhong);
                     list_phong_co_kh.Add(pv);
+                   // MessageBox.Show(list_phong_co_kh[i].MaPhong + "lst phong co KH sau khi add");
+                    // OK
                 }
+
+                // check tu day
+                // DB 34 phong || get all = 27
                 List<PhongView> listt = _iqlPhongService.GetAll().OrderBy(c => c.MaPhong).ToList();
+                //MessageBox.Show(listt.Count.ToString());// van la 34
                 list_phong_co_kh = list_phong_co_kh.OrderBy(C => C.MaPhong).ToList();
+                // OK
 
-                for (int i = 0; i < listt.Count; i++)
+                // Loi tu duoi 
+                //for (int i = 0; i < listt.Count; i++)
+                //{
+                //    for (int j = 0; j < list_phong_co_kh.Count; j++)
+                //    {
+                //        if (listt[0].MaPhong == list_phong_co_kh[0].MaPhong)
+                //        {
+                //            listt = listt.Where(c => c.MaPhong != listt[0].MaPhong).ToList();
+                //            list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[0].MaPhong).ToList();
+                //            // i = -1;
+                //            i = 0;
+                //            j = 0;
+                //            if (list_phong_co_kh.Count == 0)
+                //            {
+                //                break;
+                //            }
+                //        }
+                //        else
+                //        {
+                //            if (listt[i].MaPhong == list_phong_co_kh[j].MaPhong)
+                //            {
+                //                listt = listt.Where(c => c.MaPhong != listt[i].MaPhong).ToList();
+                //                list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[j].MaPhong).ToList();
+                //                i = 0;
+                //                j = 0;
+                //                if (list_phong_co_kh.Count == 0)
+                //                {
+                //                    break;
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+
+
+                //for (int i = 0; i < listt.Count; i++)
+                //{
+                //    for (int j = 0; j < list_phong_co_kh.Count; j++)
+                //    {
+                //        if (listt[i].MaPhong == list_phong_co_kh[j].MaPhong)
+                //        {
+
+
+                //        }
+                //    }
+                //}
+                var listMaPhongTatCaPhong = new List<string>();
+                var listMaPhongCoKH = new  List<string>();
+                foreach (PhongView pv in listt)
                 {
-                    for (int j = 0; j < list_phong_co_kh.Count; j++)
-                    {
-                        if (listt[0].MaPhong == list_phong_co_kh[0].MaPhong)
-                        {
-                            listt = listt.Where(c => c.MaPhong != listt[0].MaPhong).ToList();
-                            list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[0].MaPhong).ToList();
-                            i = -1;
-                            j = 0;
-                            if (list_phong_co_kh.Count == 0)
-                            {
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            if (listt[i].MaPhong == list_phong_co_kh[j].MaPhong)
-                            {
-                                listt = listt.Where(c => c.MaPhong != listt[i].MaPhong).ToList();
-                                list_phong_co_kh = list_phong_co_kh.Where(c => c.MaPhong != list_phong_co_kh[j].MaPhong).ToList();
-                                i = 0;
-                                j = 0;
-                                if (list_phong_co_kh.Count == 0)
-                                {
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                    listMaPhongTatCaPhong.Add(pv.MaPhong);
+                }
+                foreach (var item in list_phong_co_kh)
+                {
+                    listMaPhongCoKH.Add(item.MaPhong);
                 }
 
-                list_phong_trong = listt;
+                IEnumerable<string> listMaPhongTrong = listMaPhongTatCaPhong.Except(listMaPhongCoKH);
 
-
-
+                //MessageBox.Show(listMaPhongTrong.Count().ToString());
+                //MessageBox.Show(list_phong_trong.Count.ToString());
+                //list_phong_trong = listt;
+                foreach (var item in listMaPhongTrong)
+                {
+                    var phongTrong = listt.FirstOrDefault(p => p.MaPhong == item);
+                    list_phong_trong.Add(phongTrong);
+                }
+                //MessageBox.Show(list_phong_trong.Count.ToString());
             }
-
             LoadDataDSPhongTrong(list_phong_trong);
-
-
-            }
+        }
 
 
 
@@ -371,6 +415,12 @@ namespace GUI.View.AddControls
         {
             DateTime ngayBatDau = dtp_NgayBatDau.Value;
             DateTime NgayKetThuc = dtp_NgayKetThuc.Value;
+            
+            if ((ngayBatDau - DateTime.Now).TotalHours <= 0)
+            {
+                MessageBox.Show("Bạn không thể chọn ngày nhận phòng nhỏ hơn thời điểm hiện tại!");
+                return;
+            }
             if ((NgayKetThuc - ngayBatDau).TotalHours <= 1)
             {
                 MessageBox.Show("Ngày nhận phải lớn hơn ngày trả !");

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pn_MenuBar = new System.Windows.Forms.Panel();
             this.ibtn_ThongKe = new FontAwesome.Sharp.IconButton();
             this.ibtn_ChucVu = new FontAwesome.Sharp.IconButton();
@@ -83,7 +84,7 @@
             this.pn_MenuBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_MenuBar.Location = new System.Drawing.Point(0, 0);
             this.pn_MenuBar.Name = "pn_MenuBar";
-            this.pn_MenuBar.Size = new System.Drawing.Size(220, 732);
+            this.pn_MenuBar.Size = new System.Drawing.Size(220, 735);
             this.pn_MenuBar.TabIndex = 0;
             // 
             // ibtn_ThongKe
@@ -407,16 +408,18 @@
             // lb_TenNV
             // 
             this.lb_TenNV.AutoSize = true;
+            this.lb_TenNV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_TenNV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lb_TenNV.Location = new System.Drawing.Point(61, 100);
             this.lb_TenNV.Name = "lb_TenNV";
-            this.lb_TenNV.Size = new System.Drawing.Size(44, 15);
+            this.lb_TenNV.Size = new System.Drawing.Size(56, 20);
             this.lb_TenNV.TabIndex = 1;
             this.lb_TenNV.Text = "Ten NV";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources._002_coffee_cup;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(88, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -434,7 +437,7 @@
             this.pn_TitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_TitleBar.Location = new System.Drawing.Point(220, 0);
             this.pn_TitleBar.Name = "pn_TitleBar";
-            this.pn_TitleBar.Size = new System.Drawing.Size(1017, 45);
+            this.pn_TitleBar.Size = new System.Drawing.Size(1011, 45);
             this.pn_TitleBar.TabIndex = 1;
             this.pn_TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pn_TitleBar_MouseDown);
             // 
@@ -515,7 +518,7 @@
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelShadow.Location = new System.Drawing.Point(220, 45);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(1017, 9);
+            this.panelShadow.Size = new System.Drawing.Size(1011, 9);
             this.panelShadow.TabIndex = 2;
             // 
             // panelDesktop
@@ -524,14 +527,14 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 54);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1017, 678);
+            this.panelDesktop.Size = new System.Drawing.Size(1011, 681);
             this.panelDesktop.TabIndex = 3;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 732);
+            this.ClientSize = new System.Drawing.Size(1231, 735);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelShadow);
             this.Controls.Add(this.pn_TitleBar);

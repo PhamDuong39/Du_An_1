@@ -23,46 +23,62 @@ namespace BUS.Services
         public string Add(LoaiDichVuView obj)
         {
 
-            if (obj == null)
+            try
             {
-                return "Không tìm dc đối tượng";
-            }
-            else
-            {
-                var LoaiDichVuView = new LoaiDichVu()
+                if (obj == null)
                 {
-                    ID = obj.ID,
-                    MaLoaiDichVu = obj.MaLoaiDichVu,
-                    TenLoaiDichVu = obj.TenLoaiDichVu
-                };
-                if (_iLoaiDichVuRepository.Add(LoaiDichVuView))
-                {
-                    return "Thêm thành công";
+                    return "Không tìm dc đối tượng";
                 }
                 else
                 {
-                    return "Thêm thất bại";
+                    var LoaiDichVuView = new LoaiDichVu()
+                    {
+                        ID = obj.ID,
+                        MaLoaiDichVu = obj.MaLoaiDichVu,
+                        TenLoaiDichVu = obj.TenLoaiDichVu
+                    };
+                    if (_iLoaiDichVuRepository.Add(LoaiDichVuView))
+                    {
+                        return "Thêm thành công";
+                    }
+                    else
+                    {
+                        return "Thêm thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Thêm thất bại";
             }
         }
 
         public string Delete(LoaiDichVuView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var LoaiDichVuView = _iLoaiDichVuRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                if (_iLoaiDichVuRepository.Remove(LoaiDichVuView))
+                if (obj == null)
                 {
-                    return "Xóa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Xóa thất bại";
+                    var LoaiDichVuView = _iLoaiDichVuRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    if (_iLoaiDichVuRepository.Remove(LoaiDichVuView))
+                    {
+                        return "Xóa thành công";
+                    }
+                    else
+                    {
+                        return "Xóa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Xóa thất bại";
             }
         }
 
@@ -87,23 +103,31 @@ namespace BUS.Services
 
         public string Update(LoaiDichVuView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var LoaiDichVuView = _iLoaiDichVuRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                LoaiDichVuView.MaLoaiDichVu = obj.MaLoaiDichVu;
-                LoaiDichVuView.TenLoaiDichVu = obj.TenLoaiDichVu;
-                if (_iLoaiDichVuRepository.Upadate(LoaiDichVuView))
+                if (obj == null)
                 {
-                    return "Sửa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Sửa thất bại";
+                    var LoaiDichVuView = _iLoaiDichVuRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    LoaiDichVuView.MaLoaiDichVu = obj.MaLoaiDichVu;
+                    LoaiDichVuView.TenLoaiDichVu = obj.TenLoaiDichVu;
+                    if (_iLoaiDichVuRepository.Upadate(LoaiDichVuView))
+                    {
+                        return "Sửa thành công";
+                    }
+                    else
+                    {
+                        return "Sửa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thất bại";
             }
         }
     }

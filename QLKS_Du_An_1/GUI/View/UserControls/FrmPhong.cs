@@ -33,16 +33,17 @@ namespace GUI.View.UserControls
             _iqlListRoomService = new QLListItemRoomViewService();
             _iqlPTService = new QLPhieuThueService();
             _iqlCTPTService = new QLChiTietPhieuThueService();
-
+            
  
         }
 
         public void FrmPhong_Load(object sender, EventArgs e)
         {
             LoadItemRooms();
+            LoadItemRooms_search(_iqlPhongService.GetAll());
         }
 
-        private void LoadItemRooms_search(List<PhongView> Listphong)
+        public void LoadItemRooms_search(List<PhongView> Listphong)
         {
             #region Tang1
             var lstPhongTang1 = Listphong.Where(p => p.MaPhong.Substring(1, 1) == "1").ToList();
@@ -53,7 +54,7 @@ namespace GUI.View.UserControls
             flp_PhongTang3.Controls.Clear();
             foreach (var item in lstPhongTang1)
             {
-                listItems1[count1] = new ListItemRooms();
+                listItems1[count1] = new ListItemRooms(this);
                 listItems1[count1].MaPhong = item.MaPhong;
                 listItems1[count1].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems1[count1].IdPhong = Convert.ToString(item.Id);
@@ -112,7 +113,7 @@ namespace GUI.View.UserControls
             int count2 = 0;
             foreach (var item in lstPhongTang2)
             {
-                listItems2[count2] = new ListItemRooms();
+                listItems2[count2] = new ListItemRooms(this);
                 listItems2[count2].MaPhong = item.MaPhong;
                 listItems2[count2].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems2[count2].IdPhong = Convert.ToString(item.Id);
@@ -172,7 +173,7 @@ namespace GUI.View.UserControls
             int count3 = 0;
             foreach (var item in lstPhongTang3)
             {
-                listItems3[count3] = new ListItemRooms();
+                listItems3[count3] = new ListItemRooms(this);
                 listItems3[count3].MaPhong = item.MaPhong;
                 listItems3[count3].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems3[count3].IdPhong = Convert.ToString(item.Id);
@@ -235,9 +236,9 @@ namespace GUI.View.UserControls
             flp_PhongTang1.Controls.Clear();
             flp_PhongTang2.Controls.Clear();
             flp_PhongTang3.Controls.Clear();
-            foreach (var item in lstPhongTang1)
+            foreach (var item in lstPhongTang1.OrderBy(p => p.MaPhong))
             {
-                listItems1[count1] = new ListItemRooms();
+                listItems1[count1] = new ListItemRooms(this);
                 listItems1[count1].MaPhong = item.MaPhong;
                 listItems1[count1].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems1[count1].IdPhong = Convert.ToString(item.Id);
@@ -294,9 +295,9 @@ namespace GUI.View.UserControls
             var lstPhongTang2 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "2").ToList();
             ListItemRooms[] listItems2 = new ListItemRooms[lstPhongTang2.Count];
             int count2 = 0;
-            foreach (var item in lstPhongTang2)
+            foreach (var item in lstPhongTang2.OrderBy(p => p.MaPhong))
             {
-                listItems2[count2] = new ListItemRooms();
+                listItems2[count2] = new ListItemRooms(this);
                 listItems2[count2].MaPhong = item.MaPhong;
                 listItems2[count2].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems2[count2].IdPhong = Convert.ToString(item.Id);
@@ -354,9 +355,9 @@ namespace GUI.View.UserControls
             var lstPhongTang3 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "3").ToList();
             ListItemRooms[] listItems3 = new ListItemRooms[lstPhongTang3.Count];
             int count3 = 0;
-            foreach (var item in lstPhongTang3)
+            foreach (var item in lstPhongTang3.OrderBy(p => p.MaPhong))
             {
-                listItems3[count3] = new ListItemRooms();
+                listItems3[count3] = new ListItemRooms(this);
                 listItems3[count3].MaPhong = item.MaPhong;
                 listItems3[count3].TenLoaiPhong = item.TenLoaiPhong.ToUpper();
                 listItems3[count3].IdPhong = Convert.ToString(item.Id);
@@ -416,39 +417,67 @@ namespace GUI.View.UserControls
             DateTime now = DateTime.Now;
             var lstPhongTT0 = _iqlPhongService.GetAll().Where(p => p.TinhTrang == 0);
             foreach (var item in lstPhongTT0)
-            {              
-                var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
-                if (lstCTPT == null)
+            {
+                //var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
+                //if (lstCTPT == null)
+                //{
+                //    //MessageBox.Show("TH1");
+                //}
+                //else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
+                //{
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.Id;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                //    pv.TinhTrang = 3;
+                //    _iqlPhongService.Update(pv);
+                //   // MessageBox.Show("TH2");
+                //}
+
+
+                var lstCTPT = _iqlCTPTService.GetAll().Where(p => p.IdPhong == item.Id).ToList();
+                foreach (var x in lstCTPT)
                 {
-                    
+                    if (x == null)
+                    {
+                        //MessageBox.Show("TH1");
+                    }
+                    else if (x.NgayBatDau - now <= oneHour && x.NgayBatDau - now > zeroHour)
+                    {
+                        PhongView pv = new PhongView();
+                        pv.Id = item.Id;
+                        pv.MaPhong = item.MaPhong;
+                        pv.IDLoaiPhong = item.IDLoaiPhong;
+                        pv.TinhTrang = 3;
+                        _iqlPhongService.Update(pv);
+                        // MessageBox.Show("TH2");
+                    }
                 }
-                else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
-                {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 3;
-                    _iqlPhongService.Update(pv);
-                }
-                else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
-                {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 3;
-                    _iqlPhongService.Update(pv);
-                }
-                else if (now - lstCTPT.NgayBatDau > oneHour)
-                {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 1;
-                    _iqlPhongService.Update(pv);
-                }
+            
+
+                // need check
+                //else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
+                //{
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.Id;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                //    pv.TinhTrang = 3;
+                //    _iqlPhongService.Update(pv);
+                //    //MessageBox.Show("TH3");
+                //}
+                //else if (now - lstCTPT.NgayBatDau > oneHour)
+                //{
+
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.Id;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                //    pv.TinhTrang = 1;
+                //    _iqlPhongService.Update(pv);
+
+
+                //}
             }
             LoadItemRooms();
         }
@@ -469,7 +498,7 @@ namespace GUI.View.UserControls
                     var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
                     if (lstCTPT == null)
                     {
-
+                        MessageBox.Show("Null me no roi");
                     }
                     else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
                     {
@@ -480,6 +509,16 @@ namespace GUI.View.UserControls
                         pv.TinhTrang = 3;
                         _iqlPhongService.Update(pv);
                     }
+                    // need check
+                    //else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
+                    //{
+                    //    PhongView pv = new PhongView();
+                    //    pv.Id = item.Id;
+                    //    pv.MaPhong = item.MaPhong;
+                    //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                    //    pv.TinhTrang = 3;
+                    //    _iqlPhongService.Update(pv);
+                    //}
                 }
                 LoadItemRooms();
                 TimeLeft = 120;

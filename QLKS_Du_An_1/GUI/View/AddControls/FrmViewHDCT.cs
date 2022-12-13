@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 
 namespace GUI.View.AddControls
 {
@@ -18,16 +19,32 @@ namespace GUI.View.AddControls
         public List<HoaDonView> _lstHoaDon;
         public List<HoaDonView> _lstHoaDonCT;
         public List<HoaDonView> _lstGiaPhong;
+
+        public Guid IdPTCTEdit { get; set; }
         public DateTime NgayThanhToanHD { get; set; }
         public IQLChiTietPhieuThueService _iqlCTPTService;
         public IHoaDonService _iqlHDService;
         public IPhongService _iqlPhongService;
+        
         public int GiaTienTraPhongMuon = 50000;
         double SoNgayThue = 0;
         double tienPhong = 0;
         int tienDV = 0;
         public int TongTienPhaiTra { get; set; }
         public double tongTien { get; set; }
+        public FrmPhong _main;
+        public FrmViewHDCT(FrmPhong main)
+        {
+            InitializeComponent();
+            _lstHoaDon = new List<HoaDonView>();
+            _lstHoaDonCT = new List<HoaDonView>();
+            _lstGiaPhong = new List<HoaDonView>();
+            _iqlCTPTService = new QLChiTietPhieuThueService();
+            _iqlHDService = new HoaDonService();
+            _iqlPhongService = new IPhongService();
+            LoadData();
+            _main=main;
+        }
         public FrmViewHDCT()
         {
             InitializeComponent();
@@ -58,14 +75,14 @@ namespace GUI.View.AddControls
             TinhTienThanhToan();
             foreach (var item in _lstHoaDon)
             {
-                if (item.TrangThai == 1)//Trạng thái đã thanh toán
-                {
-                    btn_ThanhToan.Visible = false;
-                }
-                else
-                {
-                    btn_ThanhToan.Visible=true;
-                }
+                //if (item.TrangThai == 1)//Trạng thái đã thanh toán
+                //{
+                //    btn_ThanhToan.Visible = false;
+                //}
+                //else
+                //{
+                //    btn_ThanhToan.Visible=true;
+                //}
             }
             lb_NgayBD.Text = _lstGiaPhong[0].NgayBatDau.ToString();
             lb_NgayKT.Text = _lstGiaPhong[0].NgayKetThuc.ToString();
@@ -194,7 +211,8 @@ namespace GUI.View.AddControls
                     hdv.IdCTPhieuThue = item.IdCTPhieuThue;
                     hdv.NgayTT = item.NgayTT;
                     hdv.TrangThai = 1;
-                    MessageBox.Show(_iqlHDService.Update(hdv));
+                    _iqlHDService.Update(hdv);
+                    //MessageBox.Show(_iqlHDService.Update(hdv));
                    // MessageBox.Show(_iqlHDService.Update(_lstHoaDon.FirstOrDefault(c => c.Id == item.Id)));
 
                     PhongView pv = new PhongView();
@@ -202,7 +220,48 @@ namespace GUI.View.AddControls
                     pv.MaPhong = item.MaPhong;
                     pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == item.MaPhong).IDLoaiPhong;
                     pv.TinhTrang = 2;
-                    MessageBox.Show(_iqlPhongService.Update(pv));
+                    _iqlPhongService.Update(pv);
+                    //MessageBox.Show(_iqlPhongService.Update(pv));
+
+        
+
+                    ChiTietPhieuThueView ctptview = new ChiTietPhieuThueView();
+                    //null
+                    ctptview.ID = IdPTCTEdit;
+                    ctptview.NgayBatDau = Convert.ToDateTime(lb_NgayBD.Text);
+                    ctptview.NgayKetThuc = DateTime.Now;
+                    ctptview.IdPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == lbl_MaPhong.Text).Id;
+                    //
+                    // co
+                    var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == IdPTCTEdit);
+                    Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    ctptview.IdPhieuThue = IdPhieuThue;
+                    _iqlCTPTService.Update(ctptview);
+                    //MessageBox.Show();
+
+                    //var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                    //int soMax = slHdct.SoLuong + 1;
+                    //hdctv.SoLuong = soMax;
+                    //var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == item.IdCTPhieuThue);
+                    //Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    //ctptview.IdPhieuThue = IdPhieuThue;
+                    //MessageBox.Show(_iqlCTPTService.Update(ctptview));
+                    //_iqlCTPTService.Update(ctptview);
+                    // MessageBox.Show(item.IdCTPhieuThue.ToString());
+                    _main.LoadItemRooms_search(_iqlPhongService.GetAll());
+
+                    // //var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                    // //int soMax = slHdct.SoLuong + 1;
+                    // //hdctv.SoLuong = soMax;
+                    // var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == IdPTCTEdit);
+                    // Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    // ctptview.IdPhieuThue = IdPhieuThue;
+                    // //MessageBox.Show(_iqlCTPTService.Update(ctptview));
+                    // _iqlCTPTService.Update(ctptview);
+                    //// MessageBox.Show(item.IdCTPhieuThue.ToString());
+                    MessageBox.Show("Thanh toán thành công");
+
+
                 }
                 
                 
@@ -255,8 +314,7 @@ namespace GUI.View.AddControls
                     e.Graphics.DrawString($"{SoNgayThue}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z));
                     
                     e.Graphics.DrawString($"{tienPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z));
-
-                    Point point5 = new Point(50, point1.Y + 65);
+                                        Point point5 = new Point(50, point1.Y + 65);
                     Point point6 = new Point(800, point2.Y + 65);
                     e.Graphics.DrawLine(p, point5, point6);
                     z += 26;
