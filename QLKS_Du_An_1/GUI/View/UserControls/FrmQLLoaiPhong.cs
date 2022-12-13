@@ -41,7 +41,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachLoaiPhong.ColumnCount = 5;
             dtg_DanhSachLoaiPhong.Rows.Clear();
             dtg_DanhSachLoaiPhong.Columns[0].Name = "ID";
-            dtg_DanhSachLoaiPhong.Columns[0].Visible = true;
+            dtg_DanhSachLoaiPhong.Columns[0].Visible = false;
             dtg_DanhSachLoaiPhong.Columns[1].Name = "Mã loại phòng";
             dtg_DanhSachLoaiPhong.Columns[2].Name = "Tên loại phòng";
             dtg_DanhSachLoaiPhong.Columns[3].Name = "Số lượng";

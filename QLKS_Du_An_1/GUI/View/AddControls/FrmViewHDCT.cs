@@ -210,10 +210,16 @@ namespace GUI.View.AddControls
                     ctptview.NgayBatDau = item.NgayBatDau;
                     ctptview.NgayKetThuc = DateTime.Now;
                     ctptview.IdPhong = item.IdPhong;
-                    //ctptview.IdPhieuThue = _;
+
+                    //var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                    //int soMax = slHdct.SoLuong + 1;
+                    //hdctv.SoLuong = soMax;
+                    //var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == item.IdCTPhieuThue);
+                    //Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    //ctptview.IdPhieuThue = IdPhieuThue;
                     //MessageBox.Show(_iqlCTPTService.Update(ctptview));
                     //_iqlCTPTService.Update(ctptview);
-                    MessageBox.Show(item.IdCTPhieuThue.ToString());
+                   // MessageBox.Show(item.IdCTPhieuThue.ToString());
                     MessageBox.Show("Thanh toán thành công");
 
 

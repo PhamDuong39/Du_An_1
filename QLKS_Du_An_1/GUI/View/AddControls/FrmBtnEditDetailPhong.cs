@@ -68,6 +68,7 @@ namespace GUI.View.AddControls
             dtg_DanhSachCTTNPhong.Columns[4].Visible = false;
             dtg_DanhSachCTTNPhong.Columns[5].Name = "Mã phòng";
             dtg_DanhSachCTTNPhong.Columns[6].Name = "ID loại TN";
+            dtg_DanhSachCTTNPhong.Columns[6].Visible = false;
 
             //var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(Guid.Parse("86393AF9-2C4F-43C5-861C-1605E3B96938"));
             var lstCTTNPhong = _iqlCTTNService.GetListCTTNRoom(IdRoomSelected);  

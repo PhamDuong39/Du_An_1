@@ -185,10 +185,12 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Vui lòng chọn dịch vụ muốn sử dụng !");
                 return;
             }
-            
-            var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
-            var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
-            lstDVV.Add(DVChoose);
+            for (int i = 1; i <= Convert.ToInt32(tb_SL.Value); i++)
+            {
+                var idDVChoose = _iqlDVService.GetIdDvByName(cbb_TenDV.Text);
+                var DVChoose = _iqlDVService.GetAll().FirstOrDefault(p => p.Id == idDVChoose);
+                lstDVV.Add(DVChoose);               
+            }
             LoadDataListDichVu();
         }
 
@@ -210,12 +212,28 @@ namespace GUI.View.AddControls
                 // null here
                 foreach (var item in lstDVV)
                 {
-                    HoaDonChiTietView hdctv = new HoaDonChiTietView();
-                    hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
-                    hdctv.SoLuong = 1;
-                    hdctv.DonGia = item.Gia;
-                    hdctv.IdDichVu = item.Id;
-                    MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                  
+                    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) == null)
+                    {
+                        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                        hdctv.SoLuong = 1;
+                        hdctv.DonGia = item.Gia;
+                        hdctv.IdDichVu = item.Id;
+                        MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                    }
+                    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) != null)
+                    {
+                        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                        int soMax = slHdct.SoLuong + 1;
+                        hdctv.SoLuong =  soMax;
+                        hdctv.DonGia = item.Gia;
+                        hdctv.IdDichVu = item.Id;
+                        MessageBox.Show(_iqlHDCTService.Update(hdctv));
+                    }
+                  
                 }             
             }
             if (result == DialogResult.No)
