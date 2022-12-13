@@ -18,6 +18,8 @@ namespace GUI.View.AddControls
         public List<HoaDonView> _lstHoaDon;
         public List<HoaDonView> _lstHoaDonCT;
         public List<HoaDonView> _lstGiaPhong;
+
+        public Guid IdPTCTEdit { get; set; }
         public DateTime NgayThanhToanHD { get; set; }
         public IQLChiTietPhieuThueService _iqlCTPTService;
         public IHoaDonService _iqlHDService;
@@ -207,21 +209,31 @@ namespace GUI.View.AddControls
                     _iqlPhongService.Update(pv);
                     //MessageBox.Show(_iqlPhongService.Update(pv));
 
-                    ChiTietPhieuThueView ctptview = new ChiTietPhieuThueView();
-                    ctptview.ID = item.IdCTPhieuThue;
-                    ctptview.NgayBatDau = item.NgayBatDau;
-                    ctptview.NgayKetThuc = DateTime.Now;
-                    ctptview.IdPhong = item.IdPhong;
+        
 
-                    //var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
-                    //int soMax = slHdct.SoLuong + 1;
-                    //hdctv.SoLuong = soMax;
-                    //var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == item.IdCTPhieuThue);
-                    //Guid IdPhieuThue = CTPT.IdPhieuThue;
-                    //ctptview.IdPhieuThue = IdPhieuThue;
-                    //MessageBox.Show(_iqlCTPTService.Update(ctptview));
-                    //_iqlCTPTService.Update(ctptview);
-                   // MessageBox.Show(item.IdCTPhieuThue.ToString());
+                    ChiTietPhieuThueView ctptview = new ChiTietPhieuThueView();
+                    //null
+                    ctptview.ID = IdPTCTEdit;
+                    ctptview.NgayBatDau = Convert.ToDateTime(lb_NgayBD.Text);
+                    ctptview.NgayKetThuc = DateTime.Now;
+                    ctptview.IdPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == lbl_MaPhong.Text).Id;
+                    //
+                    // co
+                    var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == IdPTCTEdit);
+                    Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    ctptview.IdPhieuThue = IdPhieuThue;
+                    MessageBox.Show(_iqlCTPTService.Update(ctptview));
+
+
+                    // //var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                    // //int soMax = slHdct.SoLuong + 1;
+                    // //hdctv.SoLuong = soMax;
+                    // var CTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.ID == IdPTCTEdit);
+                    // Guid IdPhieuThue = CTPT.IdPhieuThue;
+                    // ctptview.IdPhieuThue = IdPhieuThue;
+                    // //MessageBox.Show(_iqlCTPTService.Update(ctptview));
+                    // _iqlCTPTService.Update(ctptview);
+                    //// MessageBox.Show(item.IdCTPhieuThue.ToString());
                     MessageBox.Show("Thanh toán thành công");
 
 
