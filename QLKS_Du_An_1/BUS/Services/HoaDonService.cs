@@ -46,21 +46,29 @@ namespace BUS.Services
         }
         public string Add(HoaDonView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Nhận phòng that bai";
-            }
-            else
-            {
-                HoaDon hd = new HoaDon();
-                hd.MaHD = obj.MaHD;
-                hd.NgayTaoHD = obj.NgayTaoHD;
-                hd.IdCTPhieuThue = obj.IdCTPhieuThue;
-                if (_hoaDonRepository.Add(hd))
+                if (obj == null)
                 {
-                    return "Nhận phòng thành công";
+                    return "Nhận phòng that bai";
                 }
+                else
+                {
+                    HoaDon hd = new HoaDon();
+                    hd.MaHD = obj.MaHD;
+                    hd.NgayTaoHD = obj.NgayTaoHD;
+                    hd.IdCTPhieuThue = obj.IdCTPhieuThue;
+                    if (_hoaDonRepository.Add(hd))
+                    {
+                        return "Nhận phòng thành công";
+                    }
+                    return "Nhận phòng  that bai";
+                }
+            }
+            catch (Exception)
+            {
                 return "Nhận phòng  that bai";
+
             }
         }
 
@@ -188,15 +196,23 @@ namespace BUS.Services
 
         public string Update(HoaDonView obj)
         {
-            var index = _hoaDonRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
-            if (index == null) return "Không tìm thấy";
-            index.TrangThai = obj.TrangThai;
-            index.NgayTT = DateTime.Now;
-            if (_hoaDonRepository.Upadate(index))
+            try
             {
-                return "Sửa Thành Công";
+                var index = _hoaDonRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                if (index == null) return "Không tìm thấy";
+                index.TrangThai = obj.TrangThai;
+                index.NgayTT = DateTime.Now;
+                if (_hoaDonRepository.Upadate(index))
+                {
+                    return "Sửa Thành Công";
+                }
+                return "Sửa Không Thành Công";
             }
-            return "Sửa Không Thành Công";
+            catch (Exception)
+            {
+
+                return "Sửa Không Thành Công";
+            }
         }
 
         public List<HoaDonView> Search(string keyWord)

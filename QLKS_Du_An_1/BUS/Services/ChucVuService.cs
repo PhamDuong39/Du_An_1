@@ -38,12 +38,20 @@ namespace BUS.Services
         }
         public string Add(ChucVuView obj)
         {
-            string a = Validate(obj);
-            if (a != string.Empty) return a;
-            var temp = _chucVuRepository.GetAll().FindIndex(c => c.MaCV == obj.MaCV);
-            if (temp != -1) return "Đã có mã Chức Vụ này";
-            if (_chucVuRepository.Add(GetChucVu(obj))) return "Thêm thành công";
-            return "Thêm không thành công";
+            try
+            {
+                string a = Validate(obj);
+                if (a != string.Empty) return a;
+                var temp = _chucVuRepository.GetAll().FindIndex(c => c.MaCV == obj.MaCV);
+                if (temp != -1) return "Đã có mã Chức Vụ này";
+                if (_chucVuRepository.Add(GetChucVu(obj))) return "Thêm thành công";
+                return "Thêm không thành công";
+            }
+            catch (Exception)
+            {
+
+                return "Thêm không thành công";
+            }
         }
 
         public List<ChucVuView> GetAll()
@@ -60,22 +68,38 @@ namespace BUS.Services
         }
         public string Remove(ChucVuView obj)
         {
-            var temp = _chucVuRepository.GetAll().FindIndex(c => c.ID == obj.ID);
-            if (temp == -1) return "Không tìm thấy";
-            if (_chucVuRepository.Remove(GetChucVu(obj))) return "Xóa thành công";
-            return "Xóa không thành công";
+            try
+            {
+                var temp = _chucVuRepository.GetAll().FindIndex(c => c.ID == obj.ID);
+                if (temp == -1) return "Không tìm thấy";
+                if (_chucVuRepository.Remove(GetChucVu(obj))) return "Xóa thành công";
+                return "Xóa không thành công";
+            }
+            catch (Exception)
+            {
+
+                return "Xóa không thành công";
+            }
         }
 
         public string Update(ChucVuView obj)
         {
-            string a = Validate(obj);
-            if (a != string.Empty) return a;
-            var temp = _chucVuRepository.GetAll().FindIndex(c => c.ID == obj.ID);
-            if (temp == -1) return "Không tìm thấy";
-            var temp1 = _chucVuRepository.GetAll().Where(c=>c.ID != obj.ID).ToList();
-            if (temp1.FindIndex(c => c.MaCV == obj.MaCV) != -1) return "Đã có mã Chức Vụ này";
-            if (_chucVuRepository.Upadate(GetChucVu(obj))) return "Sửa thành công";
-            return "Sửa không thành công";
+            try
+            {
+                string a = Validate(obj);
+                if (a != string.Empty) return a;
+                var temp = _chucVuRepository.GetAll().FindIndex(c => c.ID == obj.ID);
+                if (temp == -1) return "Không tìm thấy";
+                var temp1 = _chucVuRepository.GetAll().Where(c => c.ID != obj.ID).ToList();
+                if (temp1.FindIndex(c => c.MaCV == obj.MaCV) != -1) return "Đã có mã Chức Vụ này";
+                if (_chucVuRepository.Upadate(GetChucVu(obj))) return "Sửa thành công";
+                return "Sửa không thành công";
+            }
+            catch (Exception)
+            {
+
+                return "Sửa không thành công";
+            }
         }
         public List<ChucVuView> GetList(string obj)
         {

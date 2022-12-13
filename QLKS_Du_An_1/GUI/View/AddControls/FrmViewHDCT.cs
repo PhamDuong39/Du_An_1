@@ -68,6 +68,8 @@ namespace GUI.View.AddControls
                     btn_ThanhToan.Visible=true;
                 }
             }
+            lb_NgayBD.Text = _lstGiaPhong[0].NgayBatDau.ToString();
+            lb_NgayKT.Text = _lstGiaPhong[0].NgayKetThuc.ToString();
         }
 
         private void TinhTienThanhToan()
@@ -275,8 +277,7 @@ namespace GUI.View.AddControls
                     e.Graphics.DrawString($"{SoNgayThue}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z));
                     
                     e.Graphics.DrawString($"{tienPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z));
-
-                    Point point5 = new Point(50, point1.Y + 65);
+                                        Point point5 = new Point(50, point1.Y + 65);
                     Point point6 = new Point(800, point2.Y + 65);
                     e.Graphics.DrawLine(p, point5, point6);
                     z += 26;

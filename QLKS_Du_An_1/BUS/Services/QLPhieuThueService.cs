@@ -27,24 +27,32 @@ namespace BUS.Services
         
         public string Add(PhieuThueView khv)
         {
-            if(khv == null)
+            try
             {
-                return "Thêm thất bại";
-            }
-            else
-            {
-                PhieuThue pt = new PhieuThue()
+                if (khv == null)
                 {
-                    ID = khv.ID,
-                    IdKH = khv.IdKH,
-                    IdNV = khv.IdNV,
-                    NgayLapPhieu = khv.NgayLapPhieu,
-                    MaPhieuThue = khv.MaPhieuThue,
-                };
-                if (_iPhieuThueRepository.Add(pt))
-                {
-                    return "Thêm thành công";
+                    return "Thêm thất bại";
                 }
+                else
+                {
+                    PhieuThue pt = new PhieuThue()
+                    {
+                        ID = khv.ID,
+                        IdKH = khv.IdKH,
+                        IdNV = khv.IdNV,
+                        NgayLapPhieu = khv.NgayLapPhieu,
+                        MaPhieuThue = khv.MaPhieuThue,
+                    };
+                    if (_iPhieuThueRepository.Add(pt))
+                    {
+                        return "Thêm thành công";
+                    }
+                    return "Thêm thất bại";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Thêm thất bại";
             }
             
@@ -71,39 +79,55 @@ namespace BUS.Services
 
         public string Remove(PhieuThueView khv)
         {
-            if (khv == null)
+            try
             {
-                return "Xóa thất bại";
-            }
-            else
-            {
-                var kh = _iPhieuThueRepository.GetAll().FirstOrDefault(p => p.ID == khv.ID);
-                if (_iPhieuThueRepository.Remove(kh))
+                if (khv == null)
                 {
-                    return "Xóa thành công";
+                    return "Xóa thất bại";
                 }
+                else
+                {
+                    var kh = _iPhieuThueRepository.GetAll().FirstOrDefault(p => p.ID == khv.ID);
+                    if (_iPhieuThueRepository.Remove(kh))
+                    {
+                        return "Xóa thành công";
+                    }
+                    return "Xóa thất bại";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Xóa thất bại";
             }
         }
 
         public string Update(PhieuThueView khv)
         {
-            if(khv == null)
+            try
             {
-                return "Sửa thất bại";
-            }
-            else
-            {
-                var x = _iPhieuThueRepository.GetAll().FirstOrDefault(x => x.ID == khv.ID);
-                x.IdKH = khv.IdKH;
-                x.IdNV = khv.IdNV;
-                x.NgayLapPhieu = khv.NgayLapPhieu;
-                if (_iPhieuThueRepository.Upadate(x))
+                if (khv == null)
                 {
-                    return "Sửa thành công";
+                    return "Sửa thất bại";
                 }
-                return "Sửa thất bại";
+                else
+                {
+                    var x = _iPhieuThueRepository.GetAll().FirstOrDefault(x => x.ID == khv.ID);
+                    x.IdKH = khv.IdKH;
+                    x.IdNV = khv.IdNV;
+                    x.NgayLapPhieu = khv.NgayLapPhieu;
+                    if (_iPhieuThueRepository.Upadate(x))
+                    {
+                        return "Sửa thành công";
+                    }
+                    return "Sửa thất bại";
 
+                }
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thất bại";
             }
             
         }

@@ -54,7 +54,7 @@ namespace GUI.View.UserControls
 
         private void tbt_SearchHDByMa_TextChanged(object sender, EventArgs e)
         {
-            int stt = 0;
+            int stt = 1;
             dtg_DanhSachHoaDon.ColumnCount = 8;
             dtg_DanhSachHoaDon.Columns[0].Name = "STT";
             dtg_DanhSachHoaDon.Columns[1].Name = "ID HĐ";
@@ -84,7 +84,7 @@ namespace GUI.View.UserControls
 
         private void dtp_SearchHDByDay_ValueChanged(object sender, EventArgs e)
         {
-            int stt = 0;
+            int stt = 1;
             dtg_DanhSachHoaDon.ColumnCount = 8;
             dtg_DanhSachHoaDon.Columns[0].Name = "STT";
             dtg_DanhSachHoaDon.Columns[1].Name = "ID HĐ";

@@ -23,71 +23,95 @@ namespace BUS.Services
         }
         public string Add(TaiKhoanView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var TaiKhoanNew = new TaiKhoan()
+                if (obj == null)
                 {
-                    ID = obj.ID,
-                    TenTaiKhoan = obj.TenTaiKhoan,
-                    MatKhau = obj.MatKhau,
-                    CapDoQuyen = obj.CapDoQuyen,
-                    IDNv = obj.IDNv,
-                };
-                if (_iTaiKhoanRepository.Add(TaiKhoanNew))
-                {
-                    return "Thêm thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Thêm thất b";
+                    var TaiKhoanNew = new TaiKhoan()
+                    {
+                        ID = obj.ID,
+                        TenTaiKhoan = obj.TenTaiKhoan,
+                        MatKhau = obj.MatKhau,
+                        CapDoQuyen = obj.CapDoQuyen,
+                        IDNv = obj.IDNv,
+                    };
+                    if (_iTaiKhoanRepository.Add(TaiKhoanNew))
+                    {
+                        return "Thêm thành công";
+                    }
+                    else
+                    {
+                        return "Thêm thất b";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Thêm thất b";
             }
         }
         public string Update(TaiKhoanView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var taikhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                //taikhoan.TenTaiKhoan = obj.TenTaiKhoan;
-                taikhoan.MatKhau = obj.MatKhau;
-                taikhoan.CapDoQuyen = obj.CapDoQuyen;
-                //taikhoan.IDNv = obj.IDNv;
-                if (_iTaiKhoanRepository.Update(taikhoan))
+                if (obj == null)
                 {
-                    return "Sửa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Sửa thất bại";
-                }
+                    var taikhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    //taikhoan.TenTaiKhoan = obj.TenTaiKhoan;
+                    taikhoan.MatKhau = obj.MatKhau;
+                    taikhoan.CapDoQuyen = obj.CapDoQuyen;
+                    //taikhoan.IDNv = obj.IDNv;
+                    if (_iTaiKhoanRepository.Update(taikhoan))
+                    {
+                        return "Sửa thành công";
+                    }
+                    else
+                    {
+                        return "Sửa thất bại";
+                    }
 
+                }
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thất bại";
             }
         }
         public string Delete(TaiKhoanView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var taiKhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
-                if (_iTaiKhoanRepository.Remove(taiKhoan))
+                if (obj == null)
                 {
-                    return "Xóa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Xóa thất bại";
+                    var taiKhoan = _iTaiKhoanRepository.GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                    if (_iTaiKhoanRepository.Remove(taiKhoan))
+                    {
+                        return "Xóa thành công";
+                    }
+                    else
+                    {
+                        return "Xóa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Xóa thất bại";
             }
         }
 

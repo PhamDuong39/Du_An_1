@@ -25,28 +25,36 @@ namespace BUS.Services
         }
         public string Add(PhongView obj)
         {
-            if(obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var phong = new Phong
+                if (obj == null)
                 {
-                    //Id = obj.Id,
-                    MaPhong = obj.MaPhong,
-                    TinhTrang = obj.TinhTrang,
-                    IDLoaiPhong = obj.IDLoaiPhong,
-               
-                };
-                if (iPhongRepository.Add(phong))
-                {
-                    return "Thêm phòng thành công";
+                    return "Không có đối tượng truyền vào";
                 }
-                else 
+                else
                 {
-                    return "Thêm phòng không thành công";
-                };
+                    var phong = new Phong
+                    {
+                        //Id = obj.Id,
+                        MaPhong = obj.MaPhong,
+                        TinhTrang = obj.TinhTrang,
+                        IDLoaiPhong = obj.IDLoaiPhong,
+
+                    };
+                    if (iPhongRepository.Add(phong))
+                    {
+                        return "Thêm phòng thành công";
+                    }
+                    else
+                    {
+                        return "Thêm phòng không thành công";
+                    };
+                }
+            }
+            catch (Exception)
+            {
+
+                return "Thêm phòng không thành công";
             }
         }
         
@@ -73,36 +81,52 @@ namespace BUS.Services
 
         public string Remove(PhongView obj)
         {
-            if (obj == null) return "Không có đối tượng truyền vào";
-            var phong = iPhongRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
-            if (iPhongRepository.Remove(phong))
+            try
             {
-                return "Xóa phòng thành công";
+                if (obj == null) return "Không có đối tượng truyền vào";
+                var phong = iPhongRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                if (iPhongRepository.Remove(phong))
+                {
+                    return "Xóa phòng thành công";
+                }
+                else
+                {
+                    return "Xóa phòng không thành công";
+                }
             }
-            else
+            catch (Exception)
             {
+
                 return "Xóa phòng không thành công";
             }
         }
 
         public string Update(PhongView obj)
         {
-            if (obj == null) return "Không có đối tượng truyền vào";
-            var phong = new Phong()
+            try
             {
-                Id = obj.Id,
-                MaPhong = obj.MaPhong,
-                IDLoaiPhong = obj.IDLoaiPhong,
-         
-                TinhTrang = obj.TinhTrang
-            };
-            if (iPhongRepository.Upadate(phong))
-            {
-                return "Sửa Phòng thành công";
+                if (obj == null) return "Không có đối tượng truyền vào";
+                var phong = new Phong()
+                {
+                    Id = obj.Id,
+                    MaPhong = obj.MaPhong,
+                    IDLoaiPhong = obj.IDLoaiPhong,
+
+                    TinhTrang = obj.TinhTrang
+                };
+                if (iPhongRepository.Upadate(phong))
+                {
+                    return "Sửa Phòng thành công";
+                }
+                else
+                {
+                    return "Sửa Phòng không thành công";
+                }
             }
-            else
+            catch (Exception)
             {
-                return "Sửa Phòng không thành công"; 
+
+                return "Sửa Phòng không thành công";
             }
 
         }
@@ -121,18 +145,26 @@ namespace BUS.Services
 
         public string UpdateTrangThaiPhong(PhongView phongView)
         {
-            if (phongView == null) return "Không có đối tượng truyền vào";
-            var phong = new Phong()
+            try
             {
-                Id = phongView.Id,
-                TinhTrang = phongView.TinhTrang
-            };
-            if (iPhongRepository.Upadate(phong))
-            {
-                return "Sửa tT Phòng thành công";
+                if (phongView == null) return "Không có đối tượng truyền vào";
+                var phong = new Phong()
+                {
+                    Id = phongView.Id,
+                    TinhTrang = phongView.TinhTrang
+                };
+                if (iPhongRepository.Upadate(phong))
+                {
+                    return "Sửa tT Phòng thành công";
+                }
+                else
+                {
+                    return "Sửa tt Phòng không thành công";
+                }
             }
-            else
+            catch (Exception)
             {
+
                 return "Sửa tt Phòng không thành công";
             }
         }
