@@ -110,10 +110,10 @@ namespace BUS.Services
                 }
                 else
                 {
-                    var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon);
+                    var hdct = _ihdctRepos.GetAll().FirstOrDefault(p => p.IdHoaDon == hdctv.IdHoaDon && p.IdDichVu == hdctv.IdDichVu);
                     hdct.SoLuong = hdctv.SoLuong;
                     hdct.DonGia = hdctv.DonGia;
-                    hdct.IdDichVu = hdctv.IdDichVu;
+                    //hdct.IdDichVu = hdctv.IdDichVu;
                     if (_ihdctRepos.Upadate(hdct))
                     {
                         return "Xoa thanh cong";
@@ -126,6 +126,8 @@ namespace BUS.Services
 
                 return "Xoa that bai";
             }
+
+
         }
     }
 }

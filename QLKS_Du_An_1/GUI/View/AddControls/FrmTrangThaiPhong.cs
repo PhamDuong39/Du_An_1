@@ -214,31 +214,66 @@ namespace GUI.View.AddControls
                     return;
                 }
                 // null here
+                //foreach (var item in lstDVV)
+                //{               
+                //    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) == null)
+                //    {
+                //        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                //        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                //        hdctv.SoLuong = 1;
+                //        hdctv.DonGia = item.Gia;
+                //        hdctv.IdDichVu = item.Id;
+                //        MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                //    }
+                //    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) != null)
+                //    {
+                //        HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                //        hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                //        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
+                //        int soMax = slHdct.SoLuong + 1;
+                //        hdctv.SoLuong =  soMax;
+                //        hdctv.DonGia = item.Gia;
+                //        hdctv.IdDichVu = item.Id;
+                //        MessageBox.Show(_iqlHDCTService.Update(hdctv));
+                //    }
+
+                //}
+                //
+
+                int SoLuongThem = lstDVV.Count;
                 foreach (var item in lstDVV)
                 {
-                  
-                    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) == null)
+                    var idHD = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
+                    if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD) == null)
                     {
                         HoaDonChiTietView hdctv = new HoaDonChiTietView();
                         hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
-                        hdctv.SoLuong = 1;
+                        hdctv.SoLuong = Convert.ToInt32(tb_SL.Value);
                         hdctv.DonGia = item.Gia;
                         hdctv.IdDichVu = item.Id;
-                        MessageBox.Show(_iqlHDCTService.Add(hdctv));
+                        _iqlHDCTService.Add(hdctv);
+                        //MessageBox.Show("TH1");
+                        MessageBox.Show("Thêm thành công");
+                        return;
                     }
-                    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id) != null)
+                    else if (_iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD) != null)
                     {
                         HoaDonChiTietView hdctv = new HoaDonChiTietView();
                         hdctv.IdHoaDon = _iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id;
-                        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id);
-                        int soMax = slHdct.SoLuong + 1;
-                        hdctv.SoLuong =  soMax;
-                        hdctv.DonGia = item.Gia;
                         hdctv.IdDichVu = item.Id;
-                        MessageBox.Show(_iqlHDCTService.Update(hdctv));
+          
+                        var slHdct = _iqlHDCTService.GetAll().FirstOrDefault(p => p.IdDichVu == item.Id && p.IdHoaDon == idHD);
+                        int soMax = slHdct.SoLuong;
+                        //hdctv.SoLuong = soMax;
+                        hdctv.SoLuong = soMax + Convert.ToInt32(tb_SL.Value);  
+                        hdctv.DonGia = item.Gia;
+                        _iqlHDCTService.Update(hdctv);
+                        MessageBox.Show("Thêm thành công");                 
+                        return;
                     }
-                  
-                }             
+
+                }
+
             }
             if (result == DialogResult.No)
             {
