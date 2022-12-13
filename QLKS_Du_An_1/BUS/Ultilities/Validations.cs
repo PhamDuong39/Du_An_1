@@ -32,7 +32,7 @@ namespace BUS.Ultilities
         public bool CheckRong(string obj)
         {
             // nếu giá trị truyền vào rỗng thì false
-            if (obj == string.Empty)
+            if (obj.Trim() == string.Empty)
             {
                 return false;
             }

@@ -69,26 +69,42 @@ namespace DAL.Repositories
 
         public bool Upadate(HoaDonChiTiet obj)
         {
-            try
-            {
-                if (obj == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
-                    hdct.SoLuong = obj.SoLuong;
-                    hdct.DonGia = obj.DonGia;
-                    _dbContext.HoaDonChiTiets.Update(hdct);
-                    _dbContext.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    if (obj == null)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon);
+            //        hdct.SoLuong = obj.SoLuong;
+            //        hdct.DonGia = obj.DonGia;
+            //        hdct.IdDichVu = obj.IdDichVu;
+            //        _dbContext.HoaDonChiTiets.Update(hdct);
+            //        _dbContext.SaveChanges();
+            //        return true;
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
+            //    return false;
+            //}
+
+            if (obj == null)
+            {
                 return false;
+            }
+            else
+            {
+                var hdct = _dbContext.HoaDonChiTiets.ToList().FirstOrDefault(p => p.IdHoaDon == obj.IdHoaDon && p.IdDichVu == obj.IdDichVu);
+                hdct.SoLuong = obj.SoLuong;
+                hdct.DonGia = obj.DonGia;
+                //hdct.IdDichVu = obj.IdDichVu;
+                _dbContext.HoaDonChiTiets.Update(hdct);
+                _dbContext.SaveChanges();
+                return true;
             }
         }
     }

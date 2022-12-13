@@ -333,7 +333,7 @@ namespace GUI.View.AddControls
                 // check tu day
                 // DB 34 phong || get all = 27
                 List<PhongView> listt = _iqlPhongService.GetAll().OrderBy(c => c.MaPhong).ToList();
-                MessageBox.Show(listt.Count.ToString());// van la 34
+                //MessageBox.Show(listt.Count.ToString());// van la 34
                 list_phong_co_kh = list_phong_co_kh.OrderBy(C => C.MaPhong).ToList();
                 // OK
 
@@ -404,7 +404,7 @@ namespace GUI.View.AddControls
                     var phongTrong = listt.FirstOrDefault(p => p.MaPhong == item);
                     list_phong_trong.Add(phongTrong);
                 }
-                MessageBox.Show(list_phong_trong.Count.ToString());
+                //MessageBox.Show(list_phong_trong.Count.ToString());
             }
             LoadDataDSPhongTrong(list_phong_trong);
         }
