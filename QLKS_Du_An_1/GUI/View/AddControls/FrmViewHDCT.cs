@@ -67,6 +67,8 @@ namespace GUI.View.AddControls
                     btn_ThanhToan.Visible=true;
                 }
             }
+            lb_NgayBD.Text = _lstGiaPhong[0].NgayBatDau.ToString();
+            lbSS_NgayKT.Text = _lstGiaPhong[0].NgayKetThuc.ToString();
         }
 
         private void TinhTienThanhToan()
