@@ -235,7 +235,7 @@ namespace GUI.View.UserControls
             flp_PhongTang1.Controls.Clear();
             flp_PhongTang2.Controls.Clear();
             flp_PhongTang3.Controls.Clear();
-            foreach (var item in lstPhongTang1)
+            foreach (var item in lstPhongTang1.OrderBy(p => p.MaPhong))
             {
                 listItems1[count1] = new ListItemRooms();
                 listItems1[count1].MaPhong = item.MaPhong;
@@ -294,7 +294,7 @@ namespace GUI.View.UserControls
             var lstPhongTang2 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "2").ToList();
             ListItemRooms[] listItems2 = new ListItemRooms[lstPhongTang2.Count];
             int count2 = 0;
-            foreach (var item in lstPhongTang2)
+            foreach (var item in lstPhongTang2.OrderBy(p => p.MaPhong))
             {
                 listItems2[count2] = new ListItemRooms();
                 listItems2[count2].MaPhong = item.MaPhong;
@@ -354,7 +354,7 @@ namespace GUI.View.UserControls
             var lstPhongTang3 = _iqlPhongService.GetAll().Where(p => p.MaPhong.Substring(1, 1) == "3").ToList();
             ListItemRooms[] listItems3 = new ListItemRooms[lstPhongTang3.Count];
             int count3 = 0;
-            foreach (var item in lstPhongTang3)
+            foreach (var item in lstPhongTang3.OrderBy(p => p.MaPhong))
             {
                 listItems3[count3] = new ListItemRooms();
                 listItems3[count3].MaPhong = item.MaPhong;
@@ -420,7 +420,7 @@ namespace GUI.View.UserControls
                 var lstCTPT = _iqlCTPTService.GetAll().FirstOrDefault(p => p.IdPhong == item.Id);
                 if (lstCTPT == null)
                 {
-                    MessageBox.Show("TH1");
+                    //MessageBox.Show("TH1");
                 }
                 else if (lstCTPT.NgayBatDau - now <= oneHour && lstCTPT.NgayBatDau - now > zeroHour)
                 {
@@ -430,7 +430,7 @@ namespace GUI.View.UserControls
                     pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
-                    MessageBox.Show("TH2");
+                   // MessageBox.Show("TH2");
                 }
                 // need check
                 else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
@@ -441,7 +441,7 @@ namespace GUI.View.UserControls
                     pv.IDLoaiPhong = item.IDLoaiPhong;
                     pv.TinhTrang = 3;
                     _iqlPhongService.Update(pv);
-                    MessageBox.Show("TH3");
+                    //MessageBox.Show("TH3");
                 }
                 //else if (now - lstCTPT.NgayBatDau > oneHour)
                 //{

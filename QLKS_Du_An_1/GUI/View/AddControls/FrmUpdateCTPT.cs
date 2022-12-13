@@ -265,5 +265,10 @@ namespace GUI.View.AddControls
         {
             take_empty_room();
         }
+
+        private void btn_HuyCapNhatPhieuThue_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -114,7 +114,7 @@ namespace BUS.Services
                     hdct.SoLuong = hdctv.SoLuong;
                     hdct.DonGia = hdctv.DonGia;
                     hdct.IdDichVu = hdctv.IdDichVu;
-                    if (_ihdctRepos.Remove(hdct))
+                    if (_ihdctRepos.Upadate(hdct))
                     {
                         return "Xoa thanh cong";
                     }

@@ -64,6 +64,7 @@
             this.btn_HuyCapNhatPhieuThue.TabIndex = 29;
             this.btn_HuyCapNhatPhieuThue.Text = "Hủy";
             this.btn_HuyCapNhatPhieuThue.UseVisualStyleBackColor = false;
+            this.btn_HuyCapNhatPhieuThue.Click += new System.EventHandler(this.btn_HuyCapNhatPhieuThue_Click);
             // 
             // btn_LocPhongTrong
             // 
