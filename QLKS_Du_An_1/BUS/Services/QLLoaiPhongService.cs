@@ -21,21 +21,29 @@ namespace BUS.Services
 
         public string Add(LoaiPhongView loaiPhongView)
         {
-           if(loaiPhongView == null) return "Không có đối tượng truyền vào";
-            var LoaiPhong = new LoaiPhong()
+            try
             {
-                ID = loaiPhongView.ID,
-                MaLoaiPhong = loaiPhongView.MaLoaiPhong,
-                TenLoaiPhong = loaiPhongView.TenLoaiPhong,
-                GiaNgay = loaiPhongView.GiaNgay,
-                SoGiuong = loaiPhongView.SoGiuong,
-            };
-            if (iLoaiPhongRepository.Add(LoaiPhong))
-            {
-                return "Thêm  thành công";
+                if (loaiPhongView == null) return "Không có đối tượng truyền vào";
+                var LoaiPhong = new LoaiPhong()
+                {
+                    ID = loaiPhongView.ID,
+                    MaLoaiPhong = loaiPhongView.MaLoaiPhong,
+                    TenLoaiPhong = loaiPhongView.TenLoaiPhong,
+                    GiaNgay = loaiPhongView.GiaNgay,
+                    SoGiuong = loaiPhongView.SoGiuong,
+                };
+                if (iLoaiPhongRepository.Add(LoaiPhong))
+                {
+                    return "Thêm  thành công";
+                }
+                else
+                {
+                    return "Thêm không thành công";
+                }
             }
-            else
+            catch (Exception)
             {
+
                 return "Thêm không thành công";
             }
             
@@ -58,11 +66,19 @@ namespace BUS.Services
 
         public string Remove(LoaiPhongView loaiPhongView)
         {
-            if(loaiPhongView==null) return "Không có đối tượng truyền vào";
-            var loaiPhong = iLoaiPhongRepository.GetAll().FirstOrDefault(c => c.ID == loaiPhongView.ID);
-            if (iLoaiPhongRepository.Remove(loaiPhong)) return "Xóa thành công";
-            else
+            try
             {
+                if (loaiPhongView == null) return "Không có đối tượng truyền vào";
+                var loaiPhong = iLoaiPhongRepository.GetAll().FirstOrDefault(c => c.ID == loaiPhongView.ID);
+                if (iLoaiPhongRepository.Remove(loaiPhong)) return "Xóa thành công";
+                else
+                {
+                    return "Xóa không thành công";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Xóa không thành công";
             }
             
@@ -76,21 +92,29 @@ namespace BUS.Services
 
         public string Update(LoaiPhongView loaiPhongView)
         {
-            if (loaiPhongView == null) return "không có đối tượng truyền vào";
-            var loaiPhong = new LoaiPhong()
+            try
             {
-                ID = loaiPhongView.ID,
-                MaLoaiPhong = loaiPhongView.MaLoaiPhong,
-                TenLoaiPhong = loaiPhongView.TenLoaiPhong,
-                GiaNgay = loaiPhongView.GiaNgay,
-                SoGiuong = loaiPhongView.SoGiuong,
-            };
-            if (iLoaiPhongRepository.Upadate(loaiPhong))
-            {
-                return "Sửa thành công";
+                if (loaiPhongView == null) return "không có đối tượng truyền vào";
+                var loaiPhong = new LoaiPhong()
+                {
+                    ID = loaiPhongView.ID,
+                    MaLoaiPhong = loaiPhongView.MaLoaiPhong,
+                    TenLoaiPhong = loaiPhongView.TenLoaiPhong,
+                    GiaNgay = loaiPhongView.GiaNgay,
+                    SoGiuong = loaiPhongView.SoGiuong,
+                };
+                if (iLoaiPhongRepository.Upadate(loaiPhong))
+                {
+                    return "Sửa thành công";
+                }
+                else
+                {
+                    return "Sửa Không thành công";
+                }
             }
-            else
+            catch (Exception)
             {
+
                 return "Sửa Không thành công";
             }
         }
