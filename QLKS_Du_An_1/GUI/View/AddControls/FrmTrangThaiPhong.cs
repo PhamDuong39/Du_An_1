@@ -168,6 +168,7 @@ namespace GUI.View.AddControls
             frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstGiaPhong = _iqlHDService.GetCTPhong(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon.NgayThanhToanHD = DateTime.Now;
+            frmViewHoaDon.IdPTCTEdit = IdPTCT;
             frmViewHoaDon.ShowDialog();
         }
 

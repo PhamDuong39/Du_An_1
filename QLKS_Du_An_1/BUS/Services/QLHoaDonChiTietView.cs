@@ -121,7 +121,7 @@ namespace BUS.Services
                     return "Xoa that bai";
                 }
             }
-            catch (Exception)
+            catch
             {
 
                 return "Xoa that bai";

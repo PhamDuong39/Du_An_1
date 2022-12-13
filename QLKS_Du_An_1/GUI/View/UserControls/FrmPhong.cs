@@ -434,16 +434,16 @@ namespace GUI.View.UserControls
                    // MessageBox.Show("TH2");
                 }
                 // need check
-                else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
-                {
-                    PhongView pv = new PhongView();
-                    pv.Id = item.Id;
-                    pv.MaPhong = item.MaPhong;
-                    pv.IDLoaiPhong = item.IDLoaiPhong;
-                    pv.TinhTrang = 3;
-                    _iqlPhongService.Update(pv);
-                    //MessageBox.Show("TH3");
-                }
+                //else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
+                //{
+                //    PhongView pv = new PhongView();
+                //    pv.Id = item.Id;
+                //    pv.MaPhong = item.MaPhong;
+                //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                //    pv.TinhTrang = 3;
+                //    _iqlPhongService.Update(pv);
+                //    //MessageBox.Show("TH3");
+                //}
                 //else if (now - lstCTPT.NgayBatDau > oneHour)
                 //{
 
@@ -488,15 +488,15 @@ namespace GUI.View.UserControls
                         _iqlPhongService.Update(pv);
                     }
                     // need check
-                    else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
-                    {
-                        PhongView pv = new PhongView();
-                        pv.Id = item.Id;
-                        pv.MaPhong = item.MaPhong;
-                        pv.IDLoaiPhong = item.IDLoaiPhong;
-                        pv.TinhTrang = 3;
-                        _iqlPhongService.Update(pv);
-                    }
+                    //else if (now - lstCTPT.NgayBatDau <= oneHour && now - lstCTPT.NgayBatDau > zeroHour)
+                    //{
+                    //    PhongView pv = new PhongView();
+                    //    pv.Id = item.Id;
+                    //    pv.MaPhong = item.MaPhong;
+                    //    pv.IDLoaiPhong = item.IDLoaiPhong;
+                    //    pv.TinhTrang = 3;
+                    //    _iqlPhongService.Update(pv);
+                    //}
                 }
                 LoadItemRooms();
                 TimeLeft = 120;
