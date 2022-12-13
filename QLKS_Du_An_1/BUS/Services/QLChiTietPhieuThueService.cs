@@ -25,24 +25,33 @@ namespace BUS.Services
         }
         public string Add(ChiTietPhieuThueView ctptv)
         {
-            if (ctptv == null)
+            try
             {
-                return "Đặt phòng thất bại";
-            }
-            else
-            {
-                ChiTietPhieuThue ctpt = new ChiTietPhieuThue();
-                ctpt.NgayBatDau = ctptv.NgayBatDau;
-                ctpt.NgayKetThuc = ctptv.NgayKetThuc;
-                ctpt.IdPhieuThue = ctptv.IdPhieuThue;
-                ctpt.IdPhong = ctptv.IdPhong;
-               // ctpt.MaCTPT = ctptv.MaCTPT;
-                if (_ictptRepos.Add(ctpt))
+                if (ctptv == null)
                 {
-                    return "Đặt phòng thành công";
+                    return "Đặt phòng thất bại";
                 }
-                return "Đặt phòng thất bại";
+                else
+                {
+                    ChiTietPhieuThue ctpt = new ChiTietPhieuThue();
+                    ctpt.NgayBatDau = ctptv.NgayBatDau;
+                    ctpt.NgayKetThuc = ctptv.NgayKetThuc;
+                    ctpt.IdPhieuThue = ctptv.IdPhieuThue;
+                    ctpt.IdPhong = ctptv.IdPhong;
+                    // ctpt.MaCTPT = ctptv.MaCTPT;
+                    if (_ictptRepos.Add(ctpt))
+                    {
+                        return "Đặt phòng thành công";
+                    }
+                    return "Đặt phòng thất bại";
+                }
             }
+            catch (Exception)
+            {
+                return "Đặt phòng thất bại";
+
+            }
+           
         }
 
         public List<ChiTietPhieuThueView> GetAll()
@@ -70,18 +79,26 @@ namespace BUS.Services
 
         public string Remove(ChiTietPhieuThueView ctptv)
         {
-            if (ctptv == null)
+            try
             {
-                return "Xoa that bai";
-            }
-            else
-            {
-                var ctpt = _ictptRepos.GetAll().FirstOrDefault(p => p.ID == ctptv.ID);
-                if (_ictptRepos.Remove(ctpt))
+                if (ctptv == null)
                 {
-                    return "Xoa thanh cong";
+                    return "Xoa that bai";
                 }
-                return "Xoa that bai"; 
+                else
+                {
+                    var ctpt = _ictptRepos.GetAll().FirstOrDefault(p => p.ID == ctptv.ID);
+                    if (_ictptRepos.Remove(ctpt))
+                    {
+                        return "Xoa thanh cong";
+                    }
+                    return "Xoa that bai";
+                }
+            }
+            catch (Exception)
+            {
+
+                return "Xoa that bai";
             }
         }
 
@@ -92,22 +109,30 @@ namespace BUS.Services
 
         public string Update(ChiTietPhieuThueView ctptv)
         {
-            if (ctptv == null)
+            try
             {
-                return "Sua that bai";
-            }
-            else
-            {
-                var ctpt = _ictptRepos.GetAll().FirstOrDefault(p => p.ID == ctptv.ID);
-                ctpt.NgayBatDau = ctptv.NgayBatDau;
-                ctpt.NgayKetThuc = ctptv.NgayKetThuc;
-                ctpt.IdPhieuThue = ctptv.IdPhieuThue;
-                ctpt.IdPhong = ctptv.IdPhong;
-               // ctpt.MaCTPT = ctptv.MaCTPT;
-                if (_ictptRepos.Upadate(ctpt))
+                if (ctptv == null)
                 {
-                    return "Sua thanh cong";
+                    return "Sua that bai";
                 }
+                else
+                {
+                    var ctpt = _ictptRepos.GetAll().FirstOrDefault(p => p.ID == ctptv.ID);
+                    ctpt.NgayBatDau = ctptv.NgayBatDau;
+                    ctpt.NgayKetThuc = ctptv.NgayKetThuc;
+                    ctpt.IdPhieuThue = ctptv.IdPhieuThue;
+                    ctpt.IdPhong = ctptv.IdPhong;
+                    // ctpt.MaCTPT = ctptv.MaCTPT;
+                    if (_ictptRepos.Upadate(ctpt))
+                    {
+                        return "Sua thanh cong";
+                    }
+                    return "Sua that bai";
+                }
+            }
+            catch (Exception)
+            {
+
                 return "Sua that bai";
             }
         }

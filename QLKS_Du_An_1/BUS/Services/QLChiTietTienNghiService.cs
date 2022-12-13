@@ -23,31 +23,39 @@ namespace BUS.Services
         }
         public string Add(ChiTietTienNghiView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng để thêm";
-            }
-            else
-            {
-                var cttn = new ChiTietTienNghi()
+                if (obj == null)
                 {
-                    ID = obj.ID,
-                    MaCTTienNghi = obj.MaCTTienNghi,
-                    IdPhong = obj.IdPhong,
-                    TenCTTienNghi = obj.TenCTTienNghi,
-                    IDLoaiTienNghi = obj.IDLoaiTienNghi,
-                    
-                };
-                if (_chiTienNghiRepository.Add(cttn))
-                {
-                    return "Thêm tiện nghi thành công";
+                    return "Không có đối tượng để thêm";
                 }
                 else
                 {
-                    return "Thêm tiện nghi thất bại";
-                }
-                
-            };
+                    var cttn = new ChiTietTienNghi()
+                    {
+                        ID = obj.ID,
+                        MaCTTienNghi = obj.MaCTTienNghi,
+                        IdPhong = obj.IdPhong,
+                        TenCTTienNghi = obj.TenCTTienNghi,
+                        IDLoaiTienNghi = obj.IDLoaiTienNghi,
+
+                    };
+                    if (_chiTienNghiRepository.Add(cttn))
+                    {
+                        return "Thêm tiện nghi thành công";
+                    }
+                    else
+                    {
+                        return "Thêm tiện nghi thất bại";
+                    }
+
+                };
+            }
+            catch (Exception)
+            {
+
+                return "Thêm tiện nghi thất bại";
+            }
         }
         
         public List<ChiTietTienNghiView> GetAll()
@@ -137,22 +145,30 @@ namespace BUS.Services
 
         public string Remove(ChiTietTienNghiView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng để xóa";
-            }
-            else
-            {
-                var tn = _chiTienNghiRepository.GetAll().FirstOrDefault(a => a.ID == obj.ID);
-                if (_chiTienNghiRepository.Remove(tn))
+                if (obj == null)
                 {
-                    return "Xóa tiện nghi thành công";
+                    return "Không có đối tượng để xóa";
                 }
                 else
                 {
-                    return "Xóa tiện nghi thất bại";
+                    var tn = _chiTienNghiRepository.GetAll().FirstOrDefault(a => a.ID == obj.ID);
+                    if (_chiTienNghiRepository.Remove(tn))
+                    {
+                        return "Xóa tiện nghi thành công";
+                    }
+                    else
+                    {
+                        return "Xóa tiện nghi thất bại";
+                    }
+
                 }
-                
+            }
+            catch (Exception)
+            {
+
+                return "Xóa tiện nghi thất bại";
             }
         }
 
@@ -164,26 +180,34 @@ namespace BUS.Services
 
         public string Update(ChiTietTienNghiView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không tìm được đối tượng để sửa";
-            }
-            else
-            {
-                var ltn = _chiTienNghiRepository.GetAll().FirstOrDefault(a => a.ID == obj.ID);           
-                ltn.MaCTTienNghi = obj.MaCTTienNghi;
-                ltn.IdPhong = obj.IdPhong;
-                ltn.TenCTTienNghi = obj.TenCTTienNghi;
-                ltn.IDLoaiTienNghi = obj.IDLoaiTienNghi;
-                if (_chiTienNghiRepository.Upadate(ltn))
+                if (obj == null)
                 {
-                    return "Sửa thông tin tiện nghi thành công";
+                    return "Không tìm được đối tượng để sửa";
                 }
                 else
                 {
-                    return "Sửa thông tin thất bại, vui lòng thử lại";
-                }
-            };
+                    var ltn = _chiTienNghiRepository.GetAll().FirstOrDefault(a => a.ID == obj.ID);
+                    ltn.MaCTTienNghi = obj.MaCTTienNghi;
+                    ltn.IdPhong = obj.IdPhong;
+                    ltn.TenCTTienNghi = obj.TenCTTienNghi;
+                    ltn.IDLoaiTienNghi = obj.IDLoaiTienNghi;
+                    if (_chiTienNghiRepository.Upadate(ltn))
+                    {
+                        return "Sửa thông tin tiện nghi thành công";
+                    }
+                    else
+                    {
+                        return "Sửa thông tin thất bại, vui lòng thử lại";
+                    }
+                };
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thông tin thất bại, vui lòng thử lại";
+            }
         }
 
         public Guid GetIdByRoomCode(string roomCode)

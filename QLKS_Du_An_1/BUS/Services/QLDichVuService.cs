@@ -24,48 +24,64 @@ namespace BUS.Services
         }
         public string Add(DichVuView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không tìm dc đối tượng";
-            }
-            else
-            {
-                var DichVuView = new DichVu()
+                if (obj == null)
                 {
-                    Id = obj.Id,
-                    IDLoaiDichVu = obj.IDLoaiDichVu,
-                    TenDichVu = obj.TenDichVu,
-                    MaDichVu = obj.MaDichVu,
-                    Gia = obj.Gia
-                };
-                if (_iDichVuRepository.Add(DichVuView))
-                {
-                    return "Thêm thành công";
+                    return "Không tìm dc đối tượng";
                 }
                 else
                 {
-                    return "Thêm thất bại";
+                    var DichVuView = new DichVu()
+                    {
+                        Id = obj.Id,
+                        IDLoaiDichVu = obj.IDLoaiDichVu,
+                        TenDichVu = obj.TenDichVu,
+                        MaDichVu = obj.MaDichVu,
+                        Gia = obj.Gia
+                    };
+                    if (_iDichVuRepository.Add(DichVuView))
+                    {
+                        return "Thêm thành công";
+                    }
+                    else
+                    {
+                        return "Thêm thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Thêm thất bại";
             }
         }
 
         public string Delete(DichVuView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var DichVuView = _iDichVuRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
-                if (_iDichVuRepository.Remove(DichVuView))
+                if (obj == null)
                 {
-                    return "Xóa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Xóa thất bại";
+                    var DichVuView = _iDichVuRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                    if (_iDichVuRepository.Remove(DichVuView))
+                    {
+                        return "Xóa thành công";
+                    }
+                    else
+                    {
+                        return "Xóa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Xóa thất bại";
             }
         }
 
@@ -93,25 +109,33 @@ namespace BUS.Services
 
         public string Update(DichVuView obj)
         {
-            if (obj == null)
+            try
             {
-                return "Không có đối tượng truyền vào";
-            }
-            else
-            {
-                var DichVuView = _iDichVuRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
-                DichVuView.IDLoaiDichVu = obj.IDLoaiDichVu;
-                DichVuView.TenDichVu = obj.TenDichVu;
-                DichVuView.MaDichVu = obj.MaDichVu;
-                DichVuView.Gia = obj.Gia;
-                if (_iDichVuRepository.Upadate(DichVuView))
+                if (obj == null)
                 {
-                    return "Sửa thành công";
+                    return "Không có đối tượng truyền vào";
                 }
                 else
                 {
-                    return "Sửa thất bại";
+                    var DichVuView = _iDichVuRepository.GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                    DichVuView.IDLoaiDichVu = obj.IDLoaiDichVu;
+                    DichVuView.TenDichVu = obj.TenDichVu;
+                    DichVuView.MaDichVu = obj.MaDichVu;
+                    DichVuView.Gia = obj.Gia;
+                    if (_iDichVuRepository.Upadate(DichVuView))
+                    {
+                        return "Sửa thành công";
+                    }
+                    else
+                    {
+                        return "Sửa thất bại";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                return "Sửa thất bại";
             }
         }
 
