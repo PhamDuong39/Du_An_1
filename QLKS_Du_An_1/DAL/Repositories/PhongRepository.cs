@@ -17,14 +17,22 @@ namespace DAL.Repositories
         }
         public bool Add(Phong obj)
         {
-            if(obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                obj.Id = Guid.NewGuid();
+                _Db.Add(obj);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
-            }           
-            obj.Id = Guid.NewGuid();
-            _Db.Add(obj);
-            _Db.SaveChanges();
-            return true;
+            }
         }
 
         public List<Phong> GetAll()
@@ -34,43 +42,67 @@ namespace DAL.Repositories
 
         public bool Remove(Phong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var phong = GetAll().FirstOrDefault(a => a.Id == obj.Id);
+                _Db.Remove(phong);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var phong = GetAll().FirstOrDefault(a => a.Id == obj.Id);
-            _Db.Remove(phong);
-            _Db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(Phong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
+                x.MaPhong = obj.MaPhong;
+                x.TinhTrang = obj.TinhTrang;
+                x.IDLoaiPhong = obj.IDLoaiPhong;
+
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
-            x.MaPhong = obj.MaPhong;
-            x.TinhTrang = obj.TinhTrang;
-            x.IDLoaiPhong = obj.IDLoaiPhong;
-          
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
 
         public bool UpdateTrangThaiPhong(Phong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id);
+                x.TinhTrang = obj.TinhTrang;
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.Phongs.FirstOrDefault(a => a.Id == obj.Id); 
-            x.TinhTrang = obj.TinhTrang;
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }

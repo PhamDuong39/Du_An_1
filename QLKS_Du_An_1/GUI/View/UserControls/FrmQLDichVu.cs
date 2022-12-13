@@ -51,7 +51,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachDichVu.Columns[5].Name = "Tên loại dịch vụ";
 
 
-            foreach (var x in lst)
+            foreach (var x in lst.OrderBy(p => p.MaDichVu))
             {
                 dtg_DanhSachDichVu.Rows.Add(x.Id,x.MaDichVu,x.TenDichVu,x.Gia,x.IDLoaiDichVu,x.TenLoaiDV);
             }
@@ -98,7 +98,7 @@ namespace GUI.View.UserControls
                 btnsualtn.MaDichVu = MaDichVuSelected;
                 btnsualtn.TenDichVu = TenDichVuSelected;
                 btnsualtn.Gia = GiaSelected;
-                btnsualtn.IDLoaiDichVu = IdDichVuSelected;
+                btnsualtn.IDLoaiDichVu = IDLoaiDichVuSelected;
                 btnsualtn.TenLoaiDV = TenLoaiDichVuSelected;
                 btnsualtn.ShowDialog();
             }
@@ -118,9 +118,11 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
+
+
+        private void tbt_SearchServicesName_TextChanged(object sender, EventArgs e)
         {
-            LoadData(_iQLDichVuService.GetAll());
+            LoadData(_iQLDichVuService.Sreach(tbt_SearchServicesName.Text));
         }
     }
 }

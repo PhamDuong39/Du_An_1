@@ -10,12 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemDichVu : Form
     {
         private IQLDichVuService _iQDichVuService;
+        private Validations val;
         private IQLLoaiDichVuService _iQLLoaiDichVuService;
 
         public FrmBtnThemDichVu()
@@ -24,6 +26,7 @@ namespace GUI.View.AddControls
             _iQDichVuService = new QLDichVuService();
             _iQLLoaiDichVuService = new QLLoaiDichVuService();
             LoadCBB();
+            val= new Validations();
         }
 
         private void LoadCBB()
@@ -39,8 +42,14 @@ namespace GUI.View.AddControls
             DialogResult dls = MessageBox.Show("Bạn có muốn thêm dịch vụ này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dls == DialogResult.Yes)
             {
+                if (val.CheckRong(tb_TenDichVu.Text) == false || val.CheckRong(tb_MaDichVu.Text) == false || val.CheckRong(tb_MaDichVu.Text) == false)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông Báo");
+                    return;
+                }
                 var ldv = new DichVuView()
                 {
+                    
                     Id = Guid.NewGuid(),
                     TenDichVu = tb_TenDichVu.Text,
                     MaDichVu = tb_MaDichVu.Text,
@@ -54,6 +63,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã không thêm dịch vụ này");
             }
+        }
+
+        private void btn_HuyDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

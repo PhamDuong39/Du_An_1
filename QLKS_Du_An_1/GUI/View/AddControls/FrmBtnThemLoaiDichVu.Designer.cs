@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tb_TenLoaiDichVu);
-            this.panel1.Location = new System.Drawing.Point(123, 103);
+            this.panel1.Location = new System.Drawing.Point(139, 102);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 317);
@@ -74,6 +74,7 @@
             this.tb_MaLoaiDichVu.PlaceholderText = "Nhập mã loại dịch vụ";
             this.tb_MaLoaiDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_MaLoaiDichVu.TabIndex = 30;
+            this.tb_MaLoaiDichVu.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -105,6 +106,7 @@
             this.tb_TenLoaiDichVu.PlaceholderText = "Nhập tên loại dịch vụ";
             this.tb_TenLoaiDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_TenLoaiDichVu.TabIndex = 17;
+            this.tb_TenLoaiDichVu.TabStop = false;
             // 
             // btn_HuyThemLoaiDichVu
             // 
@@ -121,6 +123,7 @@
             this.btn_HuyThemLoaiDichVu.TabIndex = 35;
             this.btn_HuyThemLoaiDichVu.Text = "Hủy";
             this.btn_HuyThemLoaiDichVu.UseVisualStyleBackColor = false;
+            this.btn_HuyThemLoaiDichVu.Click += new System.EventHandler(this.btn_HuyThemLoaiDichVu_Click);
             // 
             // btn_ThemLoaiDichVu
             // 
@@ -148,8 +151,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyThemLoaiDichVu);
             this.Controls.Add(this.btn_ThemLoaiDichVu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemLoaiDichVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemLoaiDichVu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

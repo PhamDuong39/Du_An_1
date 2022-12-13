@@ -10,12 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnSuaDichVu : Form
     {
         private IQLDichVuService _iQLDichVuService;
+        private Validations Val;
 
         public Guid Id { get; set; }
         public string MaDichVu { get; set; }
@@ -27,7 +29,7 @@ namespace GUI.View.AddControls
         {
             InitializeComponent();
             _iQLDichVuService = new QLDichVuService();
-
+            Val = new Validations();
         }
 
         private void btn_SuaDichVu_Click(object sender, EventArgs e)
@@ -35,6 +37,12 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có chắc chắn sửa dịch vụ này không ?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                if (Val.CheckRong(tb_GiaDichVu.Text) == false ||Val.CheckRong(tb_MaDichVu.Text)==false||Val.CheckRong(tb_TenDichVu.Text)==false)
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo");
+                    return;
+                }
+
                 DichVuView ltn = new DichVuView();
                 ltn.Id = Id;
                 ltn.MaDichVu = tb_MaDichVu.Text;
@@ -56,6 +64,11 @@ namespace GUI.View.AddControls
             tb_TenDichVu.Text = TenDichVu;
             tb_GiaDichVu.Text = Gia.ToString();
             cbb_TenLoaiDichVu.Text = TenLoaiDV;
+        }
+
+        private void btn_HuySuaDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

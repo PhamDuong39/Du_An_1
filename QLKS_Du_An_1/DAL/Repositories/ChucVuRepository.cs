@@ -17,15 +17,24 @@ namespace DAL.Repositories
         }
         public bool Add(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                if (_db.ChucVus.FirstOrDefault(c => c.MaCV == obj.MaCV) != null) return false;
+                obj.ID = Guid.NewGuid();
+                _db.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            if (_db.ChucVus.FirstOrDefault(c => c.MaCV == obj.MaCV) != null) return false;
-            obj.ID = Guid.NewGuid();
-            _db.Add(obj);
-            _db.SaveChanges();
-            return true;
+           
         }
 
         public List<ChucVu> GetAll()
@@ -35,30 +44,46 @@ namespace DAL.Repositories
 
         public bool Remove(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                if (indext == null) return false;
+                _db.Remove(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
-            if (indext == null) return false;
-            _db.Remove(indext);
-            _db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(ChucVu obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
+                if (indext == null) return false;
+                indext.MaCV = obj.MaCV;
+                indext.TenCV = obj.TenCV;
+                _db.ChucVus.Update(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.ID == obj.ID);
-            if (indext == null) return false;
-            indext.MaCV = obj.MaCV;
-            indext.TenCV = obj.TenCV;
-            _db.ChucVus.Update(indext);
-            _db.SaveChanges();
-            return true;
         }
     }
 }

@@ -53,7 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(146, 29);
+            this.label1.Location = new System.Drawing.Point(117, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(395, 41);
             this.label1.TabIndex = 25;
@@ -128,6 +128,7 @@
             this.tb_MaLoaiPhong.PlaceholderText = "Nhập mã lọai phòng";
             this.tb_MaLoaiPhong.Size = new System.Drawing.Size(218, 27);
             this.tb_MaLoaiPhong.TabIndex = 21;
+            this.tb_MaLoaiPhong.TabStop = false;
             // 
             // tb_SoGiuong
             // 
@@ -137,6 +138,7 @@
             this.tb_SoGiuong.PlaceholderText = "Nhập số giường";
             this.tb_SoGiuong.Size = new System.Drawing.Size(218, 27);
             this.tb_SoGiuong.TabIndex = 20;
+            this.tb_SoGiuong.TabStop = false;
             // 
             // tb_GiaNgay
             // 
@@ -146,6 +148,7 @@
             this.tb_GiaNgay.PlaceholderText = "Nhập giá ngày";
             this.tb_GiaNgay.Size = new System.Drawing.Size(218, 27);
             this.tb_GiaNgay.TabIndex = 19;
+            this.tb_GiaNgay.TabStop = false;
             // 
             // tb_TenLoaiPhong
             // 
@@ -155,6 +158,7 @@
             this.tb_TenLoaiPhong.PlaceholderText = "Nhập tên loại phòng";
             this.tb_TenLoaiPhong.Size = new System.Drawing.Size(218, 27);
             this.tb_TenLoaiPhong.TabIndex = 17;
+            this.tb_TenLoaiPhong.TabStop = false;
             // 
             // btn_HuyThemLoaiPhong
             // 
@@ -171,6 +175,7 @@
             this.btn_HuyThemLoaiPhong.TabIndex = 27;
             this.btn_HuyThemLoaiPhong.Text = "Hủy";
             this.btn_HuyThemLoaiPhong.UseVisualStyleBackColor = false;
+            this.btn_HuyThemLoaiPhong.Click += new System.EventHandler(this.btn_HuyThemLoaiPhong_Click);
             // 
             // btn_ThemLoaiPhong
             // 
@@ -198,8 +203,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyThemLoaiPhong);
             this.Controls.Add(this.btn_ThemLoaiPhong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemLoaiPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemLoaiPhong";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

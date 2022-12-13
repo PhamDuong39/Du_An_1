@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(183, 9);
+            this.label1.Location = new System.Drawing.Point(202, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(351, 41);
             this.label1.TabIndex = 41;
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txt_maNV);
-            this.panel1.Location = new System.Drawing.Point(178, 76);
+            this.panel1.Location = new System.Drawing.Point(197, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 359);
@@ -209,7 +209,7 @@
             this.btn_HuyDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuyDichVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuyDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyDichVu.Location = new System.Drawing.Point(518, 471);
+            this.btn_HuyDichVu.Location = new System.Drawing.Point(486, 464);
             this.btn_HuyDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuyDichVu.Name = "btn_HuyDichVu";
             this.btn_HuyDichVu.Size = new System.Drawing.Size(110, 40);
@@ -226,7 +226,7 @@
             this.btn_capnhatTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_capnhatTK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_capnhatTK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_capnhatTK.Location = new System.Drawing.Point(371, 471);
+            this.btn_capnhatTK.Location = new System.Drawing.Point(339, 464);
             this.btn_capnhatTK.Margin = new System.Windows.Forms.Padding(0);
             this.btn_capnhatTK.Name = "btn_capnhatTK";
             this.btn_capnhatTK.Size = new System.Drawing.Size(110, 40);
@@ -244,7 +244,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyDichVu);
             this.Controls.Add(this.btn_capnhatTK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBtnSuaTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaTaiKhoan";
             this.Load += new System.EventHandler(this.FrmBtnSuaTaiKhoan_Load);
             this.panel1.ResumeLayout(false);

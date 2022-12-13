@@ -105,7 +105,7 @@
             // cbo_chucvuNV
             // 
             this.cbo_chucvuNV.FormattingEnabled = true;
-            this.cbo_chucvuNV.Location = new System.Drawing.Point(93, 344);
+            this.cbo_chucvuNV.Location = new System.Drawing.Point(93, 275);
             this.cbo_chucvuNV.Name = "cbo_chucvuNV";
             this.cbo_chucvuNV.Size = new System.Drawing.Size(218, 28);
             this.cbo_chucvuNV.TabIndex = 35;
@@ -132,7 +132,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(39, 86);
+            this.pictureBox8.Location = new System.Drawing.Point(340, 213);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(27, 32);
@@ -142,17 +142,18 @@
             // 
             // txt_maNV
             // 
-            this.txt_maNV.Location = new System.Drawing.Point(93, 86);
+            this.txt_maNV.Location = new System.Drawing.Point(394, 213);
             this.txt_maNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_maNV.Name = "txt_maNV";
             this.txt_maNV.PlaceholderText = "Nhập mã nhân viên";
             this.txt_maNV.Size = new System.Drawing.Size(219, 27);
             this.txt_maNV.TabIndex = 31;
+            this.txt_maNV.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(39, 340);
+            this.pictureBox2.Location = new System.Drawing.Point(39, 271);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 32);
@@ -163,7 +164,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(39, 273);
+            this.pictureBox7.Location = new System.Drawing.Point(39, 204);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(27, 32);
@@ -185,7 +186,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(39, 213);
+            this.pictureBox5.Location = new System.Drawing.Point(39, 144);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 32);
@@ -196,7 +197,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(39, 153);
+            this.pictureBox4.Location = new System.Drawing.Point(39, 84);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 32);
@@ -229,7 +230,7 @@
             // cbo_gioitinhNV
             // 
             this.cbo_gioitinhNV.FormattingEnabled = true;
-            this.cbo_gioitinhNV.Location = new System.Drawing.Point(93, 274);
+            this.cbo_gioitinhNV.Location = new System.Drawing.Point(93, 205);
             this.cbo_gioitinhNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbo_gioitinhNV.Name = "cbo_gioitinhNV";
             this.cbo_gioitinhNV.Size = new System.Drawing.Size(218, 28);
@@ -244,24 +245,27 @@
             this.txt_cccdNV.PlaceholderText = "Nhập CCCD";
             this.txt_cccdNV.Size = new System.Drawing.Size(218, 27);
             this.txt_cccdNV.TabIndex = 21;
+            this.txt_cccdNV.TabStop = false;
             // 
             // txt_sdtNV
             // 
-            this.txt_sdtNV.Location = new System.Drawing.Point(93, 155);
+            this.txt_sdtNV.Location = new System.Drawing.Point(93, 86);
             this.txt_sdtNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_sdtNV.Name = "txt_sdtNV";
             this.txt_sdtNV.PlaceholderText = "Nhập SDT";
             this.txt_sdtNV.Size = new System.Drawing.Size(218, 27);
             this.txt_sdtNV.TabIndex = 20;
+            this.txt_sdtNV.TabStop = false;
             // 
             // txt_diachiNV
             // 
-            this.txt_diachiNV.Location = new System.Drawing.Point(93, 215);
+            this.txt_diachiNV.Location = new System.Drawing.Point(93, 146);
             this.txt_diachiNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_diachiNV.Name = "txt_diachiNV";
             this.txt_diachiNV.PlaceholderText = "Nhập địa chỉ";
             this.txt_diachiNV.Size = new System.Drawing.Size(218, 27);
             this.txt_diachiNV.TabIndex = 19;
+            this.txt_diachiNV.TabStop = false;
             // 
             // txt_luongNV
             // 
@@ -271,6 +275,7 @@
             this.txt_luongNV.PlaceholderText = "Nhập lương";
             this.txt_luongNV.Size = new System.Drawing.Size(218, 27);
             this.txt_luongNV.TabIndex = 18;
+            this.txt_luongNV.TabStop = false;
             // 
             // txt_tenNV
             // 
@@ -280,6 +285,7 @@
             this.txt_tenNV.PlaceholderText = "Nhập tên";
             this.txt_tenNV.Size = new System.Drawing.Size(218, 27);
             this.txt_tenNV.TabIndex = 17;
+            this.txt_tenNV.TabStop = false;
             // 
             // btn_HuyThemKH
             // 
@@ -289,13 +295,14 @@
             this.btn_HuyThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuyThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuyThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuyThemKH.Location = new System.Drawing.Point(496, 510);
+            this.btn_HuyThemKH.Location = new System.Drawing.Point(620, 510);
             this.btn_HuyThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuyThemKH.Name = "btn_HuyThemKH";
             this.btn_HuyThemKH.Size = new System.Drawing.Size(110, 40);
             this.btn_HuyThemKH.TabIndex = 27;
             this.btn_HuyThemKH.Text = "Hủy";
             this.btn_HuyThemKH.UseVisualStyleBackColor = false;
+            this.btn_HuyThemKH.Click += new System.EventHandler(this.btn_HuyThemKH_Click);
             // 
             // btn_ThemKH
             // 
@@ -305,7 +312,7 @@
             this.btn_ThemKH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemKH.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemKH.Location = new System.Drawing.Point(351, 510);
+            this.btn_ThemKH.Location = new System.Drawing.Point(475, 510);
             this.btn_ThemKH.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemKH.Name = "btn_ThemKH";
             this.btn_ThemKH.Size = new System.Drawing.Size(110, 40);
@@ -324,6 +331,7 @@
             this.Controls.Add(this.btn_HuyThemKH);
             this.Controls.Add(this.btn_ThemKH);
             this.Name = "FrmBtnThemNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemNhanVien";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(126, 27);
+            this.label1.Location = new System.Drawing.Point(121, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(311, 41);
             this.label1.TabIndex = 33;
@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tb_MaPhong);
-            this.panel1.Location = new System.Drawing.Point(121, 93);
+            this.panel1.Location = new System.Drawing.Point(149, 92);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 359);
@@ -80,6 +80,7 @@
             this.cbb_TrangThai.Name = "cbb_TrangThai";
             this.cbb_TrangThai.Size = new System.Drawing.Size(218, 28);
             this.cbb_TrangThai.TabIndex = 29;
+            this.cbb_TrangThai.TabStop = false;
             // 
             // cbb_TenLoaiPhong
             // 
@@ -91,6 +92,7 @@
             this.cbb_TenLoaiPhong.Name = "cbb_TenLoaiPhong";
             this.cbb_TenLoaiPhong.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiPhong.TabIndex = 27;
+            this.cbb_TenLoaiPhong.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -133,6 +135,7 @@
             this.tb_MaPhong.PlaceholderText = "Nhập mã phòng";
             this.tb_MaPhong.Size = new System.Drawing.Size(218, 27);
             this.tb_MaPhong.TabIndex = 17;
+            this.tb_MaPhong.TabStop = false;
             // 
             // btn_HuySuaPhong
             // 
@@ -142,13 +145,14 @@
             this.btn_HuySuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaPhong.Location = new System.Drawing.Point(438, 528);
+            this.btn_HuySuaPhong.Location = new System.Drawing.Point(438, 492);
             this.btn_HuySuaPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaPhong.Name = "btn_HuySuaPhong";
             this.btn_HuySuaPhong.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaPhong.TabIndex = 35;
             this.btn_HuySuaPhong.Text = "Hủy";
             this.btn_HuySuaPhong.UseVisualStyleBackColor = false;
+            this.btn_HuySuaPhong.Click += new System.EventHandler(this.btn_HuySuaPhong_Click);
             // 
             // btn_SuaPhong
             // 
@@ -158,7 +162,7 @@
             this.btn_SuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaPhong.Location = new System.Drawing.Point(291, 528);
+            this.btn_SuaPhong.Location = new System.Drawing.Point(291, 492);
             this.btn_SuaPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaPhong.Name = "btn_SuaPhong";
             this.btn_SuaPhong.Size = new System.Drawing.Size(110, 40);
@@ -172,7 +176,7 @@
             this.lb_TenPhongSua.AutoSize = true;
             this.lb_TenPhongSua.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_TenPhongSua.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.lb_TenPhongSua.Location = new System.Drawing.Point(418, 27);
+            this.lb_TenPhongSua.Location = new System.Drawing.Point(438, 27);
             this.lb_TenPhongSua.Name = "lb_TenPhongSua";
             this.lb_TenPhongSua.Size = new System.Drawing.Size(167, 41);
             this.lb_TenPhongSua.TabIndex = 36;
@@ -182,14 +186,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 600);
+            this.ClientSize = new System.Drawing.Size(702, 571);
             this.Controls.Add(this.lb_TenPhongSua);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaPhong);
             this.Controls.Add(this.btn_SuaPhong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaPhong";
             this.Load += new System.EventHandler(this.FrmBtnSuaPhong_Load);
             this.panel1.ResumeLayout(false);

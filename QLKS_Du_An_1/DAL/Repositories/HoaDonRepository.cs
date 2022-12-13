@@ -17,15 +17,24 @@ namespace DAL.Repositories
         }
         public bool Add(HoaDon obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                if (_db.HoaDons.FirstOrDefault(c => c.MaHD == obj.MaHD) != null) return false;
+                obj.Id = Guid.NewGuid();
+                _db.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            if (_db.HoaDons.FirstOrDefault(c => c.MaHD == obj.MaHD) != null) return false;
-            obj.Id = Guid.NewGuid();
-            _db.Add(obj);
-            _db.SaveChanges();
-            return true;
+           
         }
 
         public List<HoaDon> GetAll()
@@ -35,29 +44,46 @@ namespace DAL.Repositories
 
         public bool Remove(HoaDon obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                int indext = GetAll().FindIndex(c => c.Id == obj.Id);
+                if (indext == -1) return false;
+                _db.Remove(obj);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            int indext = GetAll().FindIndex(c => c.Id == obj.Id);
-            if (indext == -1) return false;
-            _db.Remove(obj);
-            _db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(HoaDon obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var indext = GetAll().FirstOrDefault(c => c.Id == obj.Id);
+                if (indext == null) return false;
+                indext.TrangThai = obj.TrangThai;
+                indext.NgayTT = obj.NgayTT;
+                _db.Update(indext);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var indext = GetAll().FirstOrDefault(c => c.Id == obj.Id);
-            if (indext == null) return false;
-            indext.TrangThai = obj.TrangThai;
-            _db.Update(indext);
-            _db.SaveChanges();
-            return true;
         }
     }
 }

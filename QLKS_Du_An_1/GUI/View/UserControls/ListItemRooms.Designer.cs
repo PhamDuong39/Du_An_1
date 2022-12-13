@@ -39,34 +39,39 @@
             // lb_MaPhong
             // 
             this.lb_MaPhong.AutoSize = true;
-            this.lb_MaPhong.Location = new System.Drawing.Point(3, 9);
+            this.lb_MaPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_MaPhong.ForeColor = System.Drawing.Color.White;
+            this.lb_MaPhong.Location = new System.Drawing.Point(0, 3);
             this.lb_MaPhong.Name = "lb_MaPhong";
-            this.lb_MaPhong.Size = new System.Drawing.Size(62, 15);
+            this.lb_MaPhong.Size = new System.Drawing.Size(85, 21);
             this.lb_MaPhong.TabIndex = 0;
             this.lb_MaPhong.Text = "Mã phòng";
             // 
             // lb_Gia
             // 
             this.lb_Gia.AutoSize = true;
+            this.lb_Gia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_Gia.Location = new System.Drawing.Point(3, 67);
             this.lb_Gia.Name = "lb_Gia";
-            this.lb_Gia.Size = new System.Drawing.Size(62, 15);
+            this.lb_Gia.Size = new System.Drawing.Size(71, 17);
             this.lb_Gia.TabIndex = 1;
             this.lb_Gia.Text = "Giá phòng";
             // 
             // lb_TenKH
             // 
             this.lb_TenKH.AutoSize = true;
-            this.lb_TenKH.Location = new System.Drawing.Point(140, 39);
+            this.lb_TenKH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_TenKH.ForeColor = System.Drawing.Color.Black;
+            this.lb_TenKH.Location = new System.Drawing.Point(3, 37);
             this.lb_TenKH.Name = "lb_TenKH";
-            this.lb_TenKH.Size = new System.Drawing.Size(44, 15);
+            this.lb_TenKH.Size = new System.Drawing.Size(51, 17);
             this.lb_TenKH.TabIndex = 2;
             this.lb_TenKH.Text = "Ten KH";
             // 
             // lb_DonDep
             // 
             this.lb_DonDep.AutoSize = true;
-            this.lb_DonDep.Location = new System.Drawing.Point(117, 67);
+            this.lb_DonDep.Location = new System.Drawing.Point(91, 69);
             this.lb_DonDep.Name = "lb_DonDep";
             this.lb_DonDep.Size = new System.Drawing.Size(67, 15);
             this.lb_DonDep.TabIndex = 5;
@@ -75,16 +80,18 @@
             // lb_TenLoaiPhong
             // 
             this.lb_TenLoaiPhong.AutoSize = true;
-            this.lb_TenLoaiPhong.Location = new System.Drawing.Point(99, 9);
+            this.lb_TenLoaiPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_TenLoaiPhong.ForeColor = System.Drawing.Color.Transparent;
+            this.lb_TenLoaiPhong.Location = new System.Drawing.Point(91, 8);
             this.lb_TenLoaiPhong.Name = "lb_TenLoaiPhong";
-            this.lb_TenLoaiPhong.Size = new System.Drawing.Size(85, 15);
+            this.lb_TenLoaiPhong.Size = new System.Drawing.Size(98, 17);
             this.lb_TenLoaiPhong.TabIndex = 6;
             this.lb_TenLoaiPhong.Text = "Ten loại phòng";
             // 
             // lb_IdRoom
             // 
             this.lb_IdRoom.AutoSize = true;
-            this.lb_IdRoom.Location = new System.Drawing.Point(3, 39);
+            this.lb_IdRoom.Location = new System.Drawing.Point(172, 37);
             this.lb_IdRoom.Name = "lb_IdRoom";
             this.lb_IdRoom.Size = new System.Drawing.Size(17, 15);
             this.lb_IdRoom.TabIndex = 7;

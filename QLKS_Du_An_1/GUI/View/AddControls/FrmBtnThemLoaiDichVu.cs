@@ -11,13 +11,14 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
-
+using BUS.Ultilities;
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemLoaiDichVu : Form
     {
         public send_ldv _send;
         private IQLLoaiDichVuService _iQLLoaiDichVuService;
+        Validations val;
         public FrmBtnThemLoaiDichVu()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace GUI.View.AddControls
             InitializeComponent();
             this._send = send;
             _iQLLoaiDichVuService = new QLLoaiDichVuService();
+            val= new Validations();
         }
 
         private void btn_ThemLoaiDichVu_Click(object sender, EventArgs e)
@@ -35,6 +37,11 @@ namespace GUI.View.AddControls
             DialogResult dls = MessageBox.Show("Bạn có muốn thêm loai dịch vụ này không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dls == DialogResult.Yes)
             {
+                if(val.CheckRong(tb_TenLoaiDichVu.Text)==false||val.CheckRong(tb_MaLoaiDichVu.Text)==false)
+                {
+                    MessageBox.Show("Vui Lòng nhập đầy đủ thông tin", "Thông báo");
+                    return;
+                }
                 var ldv = new LoaiDichVuView()
                 {
                     ID = Guid.NewGuid(),
@@ -48,6 +55,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã không thên loại dịch vụ này");
             }
+        }
+
+        private void btn_HuyThemLoaiDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

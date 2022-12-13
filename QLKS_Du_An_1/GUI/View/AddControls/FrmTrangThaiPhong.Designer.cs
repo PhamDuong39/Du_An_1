@@ -48,6 +48,7 @@
             this.lb_MaPhong = new System.Windows.Forms.Label();
             this.btn_NhanPhong = new System.Windows.Forms.Button();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
+            this.btn_ChuyenTTPhongTrong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -140,6 +141,7 @@
             this.btn_HuyLuuDV.TabIndex = 29;
             this.btn_HuyLuuDV.Text = "Hủy";
             this.btn_HuyLuuDV.UseVisualStyleBackColor = false;
+            this.btn_HuyLuuDV.Click += new System.EventHandler(this.btn_HuyLuuDV_Click);
             // 
             // groupBox1
             // 
@@ -201,7 +203,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 81);
+            this.label3.Location = new System.Drawing.Point(22, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 37;
@@ -226,7 +228,7 @@
             // 
             // tb_GiaTienDV
             // 
-            this.tb_GiaTienDV.Location = new System.Drawing.Point(127, 78);
+            this.tb_GiaTienDV.Location = new System.Drawing.Point(104, 79);
             this.tb_GiaTienDV.Name = "tb_GiaTienDV";
             this.tb_GiaTienDV.Size = new System.Drawing.Size(168, 23);
             this.tb_GiaTienDV.TabIndex = 36;
@@ -234,7 +236,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 32);
+            this.label1.Location = new System.Drawing.Point(22, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 35;
@@ -243,7 +245,7 @@
             // cbb_TenDV
             // 
             this.cbb_TenDV.FormattingEnabled = true;
-            this.cbb_TenDV.Location = new System.Drawing.Point(127, 29);
+            this.cbb_TenDV.Location = new System.Drawing.Point(104, 30);
             this.cbb_TenDV.Name = "cbb_TenDV";
             this.cbb_TenDV.Size = new System.Drawing.Size(168, 23);
             this.cbb_TenDV.TabIndex = 34;
@@ -254,7 +256,7 @@
             this.lb_MaPhong.AutoSize = true;
             this.lb_MaPhong.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_MaPhong.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.lb_MaPhong.Location = new System.Drawing.Point(358, 24);
+            this.lb_MaPhong.Location = new System.Drawing.Point(430, 15);
             this.lb_MaPhong.Name = "lb_MaPhong";
             this.lb_MaPhong.Size = new System.Drawing.Size(138, 32);
             this.lb_MaPhong.TabIndex = 26;
@@ -294,18 +296,38 @@
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
             this.btn_ThanhToan.Click += new System.EventHandler(this.btn_ThanhToan_Click);
             // 
+            // btn_ChuyenTTPhongTrong
+            // 
+            this.btn_ChuyenTTPhongTrong.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_ChuyenTTPhongTrong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChuyenTTPhongTrong.FlatAppearance.BorderSize = 0;
+            this.btn_ChuyenTTPhongTrong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ChuyenTTPhongTrong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ChuyenTTPhongTrong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_ChuyenTTPhongTrong.Location = new System.Drawing.Point(107, 473);
+            this.btn_ChuyenTTPhongTrong.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_ChuyenTTPhongTrong.Name = "btn_ChuyenTTPhongTrong";
+            this.btn_ChuyenTTPhongTrong.Size = new System.Drawing.Size(207, 30);
+            this.btn_ChuyenTTPhongTrong.TabIndex = 32;
+            this.btn_ChuyenTTPhongTrong.Text = "Chuyển thành phòng trống";
+            this.btn_ChuyenTTPhongTrong.UseVisualStyleBackColor = false;
+            this.btn_ChuyenTTPhongTrong.Click += new System.EventHandler(this.btn_ChuyenTTPhongTrong_Click);
+            // 
             // FrmTrangThaiPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 537);
+            this.ClientSize = new System.Drawing.Size(1019, 549);
+            this.Controls.Add(this.btn_ChuyenTTPhongTrong);
             this.Controls.Add(this.btn_ThanhToan);
             this.Controls.Add(this.btn_NhanPhong);
             this.Controls.Add(this.btn_LuuDichVu);
             this.Controls.Add(this.btn_HuyLuuDV);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lb_MaPhong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTrangThaiPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTrangThaiPhong";
             this.Load += new System.EventHandler(this.FrmTrangThaiPhong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_DSDichVu)).EndInit();
@@ -341,5 +363,6 @@
         private TextBox tb_GiaTienDV;
         private Label label1;
         private ComboBox cbb_TenDV;
+        private Button btn_ChuyenTTPhongTrong;
     }
 }

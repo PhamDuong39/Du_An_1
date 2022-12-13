@@ -42,7 +42,7 @@
             this.btn_ThemLoaiPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemLoaiPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemLoaiPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemLoaiPhong.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemLoaiPhong.Location = new System.Drawing.Point(817, 54);
             this.btn_ThemLoaiPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemLoaiPhong.Name = "btn_ThemLoaiPhong";
             this.btn_ThemLoaiPhong.Size = new System.Drawing.Size(206, 53);
@@ -53,12 +53,13 @@
             // 
             // tbt_SearchRoomTypeName
             // 
-            this.tbt_SearchRoomTypeName.Location = new System.Drawing.Point(69, 67);
+            this.tbt_SearchRoomTypeName.Location = new System.Drawing.Point(101, 80);
             this.tbt_SearchRoomTypeName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchRoomTypeName.Name = "tbt_SearchRoomTypeName";
             this.tbt_SearchRoomTypeName.PlaceholderText = "    Tìm theo loại phòng";
             this.tbt_SearchRoomTypeName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchRoomTypeName.TabIndex = 26;
+            this.tbt_SearchRoomTypeName.TextChanged += new System.EventHandler(this.tbt_SearchRoomTypeName_TextChanged);
             // 
             // dtg_DanhSachLoaiPhong
             // 

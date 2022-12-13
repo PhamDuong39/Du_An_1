@@ -96,6 +96,7 @@
             this.tb_tenThemLoaiTienNghi.PlaceholderText = "Nhập Tên Loại Tiện Nghi";
             this.tb_tenThemLoaiTienNghi.Size = new System.Drawing.Size(218, 27);
             this.tb_tenThemLoaiTienNghi.TabIndex = 21;
+            this.tb_tenThemLoaiTienNghi.TabStop = false;
             // 
             // tb_maThemLoaiTienNghi
             // 
@@ -105,6 +106,7 @@
             this.tb_maThemLoaiTienNghi.PlaceholderText = "Nhập Mã Loại Tiện Nghi";
             this.tb_maThemLoaiTienNghi.Size = new System.Drawing.Size(218, 27);
             this.tb_maThemLoaiTienNghi.TabIndex = 17;
+            this.tb_maThemLoaiTienNghi.TabStop = false;
             // 
             // btn_HuySuaLoaiTienNghi
             // 
@@ -114,13 +116,14 @@
             this.btn_HuySuaLoaiTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaLoaiTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaLoaiTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaLoaiTienNghi.Location = new System.Drawing.Point(387, 456);
+            this.btn_HuySuaLoaiTienNghi.Location = new System.Drawing.Point(414, 456);
             this.btn_HuySuaLoaiTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaLoaiTienNghi.Name = "btn_HuySuaLoaiTienNghi";
             this.btn_HuySuaLoaiTienNghi.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaLoaiTienNghi.TabIndex = 37;
             this.btn_HuySuaLoaiTienNghi.Text = "Hủy";
             this.btn_HuySuaLoaiTienNghi.UseVisualStyleBackColor = false;
+            this.btn_HuySuaLoaiTienNghi.Click += new System.EventHandler(this.btn_HuySuaLoaiTienNghi_Click);
             // 
             // btn_ThemLoaiTienNghi
             // 
@@ -130,7 +133,7 @@
             this.btn_ThemLoaiTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemLoaiTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemLoaiTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemLoaiTienNghi.Location = new System.Drawing.Point(241, 456);
+            this.btn_ThemLoaiTienNghi.Location = new System.Drawing.Point(268, 456);
             this.btn_ThemLoaiTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemLoaiTienNghi.Name = "btn_ThemLoaiTienNghi";
             this.btn_ThemLoaiTienNghi.Size = new System.Drawing.Size(110, 40);
@@ -148,7 +151,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaLoaiTienNghi);
             this.Controls.Add(this.btn_ThemLoaiTienNghi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBtnThemLoaiTienNghi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemLoaiTienNghi";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

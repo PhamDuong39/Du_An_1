@@ -53,11 +53,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(151, 32);
+            this.label1.Location = new System.Drawing.Point(110, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(395, 41);
             this.label1.TabIndex = 29;
             this.label1.Text = "Nhập thông tin loại phòng";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -70,11 +71,12 @@
             this.panel1.Controls.Add(this.tb_SoGiuong);
             this.panel1.Controls.Add(this.tb_GiaNgay);
             this.panel1.Controls.Add(this.tb_TenLoaiPhong);
-            this.panel1.Location = new System.Drawing.Point(147, 99);
+            this.panel1.Location = new System.Drawing.Point(106, 109);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 359);
             this.panel1.TabIndex = 28;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox5
             // 
@@ -164,13 +166,14 @@
             this.btn_HuySuaLoaiPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaLoaiPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaLoaiPhong.Location = new System.Drawing.Point(432, 533);
+            this.btn_HuySuaLoaiPhong.Location = new System.Drawing.Point(395, 498);
             this.btn_HuySuaLoaiPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaLoaiPhong.Name = "btn_HuySuaLoaiPhong";
             this.btn_HuySuaLoaiPhong.Size = new System.Drawing.Size(110, 40);
             this.btn_HuySuaLoaiPhong.TabIndex = 31;
             this.btn_HuySuaLoaiPhong.Text = "Hủy";
             this.btn_HuySuaLoaiPhong.UseVisualStyleBackColor = false;
+            this.btn_HuySuaLoaiPhong.Click += new System.EventHandler(this.btn_HuySuaLoaiPhong_Click);
             // 
             // btn_SuaLoaiPhong
             // 
@@ -180,7 +183,7 @@
             this.btn_SuaLoaiPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaLoaiPhong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaLoaiPhong.Location = new System.Drawing.Point(286, 533);
+            this.btn_SuaLoaiPhong.Location = new System.Drawing.Point(249, 498);
             this.btn_SuaLoaiPhong.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaLoaiPhong.Name = "btn_SuaLoaiPhong";
             this.btn_SuaLoaiPhong.Size = new System.Drawing.Size(110, 40);
@@ -198,8 +201,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuySuaLoaiPhong);
             this.Controls.Add(this.btn_SuaLoaiPhong);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaLoaiPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaLoaiPhong";
             this.Load += new System.EventHandler(this.FrmBtnSuaLoaiPhong_Load);
             this.panel1.ResumeLayout(false);

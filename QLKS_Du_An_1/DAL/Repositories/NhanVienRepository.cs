@@ -17,11 +17,19 @@ namespace DAL.Repositories
         }
         public bool Add(NhanVien obj)
         {
-            if (obj == null) return false;
-            obj.ID = Guid.NewGuid();
-            _dbContext.NhanViens.Add(obj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                obj.ID = Guid.NewGuid();
+                _dbContext.NhanViens.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public List<NhanVien> GetAll()
@@ -31,29 +39,45 @@ namespace DAL.Repositories
 
         public bool Remove(NhanVien obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
-            _dbContext.NhanViens.Remove(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
+                _dbContext.NhanViens.Remove(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public bool Upadate(NhanVien obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
-            temobj.IDCv = obj.IDCv;
-            temobj.MaNV = obj.MaNV;
-            temobj.TenNV = obj.TenNV;
-            temobj.SDT = obj.SDT;
-            temobj.CCCD = obj.CCCD;
-            temobj.NgaySinh = obj.NgaySinh;
-            temobj.GioiTinh = obj.GioiTinh;
-            temobj.DiaChi = obj.DiaChi;
-            temobj.Luong = obj.Luong;
-            _dbContext.NhanViens.Update(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.NhanViens.FirstOrDefault(c => c.ID == obj.ID);
+                temobj.IDCv = obj.IDCv;
+                temobj.MaNV = obj.MaNV;
+                temobj.TenNV = obj.TenNV;
+                temobj.SDT = obj.SDT;
+                temobj.CCCD = obj.CCCD;
+                temobj.NgaySinh = obj.NgaySinh;
+                temobj.GioiTinh = obj.GioiTinh;
+                temobj.DiaChi = obj.DiaChi;
+                temobj.Luong = obj.Luong;
+                _dbContext.NhanViens.Update(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

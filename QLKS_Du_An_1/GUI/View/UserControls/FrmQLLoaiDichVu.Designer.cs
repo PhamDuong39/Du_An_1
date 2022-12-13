@@ -42,7 +42,7 @@
             this.btn_ThemLoaiDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemLoaiDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemLoaiDichVu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemLoaiDichVu.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemLoaiDichVu.Location = new System.Drawing.Point(817, 67);
             this.btn_ThemLoaiDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemLoaiDichVu.Name = "btn_ThemLoaiDichVu";
             this.btn_ThemLoaiDichVu.Size = new System.Drawing.Size(206, 53);
@@ -53,12 +53,13 @@
             // 
             // tbt_SearchServicesTypeName
             // 
-            this.tbt_SearchServicesTypeName.Location = new System.Drawing.Point(69, 67);
+            this.tbt_SearchServicesTypeName.Location = new System.Drawing.Point(101, 93);
             this.tbt_SearchServicesTypeName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchServicesTypeName.Name = "tbt_SearchServicesTypeName";
             this.tbt_SearchServicesTypeName.PlaceholderText = "    Nhập tên loại dịch vụ cần tìm";
             this.tbt_SearchServicesTypeName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchServicesTypeName.TabIndex = 17;
+            this.tbt_SearchServicesTypeName.TextChanged += new System.EventHandler(this.tbt_SearchServicesTypeName_TextChanged);
             // 
             // dtg_DanhSachLoaiDichVu
             // 

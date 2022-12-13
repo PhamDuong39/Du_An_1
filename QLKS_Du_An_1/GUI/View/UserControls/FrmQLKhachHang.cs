@@ -49,7 +49,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachKH.Columns[7].Name = "Giới tính";
             dtg_DanhSachKH.Columns[8].Name = "Quốc tịch";
             dtg_DanhSachKH.Rows.Clear();
-            foreach (var x in list)
+            foreach (var x in list.OrderBy(p => p.MaKH))
             {
                 dtg_DanhSachKH.Rows.Add(x.ID, stt++, x.MaKH, x.HovaTen, x.CCCD, x.SDT, x.DiaChi, x.GioiTinh == 1? "Nam" : x.GioiTinh == 2 ? "Nữ" : "Khác" , x.QuocTich);
             }
@@ -127,6 +127,9 @@ namespace GUI.View.UserControls
 
         }
 
-       
+        private void tbt_SearchCusName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iQLKhachHangService.Search(tbt_SearchCusName.Text));
+        }
     }
 }

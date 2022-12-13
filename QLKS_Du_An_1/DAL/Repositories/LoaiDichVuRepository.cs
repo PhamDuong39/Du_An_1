@@ -17,11 +17,20 @@ namespace DAL.Repositories
         }
         public bool Add(LoaiDichVu obj)
         {
-            if (obj == null) return false;
+            try
+            {
+                if (obj == null) return false;
+
+                _dbContext.LoaiDichVus.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
             
-            _dbContext.LoaiDichVus.Add(obj);
-            _dbContext.SaveChanges();
-            return true;
         }
 
         public List<LoaiDichVu> GetAll()
@@ -31,22 +40,38 @@ namespace DAL.Repositories
 
         public bool Remove(LoaiDichVu obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
-            _dbContext.LoaiDichVus.Remove(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
+                _dbContext.LoaiDichVus.Remove(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public bool Upadate(LoaiDichVu obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
-            temobj.MaLoaiDichVu = obj.MaLoaiDichVu;
-            temobj.TenLoaiDichVu = obj.TenLoaiDichVu;
-            _dbContext.LoaiDichVus.Update(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.LoaiDichVus.FirstOrDefault(c => c.ID == obj.ID);
+                temobj.MaLoaiDichVu = obj.MaLoaiDichVu;
+                temobj.TenLoaiDichVu = obj.TenLoaiDichVu;
+                _dbContext.LoaiDichVus.Update(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

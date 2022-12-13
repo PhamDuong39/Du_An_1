@@ -17,11 +17,20 @@ namespace DAL.Repositories
         }
         public bool Add(KhachHang obj)
         {
-            if (obj == null) return false;
-            obj.ID = Guid.NewGuid();
-            _dbContext.KhachHangs.Add(obj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                obj.ID = Guid.NewGuid();
+                _dbContext.KhachHangs.Add(obj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+          
         }
 
         public List<KhachHang> GetAll()
@@ -31,27 +40,48 @@ namespace DAL.Repositories
 
         public bool Remove(KhachHang obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
-            _dbContext.KhachHangs.Remove(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
+                _dbContext.KhachHangs.Remove(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+            //if (obj == null) return false;
+            //var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
+            //_dbContext.KhachHangs.Remove(temobj);
+            //_dbContext.SaveChanges();
+            //return true;
         }
 
         public bool Upadate(KhachHang obj)
         {
-            if (obj == null) return false;
-            var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
-            temobj.MaKH = obj.MaKH;
-            temobj.HovaTen = obj.HovaTen;
-            temobj.CCCD = obj.CCCD;
-            temobj.SDT = obj.SDT;
-            temobj.QuocTich = obj.QuocTich;
-            temobj.GioiTinh = obj.GioiTinh;
-            temobj.DiaChi = obj.DiaChi;
-            _dbContext.KhachHangs.Update(temobj);
-            _dbContext.SaveChanges();
-            return true;
+            try
+            {
+                if (obj == null) return false;
+                var temobj = _dbContext.KhachHangs.FirstOrDefault(c => c.ID == obj.ID);
+                temobj.MaKH = obj.MaKH;
+                temobj.HovaTen = obj.HovaTen;
+                temobj.CCCD = obj.CCCD;
+                temobj.SDT = obj.SDT;
+                temobj.QuocTich = obj.QuocTich;
+                temobj.GioiTinh = obj.GioiTinh;
+                temobj.DiaChi = obj.DiaChi;
+                _dbContext.KhachHangs.Update(temobj);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

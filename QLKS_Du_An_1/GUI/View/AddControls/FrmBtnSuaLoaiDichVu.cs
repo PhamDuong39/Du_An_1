@@ -11,6 +11,7 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -56,6 +57,11 @@ namespace GUI.View.AddControls
         {
             tb_MaLoaiDichVu.Text = MaLoaiDichVu;
             tb_TenLoaiDichVu.Text = TenLoaiDichVu;
+        }
+
+        private void btn_HuySuaLoaiDichVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

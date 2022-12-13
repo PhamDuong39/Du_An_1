@@ -11,6 +11,7 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
 using GUI.View.UserControls;
+using BUS.Ultilities;
 
 namespace GUI.View.AddControls
 {
@@ -18,6 +19,8 @@ namespace GUI.View.AddControls
     {
         public send_ltn _send;
         private IQLLoaiTienNghiService _iqlLoaiTiennghi;
+        private Validations val;
+        
         public FrmBtnThemLoaiTienNghi()
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace GUI.View.AddControls
             InitializeComponent();
             _send = send;
             _iqlLoaiTiennghi = new QLLoaiTienNghiService();
+            val = new Validations();
         }
 
         private void btn_ThemLoaiTienNghi_Click(object sender, EventArgs e)
@@ -35,6 +39,11 @@ namespace GUI.View.AddControls
             DialogResult dls = MessageBox.Show("Bạn có muốn thêm loai tiện nghi này không?", "Thông báo", MessageBoxButtons.YesNo);
             if(dls == DialogResult.Yes)
             {
+                if(val.CheckRong(tb_tenThemLoaiTienNghi.Text)==false||val.CheckRong(tb_maThemLoaiTienNghi.Text)==false) 
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
+                    return;
+                }
                 var ltn = new LoaiTienNghiView()
                 {
                     ID = Guid.NewGuid(),
@@ -48,6 +57,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã không thên loại tiện nghi này");
             }
+        }
+
+        private void btn_HuySuaLoaiTienNghi_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -151,6 +151,7 @@
             this.Controls.Add(this.btn_SuaChucVu);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaChucVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaChucVu";
             this.Load += new System.EventHandler(this.FrmBtnSuaChucVu_Load);
             this.panel1.ResumeLayout(false);

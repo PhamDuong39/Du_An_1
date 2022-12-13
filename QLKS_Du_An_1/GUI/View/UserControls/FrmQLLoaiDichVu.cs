@@ -38,7 +38,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachLoaiDichVu.ColumnCount = 3;
             dtg_DanhSachLoaiDichVu.Rows.Clear();
             dtg_DanhSachLoaiDichVu.Columns[0].Name = "ID";
-            dtg_DanhSachLoaiDichVu.Columns[0].Visible = true;
+            dtg_DanhSachLoaiDichVu.Columns[0].Visible = false;
             dtg_DanhSachLoaiDichVu.Columns[1].Name = "Mã loại dịch vụ";
             dtg_DanhSachLoaiDichVu.Columns[2].Name = "Tên loại dịch vụ";
 
@@ -105,6 +105,9 @@ namespace GUI.View.UserControls
             }
         }
 
-      
+        private void tbt_SearchServicesTypeName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqlLoaiDichVu.Sreach(tbt_SearchServicesTypeName.Text));
+        }
     }
 }

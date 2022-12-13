@@ -124,5 +124,17 @@ namespace GUI.View.AddControls
                 }
             }
         }
+
+        private void btn_ThueThemPhong_Click(object sender, EventArgs e)
+        {
+            FrmUpdateCTPT frmUpdateCTPT = new FrmUpdateCTPT();
+            frmUpdateCTPT.IdPhieuThueMuonUpdate = IdPT;
+            frmUpdateCTPT.ShowDialog();
+        }
+
+        private void btn_HuyXemCTTienNghi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -18,16 +18,24 @@ namespace DAL.Repositories
         }
         public bool Add(TaiKhoan obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    obj.ID = Guid.NewGuid();
+                    _DbContext.TaiKhoans.Add(obj);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                obj.ID = Guid.NewGuid();
-                _DbContext.TaiKhoans.Add(obj);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
 
@@ -38,35 +46,51 @@ namespace DAL.Repositories
 
         public bool Remove(TaiKhoan obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                    _DbContext.TaiKhoans.Remove(tk);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                _DbContext.TaiKhoans.Remove(tk);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
 
         public bool Update(TaiKhoan obj)
         {
-            if (obj == null)
+            try
             {
-                return false;
+                if (obj == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
+                    //tk.IDNv = obj.IDNv;
+                    //tk.TenTaiKhoan = obj.TenTaiKhoan;
+                    tk.CapDoQuyen = obj.CapDoQuyen;
+                    tk.MatKhau = obj.MatKhau;
+                    _DbContext.TaiKhoans.Update(tk);
+                    _DbContext.SaveChanges();
+                    return true;
+                }
             }
-            else
+            catch (Exception)
             {
-                var tk = _DbContext.TaiKhoans.ToList().FirstOrDefault(p => p.ID == obj.ID);
-                //tk.IDNv = obj.IDNv;
-                //tk.TenTaiKhoan = obj.TenTaiKhoan;
-                tk.CapDoQuyen = obj.CapDoQuyen;
-                tk.MatKhau = obj.MatKhau;
-                _DbContext.TaiKhoans.Update(tk);
-                _DbContext.SaveChanges();
-                return true;
+
+                return false;
             }
         }
     }

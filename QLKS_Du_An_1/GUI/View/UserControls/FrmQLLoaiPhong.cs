@@ -112,6 +112,9 @@ namespace GUI.View.UserControls
             }
         }
 
-       
+        private void tbt_SearchRoomTypeName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData(_iqLLoaiPhongService.Search(tbt_SearchRoomTypeName.Text));
+        }
     }
 }

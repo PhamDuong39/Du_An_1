@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS.Ultilities;
 namespace GUI.View.AddControls
 {
     public partial class FrmBtnThemPhong : Form
@@ -19,6 +19,7 @@ namespace GUI.View.AddControls
         public send_phong _send;
         private IQLPhongService _iqlPhongService;
         private IQLLoaiPhongService _iqlLoaiPhongService;
+        private Validations val;
         public FrmBtnThemPhong()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace GUI.View.AddControls
             this._send = send;
             _iqlPhongService = new IPhongService();
             _iqlLoaiPhongService = new ILoaiPhongService();
+            val= new Validations();
 
             LoadDataCbb();
         }
@@ -57,8 +59,19 @@ namespace GUI.View.AddControls
             DialogResult result = MessageBox.Show("Bạn có muốn thêm loại phòng không ? ", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                if(val.CheckRong(tb_MaPhongThem.Text)==false)
+                {
+                    MessageBox.Show("vui lòng nhập đầy đủ thông tin", "Thông báo");
+                    return;
+                }
+
                 PhongView pv = new PhongView();
                 pv.MaPhong = tb_MaPhongThem.Text;
+                if (cbb_TinhTrangPhong.Text == "Phòng có khách")
+                {
+                    MessageBox.Show("Bạn không thể thêm phòng với trạng thái có khách đang thuê");
+                    return;
+                }
                 pv.TinhTrang = cbb_TinhTrangPhong.Text == "Phòng trống" ? 0 : cbb_TinhTrangPhong.Text == "Phòng có khách" ? 1 : 2;
                 pv.IDLoaiPhong = _iqlPhongService.GetIdLoaiPhongByName(cbb_TenLoaiPhong.Text);
 
@@ -69,6 +82,11 @@ namespace GUI.View.AddControls
             {
                 MessageBox.Show("Bạn đã hủy thêm loại phòng");
             }
+        }
+
+        private void btn_HuyThemPhong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

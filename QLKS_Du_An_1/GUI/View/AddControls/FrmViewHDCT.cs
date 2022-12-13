@@ -22,8 +22,13 @@ namespace GUI.View.AddControls
         public IQLChiTietPhieuThueService _iqlCTPTService;
         public IHoaDonService _iqlHDService;
         public IPhongService _iqlPhongService;
+        
         public int GiaTienTraPhongMuon = 50000;
+        double SoNgayThue = 0;
+        double tienPhong = 0;
+        int tienDV = 0;
         public int TongTienPhaiTra { get; set; }
+        public double tongTien { get; set; }
         public FrmViewHDCT()
         {
             InitializeComponent();
@@ -52,15 +57,26 @@ namespace GUI.View.AddControls
         private void FrmViewHDCT_Load(object sender, EventArgs e)
         {
             TinhTienThanhToan();
+            foreach (var item in _lstHoaDon)
+            {
+                if (item.TrangThai == 1)//Trạng thái đã thanh toán
+                {
+                    btn_ThanhToan.Visible = false;
+                }
+                else
+                {
+                    btn_ThanhToan.Visible=true;
+                }
+            }
         }
 
         private void TinhTienThanhToan()
         {
-            int stt = 1, tienDV = 0;
-            double tienPhong = 0, tongTien, SoNgayTinhToan = 0;
+            int stt = 1;
+           double  SoNgayTinhToan = 0;
             foreach (var x in _lstGiaPhong)
             {
-                double SoNgayThue = 0;
+                
                 int count = 0;
                 DateTime NgayBDThue = x.NgayBatDau;
                 DateTime NgayTT = NgayThanhToanHD;
@@ -110,7 +126,7 @@ namespace GUI.View.AddControls
                     else//SoGioQua > 24
                     {
                         SoNgayTinhToan = SoGioQua / 24;
-                        double GioQuaLe = SLNgayThue.TotalHours - SoNgayTinhToan * 24;
+                        double GioQuaLe = SoGioQua - SoNgayTinhToan * 24;
                         if (GioQuaLe <= 1)
                         {
                             SoNgayTinhToan = (int)SoGioQua / 24;
@@ -123,7 +139,7 @@ namespace GUI.View.AddControls
                         {
                             SoNgayTinhToan += 1;
                         }
-                        SoNgayThue = (SoNgayThueDatTruoc.TotalHours / 24);
+                        SoNgayThue = Math.Round(SLNgayThue.TotalHours / 24);
                     }
                 }
                 if (count == 1 || count == 2)
@@ -132,8 +148,8 @@ namespace GUI.View.AddControls
                 }
                 else if (count == 3)
                 {
-
-                    tienPhong = x.GiaNgay * SoNgayThue + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;
+                    //tienPhong = x.GiaNgay * SoNgayThue + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;
+                    tienPhong = x.GiaNgay * Math.Round(SoNgayThueDatTruoc.TotalHours / 24) + (x.GiaNgay + GiaTienTraPhongMuon) * SoNgayTinhToan;                   
                 }
                
                 dgrid_HDCT.Rows.Add(stt++, x.TenLoaiPhong, x.GiaNgay, SoNgayThue, tienPhong);
@@ -143,7 +159,7 @@ namespace GUI.View.AddControls
             foreach (var x in _lstHoaDonCT)
             {
                 dgrid_HDCT.Rows.Add(stt++, x.TenDichVu, x.DonGia, x.SoLuongDichVu, x.DonGia * x.SoLuongDichVu);
-                tienDV = x.DonGia * x.SoLuongDichVu;
+                tienDV += x.DonGia * x.SoLuongDichVu;
             }
 
             tongTien = tienDV + tienPhong;
@@ -177,7 +193,8 @@ namespace GUI.View.AddControls
                     hdv.IdCTPhieuThue = item.IdCTPhieuThue;
                     hdv.NgayTT = item.NgayTT;
                     hdv.TrangThai = 1;
-                    MessageBox.Show(_iqlHDService.Update(hdv));
+                    _iqlHDService.Update(hdv);
+                    //MessageBox.Show(_iqlHDService.Update(hdv));
                    // MessageBox.Show(_iqlHDService.Update(_lstHoaDon.FirstOrDefault(c => c.Id == item.Id)));
 
                     PhongView pv = new PhongView();
@@ -185,14 +202,136 @@ namespace GUI.View.AddControls
                     pv.MaPhong = item.MaPhong;
                     pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == item.MaPhong).IDLoaiPhong;
                     pv.TinhTrang = 2;
-                    MessageBox.Show(_iqlPhongService.Update(pv));
+                    _iqlPhongService.Update(pv);
+                    //MessageBox.Show(_iqlPhongService.Update(pv));
+
+                    ChiTietPhieuThueView ctptview = new ChiTietPhieuThueView();
+                    ctptview.ID = item.IdCTPhieuThue;
+                    ctptview.NgayBatDau = item.NgayBatDau;
+                    ctptview.NgayKetThuc = DateTime.Now;
+                    ctptview.IdPhong = item.IdPhong;
+                    //ctptview.IdPhieuThue = _;
+                    //MessageBox.Show(_iqlCTPTService.Update(ctptview));
+                    //_iqlCTPTService.Update(ctptview);
+                    MessageBox.Show(item.IdCTPhieuThue.ToString());
+                    MessageBox.Show("Thanh toán thành công");
+
+
                 }
+                
                 
             }
             if (result == DialogResult.No)
             {
                 MessageBox.Show("Bạn đã hủy thanh toán phòng này!");
             }
+            
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            foreach(var item in _lstHoaDon)
+            {
+                e.Graphics.DrawString("\t\t Hóa Đơn", new Font("Arial", 30, FontStyle.Bold), Brushes.Green, new Point(10, 10));
+                
+                e.Graphics.DrawString("\t Address : Cao đăng FPT PolyTechnic,Trịnh Văn Bô,Xuân Phương, Nam Từ Liêm, Hà Nội", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new Point(10, 80));
+                
+                e.Graphics.DrawString("\t Số HĐ : " + item.MaHD + "\t\tNgày Bắt Đầu : " + item.NgayBatDau, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 150));
+                
+                e.Graphics.DrawString("\t Thu Ngân : " + item.TenNV + "\t\tNgày Kết Thúc : " + item.NgayKetThuc, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 220));
+                
+                e.Graphics.DrawString("\t Tên Khách Hàng : " + item.TenKH + "\t\tNgày Thanh Toán : " + item.NgayTT, new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 290));
+                
+                //
+                e.Graphics.DrawString("\t Số Phòng Thuê : " + item.MaPhong , new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 360));
+                e.Graphics.DrawString($"Tên             \t||", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(100, 430));
+                e.Graphics.DrawString($"Đơn Giá         \t||", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(300, 430));
+                e.Graphics.DrawString($"Số Lượng        \t||", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(500, 430));
+                e.Graphics.DrawString($"Số Tiền         ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(700, 430));
+
+                Pen p = new Pen(Brushes.Black, 2);
+                Point point1 = new Point(50, 430);
+                Point point2 = new Point(800, 430);
+                e.Graphics.DrawLine(p, point1, point2);
+
+           
+                Point point3 = new Point(50, point1.Y + 16);
+                Point point4 = new Point(800, point2.Y + 16);
+                e.Graphics.DrawLine(p, point3, point4);
+                int z = point3.Y + 20;
+                foreach (var y in _lstGiaPhong)
+                {
+
+                    e.Graphics.DrawString($"{y.TenLoaiPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(100, z));
+                    
+                    e.Graphics.DrawString($"{y.GiaNgay}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z));
+                    
+                    e.Graphics.DrawString($"{SoNgayThue}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z));
+                    
+                    e.Graphics.DrawString($"{tienPhong}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z));
+
+                    Point point5 = new Point(50, point1.Y + 65);
+                    Point point6 = new Point(800, point2.Y + 65);
+                    e.Graphics.DrawLine(p, point5, point6);
+                    z += 26;
+                }
+                foreach (var x in _lstHoaDonCT)
+                {
+
+                    e.Graphics.DrawString($"{x.TenDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(100, z +  25));
+
+                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(300, z +  25));
+
+                    e.Graphics.DrawString($"{x.SoLuongDichVu}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(500, z +  25));
+
+                    e.Graphics.DrawString($"{x.DonGia}", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(700, z + 25));
+                    Point point7 = new Point(50, z  + 50);
+                    Point point8 = new Point(800, z + 50);
+                    e.Graphics.DrawLine(p, point7, point8);
+                    z += 50;
+                }
+
+
+                //foreach (var x in _lstGiaPhong)
+                //{
+                //    e.Graphics.DrawString($"{x.TenLoaiPhong}"  , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, 460));
+                //}
+
+
+                //e.Graphics.DrawString("---------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Black, new Point(10, 460));
+
+
+
+                //foreach (var y in _lstHoaDonCT)
+                //{
+
+                //    e.Graphics.DrawString($"\t\t          {y.TenDichVu}\t\t       { y.DonGia}\t\t\t      { y.SoLuongDichVu}\t\t             {y.DonGia}" , new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(10, z));
+                //    z += 40;
+                //}
+                //e.Graphics.DrawString("\t\t         --------------------------------------------------------------------------------------------------------------------------------------", new Font("Arial", 9, FontStyle.Regular), Brushes.Red, new Point(10, 500 + _lstGiaPhong.Count * 40 + _lstHoaDonCT.Count * 40 ));
+                e.Graphics.DrawString("\t\t\t Tổng Tiền : " + tongTien.ToString() + " VNĐ", new Font("Arial", 25, FontStyle.Regular), Brushes.Red, new Point(10, z + _lstGiaPhong.Count * 25 + _lstHoaDonCT.Count * 25 + 25));
+
+
+
+
+            }
+
+        }
+
+        private void btn_HuySuaChucVu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_inHD_Click(object sender, EventArgs e)
+        {
+            PrintDialog prd = new PrintDialog();
+                prd.Document = printDocument1;
+                DialogResult dls = prd.ShowDialog();
+                if(dls == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
         }
     }
 }

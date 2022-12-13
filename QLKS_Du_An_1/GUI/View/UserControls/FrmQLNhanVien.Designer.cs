@@ -42,7 +42,7 @@
             this.btn_ThemNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemNhanVien.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemNhanVien.Location = new System.Drawing.Point(903, 54);
             this.btn_ThemNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemNhanVien.Name = "btn_ThemNhanVien";
             this.btn_ThemNhanVien.Size = new System.Drawing.Size(206, 53);
@@ -53,7 +53,7 @@
             // 
             // tbt_SearchStaffName
             // 
-            this.tbt_SearchStaffName.Location = new System.Drawing.Point(69, 67);
+            this.tbt_SearchStaffName.Location = new System.Drawing.Point(104, 80);
             this.tbt_SearchStaffName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchStaffName.Name = "tbt_SearchStaffName";
             this.tbt_SearchStaffName.PlaceholderText = "    Tìm theo nhân viên";
@@ -65,7 +65,7 @@
             // 
             this.dtg_DanhSachNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_DanhSachNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_DanhSachNhanVien.Location = new System.Drawing.Point(69, 151);
+            this.dtg_DanhSachNhanVien.Location = new System.Drawing.Point(104, 133);
             this.dtg_DanhSachNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg_DanhSachNhanVien.Name = "dtg_DanhSachNhanVien";
             this.dtg_DanhSachNhanVien.RowHeadersWidth = 51;

@@ -164,7 +164,7 @@
             this.btn_SuaCTTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SuaCTTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_SuaCTTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_SuaCTTienNghi.Location = new System.Drawing.Point(336, 481);
+            this.btn_SuaCTTienNghi.Location = new System.Drawing.Point(286, 479);
             this.btn_SuaCTTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SuaCTTienNghi.Name = "btn_SuaCTTienNghi";
             this.btn_SuaCTTienNghi.Size = new System.Drawing.Size(110, 40);
@@ -181,7 +181,7 @@
             this.btn_HuySuaCTTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HuySuaCTTienNghi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_HuySuaCTTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HuySuaCTTienNghi.Location = new System.Drawing.Point(475, 481);
+            this.btn_HuySuaCTTienNghi.Location = new System.Drawing.Point(425, 479);
             this.btn_HuySuaCTTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_HuySuaCTTienNghi.Name = "btn_HuySuaCTTienNghi";
             this.btn_HuySuaCTTienNghi.Size = new System.Drawing.Size(110, 40);
@@ -199,8 +199,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_SuaCTTienNghi);
             this.Controls.Add(this.btn_HuySuaCTTienNghi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnSuaTienNghi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnSuaTienNghi";
             this.Load += new System.EventHandler(this.FrmBtnSuaTienNghi_Load);
             this.panel1.ResumeLayout(false);

@@ -16,16 +16,24 @@ namespace DAL.Repositories
         }
         public bool Add(LoaiPhong obj)
         {
-            
+
+            try
+            {
                 if (obj == null)
                 {
                     return false;
                 }
-                
+
                 obj.ID = Guid.NewGuid();
                 _Db.Add(obj);
                 _Db.SaveChanges();
                 return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
             
         }
 
@@ -36,30 +44,47 @@ namespace DAL.Repositories
 
         public bool Remove(LoaiPhong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var loaiphong = GetAll().FirstOrDefault(a => a.ID == obj.ID);
+                _Db.Remove(loaiphong);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var loaiphong = GetAll().FirstOrDefault(a => a.ID == obj.ID);
-            _Db.Remove(loaiphong);
-            _Db.SaveChanges();
-            return true;
+           
         }
 
         public bool Upadate(LoaiPhong obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.LoaiPhongs.FirstOrDefault(a => a.ID == obj.ID);
+                x.MaLoaiPhong = obj.MaLoaiPhong;
+                x.TenLoaiPhong = obj.TenLoaiPhong;
+                x.SoGiuong = obj.SoGiuong;
+                x.GiaNgay = obj.GiaNgay;
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.LoaiPhongs.FirstOrDefault(a => a.ID == obj.ID);
-            x.MaLoaiPhong = obj.MaLoaiPhong;
-            x.TenLoaiPhong = obj.TenLoaiPhong;
-            x.SoGiuong= obj.SoGiuong;
-            x.GiaNgay= obj.GiaNgay;
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }

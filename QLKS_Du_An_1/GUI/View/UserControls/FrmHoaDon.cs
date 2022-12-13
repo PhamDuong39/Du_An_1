@@ -46,7 +46,7 @@ namespace GUI.View.UserControls
 
             dtg_DanhSachHoaDon.Columns[1].Visible = false;
             dtg_DanhSachHoaDon.Rows.Clear();
-            foreach (var x in _hoaDonService.GetListHD(Guid.Empty))
+            foreach (var x in _hoaDonService.GetListHD(Guid.Empty).OrderBy(p => p.NgayBatDau))
             {
                 dtg_DanhSachHoaDon.Rows.Add(stt++, x.Id, x.MaHD, x.NgayTaoHD, x.NgayTT, x.TenKH, x.TenNV, x.MaPhong);
             }
@@ -125,6 +125,11 @@ namespace GUI.View.UserControls
                 frm._lstGiaPhong = _hoaDonService.GetCTPhong(_idClick);
                 frm.ShowDialog();
             }
+        }
+
+        private void btn_OpenFrmThongKe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

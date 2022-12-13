@@ -17,15 +17,23 @@ namespace DAL.Repositories
         }
         public bool Add(ChiTietTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+
+                obj.ID = Guid.NewGuid();
+                _Db.Add(obj);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            
-            obj.ID = Guid.NewGuid();
-            _Db.Add(obj);
-            _Db.SaveChanges();
-            return true;
         }
 
         public List<ChiTietTienNghi> GetAll()
@@ -35,30 +43,47 @@ namespace DAL.Repositories
 
         public bool Remove(ChiTietTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var tienNghi = GetAll().FirstOrDefault(a => a.ID == obj.ID);
+                _Db.Remove(tienNghi);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var tienNghi = GetAll().FirstOrDefault(a => a.ID == obj.ID);
-            _Db.Remove(tienNghi);
-            _Db.SaveChanges();
-            return true;
+            
         }
 
         public bool Upadate(ChiTietTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.ChiTietTienNghis.FirstOrDefault(a => a.ID == obj.ID);
+                x.MaCTTienNghi = obj.MaCTTienNghi;
+                x.TenCTTienNghi = obj.TenCTTienNghi;
+                x.IDLoaiTienNghi = obj.IDLoaiTienNghi;
+                x.IdPhong = obj.IdPhong;
+                _Db.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.ChiTietTienNghis.FirstOrDefault(a => a.ID == obj.ID);
-            x.MaCTTienNghi = obj.MaCTTienNghi;
-            x.TenCTTienNghi = obj.TenCTTienNghi;
-            x.IDLoaiTienNghi = obj.IDLoaiTienNghi;
-            x.IdPhong = obj.IdPhong;
-            _Db.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }

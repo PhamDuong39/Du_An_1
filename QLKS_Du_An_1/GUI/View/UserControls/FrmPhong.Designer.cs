@@ -29,16 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tb_SearchMaPhong = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flp_PhongTang1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,104 +42,39 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lb_TimeReset = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(74, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Trạng thái";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(151, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 23);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(381, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Loại phòng";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(711, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Dọn dẹp";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(465, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(145, 23);
-            this.comboBox2.TabIndex = 4;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(782, 21);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(145, 23);
-            this.comboBox3.TabIndex = 5;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(267, 74);
+            this.label4.Location = new System.Drawing.Point(254, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tìm kiếm";
             // 
-            // textBox1
+            // tb_SearchMaPhong
             // 
-            this.textBox1.Location = new System.Drawing.Point(346, 71);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "    Tìm phòng";
-            this.textBox1.Size = new System.Drawing.Size(370, 23);
-            this.textBox1.TabIndex = 7;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(37, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(154, 55);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chọn ngày";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(141, 23);
-            this.dateTimePicker1.TabIndex = 0;
+            this.tb_SearchMaPhong.Location = new System.Drawing.Point(335, 94);
+            this.tb_SearchMaPhong.Margin = new System.Windows.Forms.Padding(0);
+            this.tb_SearchMaPhong.Name = "tb_SearchMaPhong";
+            this.tb_SearchMaPhong.PlaceholderText = "    Tìm phòng";
+            this.tb_SearchMaPhong.Size = new System.Drawing.Size(379, 23);
+            this.tb_SearchMaPhong.TabIndex = 7;
+            this.tb_SearchMaPhong.TextChanged += new System.EventHandler(this.tb_SearchMaPhong_TextChanged);
             // 
             // tabControl1
             // 
@@ -173,6 +100,7 @@
             // 
             // flp_PhongTang1
             // 
+            this.flp_PhongTang1.AutoScroll = true;
             this.flp_PhongTang1.Location = new System.Drawing.Point(9, 14);
             this.flp_PhongTang1.Name = "flp_PhongTang1";
             this.flp_PhongTang1.Size = new System.Drawing.Size(916, 452);
@@ -191,6 +119,7 @@
             // 
             // flp_PhongTang2
             // 
+            this.flp_PhongTang2.AutoScroll = true;
             this.flp_PhongTang2.Location = new System.Drawing.Point(9, 14);
             this.flp_PhongTang2.Name = "flp_PhongTang2";
             this.flp_PhongTang2.Size = new System.Drawing.Size(919, 450);
@@ -209,6 +138,7 @@
             // 
             // flp_PhongTang3
             // 
+            this.flp_PhongTang3.AutoScroll = true;
             this.flp_PhongTang3.Location = new System.Drawing.Point(9, 12);
             this.flp_PhongTang3.Name = "flp_PhongTang3";
             this.flp_PhongTang3.Size = new System.Drawing.Size(917, 451);
@@ -252,6 +182,78 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.Location = new System.Drawing.Point(37, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(38, 17);
+            this.panel1.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Location = new System.Drawing.Point(210, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(38, 17);
+            this.panel2.TabIndex = 14;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Red;
+            this.panel3.Location = new System.Drawing.Point(506, 25);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(38, 17);
+            this.panel3.TabIndex = 14;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Yellow;
+            this.panel4.Location = new System.Drawing.Point(723, 27);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(38, 17);
+            this.panel4.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(81, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Phòng trống";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(767, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 15);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Phòng đang dọn dẹp";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(550, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 15);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Phòng đang có khách";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(254, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(186, 15);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Phòng sắp có khách thuê (1 hour)";
+            // 
             // FrmPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -259,23 +261,23 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(998, 638);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lb_TimeReset);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_SearchMaPhong);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
             this.Name = "FrmPhong";
             this.Text = "FrmPhong";
             this.Load += new System.EventHandler(this.FrmPhong_Load);
-            this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -286,17 +288,8 @@
         }
 
         #endregion
-
-        private Label label1;
-        private ComboBox comboBox1;
-        private Label label2;
-        private Label label3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
         private Label label4;
-        private TextBox textBox1;
-        private GroupBox groupBox1;
-        private DateTimePicker dateTimePicker1;
+        private TextBox tb_SearchMaPhong;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
@@ -308,5 +301,13 @@
         private Label label5;
         private Label lb_TimeReset;
         private System.Windows.Forms.Timer timer1;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label6;
     }
 }

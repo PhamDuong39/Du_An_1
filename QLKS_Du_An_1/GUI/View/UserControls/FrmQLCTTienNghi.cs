@@ -13,6 +13,7 @@ using BUS.ViewModels;
 using GUI.View.AddControls;
 namespace GUI.View.UserControls
 {
+    public delegate void send_cttn(List<ChiTietTienNghiView> LIST);
     public partial class FrmQLCTTienNghi : Form
     {
         private IQLChiTietTienNghiService _iqlCTTNService;
@@ -42,7 +43,7 @@ namespace GUI.View.UserControls
             dtg_DanhSachCTTienNghi.Columns[3].Name = "Tên Loại TN";   
             dtg_DanhSachCTTienNghi.Columns[4].Name = "Mã phòng";
 
-            foreach (var item in lst)
+            foreach (var item in lst.OrderBy(p => p.MaCTTienNghi))
             {
                 dtg_DanhSachCTTienNghi.Rows.Add(item.ID, item.MaCTTienNghi, item.TenCTTienNghi, item.TenLoaiTienNghi, item.MaPhong);
             }
@@ -64,7 +65,7 @@ namespace GUI.View.UserControls
 
         private void btn_ThemCTTienNghi_Click(object sender, EventArgs e)
         {
-            FrmBtnThemTienNghi frmBtnThemTienNghi = new FrmBtnThemTienNghi();
+            FrmBtnThemTienNghi frmBtnThemTienNghi = new FrmBtnThemTienNghi(LoadDataCTTN);
             frmBtnThemTienNghi.ShowDialog();
         }
 
@@ -91,8 +92,8 @@ namespace GUI.View.UserControls
                 FrmBtnSuaTienNghi btnSuaTN = new FrmBtnSuaTienNghi();
                 // Đấy dữ liệu vừa cell click sang các prop bên form BtnSuaPhong
                 btnSuaTN.IdSelect = IdSelected;
-                btnSuaTN.MaCTTNSelect = MaPhong;
-                btnSuaTN.TenCTTNSelect = TenLoaiCTTN;
+                btnSuaTN.MaCTTNSelect = MaCTTN;
+                btnSuaTN.TenCTTNSelect = TenCTTN;
                 btnSuaTN.TenLoaiCTTNSelect = TenLoaiCTTN;
                 btnSuaTN.MaPhongSelect = MaPhong;
                 btnSuaTN.ShowDialog();
@@ -113,9 +114,11 @@ namespace GUI.View.UserControls
             }
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
+
+
+        private void tbt_SearchUseDetailName_TextChanged(object sender, EventArgs e)
         {
-            LoadDataCTTN(_iqlCTTNService.GetAll());
+            LoadDataCTTN(_iqlCTTNService.Search(tbt_SearchUseDetailName.Text));
         }
     }
 }

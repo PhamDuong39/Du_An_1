@@ -42,7 +42,7 @@
             this.btn_ThemTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThemTienNghi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemTienNghi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_ThemTienNghi.Location = new System.Drawing.Point(867, 56);
+            this.btn_ThemTienNghi.Location = new System.Drawing.Point(817, 56);
             this.btn_ThemTienNghi.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ThemTienNghi.Name = "btn_ThemTienNghi";
             this.btn_ThemTienNghi.Size = new System.Drawing.Size(206, 53);
@@ -53,12 +53,13 @@
             // 
             // tbt_SearchUseName
             // 
-            this.tbt_SearchUseName.Location = new System.Drawing.Point(74, 69);
+            this.tbt_SearchUseName.Location = new System.Drawing.Point(101, 82);
             this.tbt_SearchUseName.Margin = new System.Windows.Forms.Padding(0);
             this.tbt_SearchUseName.Name = "tbt_SearchUseName";
             this.tbt_SearchUseName.PlaceholderText = "    Nhập tên tện nghi cần tìm";
             this.tbt_SearchUseName.Size = new System.Drawing.Size(342, 27);
             this.tbt_SearchUseName.TabIndex = 20;
+            this.tbt_SearchUseName.TextChanged += new System.EventHandler(this.tbt_SearchUseName_TextChanged);
             // 
             // dtg_DanhSachTienNghi
             // 

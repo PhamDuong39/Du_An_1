@@ -225,7 +225,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_ThemTK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBtnThemTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemTaiKhoan";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -96,6 +96,7 @@
             this.tb_tenChucVuThem.PlaceholderText = "Nhập Tên Chức Vụ";
             this.tb_tenChucVuThem.Size = new System.Drawing.Size(218, 27);
             this.tb_tenChucVuThem.TabIndex = 21;
+            this.tb_tenChucVuThem.TabStop = false;
             // 
             // tb_MaChucVuThem
             // 
@@ -105,6 +106,7 @@
             this.tb_MaChucVuThem.PlaceholderText = "Nhập Mã Chức Vụ";
             this.tb_MaChucVuThem.Size = new System.Drawing.Size(218, 27);
             this.tb_MaChucVuThem.TabIndex = 17;
+            this.tb_MaChucVuThem.TabStop = false;
             // 
             // btn_HuyThemChucVu
             // 
@@ -121,6 +123,7 @@
             this.btn_HuyThemChucVu.TabIndex = 41;
             this.btn_HuyThemChucVu.Text = "Hủy";
             this.btn_HuyThemChucVu.UseVisualStyleBackColor = false;
+            this.btn_HuyThemChucVu.Click += new System.EventHandler(this.btn_HuyThemChucVu_Click);
             // 
             // btn_ThemChucVu
             // 
@@ -148,8 +151,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyThemChucVu);
             this.Controls.Add(this.btn_ThemChucVu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemChucVu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemChucVu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

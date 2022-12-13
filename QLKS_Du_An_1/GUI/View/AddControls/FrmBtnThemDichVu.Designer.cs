@@ -84,6 +84,7 @@
             this.tb_GiaDichVu.PlaceholderText = "Nhập giá";
             this.tb_GiaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_GiaDichVu.TabIndex = 31;
+            this.tb_GiaDichVu.TabStop = false;
             // 
             // tb_MaDichVu
             // 
@@ -93,6 +94,7 @@
             this.tb_MaDichVu.PlaceholderText = "Nhập mã dịch vụ";
             this.tb_MaDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_MaDichVu.TabIndex = 30;
+            this.tb_MaDichVu.TabStop = false;
             // 
             // cbb_TenLoaiDichVu
             // 
@@ -102,6 +104,8 @@
             this.cbb_TenLoaiDichVu.Name = "cbb_TenLoaiDichVu";
             this.cbb_TenLoaiDichVu.Size = new System.Drawing.Size(218, 28);
             this.cbb_TenLoaiDichVu.TabIndex = 28;
+            this.cbb_TenLoaiDichVu.TabStop = false;
+            this.cbb_TenLoaiDichVu.Text = "Loại dịch vụ";
             // 
             // pictureBox5
             // 
@@ -155,6 +159,7 @@
             this.tb_TenDichVu.PlaceholderText = "Nhập tên dịch vụ";
             this.tb_TenDichVu.Size = new System.Drawing.Size(218, 27);
             this.tb_TenDichVu.TabIndex = 17;
+            this.tb_TenDichVu.TabStop = false;
             // 
             // btn_HuyDichVu
             // 
@@ -171,6 +176,7 @@
             this.btn_HuyDichVu.TabIndex = 35;
             this.btn_HuyDichVu.Text = "Hủy";
             this.btn_HuyDichVu.UseVisualStyleBackColor = false;
+            this.btn_HuyDichVu.Click += new System.EventHandler(this.btn_HuyDichVu_Click);
             // 
             // btn_ThemDichVu
             // 
@@ -194,12 +200,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 600);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_HuyDichVu);
             this.Controls.Add(this.btn_ThemDichVu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBtnThemDichVu";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBtnThemDichVu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

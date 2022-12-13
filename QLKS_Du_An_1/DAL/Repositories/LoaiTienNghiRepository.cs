@@ -17,15 +17,23 @@ namespace DAL.Repositories
         }
         public bool Add(LoaiTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+
+                obj.ID = Guid.NewGuid();
+                _Db.Add(obj);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            
-            obj.ID = Guid.NewGuid();
-            _Db.Add(obj);
-            _Db.SaveChanges();
-            return true;
         }
 
         public List<LoaiTienNghi> GetAll()
@@ -35,28 +43,44 @@ namespace DAL.Repositories
 
         public bool Remove(LoaiTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var loaiTN = GetAll().FirstOrDefault(a => a.ID == obj.ID);
+                _Db.Remove(loaiTN);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var loaiTN = GetAll().FirstOrDefault(a => a.ID == obj.ID);
-            _Db.Remove(loaiTN);
-            _Db.SaveChanges();
-            return true;
         }
 
         public bool Upadate(LoaiTienNghi obj)
         {
-            if (obj == null)
+            try
             {
+                if (obj == null)
+                {
+                    return false;
+                }
+                var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
+                x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
+                x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
+                _Db.LoaiTienNghis.Update(x);
+                _Db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
-            var x = _Db.LoaiTienNghis.FirstOrDefault(a => a.ID == obj.ID);
-            x.MaLoaiTienNghi = obj.MaLoaiTienNghi;
-            x.TenLoaiTienNghi = obj.TenLoaiTienNghi;
-            _Db.LoaiTienNghis.Update(x);
-            _Db.SaveChanges();
-            return true;
         }
     }
 }
