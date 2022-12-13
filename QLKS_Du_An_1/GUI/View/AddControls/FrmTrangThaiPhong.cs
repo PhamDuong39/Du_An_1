@@ -16,6 +16,7 @@ namespace GUI.View.AddControls
 {
     public partial class FrmTrangThaiPhong : Form
     {
+        public FrmPhong _main;
         public string MaPhong { get; set; }
         public string TenKH { get; set; }
         public Guid IdPTCT { get; set; }
@@ -27,7 +28,7 @@ namespace GUI.View.AddControls
         private IHoaDonService _iqlHDService;
         private IQLDichVuService _iqlDVService;
         private IQLHoaDonChiTietView _iqlHDCTService;
-        public FrmTrangThaiPhong()
+        public FrmTrangThaiPhong(FrmPhong main)
         {
             InitializeComponent();
             _iqlCTPTService = new QLChiTietPhieuThueService();
@@ -38,6 +39,7 @@ namespace GUI.View.AddControls
             lstDVV = new List<DichVuView>();
             LoadDataCbbDV();
             LoadDataListDichVu();
+            _main = main;
         }
         // truyền ngày BD và ngày ngày KT load lên form
         // dựa theo đó làm chức năng nhận phòng
@@ -105,6 +107,7 @@ namespace GUI.View.AddControls
                 pv.IDLoaiPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == MaPhong).IDLoaiPhong;
                 pv.TinhTrang = 1;
                 _iqlPhongService.Update(pv);
+                _main.LoadItemRooms_search(_iqlPhongService.GetAll());
                 MessageBox.Show("Nhận phòng thành công");
             }
             if (result == DialogResult.No)
@@ -160,7 +163,7 @@ namespace GUI.View.AddControls
                 MessageBox.Show("Bạn không thể xem hóa đơn của phòng này vì phòng này chưa có khách sử dụng !!");
                 return;
             }
-            FrmViewHDCT frmViewHoaDon = new FrmViewHDCT();
+            FrmViewHDCT frmViewHoaDon = new FrmViewHDCT(_main);
             frmViewHoaDon._lstHoaDonCT = _iqlHDService.GetCTHoaDon(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstHoaDon = _iqlHDService.GetListHD(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
             frmViewHoaDon._lstGiaPhong = _iqlHDService.GetCTPhong(_iqlHDService.GetAll().FirstOrDefault(p => p.IdCTPhieuThue == IdPTCT).Id);
@@ -263,6 +266,7 @@ namespace GUI.View.AddControls
                     return;
                 }
                 _iqlPhongService.Update(pv);
+                _main.LoadItemRooms_search(_iqlPhongService.GetAll());
                 MessageBox.Show("Chuyển trạng thái thành công");
             }
             if (result == DialogResult.No)

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using BUS.ViewModels;
+using GUI.View.UserControls;
 
 namespace GUI.View.AddControls
 {
@@ -31,6 +32,19 @@ namespace GUI.View.AddControls
         int tienDV = 0;
         public int TongTienPhaiTra { get; set; }
         public double tongTien { get; set; }
+        public FrmPhong _main;
+        public FrmViewHDCT(FrmPhong main)
+        {
+            InitializeComponent();
+            _lstHoaDon = new List<HoaDonView>();
+            _lstHoaDonCT = new List<HoaDonView>();
+            _lstGiaPhong = new List<HoaDonView>();
+            _iqlCTPTService = new QLChiTietPhieuThueService();
+            _iqlHDService = new HoaDonService();
+            _iqlPhongService = new IPhongService();
+            LoadData();
+            _main=main;
+        }
         public FrmViewHDCT()
         {
             InitializeComponent();
@@ -216,6 +230,7 @@ namespace GUI.View.AddControls
                     ctptview.ID = IdPTCTEdit;
                     ctptview.NgayBatDau = Convert.ToDateTime(lb_NgayBD.Text);
                     ctptview.NgayKetThuc = DateTime.Now;
+
                     ctptview.IdPhong = _iqlPhongService.GetAll().FirstOrDefault(p => p.MaPhong == lbl_MaPhong.Text).Id;
                     //
                     // co
@@ -234,6 +249,8 @@ namespace GUI.View.AddControls
                     // //MessageBox.Show(_iqlCTPTService.Update(ctptview));
                     // _iqlCTPTService.Update(ctptview);
                     //// MessageBox.Show(item.IdCTPhieuThue.ToString());
+
+                    _main.LoadItemRooms_search(_iqlPhongService.GetAll());
                     MessageBox.Show("Thanh toán thành công");
 
 
